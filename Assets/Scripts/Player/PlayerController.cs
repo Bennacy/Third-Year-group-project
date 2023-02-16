@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTransform;
     public float cameraSens;
     public Vector2 cameraVerticalBounds;
+    public int gravityForce;
     public float walkSpeed;
     public float runSpeed;
     private float moveSpeed;
@@ -57,9 +58,10 @@ public class PlayerController : MonoBehaviour
     {        
         Vector3 gravity = new Vector3(0, rb.velocity.y, 0);
         Vector3 vel = moveDirection.y * transform.forward + moveDirection.x * transform.right;
-        rb.velocity = ((vel + gravity).normalized * moveSpeed);
+        vel *= moveSpeed;
+        rb.velocity = ((vel + gravity));
         
-        // rb.AddForce((transform.forward * -moveDirection.y + transform.right * moveDirection.x) * 10, ForceMode.Force);
+        rb.AddForce(Physics.gravity * gravityForce);
     }
 
 
