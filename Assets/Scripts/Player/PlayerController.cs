@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public float runSpeed;
     private float moveSpeed;
 
+    public bool attacking;
+
     private float currCameraAngle;
 
     private PlayerInput playerInput;
@@ -20,15 +22,17 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction controlCamAction;
     private InputAction sprintAction;
+    private InputAction attackAction;
 
     private Rigidbody rb;
     private Vector2 moveDirection;
-    private Animator animator;
+    private PlayerAnimatorHandler animatorHandler;
 
     void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
-        
+
+        animatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
+                
         currCameraAngle = 0;
         moveSpeed = walkSpeed;
         playerInput = GetComponent<PlayerInput>();
@@ -43,6 +47,9 @@ public class PlayerController : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         moveAction.performed += context => MovePlayer(context);
         moveAction.canceled += context => MovePlayer(context);
+
+        attackAction = playerInput.actions["Attack"];
+        attackAction.performed += context => Attack(context);
     }
 
     void Start()
@@ -55,7 +62,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Debug.Log(playerInput.currentControlScheme);
-        animator.SetBool("Walking", rb.velocity.magnitude > 0.2f);
     }
 
     void FixedUpdate()
@@ -112,5 +118,10 @@ public class PlayerController : MonoBehaviour
             cameraTransform.localRotation = Quaternion.Euler(currCamRotation);
             transform.rotation = Quaternion.Euler(currPlayerRotation);
         }
+    }
+
+    private void Attack(InputAction.CallbackContext context){
+        if(!attacking)
+            animatorHandler.StartAttack();
     }
 }
