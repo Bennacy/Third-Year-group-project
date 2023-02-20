@@ -27,4 +27,11 @@ public class PlayerAnimatorHandler : MonoBehaviour
     public void EndAttack(){
         controller.attacking = false;
     }
+
+    public void StartBlock(){
+        animator.SetBool("Blocking", true);
+    }
+    public void EndBlock(){
+        animator.SetBool("Blocking", false);
+    }
 }

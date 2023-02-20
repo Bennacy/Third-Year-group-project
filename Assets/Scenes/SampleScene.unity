@@ -215,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   m_LocalRotation: {x: 0.17339036, y: 0, z: 0, w: 0.98485327}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -597,6 +597,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 07ff9dde-c620-4edc-ad2b-c0a29ba69044
     m_ActionName: Player/Sprint[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 98336c46-9ad2-47d6-8506-122bde5ea090
+    m_ActionName: Player/Block[/XInputControllerWindows/rightTrigger,/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -620,7 +624,9 @@ MonoBehaviour:
   gravityForce: 10
   walkSpeed: 7
   runSpeed: 12
+  blockSpeed: 4
   attacking: 0
+  blocking: 0
 --- !u!54 &562105906
 Rigidbody:
   m_ObjectHideFlags: 0

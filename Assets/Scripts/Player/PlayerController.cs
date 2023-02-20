@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour
     public int gravityForce;
     public float walkSpeed;
     public float runSpeed;
+    public float blockSpeed;
     private float moveSpeed;
 
     public bool attacking;
+    public bool blocking;
 
     private float currCameraAngle;
 
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private InputAction controlCamAction;
     private InputAction sprintAction;
     private InputAction attackAction;
+    private InputAction blockAction;
 
     private Rigidbody rb;
     private Vector2 moveDirection;
@@ -50,6 +53,10 @@ public class PlayerController : MonoBehaviour
 
         attackAction = playerInput.actions["Attack"];
         attackAction.performed += context => Attack(context);
+
+        blockAction = playerInput.actions["Block"];
+        blockAction.performed += context => Block(context);
+        blockAction.canceled += context => Block(context);
     }
 
     void Start()
@@ -65,10 +72,15 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate()
-    {        
+    {
+        float speedValue = moveSpeed;
+        if(blocking){
+            speedValue = blockSpeed;
+        }
+        
         Vector3 gravity = new Vector3(0, rb.velocity.y, 0);
         Vector3 vel = moveDirection.y * transform.forward + moveDirection.x * transform.right;
-        vel *= moveSpeed;
+        vel *= speedValue;
         rb.velocity = ((vel + gravity));
         
         rb.AddForce(Physics.gravity * gravityForce);
@@ -121,7 +133,24 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Attack(InputAction.CallbackContext context){
+        if(blocking)
+            return;
+
         if(!attacking)
             animatorHandler.StartAttack();
+    }
+
+    private void Block(InputAction.CallbackContext context){
+        if(attacking)
+            return;
+        
+        if(context.performed){
+            blocking = true;
+            animatorHandler.StartBlock();
+        }
+        if(context.canceled){
+            blocking = false;
+            animatorHandler.EndBlock();
+        }
     }
 }
