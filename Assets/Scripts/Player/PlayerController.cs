@@ -23,9 +23,12 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private Vector2 moveDirection;
+    private Animator animator;
 
     void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
+        
         currCameraAngle = 0;
         moveSpeed = walkSpeed;
         playerInput = GetComponent<PlayerInput>();
@@ -52,6 +55,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Debug.Log(playerInput.currentControlScheme);
+        animator.SetBool("Walking", rb.velocity.magnitude > 0.2f);
     }
 
     void FixedUpdate()
