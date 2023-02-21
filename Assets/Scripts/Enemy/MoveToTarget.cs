@@ -19,11 +19,16 @@ public class MoveToTarget : MonoBehaviour
     [SerializeField]
     private float stopDist;
 
+    private Animator animator;
+
+
+
 
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     // Start is called before the first frame update
