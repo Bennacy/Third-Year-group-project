@@ -21,6 +21,8 @@ public class MoveToTarget : MonoBehaviour
 
     private Animator animator;
 
+    private const string moveParam = "isMoving";
+    private const string runParam = "isRunning";
 
 
 
@@ -64,10 +66,13 @@ public class MoveToTarget : MonoBehaviour
         if (dist < runDist)
         {
             agent.speed = 5;
+            animator.SetBool(runParam, true);
         }
         else
         {
             agent.speed = 3.5f;
+            animator.SetBool(moveParam, true);
+            animator.SetBool(runParam, false);
         }
 
         //Checks if the enemy is too close to the player in which they will stop, so they can move towards attacking
