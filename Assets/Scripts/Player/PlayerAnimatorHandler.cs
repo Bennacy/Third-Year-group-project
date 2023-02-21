@@ -34,4 +34,18 @@ public class PlayerAnimatorHandler : MonoBehaviour
     public void EndBlock(){
         animator.SetBool("Blocking", false);
     }
+
+    public void EnableWeaponCollider(){
+        
+    }
+    public void DisableWeaponCollider(){
+
+    }
+
+    public void EnableShieldCollider(){
+
+    }
+    public void DisableShieldCollider(){
+        
+    }
 }

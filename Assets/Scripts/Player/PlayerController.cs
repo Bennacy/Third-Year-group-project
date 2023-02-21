@@ -5,31 +5,41 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("References")]
     public Transform cameraTransform;
+    private Rigidbody rb;
+    private Vector2 moveDirection;
+    private PlayerAnimatorHandler animatorHandler;
+    private PlayerInput playerInput;
+    public GameObject weapon;
+    public GameObject shield;
+    [Space(10)]
+
+    [Header("Camera")]
     public float cameraSens;
     public Vector2 cameraVerticalBounds;
+    private float currCameraAngle;
+    [Space(10)]
+
+    [Header("Movement")]
     public int gravityForce;
     public float walkSpeed;
     public float runSpeed;
     public float blockSpeed;
     private float moveSpeed;
+    [Space(10)]
 
+    [Header("Combat")]
     public bool attacking;
     public bool blocking;
+    [Space(10)]
 
-    private float currCameraAngle;
-
-    private PlayerInput playerInput;
-
+    [Header("Input")]
     private InputAction moveAction;
     private InputAction controlCamAction;
     private InputAction sprintAction;
     private InputAction attackAction;
     private InputAction blockAction;
-
-    private Rigidbody rb;
-    private Vector2 moveDirection;
-    private PlayerAnimatorHandler animatorHandler;
 
     void Awake()
     {
