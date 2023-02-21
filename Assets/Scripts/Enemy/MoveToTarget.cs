@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
+
+[RequireComponent(typeof(NavMeshAgent), typeof(AgentLinkMover))]
 public class MoveToTarget : MonoBehaviour
 {
-    public Transform target;
+    public Transform Player;
     private NavMeshAgent agent;
+    private AgentLinkMover linkMover;
+    public float updateRate = 0.1f;
 
     [SerializeField]
     private float runDist;
@@ -14,28 +19,44 @@ public class MoveToTarget : MonoBehaviour
     [SerializeField]
     private float stopDist;
 
-    
+
+
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        StartCoroutine(FollowPlayer());
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        AIMove();
+        RunCheck();
     }
 
-    private void AIMove()
+    private IEnumerator FollowPlayer()
     {
-        float dist = Vector3.Distance(agent.transform.position, target.position);
+        WaitForSeconds Wait = new WaitForSeconds(updateRate);
+       
+        //Sets enemy to chase player from when they spawn
+        while (enabled)
+        {
+            agent.SetDestination(Player.transform.position - (Player.transform.position - transform.position).normalized * 0.5f);
+            yield return Wait;
+        }
+    }
+   
+    private void RunCheck()
+    {
+        //Checks distance between enemy and player to determine if the enemy should be running or walking towards them
 
-        agent.SetDestination(target.position);
+        float dist = Vector3.Distance(agent.transform.position, Player.position);
 
-        if(dist < runDist)
+        if (dist < runDist)
         {
             agent.speed = 5;
         }
@@ -44,13 +65,16 @@ public class MoveToTarget : MonoBehaviour
             agent.speed = 3.5f;
         }
 
+        //Checks if the enemy is too close to the player in which they will stop, so they can move towards attacking
+
         if (dist < stopDist)
         {
             agent.isStopped = true;
         }
-        else 
+        else
         {
             agent.isStopped = false;
         }
     }
+
 }
