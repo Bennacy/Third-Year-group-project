@@ -56,6 +56,6 @@ public class MoveToTarget : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
+        // Debug.Log(other.name);
     }
 }

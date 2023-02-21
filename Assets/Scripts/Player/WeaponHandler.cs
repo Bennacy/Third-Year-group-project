@@ -10,11 +10,12 @@ public class WeaponHandler : MonoBehaviour
     public Transform leftHand;
     public WeaponScript weaponPrefab;
     private WeaponScript currentWeapon;
+    private WeaponCollider weaponColliderScript;
 
 
     void Start()
     {
-        SwitchWeapon(weaponPrefab.gameObject);
+        SwitchWeapon(weaponPrefab);
     }
 
 
@@ -23,11 +24,15 @@ public class WeaponHandler : MonoBehaviour
         
     }
 
-    public void SwitchWeapon(GameObject prefab){
-        currentWeapon = Instantiate(prefab, rightHand).GetComponent<WeaponScript>();
+    public void SwitchWeapon(WeaponScript weapon){
+        weaponColliderScript = Instantiate(weapon.prefab, rightHand).GetComponentInChildren<WeaponCollider>();
+        currentWeapon = weapon;
     }
 
     public void ToggleWeaponCollider(bool active){
-        currentWeapon.weaponCollider.enabled = active;
+        if(active)
+            weaponColliderScript.Enable();
+        else
+            weaponColliderScript.Disable();
     }
 }

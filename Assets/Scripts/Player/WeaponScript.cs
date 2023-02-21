@@ -2,25 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponScript : MonoBehaviour
+[CreateAssetMenu(menuName = "Weapons/Player")]
+public class WeaponScript : ScriptableObject
 {
-    public Collider weaponCollider;
-    
-    void Start()
-    {
-        
-    }
+    [Header("Info")]
+    public string weaponName;
+    public GameObject prefab;
+    public Sprite icon;
+    [Space]
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(weaponCollider.enabled){
-            Debug.Log("Active!");
-        }
-    }
+    [Header("Audio")]
+    public AudioClip equipClip;
+    public AudioClip impactClip;
+    public AudioClip[] swingClips;
+    [Space]
 
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log(other.gameObject);
-    }
+    [Header("Stats")]
+    public float damage;
 }

@@ -12,8 +12,8 @@ public class PlayerAnimatorHandler : MonoBehaviour
     void Start()
     {
         controller = GetComponentInParent<PlayerController>();
+        weaponHandler = GetComponentInParent<WeaponHandler>();
         playerRb = GetComponentInParent<Rigidbody>();
-        weaponHandler = GetComponent<WeaponHandler>();
         animator = GetComponent<Animator>();
     }
 

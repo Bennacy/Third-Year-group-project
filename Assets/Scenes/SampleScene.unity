@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 562105906}
   - component: {fileID: 562105905}
   - component: {fileID: 562105904}
+  - component: {fileID: 562105907}
   m_Layer: 0
   m_Name: PlayerObj
   m_TagString: Untagged
@@ -645,6 +646,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &562105907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562105898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5731ac6c7ecc3d4eabda37710f80963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCollider: {fileID: 0}
+  shieldCollider: {fileID: 0}
+  rightHand: {fileID: 1852576806228081874}
+  leftHand: {fileID: 6502182840003942105}
+  weaponPrefab: {fileID: 11400000, guid: 2cf401326735dbf4aa9caef43ae6c689, type: 2}
 --- !u!64 &620590965
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -805,7 +823,7 @@ GameObject:
   - component: {fileID: 1334101108}
   - component: {fileID: 1334101107}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: EnemySword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,7 +1213,7 @@ GameObject:
   - component: {fileID: 2007216151}
   - component: {fileID: 2007216150}
   m_Layer: 0
-  m_Name: Shield
+  m_Name: EnemyShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1209,7 +1227,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007216149}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
@@ -1910,7 +1928,6 @@ GameObject:
   - component: {fileID: 543450651599611121}
   - component: {fileID: 5866666019915923083}
   - component: {fileID: 5866666019915923084}
-  - component: {fileID: 5866666019915923085}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -1930,13 +1947,14 @@ GameObject:
   - component: {fileID: 5866666021762397532}
   - component: {fileID: 5866666021762397534}
   - component: {fileID: 5866666021762397533}
+  - component: {fileID: 5866666021762397535}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &919132149577288949
 GameObject:
   m_ObjectHideFlags: 0
@@ -5810,24 +5828,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc19f177d8beefa4b811d84c1c9e570f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5866666019915923085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147933838923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5731ac6c7ecc3d4eabda37710f80963, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponCollider: {fileID: 0}
-  shieldCollider: {fileID: 0}
-  rightHand: {fileID: 1852576806228081874}
-  leftHand: {fileID: 6502182840003942105}
-  weaponPrefab: {fileID: 841016449790981030, guid: 66357d677ada35b41a0bce3b84dcde05,
-    type: 3}
 --- !u!95 &5866666021762397532
 Animator:
   serializedVersion: 4
@@ -5885,6 +5885,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &5866666021762397535
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149302293916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!23 &5888892787146582410
 MeshRenderer:
   m_ObjectHideFlags: 0
