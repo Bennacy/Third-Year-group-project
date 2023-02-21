@@ -119,6 +119,9 @@ public class PlayerController : MonoBehaviour
     }
 
     private void MoveCamera(InputAction.CallbackContext context){
+        if(Time.timeScale == 0)
+            return;
+
         Vector2 inputVector = context.ReadValue<Vector2>();
         float sens = cameraSens;
 
