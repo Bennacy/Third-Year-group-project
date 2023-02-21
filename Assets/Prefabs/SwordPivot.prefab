@@ -93,7 +93,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 8885497260402236917}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -107,6 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8885497260766534548}
+  - component: {fileID: 841016449790981030}
   m_Layer: 0
   m_Name: SwordPivot
   m_TagString: Untagged
@@ -128,5 +129,18 @@ Transform:
   m_Children:
   - {fileID: 8885497260402236914}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -96.875, y: 239.035, z: -160.183}
+--- !u!114 &841016449790981030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8885497260766534551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a293d30c22069143a5a3b9960f607dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCollider: {fileID: 8885497260402236915}

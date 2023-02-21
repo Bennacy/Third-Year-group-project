@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Collider weaponCollider;
+    
     void Start()
     {
         
@@ -13,6 +14,13 @@ public class WeaponScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(weaponCollider.enabled){
+            Debug.Log("Active!");
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject);
     }
 }

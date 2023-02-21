@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimatorHandler : MonoBehaviour
 {
+    private WeaponHandler weaponHandler;
     private PlayerController controller;
     private Rigidbody playerRb;
     private Animator animator;
@@ -12,6 +13,7 @@ public class PlayerAnimatorHandler : MonoBehaviour
     {
         controller = GetComponentInParent<PlayerController>();
         playerRb = GetComponentInParent<Rigidbody>();
+        weaponHandler = GetComponent<WeaponHandler>();
         animator = GetComponent<Animator>();
     }
 
@@ -36,16 +38,16 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
 
     public void EnableWeaponCollider(){
-        
+        weaponHandler.ToggleWeaponCollider(true);
     }
     public void DisableWeaponCollider(){
-
+        weaponHandler.ToggleWeaponCollider(false);
     }
 
     public void EnableShieldCollider(){
 
     }
     public void DisableShieldCollider(){
-        
+
     }
 }

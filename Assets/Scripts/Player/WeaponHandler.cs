@@ -8,12 +8,13 @@ public class WeaponHandler : MonoBehaviour
     public Collider shieldCollider;
     public Transform rightHand;
     public Transform leftHand;
-    public GameObject weaponPrefab;
+    public WeaponScript weaponPrefab;
+    private WeaponScript currentWeapon;
 
 
     void Start()
     {
-        SwitchWeapon(weaponPrefab);
+        SwitchWeapon(weaponPrefab.gameObject);
     }
 
 
@@ -23,6 +24,10 @@ public class WeaponHandler : MonoBehaviour
     }
 
     public void SwitchWeapon(GameObject prefab){
-        Instantiate(prefab, rightHand);
+        currentWeapon = Instantiate(prefab, rightHand).GetComponent<WeaponScript>();
+    }
+
+    public void ToggleWeaponCollider(bool active){
+        currentWeapon.weaponCollider.enabled = active;
     }
 }

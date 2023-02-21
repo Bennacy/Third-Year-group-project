@@ -53,4 +53,9 @@ public class MoveToTarget : MonoBehaviour
             agent.isStopped = false;
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.name);
+    }
 }
