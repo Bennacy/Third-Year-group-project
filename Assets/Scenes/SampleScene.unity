@@ -4289,8 +4289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 562105903}
   updateRate: 0.1
-  runDist: 7
-  stopDist: 3
+  runDist: 6
+  stopDist: 2.9
+  animator: {fileID: 5866666021762397532}
 --- !u!195 &5866666021762397534
 NavMeshAgent:
   m_ObjectHideFlags: 0

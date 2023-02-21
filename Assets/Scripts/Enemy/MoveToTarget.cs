@@ -10,7 +10,8 @@ public class MoveToTarget : MonoBehaviour
 {
     public Transform Player;
     private NavMeshAgent agent;
-    private AgentLinkMover linkMover;
+    //For later use when we have enemy jump animations if we do
+   // private AgentLinkMover linkMover;
     public float updateRate = 0.1f;
 
     [SerializeField]
@@ -19,6 +20,8 @@ public class MoveToTarget : MonoBehaviour
     [SerializeField]
     private float stopDist;
 
+
+    [SerializeField]
     private Animator animator;
 
     private const string moveParam = "isMoving";
@@ -63,16 +66,19 @@ public class MoveToTarget : MonoBehaviour
 
         float dist = Vector3.Distance(agent.transform.position, Player.position);
 
+        animator.SetBool(moveParam, agent.velocity.magnitude > 0.01f && agent.velocity.magnitude < 3.6f);
+
+        animator.SetBool(runParam, agent.velocity.magnitude > 3.6f);
+
         if (dist < runDist)
         {
             agent.speed = 5;
-            animator.SetBool(runParam, true);
+            
         }
         else
         {
             agent.speed = 3.5f;
-            animator.SetBool(moveParam, true);
-            animator.SetBool(runParam, false);
+            
         }
 
         //Checks if the enemy is too close to the player in which they will stop, so they can move towards attacking
@@ -80,6 +86,7 @@ public class MoveToTarget : MonoBehaviour
         if (dist < stopDist)
         {
             agent.isStopped = true;
+           
         }
         else
         {
