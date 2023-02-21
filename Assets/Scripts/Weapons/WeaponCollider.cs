@@ -42,6 +42,7 @@ public class WeaponCollider : MonoBehaviour
 
         if(!CheckIfHit(other.gameObject)){
             hitEntities.Add(other.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }

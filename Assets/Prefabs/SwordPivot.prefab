@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8885497260402236912}
   - component: {fileID: 8885497260402236915}
   - component: {fileID: 1228772643354879808}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8885497260766534548}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: SwordPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
