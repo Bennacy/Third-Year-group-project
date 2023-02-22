@@ -16,6 +16,8 @@ public class TempBuildScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log(1/Time.deltaTime);
+        
         if(Input.GetKeyDown(KeyCode.Escape)){
             Pause();
         }
