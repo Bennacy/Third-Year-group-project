@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("References")]
-    public Transform cameraTransform;
+    public CameraController cameraController;
     private Rigidbody rb;
     private Vector2 moveDirection;
     private PlayerAnimatorHandler animatorHandler;
@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     [Space(10)]
 
     [Header("Camera")]
-    public float cameraSens;
     public Vector2 cameraVerticalBounds;
     private float currCameraAngle;
     [Space(10)]
@@ -123,7 +122,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         Vector2 inputVector = context.ReadValue<Vector2>();
-        float sens = cameraSens;
+        float sens = cameraController.sens;
 
         if(playerInput.currentControlScheme == "Gamepad"){
             sens *= 100;
@@ -131,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
         if(context.performed){
             Vector3 currPlayerRotation = transform.localRotation.eulerAngles;
-            Vector3 currCamRotation = cameraTransform.rotation.eulerAngles;
+            Vector3 currCamRotation = cameraController.transform.rotation.eulerAngles;
 
             currPlayerRotation.y += inputVector.x * sens;
             currCameraAngle -= inputVector.y * sens;
@@ -140,7 +139,7 @@ public class PlayerController : MonoBehaviour
             currCameraAngle = Mathf.Clamp(currCameraAngle, cameraVerticalBounds.x, cameraVerticalBounds.y);
             currCamRotation.x = currCameraAngle;
 
-            cameraTransform.localRotation = Quaternion.Euler(currCamRotation);
+            cameraController.transform.localRotation = Quaternion.Euler(currCamRotation);
             transform.rotation = Quaternion.Euler(currPlayerRotation);
         }
     }
