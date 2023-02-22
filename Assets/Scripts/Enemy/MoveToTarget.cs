@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class MoveToTarget : MonoBehaviour
 {
-    public Transform target;
+    public Transform player;
+    public float updateRate = 0.01f;
     private NavMeshAgent agent;
 
     [SerializeField]
@@ -14,28 +15,53 @@ public class MoveToTarget : MonoBehaviour
     [SerializeField]
     private float stopDist;
 
-    
+    [SerializeField]
+    private Animator animator;
+
+    private const string walkParam = "isMoving";
+    private const string runParam = "isRunning";
+
+
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        StartCoroutine(FollowPlayer());
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        AIMove();
+        CheckRun();
     }
 
-    private void AIMove()
+    private IEnumerator FollowPlayer()
     {
-        float dist = Vector3.Distance(agent.transform.position, target.position);
+        WaitForSeconds wait = new WaitForSeconds(updateRate);
 
-        agent.SetDestination(target.position);
+        while (enabled)
+        {
+            agent.SetDestination(player.transform.position - (player.transform.position - transform.position).normalized * 0.5f);
 
-        if(dist < runDist)
+            yield return wait;
+        }
+    }
+
+    private void CheckRun()
+    {
+        float dist = Vector3.Distance(agent.transform.position, player.position);
+
+        animator.SetBool(walkParam, agent.velocity.magnitude > 0.01f && agent.velocity.magnitude < 3.6f);
+
+        animator.SetBool(runParam, agent.velocity.magnitude > 3.6f);
+
+        if (dist < runDist)
         {
             agent.speed = 5;
         }
