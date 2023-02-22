@@ -8,6 +8,9 @@ public class PlayerAnimatorHandler : MonoBehaviour
     private PlayerController controller;
     private Rigidbody playerRb;
     private Animator animator;
+
+    public bool nextInCombo;
+    public int comboIndex;
     
     void Start()
     {
@@ -23,11 +26,22 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
 
     public void StartAttack(){
-        animator.Play("Attack");
+        if(nextInCombo){
+            comboIndex++;
+            animator.Play(weaponHandler.currentWeapon.attacks[comboIndex]);
+        }else{
+            animator.Play(weaponHandler.currentWeapon.attacks[0]);
+            nextInCombo = true;
+        }
+        if(comboIndex == weaponHandler.currentWeapon.attacks.Length - 1){
+            nextInCombo = false;
+        }
+        // animator.Play("Attack");
         controller.attacking = true;
     }
     public void EndAttack(){
         controller.attacking = false;
+        StartCoroutine(ComboTimer());
     }
 
     public void StartBlock(){
@@ -49,5 +63,14 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
     public void DisableShieldCollider(){
 
+    }
+
+    public IEnumerator ComboTimer(){
+        int currentIndex = comboIndex;
+        yield return new WaitForSeconds(.5f);
+        if(currentIndex == comboIndex){
+            comboIndex = 0;
+            nextInCombo = false;
+        }
     }
 }

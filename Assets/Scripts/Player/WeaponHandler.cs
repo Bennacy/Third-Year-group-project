@@ -9,7 +9,7 @@ public class WeaponHandler : MonoBehaviour
     public Transform rightHand;
     public Transform leftHand;
     public WeaponScript weaponPrefab;
-    private WeaponScript currentWeapon;
+    public WeaponScript currentWeapon;
     private WeaponCollider weaponColliderScript;
 
 

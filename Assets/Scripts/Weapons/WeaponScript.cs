@@ -9,13 +9,17 @@ public class WeaponScript : ScriptableObject
     public string weaponName;
     public GameObject prefab;
     public Sprite icon;
-    [Space]
+    [Space(10)]
+
+    [Header("Animations")]
+    public string[] attacks;
+    [Space(10)]
 
     [Header("Audio")]
     public AudioClip equipClip;
     public AudioClip impactClip;
     public AudioClip[] swingClips;
-    [Space]
+    [Space(10)]
 
     [Header("Stats")]
     public float damage;

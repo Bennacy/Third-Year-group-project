@@ -23486,7 +23486,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &450900718
 Transform:
   m_ObjectHideFlags: 0
@@ -29935,6 +29935,7 @@ MonoBehaviour:
   rightHand: {fileID: 1852576806228081874}
   leftHand: {fileID: 6502182840003942105}
   weaponPrefab: {fileID: 11400000, guid: 2cf401326735dbf4aa9caef43ae6c689, type: 2}
+  currentWeapon: {fileID: 0}
 --- !u!1 &563145083
 GameObject:
   m_ObjectHideFlags: 0
@@ -91636,7 +91637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1758033268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -111093,7 +111094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &919132149577288949
 GameObject:
   m_ObjectHideFlags: 0
@@ -114967,6 +114968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc19f177d8beefa4b811d84c1c9e570f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextInCombo: 0
+  comboIndex: 0
 --- !u!95 &5866666021762397532
 Animator:
   serializedVersion: 4
