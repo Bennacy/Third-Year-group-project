@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Player",
+            "name": "In-Game",
             "id": "399eafad-61d7-4352-97fe-167cf8703c1e",
             "actions": [
                 {
@@ -45,6 +45,15 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "07ff9dde-c620-4edc-ad2b-c0a29ba69044",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "27d8a39a-37d8-4680-8bc3-a3e390c65530",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -370,6 +379,17 @@
                     "action": "Block",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2fcb8d4-9f5a-466a-b1c8-3a3571872e84",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -463,6 +483,15 @@
                     "type": "PassThrough",
                     "id": "30858950-b62d-4116-9040-e767256de90e",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Unpause",
+                    "type": "Button",
+                    "id": "312135fa-9c8a-4f77-a341-49768b449571",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -884,6 +913,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17db9a6b-bcfa-4b0e-9641-80f754a9ac15",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Unpause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

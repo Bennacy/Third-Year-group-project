@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Vector2 moveDirection;
     private PlayerAnimatorHandler animatorHandler;
-    private PlayerInput playerInput;
+    public PlayerInput playerInput;
     public GameObject weapon;
     public GameObject shield;
     [Space(10)]
@@ -31,41 +31,46 @@ public class PlayerController : MonoBehaviour
     [Header("Combat")]
     public bool attacking;
     public bool blocking;
-    [Space(10)]
+    // [Space(10)]
 
-    [Header("Input")]
-    private InputAction moveAction;
-    private InputAction controlCamAction;
-    private InputAction sprintAction;
-    private InputAction attackAction;
-    private InputAction blockAction;
+    // [Header("Input")]
+    // private InputAction moveAction;
+    // private InputAction controlCamAction;
+    // private InputAction sprintAction;
+    // private InputAction attackAction;
+    // private InputAction blockAction;
 
     void Awake()
     {
-
         animatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
                 
         currCameraAngle = 0;
         moveSpeed = walkSpeed;
         playerInput = GetComponent<PlayerInput>();
 
-        controlCamAction = playerInput.actions["Look"];
+        InputAction controlCamAction = playerInput.actions["Look"];
         controlCamAction.performed += context => MoveCamera(context);
 
-        sprintAction = playerInput.actions["Sprint"];
+        InputAction sprintAction = playerInput.actions["Sprint"];
         sprintAction.performed += context => Sprint(context);
         sprintAction.canceled += context => Sprint(context);
 
-        moveAction = playerInput.actions["Move"];
+        InputAction moveAction = playerInput.actions["Move"];
         moveAction.performed += context => MovePlayer(context);
         moveAction.canceled += context => MovePlayer(context);
 
-        attackAction = playerInput.actions["Attack"];
+        InputAction attackAction = playerInput.actions["Attack"];
         attackAction.performed += context => Attack(context);
 
-        blockAction = playerInput.actions["Block"];
+        InputAction blockAction = playerInput.actions["Block"];
         blockAction.performed += context => Block(context);
         blockAction.canceled += context => Block(context);
+
+        InputAction pauseAction = playerInput.actions["Pause"];
+        pauseAction.performed += context => GameManager.Instance.TogglePause();
+
+        InputAction unpauseAction = playerInput.actions["Unpause"];
+        unpauseAction.performed += context => GameManager.Instance.TogglePause();
     }
 
     void Start()
@@ -118,7 +123,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void MoveCamera(InputAction.CallbackContext context){
-        if(Time.timeScale == 0)
+        if(GameManager.Instance.paused)
             return;
 
         Vector2 inputVector = context.ReadValue<Vector2>();
@@ -145,7 +150,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Attack(InputAction.CallbackContext context){
-        if(blocking)
+        if(blocking || GameManager.Instance.paused)
             return;
 
         if(!attacking)
@@ -153,7 +158,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Block(InputAction.CallbackContext context){
-        if(attacking)
+        if(attacking || GameManager.Instance.paused)
             return;
         
         if(context.performed){
