@@ -39,7 +39,7 @@ public class WeaponCollider : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject);
-        IDamageable damageable = other.GetComponent<IDamageable>();
+        IHasHealth damageable = other.GetComponent<IHasHealth>();
         
         if(!CheckIfHit(other.gameObject) && damageable != null){
             hitEntities.Add(other.gameObject);

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public PlayerController playerController;
     public PlayerInput playerInput;
+    public Camera mainCam;
 
     public bool paused;
     
@@ -33,8 +34,10 @@ public class GameManager : MonoBehaviour
 
     bool GetPlayerController(){
         playerController = FindObjectOfType<PlayerController>();
-        if(playerController != null)
+        if(playerController != null){
             playerInput = playerController.playerInput;
+            mainCam = playerController.cameraController.mainCam;
+        }
 
         return playerController != null;
     }

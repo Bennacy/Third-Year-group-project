@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealthTest : MonoBehaviour, IDamageable
+public class EnemyHealthTest : MonoBehaviour, IHasHealth
 {
+    public int maxHealth {get; set;}
     public int health {get; set;}
 
     public void Damage(int damageVal)
@@ -16,10 +17,22 @@ public class EnemyHealthTest : MonoBehaviour, IDamageable
         }
     }
 
-    // Start is called before the first frame update
+    public void Recover(int recoverVal)
+    {
+        health = Mathf.Clamp(health + recoverVal, 0, maxHealth);
+        Debug.Log(health);
+    }
+
+    public int enemyMaxHealth;
+
+    void Awake()
+    {
+        health = maxHealth = enemyMaxHealth;
+    }
+
     void Start()
     {
-        health = 200;
+        
     }
 
     // Update is called once per frame
