@@ -67942,7 +67942,7 @@ GameObject:
   - component: {fileID: 1282036531}
   - component: {fileID: 1282036530}
   m_Layer: 5
-  m_Name: Health Bar
+  m_Name: Green Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67981,7 +67981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.012726599, g: 0.4056604, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -81608,6 +81608,7 @@ GameObject:
   - component: {fileID: 1556194457}
   - component: {fileID: 1556194456}
   - component: {fileID: 1556194455}
+  - component: {fileID: 1556194458}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -81627,6 +81628,7 @@ RectTransform:
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 2098108967}
   - {fileID: 1282036529}
   m_Father: {fileID: 543450653561564966}
   m_RootOrder: -1
@@ -81698,6 +81700,25 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1556194458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556194453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c802a8d73602a946aa4e8280df038ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1556194453}
+  backColor: {r: 0, g: 0, b: 0, a: 0}
+  frontColor: {r: 0.011764706, g: 0.40392157, b: 0, a: 1}
+  flashColor: {r: 0.026595592, g: 1, b: 0, a: 1}
+  backImage: {fileID: 0}
+  frontImage: {fileID: 1282036530}
+  barTransform: {fileID: 1282036529}
 --- !u!1 &1556309056
 GameObject:
   m_ObjectHideFlags: 0
@@ -109257,6 +109278,82 @@ Transform:
   m_Father: {fileID: 657855427}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2098108966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2098108967}
+  - component: {fileID: 2098108969}
+  - component: {fileID: 2098108968}
+  m_Layer: 5
+  m_Name: Red Health Bar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2098108967
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098108966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00036954883}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556194454}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 25.001537, y: -50.000004}
+  m_SizeDelta: {x: 50, y: 5}
+  m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &2098108968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098108966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5660378, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2098108969
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098108966}
+  m_CullTransparentMesh: 1
 --- !u!1 &2099330967
 GameObject:
   m_ObjectHideFlags: 0
@@ -111882,7 +111979,6 @@ GameObject:
   - component: {fileID: 543450653561564966}
   - component: {fileID: 5866666021762397532}
   - component: {fileID: 5866666021762397537}
-  - component: {fileID: 5866666021762397538}
   - component: {fileID: 5866666021762397534}
   - component: {fileID: 5866666021762397533}
   - component: {fileID: 5866666021762397535}
@@ -115901,20 +115997,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMaxHealth: 250
---- !u!114 &5866666021762397538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149302293916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c802a8d73602a946aa4e8280df038ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 1556194453}
-  barTransform: {fileID: 1282036529}
 --- !u!23 &5888892787146582410
 MeshRenderer:
   m_ObjectHideFlags: 0
