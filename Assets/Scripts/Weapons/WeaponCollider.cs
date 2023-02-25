@@ -39,10 +39,11 @@ public class WeaponCollider : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject);
-
-        if(!CheckIfHit(other.gameObject)){
+        IDamageable damageable = other.GetComponent<IDamageable>();
+        
+        if(!CheckIfHit(other.gameObject) && damageable != null){
             hitEntities.Add(other.gameObject);
-            Destroy(other.gameObject);
+            damageable.Damage(Random.Range(10, 99));
         }
     }
 }
