@@ -17,7 +17,7 @@ public class MoveToTarget : MonoBehaviour
     private float stopDist;
     public float updateRate = 0.01f;
     [SerializeField]
-    bool useMovementPrediction = true;
+    bool useMovementPrediction;
     [SerializeField]
     [Range(-1f, 1f)]
     private float movementThreshold = 0f;
