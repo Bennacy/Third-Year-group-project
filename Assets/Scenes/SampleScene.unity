@@ -6663,7 +6663,7 @@ MonoBehaviour:
   runDist: 7
   stopDist: 3
   updateRate: 0.01
-  useMovementPrediction: 0
+  useMovementPrediction: 1
   movementThreshold: 0
   movementPredictionTime: 1
   animator: {fileID: 130641209}
@@ -7923,7 +7923,7 @@ MonoBehaviour:
   runDist: 7
   stopDist: 3
   updateRate: 0.01
-  useMovementPrediction: 0
+  useMovementPrediction: 1
   movementThreshold: 0
   movementPredictionTime: 1
   animator: {fileID: 152206970}
@@ -9992,7 +9992,7 @@ MonoBehaviour:
   runDist: 7
   stopDist: 3
   updateRate: 0.01
-  useMovementPrediction: 0
+  useMovementPrediction: 1
   movementThreshold: 0
   movementPredictionTime: 1
   animator: {fileID: 185616705}
@@ -32543,7 +32543,7 @@ MonoBehaviour:
   runDist: 7
   stopDist: 3
   updateRate: 0.01
-  useMovementPrediction: 0
+  useMovementPrediction: 1
   movementThreshold: 0
   movementPredictionTime: 1
   animator: {fileID: 603652131}
@@ -51993,7 +51993,7 @@ MonoBehaviour:
   runDist: 7
   stopDist: 3
   updateRate: 0.01
-  useMovementPrediction: 0
+  useMovementPrediction: 1
   movementThreshold: 0
   movementPredictionTime: 1
   animator: {fileID: 976880867}
@@ -90507,7 +90507,7 @@ MonoBehaviour:
   runDist: 7
   stopDist: 3
   updateRate: 0.01
-  useMovementPrediction: 0
+  useMovementPrediction: 1
   movementThreshold: 0
   movementPredictionTime: 1
   animator: {fileID: 1716250367}
@@ -116023,7 +116023,7 @@ MonoBehaviour:
   runDist: 7
   stopDist: 3
   updateRate: 0.01
-  useMovementPrediction: 0
+  useMovementPrediction: 1
   movementThreshold: 0
   movementPredictionTime: 1
   animator: {fileID: 5866666021762397532}
