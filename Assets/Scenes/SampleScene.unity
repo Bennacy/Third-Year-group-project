@@ -2322,9 +2322,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 38747014}
 --- !u!195 &38747013
 NavMeshAgent:
@@ -5141,9 +5144,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 103902180}
 --- !u!195 &103902179
 NavMeshAgent:
@@ -6580,7 +6586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &130641205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6654,9 +6660,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 130641209}
 --- !u!195 &130641208
 NavMeshAgent:
@@ -7837,7 +7846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &152206966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7911,9 +7920,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 152206970}
 --- !u!195 &152206969
 NavMeshAgent:
@@ -9784,9 +9796,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 184271273}
 --- !u!195 &184271272
 NavMeshAgent:
@@ -9900,7 +9915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &185616701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9974,9 +9989,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 185616705}
 --- !u!195 &185616704
 NavMeshAgent:
@@ -12675,9 +12693,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 242749606}
 --- !u!195 &242749605
 NavMeshAgent:
@@ -14804,9 +14825,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 290029097}
 --- !u!195 &290029096
 NavMeshAgent:
@@ -15344,9 +15368,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 295126122}
 --- !u!195 &295126121
 NavMeshAgent:
@@ -18694,9 +18721,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 355661444}
 --- !u!195 &355661443
 NavMeshAgent:
@@ -21315,9 +21345,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 407977639}
 --- !u!195 &407977638
 NavMeshAgent:
@@ -29436,9 +29469,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 555393611}
 --- !u!195 &555393610
 NavMeshAgent:
@@ -30044,6 +30080,8 @@ MonoBehaviour:
   walkSpeed: 7
   runSpeed: 12
   blockSpeed: 4
+  positionHistoryDuration: 1
+  positionHistoryInterval: 0.1
   attacking: 0
   blocking: 0
 --- !u!54 &562105906
@@ -30664,9 +30702,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 571445865}
 --- !u!195 &571445864
 NavMeshAgent:
@@ -32425,7 +32466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &603652127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32499,9 +32540,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 603652131}
 --- !u!195 &603652130
 NavMeshAgent:
@@ -35060,9 +35104,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 658005383}
 --- !u!195 &658005382
 NavMeshAgent:
@@ -40345,9 +40392,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 768637075}
 --- !u!195 &768637074
 NavMeshAgent:
@@ -43817,9 +43867,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 836091559}
 --- !u!195 &836091558
 NavMeshAgent:
@@ -45821,9 +45874,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 870337702}
 --- !u!195 &870337701
 NavMeshAgent:
@@ -47389,9 +47445,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 897300639}
 --- !u!195 &897300638
 NavMeshAgent:
@@ -51857,7 +51916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &976880863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51931,9 +51990,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 976880867}
 --- !u!195 &976880866
 NavMeshAgent:
@@ -54719,9 +54781,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1035390758}
 --- !u!195 &1035390757
 NavMeshAgent:
@@ -62361,9 +62426,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1191523853}
 --- !u!195 &1191523852
 NavMeshAgent:
@@ -66892,9 +66960,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1261947159}
 --- !u!195 &1261947158
 NavMeshAgent:
@@ -73789,9 +73860,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1394612347}
 --- !u!195 &1394612346
 NavMeshAgent:
@@ -77238,9 +77312,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1458336028}
 --- !u!195 &1458336027
 NavMeshAgent:
@@ -78569,9 +78646,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1481937282}
 --- !u!195 &1481937281
 NavMeshAgent:
@@ -83701,9 +83781,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1595463540}
 --- !u!195 &1595463539
 NavMeshAgent:
@@ -84122,9 +84205,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1601874363}
 --- !u!195 &1601874362
 NavMeshAgent:
@@ -90344,7 +90430,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1716250363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90418,9 +90504,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1716250367}
 --- !u!195 &1716250366
 NavMeshAgent:
@@ -91327,9 +91416,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1738889364}
 --- !u!195 &1738889363
 NavMeshAgent:
@@ -92750,9 +92842,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1762905362}
 --- !u!195 &1762905361
 NavMeshAgent:
@@ -94028,9 +94123,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1792144285}
 --- !u!195 &1792144284
 NavMeshAgent:
@@ -96159,9 +96257,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1838801899}
 --- !u!195 &1838801898
 NavMeshAgent:
@@ -99117,9 +99218,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1901660931}
 --- !u!195 &1901660930
 NavMeshAgent:
@@ -101075,9 +101179,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1945256402}
 --- !u!195 &1945256401
 NavMeshAgent:
@@ -101801,9 +101908,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 1960292505}
 --- !u!195 &1960292504
 NavMeshAgent:
@@ -106500,9 +106610,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 2052836153}
 --- !u!195 &2052836152
 NavMeshAgent:
@@ -107632,9 +107745,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 2067966004}
 --- !u!195 &2067966003
 NavMeshAgent:
@@ -109910,9 +110026,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 2117050704}
 --- !u!195 &2117050703
 NavMeshAgent:
@@ -110169,9 +110288,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 2121228698}
 --- !u!195 &2121228697
 NavMeshAgent:
@@ -115898,9 +116020,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 562105903}
-  updateRate: 0.01
   runDist: 7
   stopDist: 3
+  updateRate: 0.01
+  useMovementPrediction: 0
+  movementThreshold: 0
+  movementPredictionTime: 1
   animator: {fileID: 5866666021762397532}
 --- !u!195 &5866666021762397534
 NavMeshAgent:

@@ -26,6 +26,17 @@ public class PlayerController : MonoBehaviour
     public float runSpeed;
     public float blockSpeed;
     private float moveSpeed;
+    [SerializeField]
+    [Range(0.1f, 5f)]
+    private float positionHistoryDuration = 1f;
+    [SerializeField]
+    [Range(0.001f, 1f)]
+    private float positionHistoryInterval = 0.1f;
+
+    private Queue<Vector3> velocityHistory;
+    private float lastPositionTime;
+    private int maxQueueSize;
+
     [Space(10)]
 
     [Header("Combat")]
@@ -71,6 +82,9 @@ public class PlayerController : MonoBehaviour
 
         InputAction unpauseAction = playerInput.actions["Unpause"];
         unpauseAction.performed += context => GameManager.Instance.TogglePause();
+
+        maxQueueSize = Mathf.CeilToInt(1f / positionHistoryInterval * positionHistoryDuration);
+        velocityHistory = new Queue<Vector3>(maxQueueSize);
     }
 
     void Start()
@@ -83,6 +97,17 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Debug.Log(playerInput.currentControlScheme);
+
+        if(lastPositionTime + positionHistoryInterval <= Time.time)
+        {
+            if(velocityHistory.Count == maxQueueSize)
+            {
+                velocityHistory.Dequeue();
+            }
+
+            velocityHistory.Enqueue(rb.velocity);
+            lastPositionTime = Time.time;
+        }
     }
 
     void FixedUpdate()
@@ -98,6 +123,24 @@ public class PlayerController : MonoBehaviour
         rb.velocity = ((vel + gravity));
         
         rb.AddForce(Physics.gravity * gravityForce);
+    }
+
+
+    public Vector3 AverageVelocity
+    {
+        get
+        {
+            Vector3 average = Vector3.zero;
+            foreach(Vector3 velocity in velocityHistory)
+            {
+                average += velocity;
+            }
+            average.y = 0;
+
+            return average / velocityHistory.Count;
+        }
+
+        
     }
 
 

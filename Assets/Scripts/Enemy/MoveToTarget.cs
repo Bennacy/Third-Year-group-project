@@ -5,19 +5,31 @@ using UnityEngine.AI;
 
 public class MoveToTarget : MonoBehaviour
 {
+    [Header("References")]
     public Transform player;
-    public float updateRate = 0.01f;
     private NavMeshAgent agent;
+    [Space(10)]
 
+    [Header("Movement")]
     [SerializeField]
     private float runDist;
-
     [SerializeField]
     private float stopDist;
+    public float updateRate = 0.01f;
+    [SerializeField]
+    bool useMovementPrediction = true;
+    [SerializeField]
+    [Range(-1f, 1f)]
+    private float movementThreshold = 0f;
+    [SerializeField]
+    [Range(0.25f, 2)]
+    private float movementPredictionTime = 1f;
+    [Space(10)]
 
+
+    [Header("Animation")]
     [SerializeField]
     private Animator animator;
-
     private const string walkParam = "isMoving";
     private const string runParam = "isRunning";
 
@@ -47,7 +59,27 @@ public class MoveToTarget : MonoBehaviour
 
         while (enabled)
         {
-            agent.SetDestination(player.transform.position - (player.transform.position - transform.position).normalized * 0.5f);
+            if (!useMovementPrediction)
+            {
+                agent.SetDestination(player.transform.position - (player.transform.position - transform.position).normalized * 0.5f);
+            }
+            else
+            {
+                Vector3 targetPosition = player.transform.position
+                    + player.GetComponent<PlayerController>().AverageVelocity * movementPredictionTime;
+                Vector3 directionToTarget = (targetPosition - transform.position).normalized;
+                Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+
+                float dot = Vector3.Dot(directionToPlayer, directionToTarget);
+
+                if (dot < movementThreshold)
+                {
+                    targetPosition = player.transform.position;
+                }
+
+                agent.SetDestination(targetPosition);
+            }
+
 
             yield return wait;
         }
