@@ -10,10 +10,10 @@ public class EnemyHealthTest : MonoBehaviour, IHasHealth
     public void Damage(int damageVal)
     {
         health -= damageVal;
-        Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
+        // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if(health <= 0){
             Debug.Log("Killed!!!!");
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
