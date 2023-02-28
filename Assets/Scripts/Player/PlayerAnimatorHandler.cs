@@ -67,7 +67,7 @@ public class PlayerAnimatorHandler : MonoBehaviour
 
     public IEnumerator ComboTimer(){
         int currentIndex = comboIndex;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.75f);
         if(currentIndex == comboIndex){
             comboIndex = 0;
             nextInCombo = false;
