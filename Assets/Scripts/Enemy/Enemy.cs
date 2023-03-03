@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IHasHealth
 {
     public MoveToTarget movement;
     public NavMeshAgent agent;
     public EnemyScriptableObject enemyScriptableObject;
-    public int health = 250;
+    public int maxHealth { get; set; }
+    public int health { get; set; }
 
     public virtual void Start()
     {
@@ -28,5 +29,29 @@ public class Enemy : MonoBehaviour
         agent.speed = enemyScriptableObject.Speed;
         agent.stoppingDistance = enemyScriptableObject.StoppingDistance;
         movement.updateRate = enemyScriptableObject.updateRate;
+
+        health = maxHealth = enemyScriptableObject.health;
+
+        Debug.Log("Enemy Health is: " + health);
+
+    }
+
+    
+
+    public void Damage(int damageVal)
+    {
+        health -= damageVal;
+        Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
+        if (health <= 0)
+        {
+            Debug.Log("Killed!!!!");
+            Destroy(gameObject);
+        }
+    }
+
+    public void Recover(int recoverVal)
+    {
+        health = Mathf.Clamp(health + recoverVal, 0, maxHealth);
+        Debug.Log(health);
     }
 }
