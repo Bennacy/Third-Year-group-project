@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealthTest : MonoBehaviour, IHasHealth
 {
+    #region IHasHealth
     public int maxHealth {get; set;}
     public int health {get; set;}
 
@@ -11,9 +12,10 @@ public class EnemyHealthTest : MonoBehaviour, IHasHealth
     {
         health -= damageVal;
         // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
-        if(health <= 0){
+        if(health <= 0 && !dead){
+            dead = true;
+            animator.Play("Death");
             Debug.Log("Killed!!!!");
-            gameObject.SetActive(false);
         }
     }
 
@@ -22,12 +24,16 @@ public class EnemyHealthTest : MonoBehaviour, IHasHealth
         health = Mathf.Clamp(health + recoverVal, 0, maxHealth);
         Debug.Log(health);
     }
+    #endregion
 
     public int enemyMaxHealth;
+    public Animator animator;
+    public bool dead;
 
     void Awake()
     {
         health = maxHealth = enemyMaxHealth;
+        dead = false;
     }
 
     void Start()
@@ -39,5 +45,9 @@ public class EnemyHealthTest : MonoBehaviour, IHasHealth
     void Update()
     {
         
+    }
+
+    public void Die(){
+        gameObject.SetActive(false);
     }
 }
