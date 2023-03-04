@@ -196,8 +196,10 @@ public class PlayerController : MonoBehaviour
         if(blocking || GameManager.Instance.paused)
             return;
 
-        if(!attacking)
+        if(!attacking || animatorHandler.nextInCombo){ // If the player is not attacking at all, or if the combo window is open
             animatorHandler.StartAttack();
+            return;
+        }
     }
 
     private void Block(InputAction.CallbackContext context){
