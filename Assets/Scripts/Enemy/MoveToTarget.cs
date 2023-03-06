@@ -38,7 +38,8 @@ public class MoveToTarget : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+       // this.enabled = true;
+        //player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Start is called before the first frame update

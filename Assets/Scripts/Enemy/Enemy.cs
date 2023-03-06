@@ -49,12 +49,12 @@ public class Enemy : MonoBehaviour, IHasHealth
         {
 
             animator.SetBool(ATTACK, true);
-            
+
         }
         else
         {
             animator.SetBool(ATTACK, false);
-            
+
         }
     }
 
