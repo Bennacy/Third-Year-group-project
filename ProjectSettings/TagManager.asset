@@ -16,7 +16,7 @@ TagManager:
   - EnemyWeapon
   - WalkSurface
   - isGround
-  - 
+  - EnemyAttackRadius
   - 
   - 
   - 
