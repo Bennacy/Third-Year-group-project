@@ -8,4 +8,6 @@ public interface IHasHealth
     int health {get; set;}
     void Damage(int damageVal);
     void Recover(int recoverVal);
+
+    
 }

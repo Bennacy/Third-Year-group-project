@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IHasHealth
 {
     [Header("References")]
     public CameraController cameraController;
@@ -42,7 +42,13 @@ public class PlayerController : MonoBehaviour
     [Header("Combat")]
     public bool attacking;
     public bool blocking;
-    // [Space(10)]
+    [Space(10)]
+
+    [Header("PlayerStats")]
+
+    public int playerHealth = 250;
+    public int maxHealth { get; set; }
+    public int health { get; set; }
 
     // [Header("Input")]
     // private InputAction moveAction;
@@ -85,6 +91,8 @@ public class PlayerController : MonoBehaviour
 
         maxQueueSize = Mathf.CeilToInt(1f / positionHistoryInterval * positionHistoryDuration);
         velocityHistory = new Queue<Vector3>(maxQueueSize);
+
+        health = maxHealth = playerHealth;
     }
 
     void Start()
@@ -142,6 +150,8 @@ public class PlayerController : MonoBehaviour
 
         
     }
+
+
 
 
     private void MovePlayer(InputAction.CallbackContext context){
@@ -212,5 +222,22 @@ public class PlayerController : MonoBehaviour
             blocking = false;
             animatorHandler.EndBlock();
         }
+    }
+
+    void IHasHealth.Damage(int damageVal)
+    {
+        health -= damageVal;
+        Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
+        if (health <= 0)
+        {
+            Debug.Log("Killed!!!!");
+            gameObject.SetActive(false);
+        }
+    }
+
+    void IHasHealth.Recover(int recoverVal)
+    {
+        health = Mathf.Clamp(health + recoverVal, 0, maxHealth);
+        Debug.Log(health);
     }
 }

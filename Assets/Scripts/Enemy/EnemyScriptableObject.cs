@@ -14,6 +14,8 @@ public class EnemyScriptableObject : ScriptableObject
 {
     //Enemy Stats
     public int health = 250;
+    public float attackDelay = 1f;
+    public float attackRadius = 1.5f;
 
     //Navmesh Configs
     public float updateRate = 0.01f;

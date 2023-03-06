@@ -11,9 +11,51 @@ public class Enemy : MonoBehaviour, IHasHealth
     public int maxHealth { get; set; }
     public int health { get; set; }
 
+    public float attackDelay = 1f;
+    
+
+    [SerializeField]
+    private Animator animator;
+    private WeaponHandler weaponHandler;
+    
+
+    
+
+    private const string ATTACK = "Attack";
+
     public virtual void Start()
     {
         SetupEnemyFromConfig();
+        weaponHandler = GetComponent<WeaponHandler>();
+    }
+
+    private void Awake()
+    {
+       
+    }
+
+
+    private void Update()
+    {
+        Attack();
+       
+    }
+
+    
+
+    public void Attack()
+    {
+        if (agent.remainingDistance < 2.5f)
+        {
+
+            animator.SetBool(ATTACK, true);
+            
+        }
+        else
+        {
+            animator.SetBool(ATTACK, false);
+            
+        }
     }
 
     public virtual void SetupEnemyFromConfig()
@@ -31,12 +73,30 @@ public class Enemy : MonoBehaviour, IHasHealth
         movement.updateRate = enemyScriptableObject.updateRate;
 
         health = maxHealth = enemyScriptableObject.health;
+        attackDelay = enemyScriptableObject.attackDelay;
+
 
         Debug.Log("Enemy Health is: " + health);
 
     }
 
-    
+
+
+    public void EnableWeaponCollider()
+    {
+        weaponHandler.ToggleWeaponCollider(true);
+    }
+    public void DisableWeaponCollider()
+    {
+        weaponHandler.ToggleWeaponCollider(false);
+    }
+
+
+    public void EndAttack()
+    {
+
+    }
+
 
     public void Damage(int damageVal)
     {
@@ -54,4 +114,6 @@ public class Enemy : MonoBehaviour, IHasHealth
         health = Mathf.Clamp(health + recoverVal, 0, maxHealth);
         Debug.Log(health);
     }
+
+    
 }
