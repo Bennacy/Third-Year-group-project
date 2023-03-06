@@ -133,7 +133,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
         rb.AddForce(Physics.gravity * gravityForce);
     }
 
-
     public Vector3 AverageVelocity
     {
         get
@@ -150,9 +149,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
 
         
     }
-
-
-
 
     private void MovePlayer(InputAction.CallbackContext context){
         Vector2 inputVector = context.ReadValue<Vector2>();
