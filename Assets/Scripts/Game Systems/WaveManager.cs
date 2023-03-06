@@ -14,14 +14,14 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         for(int i = 0; i < 5; i++){
-            currentEnemies.Add(Instantiate(prefab, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity));
+            // currentEnemies.Add(Instantiate(prefab, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity));
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(AllDead());
+        // Debug.Log(AllDead());
     }
 
     IEnumerator HandleWave(){

@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1559406632551479800}
   - component: {fileID: 1559406632551479801}
+  - component: {fileID: 1607032646}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1559406632551479800
 Transform:
   m_ObjectHideFlags: 0
@@ -54,3 +55,19 @@ MonoBehaviour:
   - {x: -29.629646, y: 0.34804735, z: -2.8432999}
   currentEnemies: []
   prefab: {fileID: 3864161939755402322, guid: 956d7f33df5ab9f498dd359d287a5199, type: 3}
+--- !u!114 &1607032646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559406632551479799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e88d06e038ad344393c7d487b922354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  playerInput: {fileID: 0}
+  mainCam: {fileID: 0}
+  paused: 0

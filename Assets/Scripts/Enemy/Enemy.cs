@@ -104,8 +104,7 @@ public class Enemy : MonoBehaviour, IHasHealth
         Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0)
         {
-            Debug.Log("Killed!!!!");
-            Destroy(gameObject);
+            animator.Play("Death");
         }
     }
 
@@ -113,6 +112,10 @@ public class Enemy : MonoBehaviour, IHasHealth
     {
         health = Mathf.Clamp(health + recoverVal, 0, maxHealth);
         Debug.Log(health);
+    }
+
+    public void Die(){
+        Destroy(gameObject);
     }
 
     
