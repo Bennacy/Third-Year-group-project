@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1804137347993030242}
   - component: {fileID: 1804137347993030237}
   - component: {fileID: 5039627702767613315}
+  - component: {fileID: 2782952454916491803}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -178,8 +179,27 @@ MonoBehaviour:
   agent: {fileID: 1804137347993030243}
   enemyScriptableObject: {fileID: 11400000, guid: a34179b3c380a5e46815fa3faad6de2b,
     type: 2}
-  attackDelay: 1
+  player: {fileID: 0}
   animator: {fileID: 1804137347993030241}
+  attackDelay: 1
+--- !u!114 &2782952454916491803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4945630943725375137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5731ac6c7ecc3d4eabda37710f80963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCollider: {fileID: 0}
+  shieldCollider: {fileID: 0}
+  rightHand: {fileID: 5216013834812029150}
+  leftHand: {fileID: 5216013834875080063}
+  weaponPrefab: {fileID: 11400000, guid: 687fcaedefda0c94194c5ea0a68d524c, type: 2}
+  currentWeapon: {fileID: 11400000, guid: 687fcaedefda0c94194c5ea0a68d524c, type: 2}
 --- !u!1 &5216013832892781187
 GameObject:
   m_ObjectHideFlags: 0

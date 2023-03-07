@@ -5,18 +5,23 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour, IHasHealth
 {
+    [Header("References")]
     public MoveToTarget movement;
     public NavMeshAgent agent;
     public EnemyScriptableObject enemyScriptableObject;
-    public int maxHealth { get; set; }
-    public int health { get; set; }
-
-    public float attackDelay = 1f;
-    
-
+    public GameObject player;
     [SerializeField]
     private Animator animator;
     private WeaponHandler weaponHandler;
+    [Space(10)]
+
+    public float attackDelay = 1f;
+
+    public int maxHealth { get; set; }
+    public int health { get; set; }
+
+    
+
     
 
     
@@ -27,6 +32,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     {
         SetupEnemyFromConfig();
         weaponHandler = GetComponent<WeaponHandler>();
+        
     }
 
     private void Awake()
@@ -38,24 +44,34 @@ public class Enemy : MonoBehaviour, IHasHealth
     private void Update()
     {
         Attack();
-       
+        
     }
 
     
 
     public void Attack()
     {
-        if (agent.remainingDistance < 2.5f)
+        if (health > 0)
         {
 
-            animator.SetBool(ATTACK, true);
 
-        }
-        else
-        {
-            animator.SetBool(ATTACK, false);
+            if (agent.remainingDistance < 2.5f)
+            {
 
+                animator.SetBool(ATTACK, true);
+                
+            }
+            else
+            {
+                animator.SetBool(ATTACK, false);
+                
+            }
         }
+
+        
+        
+            
+        
     }
 
     public virtual void SetupEnemyFromConfig()
@@ -105,6 +121,9 @@ public class Enemy : MonoBehaviour, IHasHealth
         if (health <= 0)
         {
             animator.Play("Death");
+            animator.SetBool(ATTACK, false);
+            agent.updatePosition = false;
+            agent.updateRotation = false;
         }
     }
 

@@ -73,6 +73,9 @@ public class MoveToTarget : MonoBehaviour
                 Vector3 directionToTarget = (targetPosition - transform.position).normalized;
                 Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
 
+                
+                
+
                 float dot = Vector3.Dot(directionToPlayer, directionToTarget);
 
                 if (dot < movementThreshold)

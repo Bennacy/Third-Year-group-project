@@ -31,4 +31,7 @@ public class EnemyScriptableObject : ScriptableObject
     public float Speed = 3.5f;
     public float StoppingDistance = 0.5f;
 
+    public GameObject prefab;
+    public float spawnWeight = 1f;
+
 }
