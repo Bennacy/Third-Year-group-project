@@ -118,12 +118,16 @@ public class Enemy : MonoBehaviour, IHasHealth
     {
         health -= damageVal;
         Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
-        if (health <= 0)
+        if (health <= 0 && animator != null)
         {
             animator.Play("Death");
             animator.SetBool(ATTACK, false);
             agent.updatePosition = false;
             agent.updateRotation = false;
+        }
+        if (animator.enabled == false && health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

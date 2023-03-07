@@ -143,7 +143,7 @@ MonoBehaviour:
   enemyScriptableObject: {fileID: 11400000, guid: 3cf933f2a717c174891a084485b96529,
     type: 2}
   player: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 4336217652656611437}
   attackDelay: 1
 --- !u!114 &3744379899860865187
 MonoBehaviour:
@@ -164,7 +164,7 @@ MonoBehaviour:
   useMovementPrediction: 1
   movementThreshold: 0
   movementPredictionTime: 1
-  animator: {fileID: 0}
+  animator: {fileID: 4336217652656611437}
 --- !u!114 &731807551569706611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +219,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635990544411756543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: ce4af0b7fa9364646a2e714f660e98a3, type: 2}
   m_Controller: {fileID: 9100000, guid: af5cb1394ca9479439c1bd47af37fb30, type: 2}
   m_CullingMode: 1
