@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     
     public EnemyScriptableObject[] enemyTypes;
     public Transform[] spawnPoints;
+    public List<Enemy> spawnedEnemies;
     [Space(10)]
 
 
@@ -37,6 +38,13 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnWaves());
     }
 
+    void Update()
+    {
+        if(currentWave > totalWaves){
+            GameManager.Instance.won = true;
+        }
+    }
+
    private IEnumerator SpawnWaves()
     {
         //for (int i = 0; i < numWaves; i++)
@@ -61,7 +69,9 @@ public class EnemySpawner : MonoBehaviour
             {
                 GameObject prefab = SelectEnemyType();
                 Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-                Instantiate(prefab, randomSpawnPoint.position, randomSpawnPoint.rotation);
+                Enemy tempEnemy = Instantiate(prefab, randomSpawnPoint.position, randomSpawnPoint.rotation).GetComponent<Enemy>();
+                tempEnemy.spawner = this;
+                spawnedEnemies.Add(tempEnemy);
 
 
                 enemiesRemaining--;
@@ -69,16 +79,16 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(spawnDelay);
             }
 
-            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+            if (spawnedEnemies.Count == 0 && enemiesRemaining == 0)
             {
                 currentWave++;
                 totalEnemies = totalEnemies += Random.Range(0, 6);
                 enemiesRemaining = totalEnemies;
-
+                Debug.Log(currentWave);
+                yield return new WaitForSeconds(waveDelay);
             }
 
-            Debug.Log(currentWave);
-            yield return new WaitForSeconds(waveDelay);
+            yield return null;
         }
     }
 
