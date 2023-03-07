@@ -20,8 +20,10 @@ public class GameManager : MonoBehaviour
     public bool paused;
     public bool won;
     public float time;
+    public float highScore;
     public int currency;
     public int enemiesKilled;
+    public bool newHighScore;
     public bool inGame;
     public bool fading;
     public bool waitForFade;
@@ -39,8 +41,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SceneManager.sceneLoaded += delegate{NewScene();};
+
         NewScene();
-        // GetPlayerController();
     }
 
     void Update()
@@ -53,15 +55,15 @@ public class GameManager : MonoBehaviour
             waitForFade = false;
             if(won){
                 LoadScene("Victory Screen");
-                won = false;
+                if(highScore > 0 && time < highScore){
+                    newHighScore = true;
+                    highScore = time;
+                }
             }
-        }else{
-
         }
 
-
         if(won && inGame && !waitForFade){
-
+            inGame = false;
             FadeInImage(1, null, Color.black);
             waitForFade = true;
         }
@@ -70,6 +72,8 @@ public class GameManager : MonoBehaviour
     void NewScene(){
         if(GetPlayerController()){
             inGame = true;
+            won = false;
+            newHighScore = false;
             enemiesKilled = 0;
             time = 0;
             currency = 0;

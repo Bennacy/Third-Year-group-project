@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
         if(playerInput.currentControlScheme == "Gamepad"){
             sens *= 100;
         }
-
+        
         if(context.performed){
             Vector3 currPlayerRotation = transform.localRotation.eulerAngles;
             Vector3 currCamRotation = cameraController.transform.rotation.eulerAngles;
