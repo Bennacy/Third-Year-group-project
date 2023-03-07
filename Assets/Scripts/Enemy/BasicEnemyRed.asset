@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc1cab3236f7ec4f8af027cde9fd915, type: 3}
-  m_Name: BasicEnemy
+  m_Name: BasicEnemyRed
   m_EditorClassIdentifier: 
   health: 250
   attackDelay: 1
@@ -26,5 +26,5 @@ MonoBehaviour:
   Radius: 0.5
   Speed: 3.5
   StoppingDistance: 0.5
-  prefab: {fileID: 4945630943725375137, guid: 994a08d5865251148a7df1dcfab5d400, type: 3}
-  spawnWeight: 0.9
+  prefab: {fileID: 4945630943725375137, guid: 2777baee787e09e4ca413fc281505216, type: 3}
+  spawnWeight: 0.45
