@@ -366,6 +366,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6147479761546256254, guid: 5d78e8536a3325b4089a9354642c1020,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.042578902
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d78e8536a3325b4089a9354642c1020, type: 3}
@@ -1717,7 +1722,7 @@ MonoBehaviour:
   spawnPointCount: 3
   spawnedEnemies: []
   startingEnemiesPerWave: 5
-  totalEnemies: 2
+  totalEnemies: 1
   numWaves: 5
   totalWaves: 1
   waveDelay: 1
@@ -2256,6 +2261,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1786641385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1786641386}
+  - component: {fileID: 1786641388}
+  - component: {fileID: 1786641387}
+  m_Layer: 0
+  m_Name: Fade Image (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1786641386
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786641385}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1848717081}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1786641387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786641385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.2}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1786641388
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786641385}
+  m_CullTransparentMesh: 1
 --- !u!1 &1791730251
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,7 +2477,6 @@ GameObject:
   - component: {fileID: 1848717084}
   - component: {fileID: 1848717083}
   - component: {fileID: 1848717082}
-  - component: {fileID: 1848717085}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -2418,6 +2498,7 @@ RectTransform:
   m_Children:
   - {fileID: 1006299178}
   - {fileID: 585423773}
+  - {fileID: 1786641386}
   m_Father: {fileID: 1559406631154296508}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2488,26 +2569,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 100
   m_TargetDisplay: 0
---- !u!95 &1848717085
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848717080}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d72e54d4d65eeb742b65d13724369b57, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1910958510
 GameObject:
   m_ObjectHideFlags: 0
@@ -5026,6 +5087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1559406631154296508}
   - component: {fileID: 1559406631154296509}
+  - component: {fileID: 1559406631154296510}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -5064,7 +5126,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   playerInput: {fileID: 0}
   mainCam: {fileID: 0}
-  uiAnimator: {fileID: 1848717085}
+  uiAnimator: {fileID: 1559406631154296510}
   globalImage: {fileID: 1006299179}
   globalText: {fileID: 585423774}
   paused: 0
@@ -5072,6 +5134,29 @@ MonoBehaviour:
   time: 0
   currency: 0
   enemiesKilled: 0
+  inGame: 0
+  fading: 0
+  waitForFade: 0
+--- !u!95 &1559406631154296510
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1559406631154296499}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d72e54d4d65eeb742b65d13724369b57, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!33 &1562201556617804530
 MeshFilter:
   m_ObjectHideFlags: 0

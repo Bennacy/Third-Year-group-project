@@ -11,7 +11,7 @@ public class VictoryScreen : MonoBehaviour
     
     void Start()
     {
-        GameManager.Instance.FadeInImage(1, null, Color.black);
+        GameManager.Instance.FadeOutImage(1, null, Color.black);
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None; 
