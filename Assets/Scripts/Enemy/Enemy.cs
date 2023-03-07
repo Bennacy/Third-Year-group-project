@@ -139,6 +139,7 @@ public class Enemy : MonoBehaviour, IHasHealth
             spawner.spawnedEnemies.Remove(this);
             break;
         }
+        GameManager.Instance.enemiesKilled++;
         Destroy(gameObject);
     }
 }

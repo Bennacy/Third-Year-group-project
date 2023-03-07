@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public bool paused;
     public bool won;
     public float time;
-    private string currentScene;
+    public int currency;
+    public int enemiesKilled;
     
     void Awake()
     {
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GetPlayerController();
-        SceneManager.sceneLoaded += delegate{GetPlayerController();};
+        SceneManager.sceneLoaded += delegate{NewScene();};
     }
 
     void Update()
@@ -41,6 +42,13 @@ public class GameManager : MonoBehaviour
             LoadScene("Victory Screen");
             won = false;
         }
+    }
+
+    void NewScene(){
+        GetPlayerController();
+        enemiesKilled = 0;
+        time = 0;
+        currency = 0;
     }
 
     bool GetPlayerController(){
