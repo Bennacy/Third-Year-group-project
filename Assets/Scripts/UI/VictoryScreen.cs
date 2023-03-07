@@ -7,10 +7,12 @@ using TMPro;
 public class VictoryScreen : MonoBehaviour
 {
     public TextMeshProUGUI timeText;
-    
+    private Animator animator;
     
     void Start()
     {
+        GameManager.Instance.FadeInImage(1, null, Color.black);
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None; 
         SetTimeText();

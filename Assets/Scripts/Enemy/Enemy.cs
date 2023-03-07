@@ -128,6 +128,8 @@ public class Enemy : MonoBehaviour, IHasHealth
         }
         if (animator.enabled == false && health <= 0)
         {
+            spawner.spawnedEnemies.Remove(this);
+            GameManager.Instance.enemiesKilled++;
             Destroy(gameObject);
         }
     }
@@ -139,10 +141,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     }
 
     public void Die(){
-        foreach(Enemy enemy in spawner.spawnedEnemies){
-            spawner.spawnedEnemies.Remove(this);
-            break;
-        }
+        spawner.spawnedEnemies.Remove(this);
         GameManager.Instance.enemiesKilled++;
         Destroy(gameObject);
     }

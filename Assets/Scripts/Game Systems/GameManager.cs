@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +12,10 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
     public PlayerInput playerInput;
     public Camera mainCam;
+
+    public Animator uiAnimator;
+    public Image globalImage;
+    public TextMeshProUGUI globalText;
 
     public bool paused;
     public bool won;
@@ -78,6 +84,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ToggleCursor(){
+
+    }
+
     public void Quit(){
         Application.Quit();
     }
@@ -85,4 +95,24 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string sceneName){
         SceneManager.LoadScene(sceneName);
     }
+
+
+
+    #region Global UI stuff
+    public void FadeInImage(float fadeTime, Sprite spriteToUse, Color colorToUse){
+        globalImage.sprite = null;
+        globalImage.color = colorToUse == null ? Color.black : colorToUse;
+        uiAnimator.speed = fadeTime;
+
+        uiAnimator.Play("Fade In");
+    }
+
+    public void FadeOutImage(float fadeTime, Sprite spriteToUse, Color colorToUse){
+        globalImage.sprite = spriteToUse;
+        globalImage.color = colorToUse;
+        uiAnimator.speed = 1 / fadeTime;
+
+        uiAnimator.Play("Fade Out");
+    }
+    #endregion
 }
