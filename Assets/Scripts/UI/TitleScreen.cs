@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TitleScreen : MonoBehaviour
@@ -24,6 +23,6 @@ public class TitleScreen : MonoBehaviour
     }
 
     public void Load(string sceneName){
-        SceneManager.LoadScene(sceneName);
+        GameManager.Instance.LoadScene(sceneName);
     }
 }

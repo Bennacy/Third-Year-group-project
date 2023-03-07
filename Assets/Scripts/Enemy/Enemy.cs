@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour, IHasHealth
 
     public int maxHealth { get; set; }
     public int health { get; set; }
+    public EnemySpawner spawner;
 
     
 
@@ -138,8 +139,10 @@ public class Enemy : MonoBehaviour, IHasHealth
     }
 
     public void Die(){
+        foreach(Enemy enemy in spawner.spawnedEnemies){
+            spawner.spawnedEnemies.Remove(this);
+            break;
+        }
         Destroy(gameObject);
     }
-
-    
 }

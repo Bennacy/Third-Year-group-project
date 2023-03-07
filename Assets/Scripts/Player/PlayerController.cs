@@ -224,6 +224,9 @@ public class PlayerController : MonoBehaviour, IHasHealth
 
     void IHasHealth.Damage(int damageVal)
     {
+        if(blocking)
+            damageVal /= 5;
+        
         health -= damageVal;
         Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0)
