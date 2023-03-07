@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemySword
   m_EditorClassIdentifier: 
   weaponName: EnemySword
-  prefab: {fileID: 2969097339020273846, guid: 31d111990143aa44f94bf5161af88ec8, type: 3}
+  prefab: {fileID: 6620565757912777554, guid: f9b94a3f9a4557545b1dd0d01bb7b6ea, type: 3}
   icon: {fileID: 0}
   attacks: []
   equipClip: {fileID: 0}

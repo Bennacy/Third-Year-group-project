@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1559406632551479800}
-  - component: {fileID: 1559406632551479801}
   - component: {fileID: 1607032646}
   m_Layer: 0
   m_Name: Game Manager
@@ -33,28 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1559406632551479801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1559406632551479799}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4601c9c99d2f1342b1a9ca08c307ca7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waves: []
-  spawnPoints:
-  - {x: -27.148167, y: 0.34804735, z: -4.446045}
-  - {x: -24.977142, y: 0.34804735, z: -2.2374573}
-  - {x: -24.943703, y: 0.34804735, z: -5.3183737}
-  - {x: -26.963009, y: 0.34804735, z: -6.047399}
-  - {x: -29.031765, y: 0.34804735, z: -5.398326}
-  - {x: -29.629646, y: 0.34804735, z: -2.8432999}
-  currentEnemies: []
-  prefab: {fileID: 3864161939755402322, guid: 956d7f33df5ab9f498dd359d287a5199, type: 3}
 --- !u!114 &1607032646
 MonoBehaviour:
   m_ObjectHideFlags: 0
