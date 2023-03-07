@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GetPlayerController();
-        // SceneManager.sceneLoaded += delegate{GetPlayerController();};
+        SceneManager.sceneLoaded += delegate{GetPlayerController();};
     }
 
     void Update()

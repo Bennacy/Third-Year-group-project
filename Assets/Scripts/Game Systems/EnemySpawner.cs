@@ -10,6 +10,8 @@ public class EnemySpawner : MonoBehaviour
     
     public EnemyScriptableObject[] enemyTypes;
     public Transform[] spawnPoints;
+    public Transform[] closestSpawnPoints;
+    [Range(1, 5)]public int spawnPointCount;
     public List<Enemy> spawnedEnemies;
     [Space(10)]
 
@@ -67,9 +69,11 @@ public class EnemySpawner : MonoBehaviour
 
             while (enemiesRemaining > 0)
             {
+                FindClosestSpawnPoints();
                 GameObject prefab = SelectEnemyType();
-                Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                Transform randomSpawnPoint = closestSpawnPoints[Random.Range(0, closestSpawnPoints.Length)];
                 Enemy tempEnemy = Instantiate(prefab, randomSpawnPoint.position, randomSpawnPoint.rotation).GetComponent<Enemy>();
+                tempEnemy.transform.parent = transform;
                 tempEnemy.spawner = this;
                 spawnedEnemies.Add(tempEnemy);
 
@@ -119,5 +123,28 @@ public class EnemySpawner : MonoBehaviour
             }
         }
         return null;
+    }
+
+    void FindClosestSpawnPoints(){
+        PlayerController playerController = GameManager.Instance.playerController;
+
+        closestSpawnPoints = new Transform[spawnPointCount];
+        float maxDistance = 0;
+        Transform toAdd = null;
+        
+        for(int i = 0; i < spawnPointCount; i++){
+            float smallestDistance = Mathf.Infinity;
+            foreach(Transform currentTransform in spawnPoints){
+                Vector3 pos = currentTransform.position;
+                float distance = Vector3.Distance(pos, playerController.transform.position);
+
+                if(distance < smallestDistance && distance > maxDistance){
+                    toAdd = currentTransform;
+                    smallestDistance = distance;
+                }
+            }
+            maxDistance = Vector3.Distance(toAdd.position, playerController.transform.position);
+            closestSpawnPoints[i] = toAdd;
+        }
     }
 }
