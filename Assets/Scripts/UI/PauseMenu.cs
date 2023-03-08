@@ -22,7 +22,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void ToggleMenu(){
+    public void ToggleMenu(){
         if(GameManager.Instance.paused){
             menu.SetActive(true);
             animator.Play("Pause Slide In");
@@ -30,6 +30,10 @@ public class PauseMenu : MonoBehaviour
             playingAnim = true;
             animator.Play("Pause Slide Out");
         }
+    }
+
+    public void Quit(){
+        GameManager.Instance.Quit();
     }
 
     public void DisableAll(){
