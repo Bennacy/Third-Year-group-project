@@ -13,9 +13,11 @@ public class Enemy : MonoBehaviour, IHasHealth
     [SerializeField]
     private Animator animator;
     private WeaponHandler weaponHandler;
+    private MoveToTarget moveToTarget;
     [Space(10)]
 
     public float attackDelay = 1f;
+    public bool attacking;
     public float facingThreshold;
     public float facingAngle;
     public bool facingPlayer;
@@ -38,6 +40,7 @@ public class Enemy : MonoBehaviour, IHasHealth
         SetupEnemyFromConfig();
         player = GameManager.Instance.playerController;
         weaponHandler = GetComponent<WeaponHandler>();
+        moveToTarget = GetComponent<MoveToTarget>();
         
     }
 
@@ -63,19 +66,13 @@ public class Enemy : MonoBehaviour, IHasHealth
         }
         
         Attack();
-
-        if(animator.GetBool(ATTACK) == true){
-            agent.enabled = false;
-        }else{
-            agent.enabled = false;
-        }
     }
 
     
 
     public void Attack()
     {
-        if (health > 0)
+        if (health > 0 && !attacking)
         {
 
 
@@ -83,11 +80,13 @@ public class Enemy : MonoBehaviour, IHasHealth
             {
 
                 animator.SetBool(ATTACK, true);
+                agent.isStopped = true;
                 
             }
             else
             {
                 animator.SetBool(ATTACK, false);
+                agent.isStopped = false;
                 
             }
         }
