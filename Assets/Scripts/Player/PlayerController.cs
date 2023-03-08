@@ -113,6 +113,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
                 velocityHistory.Dequeue();
             }
 
+        // Debug.DrawRay(transform.position, transform.forward, Color.red, 100);
             velocityHistory.Enqueue(rb.velocity);
             lastPositionTime = Time.time;
         }
