@@ -28,7 +28,9 @@ public class GameManager : MonoBehaviour
     public bool inGame;
     public bool fading;
     public bool waitForFade;
-    public int enemiesRemaining;
+    public List<Enemy> aliveEnemies;
+    public int currentWave;
+    public int maxWave;
     
     void Awake()
     {

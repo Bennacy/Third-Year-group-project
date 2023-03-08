@@ -577,7 +577,9 @@ MonoBehaviour:
   inGame: 0
   fading: 0
   waitForFade: 0
-  enemiesRemaining: 0
+  aliveEnemies: []
+  currentWave: 1
+  maxWave: 0
 --- !u!95 &1559406631154296510
 Animator:
   serializedVersion: 4
