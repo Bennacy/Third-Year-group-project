@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc1cab3236f7ec4f8af027cde9fd915, type: 3}
   m_Name: Necromancer
   m_EditorClassIdentifier: 
-  health: 250
+  health: 175
   attackDelay: 1
   attackRadius: 1.5
   updateRate: 0.01

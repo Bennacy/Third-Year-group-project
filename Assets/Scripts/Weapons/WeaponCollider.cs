@@ -43,7 +43,7 @@ public class WeaponCollider : MonoBehaviour
         
         if(!CheckIfHit(other.gameObject) && damageable != null){
             hitEntities.Add(other.gameObject);
-            damageable.Damage(Random.Range(50, 99));
+            damageable.Damage(25);
         }
     }
 }

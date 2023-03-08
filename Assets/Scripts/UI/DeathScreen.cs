@@ -28,7 +28,7 @@ public class DeathScreen : MonoBehaviour
     void SetTimeText(){
         int totalTime = Mathf.RoundToInt(GameManager.Instance.time);
         int seconds = totalTime % 60;
-        int minutes = totalTime - seconds;
+        int minutes = (totalTime - seconds) / 60;
         timeText.text = "You survived for " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
 
         int kills = GameManager.Instance.enemiesKilled;

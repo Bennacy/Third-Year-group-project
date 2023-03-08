@@ -117,6 +117,7 @@ public class Enemy : MonoBehaviour, IHasHealth
 
     public void Damage(int damageVal)
     {
+        damageVal = 50;
         health -= damageVal;
         Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0 && animator != null)

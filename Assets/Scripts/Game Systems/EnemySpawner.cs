@@ -86,6 +86,7 @@ public class EnemySpawner : MonoBehaviour
 
 
                 enemiesRemaining--;
+                GameManager.Instance.enemiesRemaining = enemiesRemaining;
 
                 yield return new WaitForSeconds(spawnDelay);
             }
@@ -93,7 +94,7 @@ public class EnemySpawner : MonoBehaviour
             if (spawnedEnemies.Count == 0 && enemiesRemaining == 0)
             {
                 currentWave++;
-                totalEnemies = totalEnemies += Random.Range(0, 6);
+                totalEnemies = totalEnemies += Random.Range(2, 6);
                 enemiesRemaining = totalEnemies;
                 Debug.Log(currentWave);
                 yield return new WaitForSeconds(waveDelay);
