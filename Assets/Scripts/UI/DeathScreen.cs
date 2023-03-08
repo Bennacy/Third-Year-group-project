@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class VictoryScreen : MonoBehaviour
+public class DeathScreen : MonoBehaviour
 {
     public TextMeshProUGUI timeText;
-    public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI killsText;
     private Animator animator;
     
     void Start()
@@ -29,15 +29,21 @@ public class VictoryScreen : MonoBehaviour
         int totalTime = Mathf.RoundToInt(GameManager.Instance.time);
         int seconds = totalTime % 60;
         int minutes = totalTime - seconds;
-        timeText.text = "You took " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
+        timeText.text = "You survived for " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
 
-        if(GameManager.Instance.newHighScore){
-            highScoreText.text = "New high score!";
-        }else{
-            int hs_totalTime = Mathf.RoundToInt(GameManager.Instance.highScore);
-            int hs_seconds = hs_totalTime % 60;
-            int hs_minutes = hs_totalTime - hs_seconds;
-            highScoreText.text = "High score: " + hs_minutes.ToString().PadLeft(2, '0') + ":" + hs_seconds.ToString().PadLeft(2, '0');
+        int kills = GameManager.Instance.enemiesKilled;
+        switch(kills){
+            case 0: 
+                killsText.text = "You didn't kill any enemies";
+                break;
+
+            case 1:
+                killsText.text = "You killed " + kills + " enemy";
+                break;
+
+            default:
+                killsText.text = "You killed " + kills + " enemies";
+                break;
         }
     }
 

@@ -49,6 +49,13 @@ public class EnemySpawner : MonoBehaviour
 
    private IEnumerator SpawnWaves()
     {
+        while(GameManager.Instance.playerController == null){
+            //Does nothing but wait for a frame
+            //For some reason the GameManager sometimes loads the playerController before this script needs it
+            //But other times it doesn't, and this script breaks because of null reference
+            yield return null;
+        }
+        
         //for (int i = 0; i < numWaves; i++)
         //{
         //    for (int j = 0; j < enemiesPerWave; j++)
@@ -127,6 +134,7 @@ public class EnemySpawner : MonoBehaviour
 
     void FindClosestSpawnPoints(){
         PlayerController playerController = GameManager.Instance.playerController;
+        Debug.Log(playerController);
 
         closestSpawnPoints = new Transform[spawnPointCount];
         float maxDistance = 0;
