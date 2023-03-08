@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public bool inGame;
     public bool fading;
     public bool waitForFade;
+    public int enemiesRemaining;
     
     void Awake()
     {
