@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -401,7 +401,7 @@ PrefabInstance:
     - target: {fileID: 2200808811451503914, guid: 5d78e8536a3325b4089a9354642c1020,
         type: 3}
       propertyPath: playerHealth
-      value: 50
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2200808811451503921, guid: 5d78e8536a3325b4089a9354642c1020,
         type: 3}
@@ -2072,11 +2072,11 @@ MonoBehaviour:
   spawnPointCount: 3
   spawnedEnemies: []
   startingEnemiesPerWave: 5
-  totalEnemies: 1
+  totalEnemies: 5
   numWaves: 5
-  totalWaves: 1
-  waveDelay: 1
-  spawnDelay: 0
+  totalWaves: 3
+  waveDelay: 7
+  spawnDelay: 2
 --- !u!4 &1190306309
 Transform:
   m_ObjectHideFlags: 0
