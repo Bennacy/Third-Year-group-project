@@ -904,6 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeText: {fileID: 500648910}
+  killsText: {fileID: 492923422}
   highScoreText: {fileID: 60254308}
 --- !u!95 &526803541
 Animator:
