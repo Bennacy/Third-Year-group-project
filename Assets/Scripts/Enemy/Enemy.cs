@@ -9,13 +9,19 @@ public class Enemy : MonoBehaviour, IHasHealth
     public MoveToTarget movement;
     public NavMeshAgent agent;
     public EnemyScriptableObject enemyScriptableObject;
-    public GameObject player;
+    public PlayerController player;
     [SerializeField]
     private Animator animator;
     private WeaponHandler weaponHandler;
+    private MoveToTarget moveToTarget;
     [Space(10)]
 
     public float attackDelay = 1f;
+    public bool attacking;
+    public float facingThreshold;
+    public float facingAngle;
+    public bool facingPlayer;
+    public float rotateSpeed;
 
     public int maxHealth { get; set; }
     public int health { get; set; }
@@ -32,7 +38,9 @@ public class Enemy : MonoBehaviour, IHasHealth
     public virtual void Start()
     {
         SetupEnemyFromConfig();
+        player = GameManager.Instance.playerController;
         weaponHandler = GetComponent<WeaponHandler>();
+        moveToTarget = GetComponent<MoveToTarget>();
         
     }
 
@@ -44,15 +52,27 @@ public class Enemy : MonoBehaviour, IHasHealth
 
     private void Update()
     {
-        Attack();
+        Vector3 playerPosition = player.transform.position;
+        playerPosition.y = transform.position.y;
+        Vector3 playerDirection = (playerPosition - transform.position);
+
+        facingAngle = Vector3.Angle(transform.forward, playerDirection);
+        facingPlayer = (facingAngle < facingThreshold);
+
+        if(!facingPlayer){
+            Debug.Log("Facing player");
+            transform.LookAt(playerPosition, Vector3.up);
+            return;
+        }
         
+        Attack();
     }
 
     
 
     public void Attack()
     {
-        if (health > 0)
+        if (health > 0 && !attacking)
         {
 
 
@@ -60,11 +80,13 @@ public class Enemy : MonoBehaviour, IHasHealth
             {
 
                 animator.SetBool(ATTACK, true);
+                agent.isStopped = true;
                 
             }
             else
             {
                 animator.SetBool(ATTACK, false);
+                agent.isStopped = false;
                 
             }
         }

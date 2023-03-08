@@ -18,6 +18,9 @@ public class PlayerHUD : MonoBehaviour
     private float healthBar_TargetWidth;
     private int healthBar_PreviousHealth;
 
+    public TextMeshProUGUI enemiesRemaining;
+    public TextMeshProUGUI waveCount;
+
 
     void Start()
     {
@@ -30,6 +33,8 @@ public class PlayerHUD : MonoBehaviour
     void Update()
     {
         UpdateHealthBar();
+        enemiesRemaining.text = "Enemies remaining: " + GameManager.Instance.aliveEnemies.Count;
+        waveCount.text = "Wave " + GameManager.Instance.currentWave + "/" + GameManager.Instance.maxWave;
     }
 
     void InitializeHealthBar(){

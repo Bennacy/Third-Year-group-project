@@ -99,7 +99,7 @@ MonoBehaviour:
   runDist: 7
   stopDist: 3
   updateRate: 0.01
-  useMovementPrediction: 1
+  useMovementPrediction: 0
   movementThreshold: 0
   movementPredictionTime: 1
   animator: {fileID: 1804137347993030241}
@@ -182,6 +182,11 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 1804137347993030241}
   attackDelay: 1
+  facingThreshold: 15
+  facingAngle: 0
+  facingPlayer: 0
+  rotateSpeed: 0
+  spawner: {fileID: 0}
 --- !u!114 &2782952454916491803
 MonoBehaviour:
   m_ObjectHideFlags: 0

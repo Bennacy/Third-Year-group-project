@@ -38,6 +38,8 @@ public class EnemySpawner : MonoBehaviour
         enemiesPerWave = startingEnemiesPerWave;
         enemiesRemaining = totalEnemies;
         StartCoroutine(SpawnWaves());
+        GameManager.Instance.aliveEnemies = spawnedEnemies;
+        GameManager.Instance.maxWave = totalWaves;
     }
 
     void Update()
@@ -86,7 +88,6 @@ public class EnemySpawner : MonoBehaviour
 
 
                 enemiesRemaining--;
-                GameManager.Instance.enemiesRemaining = enemiesRemaining;
 
                 yield return new WaitForSeconds(spawnDelay);
             }
@@ -94,6 +95,7 @@ public class EnemySpawner : MonoBehaviour
             if (spawnedEnemies.Count == 0 && enemiesRemaining == 0)
             {
                 currentWave++;
+                GameManager.Instance.currentWave = currentWave;
                 totalEnemies = totalEnemies += Random.Range(2, 6);
                 enemiesRemaining = totalEnemies;
                 Debug.Log(currentWave);
