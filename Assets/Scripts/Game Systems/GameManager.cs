@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public bool paused;
     public bool won;
+    public bool died;
     public float time;
     public float highScore;
     public int currency;
@@ -60,11 +61,19 @@ public class GameManager : MonoBehaviour
                     highScore = time;
                 }
             }
+            if(died){
+                LoadScene("Death Screen");
+            }
         }
 
         if(won && inGame && !waitForFade){
             inGame = false;
             FadeInImage(1, null, Color.black);
+            waitForFade = true;
+        }
+        if(died && inGame && !waitForFade){
+            inGame = false;
+            FadeInImage(.3f, null, Color.black);
             waitForFade = true;
         }
     }
@@ -73,10 +82,13 @@ public class GameManager : MonoBehaviour
         if(GetPlayerController()){
             inGame = true;
             won = false;
+            died = false;
             newHighScore = false;
             enemiesKilled = 0;
             time = 0;
             currency = 0;
+
+            FadeOutImage(1.25f, null, Color.black);
             return;
         }
 

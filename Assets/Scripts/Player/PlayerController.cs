@@ -231,8 +231,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
         Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0)
         {
-            Debug.Log("Killed!!!!");
-            gameObject.SetActive(false);
+            GameManager.Instance.died = true;
         }
     }
 
