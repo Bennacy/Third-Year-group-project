@@ -27,4 +27,4 @@ MonoBehaviour:
   Speed: 3.5
   StoppingDistance: 0.5
   prefab: {fileID: 635990544411756543, guid: 8d9f0a055887d2b4d8b41f8bd1f43c8a, type: 3}
-  spawnWeight: 1
+  spawnWeight: 0.3
