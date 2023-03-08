@@ -2184,10 +2184,10 @@ MonoBehaviour:
   spawnPointCount: 3
   spawnedEnemies: []
   startingEnemiesPerWave: 5
-  totalEnemies: 1
+  totalEnemies: 5
   numWaves: 5
   totalWaves: 3
-  waveDelay: 7
+  waveDelay: 5
   spawnDelay: 2
 --- !u!4 &1190306309
 Transform:
