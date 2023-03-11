@@ -151,9 +151,7 @@ public class Enemy : MonoBehaviour, IHasHealth
         }
         if (animator.enabled == false && health <= 0)
         {
-            spawner.spawnedEnemies.Remove(this);
-            GameManager.Instance.enemiesKilled++;
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -164,6 +162,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     }
 
     public void Die(){
+        GameManager.Instance.playerController.GetComponent<IHasHealth>().Damage(-10);
         spawner.spawnedEnemies.Remove(this);
         GameManager.Instance.enemiesKilled++;
         Destroy(gameObject);
