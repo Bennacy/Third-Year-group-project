@@ -961,6 +961,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Rebinding",
+            "id": "939d4630-baf0-4df1-b037-368272226b4b",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [

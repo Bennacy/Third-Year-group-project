@@ -49,13 +49,17 @@ public class PlayerController : MonoBehaviour, IHasHealth
     public int playerHealth = 250;
     public int maxHealth { get; set; }
     public int health { get; set; }
+    [Space(10)]
 
-    // [Header("Input")]
-    // private InputAction moveAction;
-    // private InputAction controlCamAction;
-    // private InputAction sprintAction;
-    // private InputAction attackAction;
-    // private InputAction blockAction;
+    [Header("Input")]
+    private InputActionRebindingExtensions.RebindingOperation rebindingOperation;
+    private InputAction moveAction;
+    private InputAction controlCamAction;
+    private InputAction sprintAction;
+    private InputAction attackAction;
+    private InputAction blockAction;
+    private InputAction pauseAction;
+    private InputAction unpauseAction;
 
     void Awake()
     {
@@ -65,28 +69,28 @@ public class PlayerController : MonoBehaviour, IHasHealth
         moveSpeed = walkSpeed;
         playerInput = GetComponent<PlayerInput>();
 
-        InputAction controlCamAction = playerInput.actions["Look"];
+        controlCamAction = playerInput.actions["Look"];
         controlCamAction.performed += context => MoveCamera(context);
 
-        InputAction sprintAction = playerInput.actions["Sprint"];
+        sprintAction = playerInput.actions["Sprint"];
         sprintAction.performed += context => Sprint(context);
         sprintAction.canceled += context => Sprint(context);
 
-        InputAction moveAction = playerInput.actions["Move"];
+        moveAction = playerInput.actions["Move"];
         moveAction.performed += context => MovePlayer(context);
         moveAction.canceled += context => MovePlayer(context);
 
-        InputAction attackAction = playerInput.actions["Attack"];
+        attackAction = playerInput.actions["Attack"];
         attackAction.performed += context => Attack(context);
 
-        InputAction blockAction = playerInput.actions["Block"];
+        blockAction = playerInput.actions["Block"];
         blockAction.performed += context => Block(context);
         blockAction.canceled += context => Block(context);
 
-        InputAction pauseAction = playerInput.actions["Pause"];
+        pauseAction = playerInput.actions["Pause"];
         pauseAction.performed += context => GameManager.Instance.TogglePause();
 
-        InputAction unpauseAction = playerInput.actions["Unpause"];
+        unpauseAction = playerInput.actions["Unpause"];
         unpauseAction.performed += context => GameManager.Instance.TogglePause();
 
         maxQueueSize = Mathf.CeilToInt(1f / positionHistoryInterval * positionHistoryDuration);
@@ -117,6 +121,22 @@ public class PlayerController : MonoBehaviour, IHasHealth
             velocityHistory.Enqueue(rb.velocity);
             lastPositionTime = Time.time;
         }
+
+
+        // if(Input.GetKeyDown(KeyCode.Space)){
+        //     playerInput.SwitchCurrentActionMap("Rebinding");
+
+        //     rebindingOperation = moveAction.PerformInteractiveRebinding()
+        //         .WithControlsExcluding("Mouse")
+        //         .OnMatchWaitForAnother(.1f)
+        //         .WithCancelingThrough("<Keyboard>/P")
+        //         .OnComplete(operation => {
+        //             Debug.Log("Done");
+        //             playerInput.SwitchCurrentActionMap("In-Game");
+        //             rebindingOperation.Dispose();
+        //         })
+        //         .Start();
+        // }
     }
 
     void FixedUpdate()
