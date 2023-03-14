@@ -94,6 +94,11 @@ public class EnemySpawner : MonoBehaviour
 
             if (spawnedEnemies.Count == 0 && enemiesRemaining == 0)
             {
+                if(currentWave % 2 == 0){
+                    GameManager.Instance.raiseDrawbridge = true;
+                }else{
+                    GameManager.Instance.lowerDrawbridge = true;
+                }
                 currentWave++;
                 GameManager.Instance.currentWave = currentWave;
                 totalEnemies = totalEnemies += Random.Range(2, 6);

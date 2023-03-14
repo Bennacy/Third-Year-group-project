@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviour
     public List<Enemy> aliveEnemies;
     public int currentWave;
     public int maxWave;
+
+    [Space(10)]
+    [Header("Map Variables")]
+    public bool lowerDrawbridge;
+    public bool raiseDrawbridge;
     
     void Awake()
     {
