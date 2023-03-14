@@ -126,10 +126,12 @@ public class PlayerController : MonoBehaviour, IHasHealth
             speedValue = blockSpeed;
         }
         
-        Vector3 gravity = new Vector3(0, rb.velocity.y, 0);
-        Vector3 vel = moveDirection.y * transform.forward + moveDirection.x * transform.right;
-        vel *= speedValue;
-        rb.velocity = ((vel + gravity));
+        if(!attacking){
+            Vector3 gravity = new Vector3(0, rb.velocity.y, 0);
+            Vector3 vel = moveDirection.y * transform.forward + moveDirection.x * transform.right;
+            vel *= speedValue;
+            rb.velocity = ((vel + gravity));
+        }
         
         rb.AddForce(Physics.gravity * gravityForce);
     }
