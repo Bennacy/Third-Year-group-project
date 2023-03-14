@@ -5,6 +5,7 @@ using UnityEngine;
 public class DrawbridgeController : MonoBehaviour
 {
     public GameObject blocker;
+    public GameObject blocker2;
     public bool blockerActive;
     private Animator animator;
     
@@ -19,6 +20,7 @@ public class DrawbridgeController : MonoBehaviour
     {
         if(blockerActive != blocker.activeSelf){
             blocker.SetActive(blockerActive);
+            blocker2.SetActive(blockerActive);
         }
         
         if(GameManager.Instance.lowerDrawbridge){

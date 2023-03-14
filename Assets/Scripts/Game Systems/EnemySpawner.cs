@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     
     [Header("References")]
     
+    public HordeController hordeController;
     public EnemyScriptableObject[] enemyTypes;
     public Transform[] spawnPoints;
     public Transform[] closestSpawnPoints;
@@ -84,6 +85,8 @@ public class EnemySpawner : MonoBehaviour
                 Enemy tempEnemy = Instantiate(prefab, randomSpawnPoint.position, randomSpawnPoint.rotation).GetComponent<Enemy>();
                 tempEnemy.transform.parent = transform;
                 tempEnemy.spawner = this;
+                tempEnemy.hordeController = hordeController;
+                hordeController.enemies.Add(tempEnemy);
                 spawnedEnemies.Add(tempEnemy);
 
 

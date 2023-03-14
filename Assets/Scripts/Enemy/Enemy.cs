@@ -10,13 +10,15 @@ public class Enemy : MonoBehaviour, IHasHealth
     public NavMeshAgent agent;
     public EnemyScriptableObject enemyScriptableObject;
     public PlayerController player;
-    [SerializeField]
-    private Animator animator;
+    [SerializeField] private Animator animator;
     private WeaponHandler weaponHandler;
     private MoveToTarget moveToTarget;
+    public EnemySpawner spawner;
+    public HordeController hordeController;
     [Space(10)]
 
     public float attackDelay = 1f;
+    public bool canAttack;
     public bool attacking;
     public float facingThreshold;
     public float facingAngle;
@@ -25,7 +27,6 @@ public class Enemy : MonoBehaviour, IHasHealth
 
     public int maxHealth { get; set; }
     public int health { get; set; }
-    public EnemySpawner spawner;
 
     
 
@@ -41,7 +42,6 @@ public class Enemy : MonoBehaviour, IHasHealth
         player = GameManager.Instance.playerController;
         weaponHandler = GetComponent<WeaponHandler>();
         moveToTarget = GetComponent<MoveToTarget>();
-        
     }
 
     private void Awake()
@@ -60,12 +60,22 @@ public class Enemy : MonoBehaviour, IHasHealth
         facingPlayer = (facingAngle < facingThreshold);
 
         if(!facingPlayer){
-            Debug.Log("Facing player");
             transform.LookAt(playerPosition, Vector3.up);
             return;
         }
-        
+
+        if(!canAttack)
+            return;
+
         Attack();
+        
+        if(Vector3.Distance(transform.position, playerPosition) > hordeController.threshold){
+            animator.SetBool(ATTACK, false);
+            agent.isStopped = false;
+            hordeController.attackingEnemies.Remove(this);
+            agent.stoppingDistance = hordeController.threshold - 1;
+            canAttack = false;
+        }
     }
 
     
@@ -74,27 +84,17 @@ public class Enemy : MonoBehaviour, IHasHealth
     {
         if (health > 0 && !attacking)
         {
-
-
             if (agent.remainingDistance < 2.5f)
             {
-
                 animator.SetBool(ATTACK, true);
                 agent.isStopped = true;
-                
             }
             else
             {
                 animator.SetBool(ATTACK, false);
                 agent.isStopped = false;
-                
             }
         }
-
-        
-        
-            
-        
     }
 
     public virtual void SetupEnemyFromConfig()
@@ -164,6 +164,10 @@ public class Enemy : MonoBehaviour, IHasHealth
     public void Die(){
         GameManager.Instance.playerController.GetComponent<IHasHealth>().Damage(-10);
         spawner.spawnedEnemies.Remove(this);
+        hordeController.enemies.Remove(this);
+        if(canAttack)
+            hordeController.attackingEnemies.Remove(this);
+            
         GameManager.Instance.enemiesKilled++;
         Destroy(gameObject);
     }
