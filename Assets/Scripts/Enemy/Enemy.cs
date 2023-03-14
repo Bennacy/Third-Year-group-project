@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     public HordeController hordeController;
     [Space(10)]
 
+
     public float attackDelay = 1f;
     public bool canAttack;
     public bool attacking;
@@ -28,8 +30,10 @@ public class Enemy : MonoBehaviour, IHasHealth
     public int maxHealth { get; set; }
     public int health { get; set; }
 
-    
+    public GameObject healthPickUp;
 
+
+    
     
 
     
@@ -169,6 +173,20 @@ public class Enemy : MonoBehaviour, IHasHealth
             hordeController.attackingEnemies.Remove(this);
             
         GameManager.Instance.enemiesKilled++;
+        float healthChance = Random.Range(0, 2);
+        Debug.Log(healthChance);
+        if (healthChance > 0.5)
+        {
+            Instantiate(healthPickUp, transform.position, transform.rotation);
+        }
+
+
+        
         Destroy(gameObject);
+        
+        
     }
+
+     
+    
 }
