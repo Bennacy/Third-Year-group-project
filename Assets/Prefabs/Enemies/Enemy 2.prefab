@@ -182,11 +182,14 @@ MonoBehaviour:
   player: {fileID: 0}
   animator: {fileID: 1804137347993030241}
   attackDelay: 1
+  attacking: 0
   facingThreshold: 15
   facingAngle: 0
   facingPlayer: 0
   rotateSpeed: 0
   spawner: {fileID: 0}
+  healthPickUp: {fileID: 4917739066559150413, guid: 9fd7d39b511714c498119ea8f781509b,
+    type: 3}
 --- !u!114 &2782952454916491803
 MonoBehaviour:
   m_ObjectHideFlags: 0

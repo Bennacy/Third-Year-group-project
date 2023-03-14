@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +17,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     private MoveToTarget moveToTarget;
     [Space(10)]
 
+
     public float attackDelay = 1f;
     public bool attacking;
     public float facingThreshold;
@@ -27,8 +29,10 @@ public class Enemy : MonoBehaviour, IHasHealth
     public int health { get; set; }
     public EnemySpawner spawner;
 
-    
+    public GameObject healthPickUp;
 
+
+    
     
 
     
@@ -64,7 +68,7 @@ public class Enemy : MonoBehaviour, IHasHealth
             transform.LookAt(playerPosition, Vector3.up);
             return;
         }
-        
+      
         Attack();
     }
 
@@ -165,6 +169,20 @@ public class Enemy : MonoBehaviour, IHasHealth
         GameManager.Instance.playerController.GetComponent<IHasHealth>().Damage(-10);
         spawner.spawnedEnemies.Remove(this);
         GameManager.Instance.enemiesKilled++;
+        float healthChance = Random.Range(0, 2);
+        Debug.Log(healthChance);
+        if (healthChance > 0.5)
+        {
+            Instantiate(healthPickUp, transform.position, transform.rotation);
+        }
+
+
+        
         Destroy(gameObject);
+        
+        
     }
+
+     
+    
 }
