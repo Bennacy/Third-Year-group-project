@@ -32,10 +32,9 @@ public class FloatingHealthBar : MonoBehaviour
         canvas.transform.rotation = Quaternion.Euler(rotation);
         
         if(parent.health < previousHealth){
-            StartCoroutine(FlashBar());
+            StartCoroutine(UpdateBarWidth());
         }
         
-        targetWidth = (parent.health*maxWidth) / parent.maxHealth;
         Vector2 newSize = barTransform.sizeDelta;
         newSize.x = Mathf.Lerp(newSize.x, targetWidth, 5*Time.deltaTime);
         barTransform.sizeDelta = newSize;
@@ -43,7 +42,8 @@ public class FloatingHealthBar : MonoBehaviour
         previousHealth = parent.health;
     }
 
-    IEnumerator FlashBar(){
+    IEnumerator UpdateBarWidth(){
+        targetWidth = (parent.health*maxWidth) / parent.maxHealth;
         for(int i = 0; i < 4; i++){
             frontImage.color = (i % 2 == 0) ? flashColor : frontColor;
             yield return new WaitForSeconds(.05f);

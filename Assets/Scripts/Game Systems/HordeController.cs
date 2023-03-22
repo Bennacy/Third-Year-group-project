@@ -6,9 +6,8 @@ public class HordeController : MonoBehaviour
 {
     public List<Enemy> enemies;
     public List<Enemy> attackingEnemies;
-    public int attackingMaxCount;
-    public float attackDistanceThreshold;
-    public float teleportDistanceThreshold;
+    public int attackingMax;
+    public float threshold;
 
     public float radiusAroundTarget = 0.5f;
     PlayerController playerController;
@@ -20,7 +19,7 @@ public class HordeController : MonoBehaviour
 
     void Update()
     {
-        if(attackingEnemies.Count < attackingMaxCount && attackingEnemies.Count < enemies.Count){
+        if(attackingEnemies.Count < attackingMax && attackingEnemies.Count < enemies.Count){
             Enemy adding = ClosestEnemy();
             attackingEnemies.Add(adding);
             adding.canAttack = true;
