@@ -9,9 +9,12 @@ public class HordeController : MonoBehaviour
     public int attackingMax;
     public float threshold;
 
+    public float radiusAroundTarget = 0.5f;
+    PlayerController playerController;
+
     void Start()
     {
-        
+       playerController = GameManager.Instance.playerController;
     }
 
     void Update()
@@ -27,7 +30,7 @@ public class HordeController : MonoBehaviour
     private Enemy ClosestEnemy(){
         float closestDistance = Mathf.Infinity;
         Enemy closestEnemy = null;
-        PlayerController playerController = GameManager.Instance.playerController;
+        
 
         foreach(Enemy enemy in enemies){
             if(!enemy.canAttack){
@@ -40,5 +43,16 @@ public class HordeController : MonoBehaviour
         }
 
         return closestEnemy;
+    }
+
+    public void SurroundPlayer()
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            enemies[i].agent.SetDestination(new Vector3(
+                playerController.transform.position.x + radiusAroundTarget * Mathf.Cos(2 * Mathf.PI * i / enemies.Count),
+                playerController.transform.position.y,
+                playerController.transform.position.z + radiusAroundTarget * Mathf.Sin(2 * Mathf.PI * i / enemies.Count)));
+        }
     }
 }

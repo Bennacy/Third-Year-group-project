@@ -33,11 +33,14 @@ public class MoveToTarget : MonoBehaviour
     private const string walkParam = "isMoving";
     private const string runParam = "isRunning";
 
+    public HordeController controller;
+
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        controller = FindObjectOfType<HordeController>();
        // this.enabled = true;
         //player = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -64,7 +67,8 @@ public class MoveToTarget : MonoBehaviour
         {
             if (!useMovementPrediction)
             {
-                agent.SetDestination(player.transform.position - (player.transform.position - transform.position).normalized * 0.5f);
+                //agent.SetDestination(player.transform.position - (player.transform.position - transform.position).normalized * 0.5f);
+                controller.SurroundPlayer();
             }
             else
             {
@@ -102,6 +106,7 @@ public class MoveToTarget : MonoBehaviour
         if (dist < runDist)
         {
             agent.speed = 5;
+            
         }
         else
         {
@@ -110,6 +115,7 @@ public class MoveToTarget : MonoBehaviour
 
         if (dist < stopDist)
         {
+            
             agent.isStopped = true;
         }
         else 
