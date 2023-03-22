@@ -221,12 +221,16 @@ MonoBehaviour:
     type: 2}
   player: {fileID: 0}
   animator: {fileID: 4336217652656611437}
+  spawner: {fileID: 0}
+  hordeController: {fileID: 0}
   attackDelay: 1
+  canAttack: 0
+  attacking: 0
   facingThreshold: 15
   facingAngle: 0
   facingPlayer: 0
   rotateSpeed: 0
-  spawner: {fileID: 0}
+  healthPickUp: {fileID: 0}
 --- !u!114 &3744379899860865187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +251,7 @@ MonoBehaviour:
   movementThreshold: 0
   movementPredictionTime: 1
   animator: {fileID: 4336217652656611437}
+  controller: {fileID: 0}
 --- !u!114 &731807551569706611
 MonoBehaviour:
   m_ObjectHideFlags: 0

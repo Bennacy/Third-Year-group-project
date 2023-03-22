@@ -245,7 +245,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }
     }
 
-    void IHasHealth.Damage(int damageVal)
+    public void Damage(int damageVal)
     {
         if(blocking)
             damageVal /= 5;
@@ -258,9 +258,21 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }
     }
 
-    void IHasHealth.Recover(int recoverVal)
+   public void Recover(int recoverVal)
     {
         health = Mathf.Clamp(health + recoverVal, 0, maxHealth);
         Debug.Log(health);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Health")
+        {
+            if(health < 250) 
+            {
+                Recover(25);
+                Destroy(other.gameObject);
+            }
+        }
     }
 }
