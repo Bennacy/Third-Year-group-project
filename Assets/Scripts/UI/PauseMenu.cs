@@ -41,6 +41,10 @@ public class PauseMenu : MonoBehaviour
         GameManager.Instance.Quit();
     }
 
+    public void BackToMain(){
+        GameManager.Instance.LoadScene("Title Screen");
+    }
+
     public void DisableAll(){
         playingAnim = false;
         menu.SetActive(false);

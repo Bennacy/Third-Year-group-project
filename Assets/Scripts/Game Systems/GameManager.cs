@@ -90,10 +90,14 @@ public class GameManager : MonoBehaviour
 
     void NewScene(){
         if(GetPlayerController()){
+            uiAnimator = GetComponentInChildren<Animator>();
             inGame = true;
             won = false;
+            paused = false;
+            Time.timeScale = 1;
             died = false;
             newHighScore = false;
+            currentWave = 1;
             enemiesKilled = 0;
             time = 0;
             currency = 0;

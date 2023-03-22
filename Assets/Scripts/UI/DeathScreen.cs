@@ -12,11 +12,11 @@ public class DeathScreen : MonoBehaviour
     
     void Start()
     {
-        GameManager.Instance.FadeOutImage(1, null, Color.black);
-
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None; 
         SetTimeText();
+        
+        GameManager.Instance.FadeOutImage(1, null, Color.black);
     }
 
     // Update is called once per frame

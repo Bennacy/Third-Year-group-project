@@ -93,7 +93,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     {
         if (health > 0 && !attacking)
         {
-            if (agent.remainingDistance < 2.5f)
+            if (agent.remainingDistance < .5f)
             {
                 animator.SetBool(ATTACK, true);
                 agent.isStopped = true;

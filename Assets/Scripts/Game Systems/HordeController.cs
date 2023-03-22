@@ -50,10 +50,13 @@ public class HordeController : MonoBehaviour
     {
         for (int i = 0; i < enemies.Count; i++)
         {
-            enemies[i].agent.SetDestination(new Vector3(
-                playerController.transform.position.x + radiusAroundTarget * Mathf.Cos( Mathf.PI * i / enemies.Count),
-                playerController.transform.position.y,
-                playerController.transform.position.z + radiusAroundTarget * Mathf.Sin( Mathf.PI * i / enemies.Count)));
+            if(!attackingEnemies.Contains(enemies[i])){
+                enemies[i].agent.SetDestination(new Vector3(
+                    playerController.transform.position.x + radiusAroundTarget * Mathf.Cos( Mathf.PI * i / enemies.Count),
+                    playerController.transform.position.y,
+                    playerController.transform.position.z + radiusAroundTarget * Mathf.Sin( Mathf.PI * i / enemies.Count))
+                );
+            }
         }
     }
 }
