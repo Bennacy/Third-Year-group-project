@@ -524,9 +524,6 @@ MonoBehaviour:
   blocker: {fileID: 142765945}
   blocker2: {fileID: 381434910}
   blockerActive: 1
-  animating: 0
-  finishedAnimation: 0
-  bridgeCam: {fileID: 1863617668}
 --- !u!1 &104259501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,7 +2283,6 @@ MonoBehaviour:
   playerController: {fileID: 0}
   playerInput: {fileID: 0}
   mainCam: {fileID: 0}
-  bridgeCam: {fileID: 1863617668}
   uiAnimator: {fileID: 772607227}
   globalImage: {fileID: 767546080}
   globalText: {fileID: 653802441}
@@ -2304,7 +2300,6 @@ MonoBehaviour:
   aliveEnemies: []
   currentWave: 1
   maxWave: 0
-  hideUI: 0
   lowerDrawbridge: 0
   raiseDrawbridge: 0
 --- !u!4 &772607229
@@ -3216,6 +3211,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: NaN
       objectReference: {fileID: 0}
+    - target: {fileID: 1606613190608114737, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1756632525, guid: 3fa983d8b96930748a0044ce0889fa0e,
+        type: 3}
     - target: {fileID: 1887144787292546101, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3226,6 +3227,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: NaN
       objectReference: {fileID: 0}
+    - target: {fileID: 2040197133040837844, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1104644310, guid: 5bd7e57b5e76e744fa5b246f69dd80b9,
+        type: 3}
     - target: {fileID: 2270217266731572087, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3246,6 +3253,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: NaN
       objectReference: {fileID: 0}
+    - target: {fileID: 5442004581073701497, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1260818233, guid: a6e84da00490b164a851877c0816bea9,
+        type: 3}
     - target: {fileID: 6500392595846161425, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: m_IsActive
@@ -3614,9 +3627,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   attackingEnemies: []
-  attackingMaxCount: 2
-  attackDistanceThreshold: 6
-  teleportDistanceThreshold: 50
+  attackingMax: 0
+  threshold: 0
   radiusAroundTarget: 4
 --- !u!1 &1197773855
 GameObject:
