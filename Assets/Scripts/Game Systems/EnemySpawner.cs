@@ -79,7 +79,7 @@ public class EnemySpawner : MonoBehaviour
 
             while (enemiesRemaining > 0)
             {
-                FindClosestSpawnPoints();
+                closestSpawnPoints = FindClosestSpawnPoints(spawnPointCount);
                 GameObject prefab = SelectEnemyType();
                 Transform randomSpawnPoint = closestSpawnPoints[Random.Range(0, closestSpawnPoints.Length)];
                 Enemy tempEnemy = Instantiate(prefab, randomSpawnPoint.position, randomSpawnPoint.rotation).GetComponent<Enemy>();
@@ -143,15 +143,15 @@ public class EnemySpawner : MonoBehaviour
         return null;
     }
 
-    void FindClosestSpawnPoints(){
+    public Transform[] FindClosestSpawnPoints(int pointCount){
         PlayerController playerController = GameManager.Instance.playerController;
         Debug.Log(playerController);
 
-        closestSpawnPoints = new Transform[spawnPointCount];
+        Transform[] closest = new Transform[pointCount];
         float maxDistance = 0;
         Transform toAdd = null;
         
-        for(int i = 0; i < spawnPointCount; i++){
+        for(int i = 0; i < pointCount; i++){
             float smallestDistance = Mathf.Infinity;
             foreach(Transform currentTransform in spawnPoints){
                 Vector3 pos = currentTransform.position;
@@ -163,7 +163,9 @@ public class EnemySpawner : MonoBehaviour
                 }
             }
             maxDistance = Vector3.Distance(toAdd.position, playerController.transform.position);
-            closestSpawnPoints[i] = toAdd;
+            closest[i] = toAdd;
         }
+
+        return closest;
     }
 }
