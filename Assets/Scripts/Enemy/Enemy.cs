@@ -177,7 +177,7 @@ public class Enemy : MonoBehaviour, IHasHealth
         Debug.Log(healthChance);
         if (healthChance > 0.5)
         {
-            Instantiate(healthPickUp, transform.position, transform.rotation);
+            Instantiate(healthPickUp, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), transform.rotation);
         }
 
 
