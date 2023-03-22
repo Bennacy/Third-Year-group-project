@@ -103,7 +103,7 @@ public class MoveToTarget : MonoBehaviour
 
         animator.SetBool(runParam, agent.velocity.magnitude > 3.6f);
 
-        if (dist < runDist)
+        if (dist > runDist)
         {
             agent.speed = 5;
             
