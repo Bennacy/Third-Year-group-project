@@ -103,7 +103,7 @@ public class MoveToTarget : MonoBehaviour
 
         animator.SetBool(runParam, agent.velocity.magnitude > 3.6f);
 
-        if (dist > runDist)
+        if (dist < runDist)
         {
             agent.speed = 5;
             
@@ -113,15 +113,15 @@ public class MoveToTarget : MonoBehaviour
             agent.speed = 3.5f;
         }
 
-        if (dist < stopDist)
-        {
+        //if (dist < stopDist)
+        //{
             
-            agent.isStopped = true;
-        }
-        else 
-        {
-            agent.isStopped = false;
-        }
+        //    agent.isStopped = true;
+        //}
+        //else 
+        //{
+        //    agent.isStopped = false;
+        //}
     }
 
     void OnTriggerEnter(Collider other)

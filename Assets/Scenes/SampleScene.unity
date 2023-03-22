@@ -2924,7 +2924,7 @@ MonoBehaviour:
   spawnPointCount: 3
   spawnedEnemies: []
   startingEnemiesPerWave: 5
-  totalEnemies: 15
+  totalEnemies: 3
   numWaves: 5
   totalWaves: 6
   waveDelay: 5
@@ -2960,7 +2960,7 @@ MonoBehaviour:
   attackingEnemies: []
   attackingMax: 2
   threshold: 6
-  radiusAroundTarget: 3
+  radiusAroundTarget: 2
 --- !u!1 &1197773855
 GameObject:
   m_ObjectHideFlags: 0
