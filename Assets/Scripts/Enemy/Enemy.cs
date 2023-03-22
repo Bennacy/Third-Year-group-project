@@ -60,6 +60,11 @@ public class Enemy : MonoBehaviour, IHasHealth
         playerPosition.y = transform.position.y;
         Vector3 playerDirection = (playerPosition - transform.position);
 
+        if(Vector3.Distance(transform.position, playerPosition) > hordeController.teleportDistanceThreshold){
+            Transform[] moveTo = spawner.FindClosestSpawnPoints(3);
+            transform.position = moveTo[Random.Range(0, moveTo.Length)].position;
+        }
+
         facingAngle = Vector3.Angle(transform.forward, playerDirection);
         facingPlayer = (facingAngle < facingThreshold);
 
@@ -73,11 +78,11 @@ public class Enemy : MonoBehaviour, IHasHealth
 
         Attack();
         
-        if(Vector3.Distance(transform.position, playerPosition) > hordeController.threshold){
+        if(Vector3.Distance(transform.position, playerPosition) > hordeController.attackDistanceThreshold){
             animator.SetBool(ATTACK, false);
             agent.isStopped = false;
             hordeController.attackingEnemies.Remove(this);
-            agent.stoppingDistance = hordeController.threshold - 1;
+            agent.stoppingDistance = hordeController.attackDistanceThreshold - 1;
             canAttack = false;
         }
     }

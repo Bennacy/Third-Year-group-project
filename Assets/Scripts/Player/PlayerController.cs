@@ -250,7 +250,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
         if(blocking)
             damageVal /= 5;
         
-        health -= damageVal;
+        health = Mathf.Clamp(health-damageVal, 0, maxHealth);
         Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0)
         {

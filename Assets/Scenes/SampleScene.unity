@@ -2028,6 +2028,7 @@ MonoBehaviour:
   aliveEnemies: []
   currentWave: 1
   maxWave: 0
+  hideUI: 0
   lowerDrawbridge: 0
   raiseDrawbridge: 0
 --- !u!4 &772607229
@@ -3092,8 +3093,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   attackingEnemies: []
-  attackingMax: 0
-  threshold: 6
+  attackingMaxCount: 2
+  attackDistanceThreshold: 5
+  teleportDistanceThreshold: 50
 --- !u!1 &1197773855
 GameObject:
   m_ObjectHideFlags: 0

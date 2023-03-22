@@ -62,9 +62,10 @@ public class PlayerHUD : MonoBehaviour
         canvas.transform.rotation = Quaternion.Euler(rotation);
         
         if(playerHealth.health < healthBar_PreviousHealth){
-            StartCoroutine(UpdateHealthBarWidth());
+            StartCoroutine(FlashHeathBar());
         }
         
+        healthBar_TargetWidth = (playerHealth.health*healthBar_MaxWidth) / playerHealth.maxHealth;
         Vector2 newSize = healthBar_Transform.sizeDelta;
         newSize.x = Mathf.Lerp(newSize.x, healthBar_TargetWidth, 5*Time.deltaTime);
         healthBar_Transform.sizeDelta = newSize;
@@ -72,8 +73,7 @@ public class PlayerHUD : MonoBehaviour
         healthBar_PreviousHealth = playerHealth.health;
     }
     
-    IEnumerator UpdateHealthBarWidth(){
-        healthBar_TargetWidth = (playerHealth.health*healthBar_MaxWidth) / playerHealth.maxHealth;
+    IEnumerator FlashHeathBar(){
         for(int i = 0; i < 4; i++){
             healthBar_Front.color = (i % 2 == 0) ? healthBar_FlashColor : healthBar_FrontColor;
             yield return new WaitForSeconds(.05f);
