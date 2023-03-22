@@ -22,7 +22,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1911
+        value: -100
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -31,7 +31,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.022222223
-        value: 1950
+        value: -75
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -40,16 +40,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.044444446
-        value: 1911
-        inSlope: -936
-        outSlope: -936
+        value: -100
+        inSlope: -600
+        outSlope: -600
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.18888889
-        value: 0
+        value: -876
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -60,7 +60,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: Menu/Sword
+    path: Menu/Background/Sword
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -88,7 +88,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Menu/Sword
+    path: Menu/Background/Sword
     classID: 224
     script: {fileID: 0}
   m_PPtrCurves: []
@@ -100,7 +100,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2398602621
+      path: 3646757316
       attribute: 1460864421
       script: {fileID: 0}
       typeID: 224
@@ -108,7 +108,7 @@ AnimationClip:
       isPPtrCurve: 0
       isIntCurve: 0
     - serializedVersion: 2
-      path: 2398602621
+      path: 3646757316
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -142,7 +142,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1911
+        value: -100
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -151,7 +151,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.022222223
-        value: 1950
+        value: -75
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -160,16 +160,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.044444446
-        value: 1911
-        inSlope: -936
-        outSlope: -936
+        value: -100
+        inSlope: -600
+        outSlope: -600
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.18888889
-        value: 0
+        value: -876
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -180,7 +180,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.x
-    path: Menu/Sword
+    path: Menu/Background/Sword
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -208,7 +208,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Menu/Sword
+    path: Menu/Background/Sword
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves: []
