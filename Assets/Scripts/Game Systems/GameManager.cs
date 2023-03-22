@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public PlayerController playerController;
     public PlayerInput playerInput;
     public Camera mainCam;
+    public Camera bridgeCam;
 
     public Animator uiAnimator;
     public Image globalImage;
