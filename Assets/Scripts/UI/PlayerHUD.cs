@@ -17,10 +17,21 @@ public class PlayerHUD : MonoBehaviour
     private float healthBar_MaxWidth;
     private float healthBar_TargetWidth;
     private int healthBar_PreviousHealth;
+    private bool hidingHUD;
 
     public TextMeshProUGUI enemiesRemaining;
     public TextMeshProUGUI waveCount;
 
+
+    public void ToggleHUD(){
+        foreach(Transform child in transform){
+            child.gameObject.SetActive(!hidingHUD);
+        }
+        // healthBar_Front.enabled = !hidingHUD;
+        // healthBar_Background.enabled = !hidingHUD;
+        // enemiesRemaining.enabled = !hidingHUD;
+        // waveCount.enabled = !hidingHUD;
+    }
 
     void Start()
     {
@@ -35,6 +46,10 @@ public class PlayerHUD : MonoBehaviour
         UpdateHealthBar();
         enemiesRemaining.text = "Enemies remaining: " + GameManager.Instance.aliveEnemies.Count;
         waveCount.text = "Wave " + GameManager.Instance.currentWave + "/" + GameManager.Instance.maxWave;
+        if(GameManager.Instance.hideUI != hidingHUD){
+            hidingHUD = GameManager.Instance.hideUI;
+            ToggleHUD();
+        }
     }
 
     void InitializeHealthBar(){

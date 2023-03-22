@@ -7,6 +7,8 @@ public class DrawbridgeController : MonoBehaviour
     public GameObject blocker;
     public GameObject blocker2;
     public bool blockerActive;
+    public bool animating;
+    public bool finishedAnimation;
     private Animator animator;
     public Camera bridgeCam;
     
@@ -19,28 +21,53 @@ public class DrawbridgeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.L)){
+            if(blockerActive)
+                GameManager.Instance.lowerDrawbridge = true;
+            else
+                GameManager.Instance.raiseDrawbridge = true;
+        }
+
         if(blockerActive != blocker.activeSelf){
             blocker.SetActive(blockerActive);
             blocker2.SetActive(blockerActive);
-            // GameManager.Instance.FadeOutImage(0.1f, null, Color.black);
-            bridgeCam.gameObject.SetActive(blockerActive);
+        }
+
+        if(animating && finishedAnimation){
+            animating = false;
+            GameManager.Instance.FadeInOutImage(1.25f, null, Color.black);
+            GameManager.Instance.hideUI = false;
+            bridgeCam.gameObject.SetActive(false);
             Time.timeScale = 1;
         }
         
         if(GameManager.Instance.lowerDrawbridge){
-            GameManager.Instance.lowerDrawbridge = false;
-            // GameManager.Instance.FadeInImage(0.1f, null, Color.black);
-            animator.Play("Lower Bridge");
-            bridgeCam.gameObject.SetActive(true);
-            Time.timeScale = 0;
-            // Time.timeScale = Mathf.Abs(Time.timeScale - 1);
+            LowerDrawbridge();
         }
         if(GameManager.Instance.raiseDrawbridge){
-            GameManager.Instance.raiseDrawbridge = false;
-            // GameManager.Instance.FadeInImage(0.1f, null, Color.black);
-            animator.Play("Raise Bridge");
-            bridgeCam.gameObject.SetActive(true);
-            Time.timeScale = 0;
+            RaiseDrawbridge();
         }
+    }
+
+    void LowerDrawbridge(){
+        GameManager.Instance.lowerDrawbridge = false;
+        GameManager.Instance.FadeInOutImage(1.25f, null, Color.black);
+        animator.Play("Lower Bridge");
+        bridgeCam.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        animating = true;
+        GameManager.Instance.hideUI = true;
+        finishedAnimation = false;
+    }
+
+    void RaiseDrawbridge(){
+        GameManager.Instance.raiseDrawbridge = false;
+        GameManager.Instance.FadeInOutImage(1.25f, null, Color.black);
+        animator.Play("Raise Bridge");
+        bridgeCam.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        animating = true;
+        GameManager.Instance.hideUI = true;
+        finishedAnimation = false;
     }
 }

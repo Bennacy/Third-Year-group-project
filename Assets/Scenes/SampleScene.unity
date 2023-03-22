@@ -524,6 +524,8 @@ MonoBehaviour:
   blocker: {fileID: 142765945}
   blocker2: {fileID: 381434910}
   blockerActive: 1
+  animating: 0
+  finishedAnimation: 0
   bridgeCam: {fileID: 1863617668}
 --- !u!1 &142765945
 GameObject:
@@ -3090,7 +3092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   attackingEnemies: []
-  attackingMax: 2
+  attackingMax: 0
   threshold: 6
 --- !u!1 &1197773855
 GameObject:
@@ -4521,7 +4523,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863617664}
-  m_LocalRotation: {x: -0.108738385, y: 0.43546152, z: 0.053082254, w: 0.8920379}
+  m_LocalRotation: {x: -0.108738355, y: 0.43546146, z: 0.053082235, w: 0.8920379}
   m_LocalPosition: {x: -58.309, y: 2, z: -18.608}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

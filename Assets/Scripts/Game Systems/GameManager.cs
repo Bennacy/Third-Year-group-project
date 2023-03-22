@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public List<Enemy> aliveEnemies;
     public int currentWave;
     public int maxWave;
+    public bool hideUI;
 
     [Space(10)]
     [Header("Map Variables")]
@@ -162,6 +163,15 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Fade Out");
         uiAnimator.Play("Fade Out");
+    }
+
+    public void FadeInOutImage(float fadeTime, Sprite spriteToUse, Color colorToUse){
+        globalImage.sprite = spriteToUse;
+        globalImage.color = colorToUse;
+        uiAnimator.speed = 1 / fadeTime;
+
+        Debug.Log("Fade In-Out");
+        uiAnimator.Play("Fade In-Out");
     }
     #endregion
 }
