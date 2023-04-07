@@ -157,6 +157,7 @@ public class Enemy : MonoBehaviour, IHasHealth
             animator.SetBool(ATTACK, false);
             agent.updatePosition = false;
             agent.updateRotation = false;
+            DisableWeaponCollider();
         }
         if (animator.enabled == false && health <= 0)
         {
@@ -179,7 +180,7 @@ public class Enemy : MonoBehaviour, IHasHealth
             
         GameManager.Instance.enemiesKilled++;
         float healthChance = Random.Range(0, 2);
-        Debug.Log(healthChance);
+        Debug.Log("Health: " + healthChance);
         if (healthChance > 0.5)
         {
             Instantiate(healthPickUp, transform.position, transform.rotation);

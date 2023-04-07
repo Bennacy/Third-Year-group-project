@@ -230,7 +230,8 @@ MonoBehaviour:
   facingAngle: 0
   facingPlayer: 0
   rotateSpeed: 0
-  healthPickUp: {fileID: 0}
+  healthPickUp: {fileID: 4917739066559150413, guid: 9fd7d39b511714c498119ea8f781509b,
+    type: 3}
 --- !u!114 &3744379899860865187
 MonoBehaviour:
   m_ObjectHideFlags: 0
