@@ -7,16 +7,31 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour, IHasHealth
 {
     [Header("References")]
-    public MoveToTarget movement;
     public NavMeshAgent agent;
+    public Vector3 target;
     public EnemyScriptableObject enemyScriptableObject;
     public PlayerController player;
-    [SerializeField] private Animator animator;
+    public Animator animator;
     private WeaponHandler weaponHandler;
-    private MoveToTarget moveToTarget;
+    // private MoveToTarget moveToTarget;
+    // public MoveToTarget movement;
     public EnemySpawner spawner;
     public HordeController hordeController;
     [Space(10)]
+
+
+    // Enemy states
+    public EnemyState currentState;
+    public EnemyAttacking attackingState;
+    public EnemyCircling circlingState;
+    public EnemyRetreating retreatingState;
+    public EnemyPatrolling patrollingState;
+    public EnemyDying dyingState;
+    public EnemyIdle idleState;
+    public Vector3[] patrolPoints;
+    public float circleDistance;
+    public float circleSpeed;
+    public float chaseDistance;
 
 
     public float attackDelay = 1f;
@@ -33,19 +48,29 @@ public class Enemy : MonoBehaviour, IHasHealth
     public GameObject healthPickUp;
 
 
-    
-    
-
-    
 
     private const string ATTACK = "Attack";
+
+    void InitializeStates(){
+        attackingState = new EnemyAttacking(this);
+        idleState = new EnemyIdle(this);
+        circlingState = new EnemyCircling(this);
+        retreatingState = new EnemyRetreating(this);
+        patrollingState = new EnemyPatrolling(this);
+        dyingState = new EnemyDying(this);
+
+        currentState = circlingState;
+        currentState.Init();
+    }
 
     public virtual void Start()
     {
         SetupEnemyFromConfig();
         player = GameManager.Instance.playerController;
         weaponHandler = GetComponent<WeaponHandler>();
-        moveToTarget = GetComponent<MoveToTarget>();
+        // moveToTarget = GetComponent<MoveToTarget>();
+
+        InitializeStates();
     }
 
     private void Awake()
@@ -59,6 +84,8 @@ public class Enemy : MonoBehaviour, IHasHealth
         Vector3 playerPosition = player.transform.position;
         playerPosition.y = transform.position.y;
         Vector3 playerDirection = (playerPosition - transform.position);
+
+        currentState.Tick();
 
         if(Vector3.Distance(transform.position, playerPosition) > hordeController.teleportDistanceThreshold){
             Transform[] moveTo = spawner.FindClosestSpawnPoints(3);
@@ -76,15 +103,15 @@ public class Enemy : MonoBehaviour, IHasHealth
         if(!canAttack)
             return;
 
-        Attack();
+        // Attack();
         
-        if(Vector3.Distance(transform.position, playerPosition) > hordeController.attackDistanceThreshold){
-            animator.SetBool(ATTACK, false);
-            agent.isStopped = false;
-            hordeController.attackingEnemies.Remove(this);
-            agent.stoppingDistance = hordeController.attackDistanceThreshold - 1;
-            canAttack = false;
-        }
+        // if(Vector3.Distance(transform.position, playerPosition) > hordeController.attackDistanceThreshold){
+        //     animator.SetBool(ATTACK, false);
+        //     agent.isStopped = false;
+        //     hordeController.attackingEnemies.Remove(this);
+        //     agent.stoppingDistance = hordeController.attackDistanceThreshold - 1;
+        //     canAttack = false;
+        // }
     }
 
     
@@ -118,7 +145,7 @@ public class Enemy : MonoBehaviour, IHasHealth
         agent.radius = enemyScriptableObject.Radius;
         agent.speed = enemyScriptableObject.Speed;
         agent.stoppingDistance = enemyScriptableObject.StoppingDistance;
-        movement.updateRate = enemyScriptableObject.updateRate;
+        // movement.updateRate = enemyScriptableObject.updateRate;
 
         health = maxHealth = enemyScriptableObject.health;
         attackDelay = enemyScriptableObject.attackDelay;
@@ -150,14 +177,10 @@ public class Enemy : MonoBehaviour, IHasHealth
     {
         damageVal = 50;
         health -= damageVal;
-        Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
+        // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0 && animator != null)
         {
-            animator.Play("Death");
-            animator.SetBool(ATTACK, false);
-            agent.updatePosition = false;
-            agent.updateRotation = false;
-            DisableWeaponCollider();
+            currentState.Transition(dyingState);
         }
         if (animator.enabled == false && health <= 0)
         {
@@ -172,7 +195,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     }
 
     public void Die(){
-        GameManager.Instance.playerController.GetComponent<IHasHealth>().Damage(-10);
+
         spawner.spawnedEnemies.Remove(this);
         hordeController.enemies.Remove(this);
         if(canAttack)
@@ -187,10 +210,7 @@ public class Enemy : MonoBehaviour, IHasHealth
         }
 
 
-        
         Destroy(gameObject);
-        
-        
     }
 
      

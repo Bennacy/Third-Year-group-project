@@ -176,14 +176,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7cc80f893890146914a732c49512c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 1804137347993030240}
   agent: {fileID: 1804137347993030243}
+  target: {x: 0, y: 0, z: 0}
   enemyScriptableObject: {fileID: 11400000, guid: 7b71b5c52458a5f47acbbe33c3f837ec,
     type: 2}
   player: {fileID: 0}
   animator: {fileID: 1804137347993030241}
   spawner: {fileID: 0}
   hordeController: {fileID: 0}
+  patrolPoints: []
+  circleDistance: 5
+  circleSpeed: 2
+  chaseDistance: 10
   attackDelay: 1
   canAttack: 0
   attacking: 0
