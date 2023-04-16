@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: fc521d3c1b813444b8ed98c713573824
+guid: 533cefebbfe8ce44bbf1b5acda949ef1
 ModelImporter:
   serializedVersion: 22103
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 3457976801321553400
+    second: Necromancer_spawn
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -98,7 +101,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

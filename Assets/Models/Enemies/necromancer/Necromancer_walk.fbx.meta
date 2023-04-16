@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: fc521d3c1b813444b8ed98c713573824
+guid: b47cbf19527b81b448a009a49a2c9e7c
 ModelImporter:
   serializedVersion: 22103
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 4680227522206642943
+    second: Necromancer_walk
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -98,7 +101,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
