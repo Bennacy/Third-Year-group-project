@@ -4,8 +4,20 @@ ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable:
   - first:
-      74: 4680227522206642943
-    second: Necromancer_walk
+      74: -5963077861158503591
+    second: Armature|Armature|Armature|Armature|Necromancer_spawn|BaseLayer
+  - first:
+      74: 6856200595130801412
+    second: Armature|Armature|Necromancer_attack|BaseLayer
+  - first:
+      74: -490458268683491684
+    second: Armature|Armature|Necromancer_death|BaseLayer
+  - first:
+      74: 3910984484274867329
+    second: Armature|Armature|Necromancer_spawn|BaseLayer
+  - first:
+      74: 870253862910470705
+    second: Armature|Armature|Necromancer_walk|BaseLayer
   externalObjects: {}
   materials:
     materialImportMode: 2

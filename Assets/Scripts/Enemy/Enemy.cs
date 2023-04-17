@@ -56,17 +56,23 @@ public class Enemy : MonoBehaviour, IHasHealth
 
     private void Update()
     {
-        Vector3 playerPosition = player.transform.position;
-        playerPosition.y = transform.position.y;
-        Vector3 playerDirection = (playerPosition - transform.position);
+       Vector3 playerPosition = player.transform.position;
+        // playerPosition.y = transform.position.y;
+        //Vector3 playerDirection = (playerPosition - transform.position);
 
-        facingAngle = Vector3.Angle(transform.forward, playerDirection);
-        facingPlayer = (facingAngle < facingThreshold);
+        Vector3 direction = (playerPosition - transform.position).normalized;
+        Vector3 flatDirection = Vector3.ProjectOnPlane(direction, transform.up);
+        Quaternion lookRotation = Quaternion.LookRotation(flatDirection, transform.up);
+        transform.rotation = lookRotation;
 
-        if(!facingPlayer){
-            transform.LookAt(playerPosition, Vector3.up);
-            return;
-        }
+
+        //facingAngle = Vector3.Angle(transform.forward, playerDirection);
+        //facingPlayer = (facingAngle < facingThreshold);
+
+        //if(!facingPlayer){
+        //    transform.LookAt(playerPosition, Vector3.up);
+        //    return;
+        //}
 
         if(!canAttack)
             return;

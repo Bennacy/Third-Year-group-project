@@ -1,17 +1,11 @@
 fileFormatVersion: 2
-guid: 31b9ef8c7916fb34584d1f5656136937
+guid: 87709f3603627db4b9d39b2162ddc458
 ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable:
   - first:
-      74: -5963077861158503591
-    second: Armature|Armature|Armature|Armature|Necromancer_spawn|BaseLayer
-  - first:
-      74: 6856200595130801412
-    second: Armature|Armature|Necromancer_attack|BaseLayer
-  - first:
-      74: 3910984484274867329
-    second: Armature|Armature|Necromancer_spawn|BaseLayer
+      74: -7233340166873939864
+    second: head_moving
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -40,65 +34,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Armature|Armature|Armature|Armature|Necromancer_spawn|BaseLayer
-      takeName: Armature|Armature|Armature|Armature|Necromancer_spawn|BaseLayer
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 25
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|Armature|Necromancer_attack|BaseLayer
-      takeName: Armature|Armature|Necromancer_attack|BaseLayer
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 65
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
