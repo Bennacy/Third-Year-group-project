@@ -281,7 +281,6 @@ GameObject:
   - component: {fileID: 592411003458099610}
   - component: {fileID: 3081986315521862036}
   - component: {fileID: 4491510930585302543}
-  - component: {fileID: 1439242158310302990}
   - component: {fileID: 7011011141680210918}
   - component: {fileID: 8251181639344632322}
   m_Layer: 3
@@ -298,7 +297,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2753286416978806316}
-  m_LocalRotation: {x: 0, y: 0.44142756, z: 0, w: 0.8972969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -69.54, y: 1.272, z: -7.9}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
@@ -434,9 +433,9 @@ MonoBehaviour:
   spawner: {fileID: 0}
   hordeController: {fileID: 0}
   patrolPoints: []
-  circleDistance: 0
-  circleSpeed: 0
-  chaseDistance: 0
+  circleDistance: 5
+  circleSpeed: 2
+  chaseDistance: 10
   attackDelay: 1
   canAttack: 0
   attacking: 0
@@ -446,27 +445,6 @@ MonoBehaviour:
   rotateSpeed: 1
   healthPickUp: {fileID: 4917739066559150413, guid: 9fd7d39b511714c498119ea8f781509b,
     type: 3}
---- !u!114 &1439242158310302990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2753286416978806316}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5203b853c0616f642835671e80cbb493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  runDist: 0
-  stopDist: 0
-  updateRate: 0.01
-  useMovementPrediction: 0
-  movementThreshold: 0
-  movementPredictionTime: 1
-  animator: {fileID: 8251181639344632322}
-  controller: {fileID: 0}
 --- !u!114 &7011011141680210918
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,8 +4,8 @@ ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable:
   - first:
-      74: -6953241319387361909
-    second: head_spawn
+      74: -6950410646091119090
+    second: Armature|Armature|head_spawn|BaseLayer
   externalObjects: {}
   materials:
     materialImportMode: 2
