@@ -91,10 +91,10 @@ public class Enemy : MonoBehaviour, IHasHealth
         // transform.rotation = lookRotation;
         currentState.Tick();
 
-        if(Vector3.Distance(transform.position, playerPosition) > hordeController.teleportDistanceThreshold){
-            Transform[] moveTo = spawner.FindClosestSpawnPoints(3);
-            transform.position = moveTo[Random.Range(0, moveTo.Length)].position;
-        }
+        // if(Vector3.Distance(transform.position, playerPosition) > hordeController.teleportDistanceThreshold){
+        //     Transform[] moveTo = spawner.FindClosestSpawnPoints(3);
+        //     transform.position = moveTo[Random.Range(0, moveTo.Length)].position;
+        // }
 
 
         //facingAngle = Vector3.Angle(transform.forward, playerDirection);

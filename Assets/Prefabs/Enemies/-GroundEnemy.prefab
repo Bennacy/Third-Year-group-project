@@ -1150,7 +1150,7 @@ GameObject:
   - component: {fileID: 7497295700065584273}
   - component: {fileID: 7497295700065584302}
   m_Layer: 3
-  m_Name: GroundEnemy
+  m_Name: -GroundEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3864161939755402322}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5203b853c0616f642835671e80cbb493, type: 3}
   m_Name: 
@@ -1250,6 +1250,7 @@ MonoBehaviour:
   movementThreshold: 0
   movementPredictionTime: 1
   animator: {fileID: 7497295700065584274}
+  controller: {fileID: 0}
 --- !u!136 &7497295700065584273
 CapsuleCollider:
   m_ObjectHideFlags: 0

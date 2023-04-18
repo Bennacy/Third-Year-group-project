@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 5295969845384066848}
   - component: {fileID: 9054185652362305047}
   m_Layer: 3
-  m_Name: BasicEnemy
+  m_Name: -BasicEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501085141831890908}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5203b853c0616f642835671e80cbb493, type: 3}
   m_Name: 
@@ -355,6 +355,7 @@ MonoBehaviour:
   movementThreshold: 1
   movementPredictionTime: 1
   animator: {fileID: 5295969845384066844}
+  controller: {fileID: 0}
 --- !u!114 &5295969845384066848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,11 +414,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7cc80f893890146914a732c49512c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 5295969845384066845}
   agent: {fileID: 5295969845384066846}
+  target: {x: 0, y: 0, z: 0}
   enemyScriptableObject: {fileID: 11400000, guid: a34179b3c380a5e46815fa3faad6de2b,
     type: 2}
+  player: {fileID: 0}
   animator: {fileID: 5295969845384066844}
+  spawner: {fileID: 0}
+  hordeController: {fileID: 0}
+  patrolPoints: []
+  circleDistance: 0
+  circleSpeed: 0
+  chaseDistance: 0
+  attackDelay: 1
+  canAttack: 0
+  attacking: 0
+  facingThreshold: 0
+  facingAngle: 0
+  facingPlayer: 0
+  rotateSpeed: 0
+  healthPickUp: {fileID: 0}
 --- !u!1 &1620147784838849528
 GameObject:
   m_ObjectHideFlags: 0

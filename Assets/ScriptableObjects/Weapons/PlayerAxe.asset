@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a293d30c22069143a5a3b9960f607dd, type: 3}
-  m_Name: Sword
+  m_Name: PlayerAxe
   m_EditorClassIdentifier: 
   weaponName: Sword
-  prefab: {fileID: 6620565757912777554, guid: df5dca157d169bf4c9598218d6b4d286, type: 3}
+  prefab: {fileID: 8894520104544027436, guid: 5511190a2b28e204f8dc5311c9a57a0e, type: 3}
   icon: {fileID: 0}
   attacks:
   - Combo 1

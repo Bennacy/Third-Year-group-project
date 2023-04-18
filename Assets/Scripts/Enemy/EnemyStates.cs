@@ -17,6 +17,9 @@ public abstract class EnemyState{
     }
 
     public virtual void Tick(){
+        if(Time.timeScale == 0)
+            return;
+            
         Debug.Log(this);
     }
 
