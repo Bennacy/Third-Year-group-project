@@ -29,16 +29,20 @@ public class PlayerAnimatorHandler : MonoBehaviour
     public void StartAttack(){
         if(nextInCombo){
             comboIndex++;
+            // animator.SetBool("AttackingNext", true);
             animator.Play(weaponHandler.currentWeapon.attacks[comboIndex]);
         }else{
+            // animator.SetBool("AttackingNext", true);
             animator.Play(weaponHandler.currentWeapon.attacks[0]);
         }
         nextInCombo = false;
         controller.attacking = true;
+        animator.SetBool("Attacking", true);
         DisableWeaponCollider();
     }
     public void EndAttack(){
         controller.attacking = false;
+        animator.SetBool("Attacking", false);
         DisableComboWindow();
     }
 
@@ -58,6 +62,7 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
 
     public void EnableWeaponCollider(){
+        // animator.SetBool("AttackingNext", false);
         weaponHandler.ToggleWeaponCollider(true);
     }
     public void DisableWeaponCollider(){
@@ -72,23 +77,12 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
     
     public void SwitchLayer(string animationName){
-        animator.Play(animationName);
+        animator.Play(animationName + " Idle");
     }
 
     public void MovementAnimation(){
-        if(controller.sprinting){
-            animator.SetBool("Sprinting", true);
-            animator.SetBool("Walking", true);
-            return;
-        }
+        animator.SetBool("Sprinting", controller.sprinting);
 
-        if(controller.walking){
-            animator.SetBool("Sprinting", false);
-            animator.SetBool("Walking", true);
-            return;
-        }
-        
-        animator.SetBool("Walking", false);
-        animator.SetBool("Sprinting", false);
+        animator.SetBool("Walking", controller.walking);
     }
 }

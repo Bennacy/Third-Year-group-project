@@ -15,15 +15,12 @@ MonoBehaviour:
   weaponName: Sword
   prefab: {fileID: 3474343119848362334, guid: 5ba3b83d91f81ad428bc0ab41daba2b6, type: 3}
   icon: {fileID: 0}
+  leftHand: 1
+  weaponType: Hammer
   attacks:
-  - Combo 1
-  - Combo 2
-  - Combo 3
-  idle: Hammer Idle
-  equip: 
-  block: 
-  walk: 
-  sprint: 
+  - Hammer Horizontal
+  - Hammer Diagonal
+  - Hammer Slam
   equipClip: {fileID: 0}
   impactClip: {fileID: 0}
   swingClips: []

@@ -15,6 +15,7 @@ MonoBehaviour:
   weaponName: Sword
   prefab: {fileID: 7219897139549594372, guid: 268a4706cd98a484ca097e96bf18e3bb, type: 3}
   icon: {fileID: 0}
+  weaponType: Sword
   attacks:
   - Combo 1
   - Combo 2

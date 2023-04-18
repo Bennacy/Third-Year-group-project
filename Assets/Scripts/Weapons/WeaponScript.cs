@@ -9,15 +9,12 @@ public class WeaponScript : ScriptableObject
     public string weaponName;
     public GameObject prefab;
     public Sprite icon;
+    public bool leftHand;
     [Space(10)]
 
     [Header("Animations")]
+    public string weaponType;
     public string[] attacks;
-    public string idle;
-    public string equip;
-    public string block;
-    public string walk;
-    public string sprint;
     [Space(10)]
 
     [Header("Audio")]

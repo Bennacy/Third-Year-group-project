@@ -296,8 +296,10 @@ MonoBehaviour:
   shieldCollider: {fileID: 0}
   rightHand: {fileID: 5216013834812029150}
   leftHand: {fileID: 5216013834875080063}
-  weaponPrefab: {fileID: 11400000, guid: 687fcaedefda0c94194c5ea0a68d524c, type: 2}
+  weaponPrefabs:
+  - {fileID: 11400000, guid: 687fcaedefda0c94194c5ea0a68d524c, type: 2}
   currentWeapon: {fileID: 11400000, guid: 687fcaedefda0c94194c5ea0a68d524c, type: 2}
+  animatorHandler: {fileID: 0}
 --- !u!1 &5216013832892781187
 GameObject:
   m_ObjectHideFlags: 0
