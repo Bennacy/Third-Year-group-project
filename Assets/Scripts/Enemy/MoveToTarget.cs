@@ -49,7 +49,7 @@ public class MoveToTarget : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(FollowPlayer());
+        // StartCoroutine(FollowPlayer());
         
     }
 

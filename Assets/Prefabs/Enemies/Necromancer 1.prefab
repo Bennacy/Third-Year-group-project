@@ -425,21 +425,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7cc80f893890146914a732c49512c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 1439242158310302990}
   agent: {fileID: 3081986315521862036}
+  target: {x: 0, y: 0, z: 0}
   enemyScriptableObject: {fileID: 11400000, guid: 3cf933f2a717c174891a084485b96529,
     type: 2}
   player: {fileID: 0}
   animator: {fileID: 8251181639344632322}
   spawner: {fileID: 0}
   hordeController: {fileID: 0}
+  patrolPoints: []
+  circleDistance: 0
+  circleSpeed: 0
+  chaseDistance: 0
   attackDelay: 1
   canAttack: 0
   attacking: 0
   facingThreshold: 15
   facingAngle: 0
   facingPlayer: 0
-  rotateSpeed: 0
+  rotateSpeed: 1
   healthPickUp: {fileID: 4917739066559150413, guid: 9fd7d39b511714c498119ea8f781509b,
     type: 3}
 --- !u!114 &1439242158310302990
@@ -449,7 +453,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2753286416978806316}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5203b853c0616f642835671e80cbb493, type: 3}
   m_Name: 

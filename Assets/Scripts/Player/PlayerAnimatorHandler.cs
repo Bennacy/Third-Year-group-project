@@ -22,22 +22,27 @@ public class PlayerAnimatorHandler : MonoBehaviour
 
     void Update()
     {
-        animator.SetBool("Walking", playerRb.velocity.magnitude > 0.2f);
+        // animator.SetBool("Walking", playerRb.velocity.magnitude > 0.2f);
+        MovementAnimation();
     }
 
     public void StartAttack(){
         if(nextInCombo){
             comboIndex++;
+            // animator.SetBool("AttackingNext", true);
             animator.Play(weaponHandler.currentWeapon.attacks[comboIndex]);
         }else{
+            // animator.SetBool("AttackingNext", true);
             animator.Play(weaponHandler.currentWeapon.attacks[0]);
         }
         nextInCombo = false;
         controller.attacking = true;
+        animator.SetBool("Attacking", true);
         DisableWeaponCollider();
     }
     public void EndAttack(){
         controller.attacking = false;
+        animator.SetBool("Attacking", false);
         DisableComboWindow();
     }
 
@@ -57,6 +62,7 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
 
     public void EnableWeaponCollider(){
+        // animator.SetBool("AttackingNext", false);
         weaponHandler.ToggleWeaponCollider(true);
     }
     public void DisableWeaponCollider(){
@@ -68,5 +74,15 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
     public void DisableShieldCollider(){
 
+    }
+    
+    public void SwitchLayer(string animationName){
+        animator.Play(animationName + " Idle");
+    }
+
+    public void MovementAnimation(){
+        animator.SetBool("Sprinting", controller.sprinting);
+
+        animator.SetBool("Walking", controller.walking);
     }
 }

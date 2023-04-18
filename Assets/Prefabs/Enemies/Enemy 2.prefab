@@ -176,21 +176,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7cc80f893890146914a732c49512c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 1804137347993030240}
   agent: {fileID: 1804137347993030243}
+  target: {x: 0, y: 0, z: 0}
   enemyScriptableObject: {fileID: 11400000, guid: 7b71b5c52458a5f47acbbe33c3f837ec,
     type: 2}
   player: {fileID: 0}
   animator: {fileID: 1804137347993030241}
   spawner: {fileID: 0}
   hordeController: {fileID: 0}
+  patrolPoints: []
+  circleDistance: 5
+  circleSpeed: 2
+  chaseDistance: 10
   attackDelay: 1
   canAttack: 0
   attacking: 0
   facingThreshold: 15
   facingAngle: 0
   facingPlayer: 0
-  rotateSpeed: 0
+  rotateSpeed: 1
   healthPickUp: {fileID: 4917739066559150413, guid: 9fd7d39b511714c498119ea8f781509b,
     type: 3}
 --- !u!114 &2782952454916491803
@@ -209,8 +213,10 @@ MonoBehaviour:
   shieldCollider: {fileID: 0}
   rightHand: {fileID: 5216013834812029150}
   leftHand: {fileID: 5216013834875080063}
-  weaponPrefab: {fileID: 11400000, guid: 687fcaedefda0c94194c5ea0a68d524c, type: 2}
+  weaponPrefabs:
+  - {fileID: 11400000, guid: 687fcaedefda0c94194c5ea0a68d524c, type: 2}
   currentWeapon: {fileID: 11400000, guid: 687fcaedefda0c94194c5ea0a68d524c, type: 2}
+  animatorHandler: {fileID: 0}
 --- !u!1 &5216013832892781187
 GameObject:
   m_ObjectHideFlags: 0
