@@ -16303,11 +16303,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 592411003458099610, guid: 6a77ef57664995040ab32ee339f86a95,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1439242158310302990, guid: 6a77ef57664995040ab32ee339f86a95,
         type: 3}
       propertyPath: player
@@ -16333,11 +16328,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Necromancer
       objectReference: {fileID: 0}
-    - target: {fileID: 3081986315521862036, guid: 6a77ef57664995040ab32ee339f86a95,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3278184865402346646, guid: 6a77ef57664995040ab32ee339f86a95,
         type: 3}
       propertyPath: m_RootOrder
@@ -16360,33 +16350,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3278184865402346646, guid: 6a77ef57664995040ab32ee339f86a95,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3278184865402346646, guid: 6a77ef57664995040ab32ee339f86a95,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3278184865402346646, guid: 6a77ef57664995040ab32ee339f86a95,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3278184865402346646, guid: 6a77ef57664995040ab32ee339f86a95,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3278184865402346646, guid: 6a77ef57664995040ab32ee339f86a95,
-        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3278184865402346646, guid: 6a77ef57664995040ab32ee339f86a95,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 52.39
       objectReference: {fileID: 0}
     - target: {fileID: 3278184865402346646, guid: 6a77ef57664995040ab32ee339f86a95,
         type: 3}
@@ -16403,6 +16373,11 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 1190306308}
+    - target: {fileID: 4491510930585302543, guid: 6a77ef57664995040ab32ee339f86a95,
+        type: 3}
+      propertyPath: facingAngle
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 4491510930585302543, guid: 6a77ef57664995040ab32ee339f86a95,
         type: 3}
       propertyPath: hordeController
