@@ -13,6 +13,11 @@ public class WeaponScript : ScriptableObject
 
     [Header("Animations")]
     public string[] attacks;
+    public string idle;
+    public string equip;
+    public string block;
+    public string walk;
+    public string sprint;
     [Space(10)]
 
     [Header("Audio")]

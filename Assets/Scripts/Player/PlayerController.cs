@@ -21,11 +21,13 @@ public class PlayerController : MonoBehaviour, IHasHealth
     [Space(10)]
 
     [Header("Movement")]
+    public bool walking;
+    public bool sprinting;
     public int gravityForce;
     public float walkSpeed;
     public float runSpeed;
     public float blockSpeed;
-    private float moveSpeed;
+    public float moveSpeed;
     [SerializeField]
     [Range(0.1f, 5f)]
     private float positionHistoryDuration = 1f;
@@ -110,17 +112,17 @@ public class PlayerController : MonoBehaviour, IHasHealth
     {
         // Debug.Log(playerInput.currentControlScheme);
 
-        if(lastPositionTime + positionHistoryInterval <= Time.time)
-        {
-            if(velocityHistory.Count == maxQueueSize)
-            {
-                velocityHistory.Dequeue();
-            }
+        // if(lastPositionTime + positionHistoryInterval <= Time.time)
+        // {
+        //     if(velocityHistory.Count == maxQueueSize)
+        //     {
+        //         velocityHistory.Dequeue();
+        //     }
 
-        // Debug.DrawRay(transform.position, transform.forward, Color.red, 100);
-            velocityHistory.Enqueue(rb.velocity);
-            lastPositionTime = Time.time;
-        }
+        // // Debug.DrawRay(transform.position, transform.forward, Color.red, 100);
+        //     velocityHistory.Enqueue(rb.velocity);
+        //     lastPositionTime = Time.time;
+        // }
 
 
         // if(Input.GetKeyDown(KeyCode.Space)){
@@ -154,6 +156,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }
         
         rb.AddForce(Physics.gravity * gravityForce);
+        
     }
 
     public Vector3 AverageVelocity
@@ -183,10 +186,14 @@ public class PlayerController : MonoBehaviour, IHasHealth
         //     Debug.Log("Canceled");
         // }
 
+        walking = context.performed;
+
         moveDirection = new Vector2(inputVector.x, inputVector.y);
     }
 
     private void Sprint(InputAction.CallbackContext context){
+        sprinting = context.performed;
+
         if(context.performed){
             moveSpeed = runSpeed;
         }else{

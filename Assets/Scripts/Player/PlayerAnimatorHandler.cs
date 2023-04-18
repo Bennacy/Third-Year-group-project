@@ -22,7 +22,8 @@ public class PlayerAnimatorHandler : MonoBehaviour
 
     void Update()
     {
-        animator.SetBool("Walking", playerRb.velocity.magnitude > 0.2f);
+        // animator.SetBool("Walking", playerRb.velocity.magnitude > 0.2f);
+        MovementAnimation();
     }
 
     public void StartAttack(){
@@ -68,5 +69,26 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
     public void DisableShieldCollider(){
 
+    }
+    
+    public void SwitchLayer(string animationName){
+        animator.Play(animationName);
+    }
+
+    public void MovementAnimation(){
+        if(controller.sprinting){
+            animator.SetBool("Sprinting", true);
+            animator.SetBool("Walking", true);
+            return;
+        }
+
+        if(controller.walking){
+            animator.SetBool("Sprinting", false);
+            animator.SetBool("Walking", true);
+            return;
+        }
+        
+        animator.SetBool("Walking", false);
+        animator.SetBool("Sprinting", false);
     }
 }

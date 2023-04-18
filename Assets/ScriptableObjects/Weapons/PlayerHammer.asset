@@ -19,6 +19,11 @@ MonoBehaviour:
   - Combo 1
   - Combo 2
   - Combo 3
+  idle: Hammer Idle
+  equip: 
+  block: 
+  walk: 
+  sprint: 
   equipClip: {fileID: 0}
   impactClip: {fileID: 0}
   swingClips: []
