@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public Image globalImage;
     public TextMeshProUGUI globalText;
 
+    public HighScores highScores;
+
     public bool paused;
     public bool won;
     public bool died;
@@ -53,6 +55,24 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded += delegate{NewScene();};
 
+        SaveSystem.Init();
+
+        // highScores = new HighScores();
+        string scoreString = SaveSystem.Load("High Scores");
+        highScores = JsonUtility.FromJson<HighScores>(scoreString);
+        // PersonalScore score = new PersonalScore(100, 40, "Bruh");
+        // highScores.InsertScore(score, 0);
+
+        // score = new PersonalScore(40, 100, "Bruh2");
+        // highScores.InsertScore(score, 0);
+
+        // score = new PersonalScore(999, 100, "Bruh3");
+        // highScores.InsertScore(score, 0);
+
+        // string saving = JsonUtility.ToJson(highScores, true);
+        // SaveSystem.Save(saving, "High Scores");
+
+
         NewScene();
     }
 
@@ -82,6 +102,12 @@ public class GameManager : MonoBehaviour
             waitForFade = true;
         }
         if(died && inGame && !waitForFade){
+            
+            PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
+            highScores.InsertScore(personalScore);
+            string saving = JsonUtility.ToJson(highScores, true);
+            SaveSystem.Save(saving, "High Scores");
+
             inGame = false;
             FadeInImage(.3f, null, Color.black);
             waitForFade = true;

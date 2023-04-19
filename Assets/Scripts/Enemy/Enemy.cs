@@ -173,7 +173,7 @@ public class Enemy : MonoBehaviour, IHasHealth
             Instantiate(healthPickUp, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), transform.rotation);
         }
 
-
+        GameManager.Instance.score += enemyScriptableObject.scoreGiven;
         Destroy(gameObject);
     }
 
