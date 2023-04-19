@@ -38,7 +38,7 @@ public class WeaponHandler : MonoBehaviour
     }
 
     public void SwitchWeapon(WeaponScript weapon){
-        Debug.Log("Switching");
+        // Debug.Log("Switching");
         if(weaponColliderScript != null){
             Destroy(weaponColliderScript.gameObject);
         }
@@ -51,6 +51,8 @@ public class WeaponHandler : MonoBehaviour
 
         if(animatorHandler)
             animatorHandler.SwitchLayer(currentWeapon.weaponType);
+            
+        animatorHandler.EndAttack();
     }
 
     public void ToggleWeaponCollider(bool active){

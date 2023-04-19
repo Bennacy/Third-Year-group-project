@@ -57,9 +57,11 @@ public class GameManager : MonoBehaviour
 
         SaveSystem.Init();
 
-        // highScores = new HighScores();
+        highScores = new HighScores();
         string scoreString = SaveSystem.Load("High Scores");
-        highScores = JsonUtility.FromJson<HighScores>(scoreString);
+        if(scoreString != null)
+            highScores = JsonUtility.FromJson<HighScores>(scoreString);
+
         // PersonalScore score = new PersonalScore(100, 40, "Bruh");
         // highScores.InsertScore(score, 0);
 
@@ -102,15 +104,15 @@ public class GameManager : MonoBehaviour
             waitForFade = true;
         }
         if(died && inGame && !waitForFade){
+            inGame = false;
+            FadeInImage(.3f, null, Color.black);
+            waitForFade = true;
             
             PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
             highScores.InsertScore(personalScore);
             string saving = JsonUtility.ToJson(highScores, true);
             SaveSystem.Save(saving, "High Scores");
 
-            inGame = false;
-            FadeInImage(.3f, null, Color.black);
-            waitForFade = true;
         }
     }
 
@@ -137,7 +139,7 @@ public class GameManager : MonoBehaviour
     }
 
     bool GetPlayerController(){
-        Debug.Log("Loaded");
+        // Debug.Log("Loaded");
         playerController = FindObjectOfType<PlayerController>();
         if(playerController != null){
             playerInput = playerController.playerInput;
@@ -183,7 +185,7 @@ public class GameManager : MonoBehaviour
         globalImage.color = colorToUse == null ? Color.black : colorToUse;
         uiAnimator.speed = 1 / fadeTime;
 
-        Debug.Log("Fade In");
+        // Debug.Log("Fade In");
         uiAnimator.Play("Fade In");
     }
 
@@ -192,7 +194,7 @@ public class GameManager : MonoBehaviour
         globalImage.color = colorToUse;
         uiAnimator.speed = 1 / fadeTime;
 
-        Debug.Log("Fade Out");
+        // Debug.Log("Fade Out");
         uiAnimator.Play("Fade Out");
     }
     #endregion
