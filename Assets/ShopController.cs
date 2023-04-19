@@ -7,12 +7,12 @@ public class ShopController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ShopController.instance.ToggleShop();
+            // ShopController.instance.ToggleShop();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        ShopController.instance.ToggleShop();
+        // ShopController.instance.ToggleShop();
     }
 }

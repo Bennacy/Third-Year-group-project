@@ -352,7 +352,6 @@ GameObject:
   - component: {fileID: 87327897}
   - component: {fileID: 87327900}
   - component: {fileID: 87327901}
-  - component: {fileID: 87327902}
   m_Layer: 0
   m_Name: Bridge
   m_TagString: Untagged
@@ -473,26 +472,6 @@ MonoBehaviour:
   blocker: {fileID: 142765945}
   blocker2: {fileID: 381434910}
   blockerActive: 1
---- !u!114 &87327902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87327895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_StartPoint: {x: 0, y: 0, z: -2.5}
-  m_EndPoint: {x: 0, y: 0, z: 2.5}
-  m_Width: 0
-  m_CostModifier: -1
-  m_Bidirectional: 1
-  m_AutoUpdatePosition: 0
-  m_Area: 0
 --- !u!1 &142765945
 GameObject:
   m_ObjectHideFlags: 0
