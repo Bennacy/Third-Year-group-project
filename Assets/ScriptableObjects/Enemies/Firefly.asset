@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: acc1cab3236f7ec4f8af027cde9fd915, type: 3}
-  m_Name: FlyingHead
+  m_Name: Firefly
   m_EditorClassIdentifier: 
   health: 250
   attackDelay: 1
@@ -20,11 +20,11 @@ MonoBehaviour:
   AngularSpeed: 120
   AreaMask: -1
   AvoidancePriority: 50
-  BaseOffset: 4.11
-  Height: 6.946177
+  BaseOffset: 5.01
+  Height: 14.5
   ObstacleAvoidanceType: 1
-  Radius: 3.534702
+  Radius: 4.1
   Speed: 3.5
   StoppingDistance: 0.5
-  prefab: {fileID: 8839998195225638312, guid: a385b1b9b6714804eb6e4d09d99613e6, type: 3}
+  prefab: {fileID: 3382557049404512039, guid: b58b0823b5290734ca35577177a086bc, type: 3}
   spawnWeight: 0.25

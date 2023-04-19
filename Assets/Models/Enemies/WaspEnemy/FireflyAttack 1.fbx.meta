@@ -1,11 +1,29 @@
 fileFormatVersion: 2
-guid: b4e9e441a078c894899995893f448f2e
+guid: 88c35edacb737d3449f1ecbdb5be5fbc
 ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable:
   - first:
-      74: 4348485665485846014
-    second: Death
+      74: 5433148325743111268
+    second: group12|group12|Take 001|BaseLayer
+  - first:
+      74: -2586656388032506108
+    second: group12|joint8|Take 001|BaseLayer
+  - first:
+      74: -5895680332162759472
+    second: group12|joint9|Take 001|BaseLayer
+  - first:
+      74: 1610390854136324808
+    second: joint9|joint8|Take 001|BaseLayer
+  - first:
+      74: -6671304616911293325
+    second: joint9|joint9|Take 001|BaseLayer
+  - first:
+      74: -8186093554736278312
+    second: joint8|joint8|Take 001|BaseLayer
+  - first:
+      74: 3128333257699795096
+    second: joint8|joint9|Take 001|BaseLayer
   externalObjects: {}
   materials:
     materialImportMode: 2
