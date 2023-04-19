@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PlayerAxe
   m_EditorClassIdentifier: 
   weaponName: Sword
-  prefab: {fileID: 8894520104544027436, guid: 5511190a2b28e204f8dc5311c9a57a0e, type: 3}
+  prefab: {fileID: 7819157043926900192, guid: 5511190a2b28e204f8dc5311c9a57a0e, type: 3}
   icon: {fileID: 0}
+  leftHand: 0
   weaponType: Axe
   attacks:
   - Combo 1

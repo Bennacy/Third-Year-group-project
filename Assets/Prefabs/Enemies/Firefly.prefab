@@ -414,9 +414,9 @@ MonoBehaviour:
   spawner: {fileID: 0}
   hordeController: {fileID: 0}
   patrolPoints: []
-  circleDistance: 0
-  circleSpeed: 0
-  chaseDistance: 0
+  circleDistance: 5
+  circleSpeed: 2
+  chaseDistance: 10
   attackDelay: 1
   canAttack: 0
   attacking: 0
