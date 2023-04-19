@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour, IHasHealth
 {
     [Header("References")]
     public NavMeshAgent agent;
-    public Vector3 target;
     public EnemyScriptableObject enemyScriptableObject;
     public PlayerController player;
     public Animator animator;
@@ -30,26 +29,18 @@ public class Enemy : MonoBehaviour, IHasHealth
     public float circleDistance;
     public float circleSpeed;
     public float chaseDistance;
+    public float attackRange;
     [Space(10)]
 
 
     public bool lookAtPlayer;
-    public float attackDelay = 1f;
-    public bool canAttack;
     public bool attacking;
-    public float facingThreshold;
-    public float facingAngle;
-    public bool facingPlayer;
-    public float rotateSpeed;
 
     public int maxHealth { get; set; }
     public int health { get; set; }
 
     public GameObject healthPickUp;
 
-
-
-    private const string ATTACK = "Attack";
 
     void InitializeStates(){
         attackingState = new EnemyAttacking(this);
@@ -73,22 +64,10 @@ public class Enemy : MonoBehaviour, IHasHealth
         InitializeStates();
     }
 
-    private void Awake()
-    {
-       
-    }
-
 
     private void Update()
     {
-       Vector3 playerPosition = player.transform.position;
-        // playerPosition.y = transform.position.y;
-        //Vector3 playerDirection = (playerPosition - transform.position);
-
-        // Vector3 direction = (playerPosition - transform.position).normalized;
-        // Vector3 flatDirection = Vector3.ProjectOnPlane(direction, transform.up);
-        // Quaternion lookRotation = Quaternion.LookRotation(flatDirection, transform.up);
-        // transform.rotation = lookRotation;
+        Vector3 playerPosition = player.transform.position;
         currentState.Tick();
 
         if(lookAtPlayer){
@@ -112,8 +91,6 @@ public class Enemy : MonoBehaviour, IHasHealth
         //    return;
         //}
 
-        if(!canAttack)
-            return;
 
         // Attack();
         
@@ -124,25 +101,6 @@ public class Enemy : MonoBehaviour, IHasHealth
         //     agent.stoppingDistance = hordeController.attackDistanceThreshold - 1;
         //     canAttack = false;
         // }
-    }
-
-    
-
-    public void Attack()
-    {
-        if (health > 0 && !attacking)
-        {
-            if (agent.remainingDistance < .5f)
-            {
-                animator.SetBool(ATTACK, true);
-                agent.isStopped = true;
-            }
-            else
-            {
-                animator.SetBool(ATTACK, false);
-                agent.isStopped = false;
-            }
-        }
     }
 
     public virtual void SetupEnemyFromConfig()
@@ -157,11 +115,8 @@ public class Enemy : MonoBehaviour, IHasHealth
         agent.radius = enemyScriptableObject.Radius;
         agent.speed = enemyScriptableObject.Speed;
         agent.stoppingDistance = enemyScriptableObject.StoppingDistance;
-        // movement.updateRate = enemyScriptableObject.updateRate;
 
         health = maxHealth = enemyScriptableObject.health;
-        attackDelay = enemyScriptableObject.attackDelay;
-
 
         Debug.Log("Enemy Health is: " + health);
     }
@@ -178,11 +133,15 @@ public class Enemy : MonoBehaviour, IHasHealth
     }
 
 
-    public void EndAttack()
+    public void BeginAttack()
     {
-
+        attacking = true;
     }
 
+    public void EndAttack()
+    {
+        attacking = false;
+    }
 
     public void Damage(int damageVal)
     {
@@ -206,13 +165,6 @@ public class Enemy : MonoBehaviour, IHasHealth
     }
 
     public void Die(){
-
-        spawner.spawnedEnemies.Remove(this);
-        hordeController.enemies.Remove(this);
-        if(canAttack)
-            hordeController.attackingEnemies.Remove(this);
-            
-        GameManager.Instance.enemiesKilled++;
         float healthChance = Random.Range(0, 2);
         Debug.Log("Health: " + healthChance);
         if (healthChance > 0.5)
@@ -225,5 +177,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     }
 
      
-    
+    void OnDrawGizmosSelected(){
+        // Gizmos.DrawSphere(transform.position, attackRange);
+    }
 }

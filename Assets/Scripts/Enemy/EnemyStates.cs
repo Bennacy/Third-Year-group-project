@@ -42,7 +42,6 @@ public class EnemyAttacking : EnemyState{
         base.Init();
 
         enemy.lookAtPlayer = true;
-        enemy.target = enemy.player.transform.position;
         enemy.hordeController.attackingEnemies.Add(enemy);
     }
 
@@ -50,9 +49,14 @@ public class EnemyAttacking : EnemyState{
     {
         base.Tick();
         
-        //
-        agent.isStopped = true;
-        enemy.animator.SetTrigger("Attack");
+        if(Vector3.Distance(enemy.player.transform.position, enemy.transform.position) <= enemy.attackRange){
+            enemy.animator.SetTrigger("Attack");
+        }else{
+            agent.SetDestination(enemy.player.transform.position);
+        }
+        
+        agent.isStopped = enemy.attacking;
+        enemy.lookAtPlayer = !enemy.attacking;
     }
 
     public override void Transition(EnemyState newState)
@@ -148,8 +152,13 @@ public class EnemyDying : EnemyState{
         base.Init();
         
         enemy.lookAtPlayer = false;
+
+        enemy.hordeController.attackingEnemies.Remove(enemy);
+        enemy.spawner.spawnedEnemies.Remove(enemy);
+        enemy.hordeController.enemies.Remove(enemy);
+        GameManager.Instance.enemiesKilled++;
+        
         enemy.animator.Play("Death");
-        enemy.animator.SetBool("Attack", false);
         agent.updatePosition = false;
         agent.updateRotation = false;
         enemy.DisableWeaponCollider();
