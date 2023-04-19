@@ -46,7 +46,7 @@ public class WeaponCollider : MonoBehaviour
         
         if(!CheckIfHit(other.gameObject) && damageable != null){
             hitEntities.Add(other.gameObject);
-            damageable.Damage(weapon.currentWeapon.damage);
+            damageable.Damage((int)weapon.currentWeapon.damage);
         }
     }
 }

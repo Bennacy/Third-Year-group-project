@@ -1,0 +1,29 @@
+{
+    "scores": [
+        {
+            "name": "Test",
+            "score": 350,
+            "time": 50
+        },
+        {
+            "name": "Test",
+            "score": 100,
+            "time": 25
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "time": -1
+        }
+    ]
+}

@@ -24,5 +24,5 @@ public class WeaponScript : ScriptableObject
     [Space(10)]
 
     [Header("Stats")]
-    public int damage;
+    public float damage;
 }
