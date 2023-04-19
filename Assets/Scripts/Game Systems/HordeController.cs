@@ -21,9 +21,7 @@ public class HordeController : MonoBehaviour
     {
         if(attackingEnemies.Count < attackingMax && attackingEnemies.Count < enemies.Count){
             Enemy adding = ClosestEnemy();
-            attackingEnemies.Add(adding);
-            adding.canAttack = true;
-            adding.agent.stoppingDistance = 0.2f;
+            adding.currentState.Transition(adding.attackingState);
         }
     }
 
@@ -33,7 +31,7 @@ public class HordeController : MonoBehaviour
         
 
         foreach(Enemy enemy in enemies){
-            if(!enemy.canAttack){
+            if(enemy.currentState == enemy.circlingState){
                 float testingDistance = Vector3.Distance(playerController.transform.position, enemy.transform.position);
                 if(testingDistance < closestDistance){
                     closestDistance = testingDistance;

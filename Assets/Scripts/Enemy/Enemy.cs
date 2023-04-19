@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     public EnemyScriptableObject enemyScriptableObject;
     public PlayerController player;
     public Animator animator;
-    private WeaponHandler weaponHandler;
+    private EnemyWeapon weaponHandler;
     public EnemySpawner spawner;
     public HordeController hordeController;
     [Space(10)]
@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     [Space(10)]
 
 
+    public bool lookAtPlayer;
     public float attackDelay = 1f;
     public bool canAttack;
     public bool attacking;
@@ -66,7 +67,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     {
         SetupEnemyFromConfig();
         player = GameManager.Instance.playerController;
-        weaponHandler = GetComponent<WeaponHandler>();
+        weaponHandler = GetComponentInChildren<EnemyWeapon>();
         // moveToTarget = GetComponent<MoveToTarget>();
 
         InitializeStates();
@@ -89,6 +90,13 @@ public class Enemy : MonoBehaviour, IHasHealth
         // Quaternion lookRotation = Quaternion.LookRotation(flatDirection, transform.up);
         // transform.rotation = lookRotation;
         currentState.Tick();
+
+        if(lookAtPlayer){
+            Quaternion lookRotation = Quaternion.LookRotation(playerPosition - transform.position);
+
+            lookRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lookRotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 10);
+        }
 
         // if(Vector3.Distance(transform.position, playerPosition) > hordeController.teleportDistanceThreshold){
         //     Transform[] moveTo = spawner.FindClosestSpawnPoints(3);
@@ -156,7 +164,6 @@ public class Enemy : MonoBehaviour, IHasHealth
 
 
         Debug.Log("Enemy Health is: " + health);
-
     }
 
 

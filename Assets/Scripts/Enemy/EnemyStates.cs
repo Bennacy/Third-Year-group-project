@@ -20,11 +20,10 @@ public abstract class EnemyState{
         if(Time.timeScale == 0)
             return;
             
-        Debug.Log(this);
+        // Debug.Log(this);
     }
 
     public virtual void Transition(EnemyState newState){
-        // Debug.Log("Moving from" + enemy.currentState + " to " + newState);
         enemy.currentState = newState;
         enemy.currentState.Init();
     }
@@ -42,6 +41,7 @@ public class EnemyAttacking : EnemyState{
     {
         base.Init();
 
+        enemy.lookAtPlayer = true;
         enemy.target = enemy.player.transform.position;
         enemy.hordeController.attackingEnemies.Add(enemy);
     }
@@ -49,10 +49,10 @@ public class EnemyAttacking : EnemyState{
     public override void Tick()
     {
         base.Tick();
-
-        if(Vector3.Distance(transform.position, agent.destination) < 1.5f){
-            Transition(enemy.retreatingState);
-        }
+        
+        //
+        agent.isStopped = true;
+        enemy.animator.SetTrigger("Attack");
     }
 
     public override void Transition(EnemyState newState)
@@ -75,6 +75,7 @@ public class EnemyRetreating : EnemyState{
     {
         base.Init();
         
+        enemy.lookAtPlayer = true;
         float distance = enemy.circleDistance + Random.Range(-2.5f, 2.5f);
         Vector3 playerDirection = (enemy.player.transform.position - transform.position).normalized;
         agent.SetDestination(enemy.player.transform.position - playerDirection * distance);
@@ -103,6 +104,7 @@ public class EnemyCircling : EnemyState{
     {
         base.Init();
 
+        enemy.lookAtPlayer = true;
         circleDirection = Random.Range(0, 2) == 0 ? 1 : -1;
         distance = enemy.circleDistance + Random.Range(-2.5f, 2.5f);
     }
@@ -145,6 +147,7 @@ public class EnemyDying : EnemyState{
     {
         base.Init();
         
+        enemy.lookAtPlayer = false;
         enemy.animator.Play("Death");
         enemy.animator.SetBool("Attack", false);
         agent.updatePosition = false;
