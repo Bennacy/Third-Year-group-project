@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
     public PlayerInput playerInput;
     public GameObject weapon;
     public GameObject shield;
+    public AudioSource audioSource;
     [Space(10)]
 
     [Header("Camera")]
@@ -52,6 +53,8 @@ public class PlayerController : MonoBehaviour, IHasHealth
     public int maxHealth { get; set; }
     public int health { get; set; }
     public float maxStamina;
+    public float staminaRegeneration;
+    public float staminaCooldown;
     public float stamina;
     [Space(10)]
 
@@ -68,6 +71,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
     void Awake()
     {
         animatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
+        audioSource = GetComponent<AudioSource>();
                 
         currCameraAngle = 0;
         moveSpeed = walkSpeed;
@@ -112,6 +116,18 @@ public class PlayerController : MonoBehaviour, IHasHealth
 
     void Update()
     {
+        staminaCooldown -= Time.deltaTime;
+
+        if(!blocking && staminaCooldown <= 0){
+            stamina = Mathf.Clamp(stamina + staminaRegeneration*Time.deltaTime, 0, maxStamina);
+        }
+
+        if(!attacking && blocking){
+            animatorHandler.StartBlock();
+        }else{
+            animatorHandler.EndBlock();
+        }
+        
         // Debug.Log(playerInput.currentControlScheme);
 
         // if(lastPositionTime + positionHistoryInterval <= Time.time)
@@ -241,16 +257,16 @@ public class PlayerController : MonoBehaviour, IHasHealth
     }
 
     private void Block(InputAction.CallbackContext context){
-        if(attacking || GameManager.Instance.paused)
+        if(GameManager.Instance.paused)
             return;
         
-        if(context.performed){
+        if(context.performed && stamina > maxStamina / 10){
             blocking = true;
-            animatorHandler.StartBlock();
+            // animatorHandler.StartBlock();
         }
         if(context.canceled){
             blocking = false;
-            animatorHandler.EndBlock();
+            // animatorHandler.EndBlock();
         }
     }
 
@@ -258,13 +274,19 @@ public class PlayerController : MonoBehaviour, IHasHealth
     {
         if(blocking){
             stamina -= damageVal;
-        }
-        
-        health -= damageVal;
-        // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
-        if (health <= 0)
-        {
-            GameManager.Instance.died = true;
+            animatorHandler.SetTrigger("BlockRecoil");
+
+            if(stamina <= 0){
+                blocking = false;
+                animatorHandler.EndBlock();
+                staminaCooldown = 1.5f;
+            }
+        }else{
+            health -= damageVal;
+            // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
+
+            if (health <= 0)
+                GameManager.Instance.died = true;
         }
     }
 

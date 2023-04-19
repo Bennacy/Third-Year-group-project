@@ -151,7 +151,8 @@ public class GameManager : MonoBehaviour
 
     public void TogglePause(){
         paused = !paused;
-
+        AudioListener.pause = paused;
+        
         if(paused){
             Time.timeScale = 0;
             playerInput.SwitchCurrentActionMap("UI");
