@@ -10,7 +10,7 @@ public class ShopController : MonoBehaviour
     public Upgrade[] upgrades;
 
     public Text scoreText;
-    public Text costText;
+    
     public GameObject shopUI;
 
     public Transform shopContent;
