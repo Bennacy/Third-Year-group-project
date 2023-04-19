@@ -7,8 +7,9 @@ using TMPro;
 public class PlayerHUD : MonoBehaviour
 {
     public Canvas canvas;
-    private IHasHealth playerHealth;
+    private PlayerController player;
     public Image healthBar;
+    public Image staminaBar;
     public Color healthBar_BackColor;
     public Color healthBar_FrontColor;
     public Color healthBar_FlashColor;
@@ -22,7 +23,7 @@ public class PlayerHUD : MonoBehaviour
     void Start()
     {
         canvas = GetComponentInParent<Canvas>();
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<IHasHealth>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         InitializeHealthBar();
     }
@@ -32,10 +33,13 @@ public class PlayerHUD : MonoBehaviour
         UpdateHealthBar();
         enemiesRemaining.text = "Enemies remaining: " + GameManager.Instance.aliveEnemies.Count;
         waveCount.text = "Wave " + GameManager.Instance.currentWave + "/" + GameManager.Instance.maxWave;
+
+        float staminaBar_targetFill = (float)player.stamina / (float)player.maxStamina;
+        staminaBar.fillAmount = Mathf.Lerp(staminaBar.fillAmount, staminaBar_targetFill, 5*Time.deltaTime);
     }
 
     void InitializeHealthBar(){
-        healthBar_targetFill = (float)playerHealth.health / (float)playerHealth.maxHealth;
+        healthBar_targetFill = (float)player.health / (float)player.maxHealth;
     }
 
     void UpdateHealthBar(){
@@ -43,15 +47,28 @@ public class PlayerHUD : MonoBehaviour
         // rotation.y = GameManager.Instance.mainCam.transform.rotation.eulerAngles.y + 180;
         // canvas.transform.rotation = Quaternion.Euler(rotation);
         
-        if(playerHealth.health < healthBar_PreviousHealth){
+        if(player.health < healthBar_PreviousHealth){
             StartCoroutine(FlashHeathBar());
         }
         
-        healthBar_targetFill = (float)playerHealth.health / (float)playerHealth.maxHealth;
+        healthBar_targetFill = (float)player.health / (float)player.maxHealth;
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, healthBar_targetFill, 5*Time.deltaTime);
 
-        healthBar_PreviousHealth = playerHealth.health;
+        healthBar_PreviousHealth = player.health;
     }
+
+    // void UpdateStaminaBar(){
+    //     // Vector3 rotation = transform.rotation.eulerAngles;
+    //     // rotation.y = GameManager.Instance.mainCam.transform.rotation.eulerAngles.y + 180;
+    //     // canvas.transform.rotation = Quaternion.Euler(rotation);
+        
+    //     if(player.health < healthBar_PreviousHealth){
+    //         StartCoroutine(FlashHeathBar());
+    //     }
+        
+
+    //     healthBar_PreviousHealth = player.health;
+    // }
     
     IEnumerator FlashHeathBar(){
         for(int i = 0; i < 4; i++){

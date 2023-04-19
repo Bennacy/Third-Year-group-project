@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerSword
   m_EditorClassIdentifier: 
   weaponName: Sword
-  prefab: {fileID: 7219897139549594372, guid: 268a4706cd98a484ca097e96bf18e3bb, type: 3}
+  prefab: {fileID: 7724613970817878120, guid: 4050aced74be9ed46825e9d3b119acfe, type: 3}
   icon: {fileID: 0}
   leftHand: 0
   weaponType: Sword
@@ -23,5 +23,6 @@ MonoBehaviour:
   - Combo 3
   equipClip: {fileID: 0}
   impactClip: {fileID: 0}
-  swingClips: []
+  swingClips:
+  - {fileID: 8300000, guid: 1bbc9925d33ae674d9faf527789a175c, type: 3}
   damage: 35

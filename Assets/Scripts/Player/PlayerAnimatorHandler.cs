@@ -65,6 +65,8 @@ public class PlayerAnimatorHandler : MonoBehaviour
     public void EnableWeaponCollider(){
         // animator.SetBool("AttackingNext", false);
         weaponHandler.ToggleWeaponCollider(true);
+        controller.audioSource.pitch = Random.Range(0.5f, 1.5f);
+        controller.audioSource.PlayOneShot(weaponHandler.currentWeapon.swingClips[0]);
     }
     public void DisableWeaponCollider(){
         weaponHandler.ToggleWeaponCollider(false);
@@ -85,5 +87,9 @@ public class PlayerAnimatorHandler : MonoBehaviour
         animator.SetBool("Sprinting", controller.sprinting);
 
         animator.SetBool("Walking", controller.walking);
+    }
+
+    public void SetTrigger(string triggerName){
+        animator.SetTrigger(triggerName);
     }
 }

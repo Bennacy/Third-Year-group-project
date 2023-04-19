@@ -2,23 +2,23 @@
     "scores": [
         {
             "name": "Test",
-            "score": 350,
-            "time": 50
+            "score": 450,
+            "time": 62
         },
         {
             "name": "Test",
-            "score": 100,
-            "time": 25
+            "score": 0,
+            "time": 2
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "time": 4
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "time": 19
         },
         {
             "name": "NULL",
