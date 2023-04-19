@@ -13,8 +13,6 @@ public class Enemy : MonoBehaviour, IHasHealth
     public PlayerController player;
     public Animator animator;
     private WeaponHandler weaponHandler;
-    // private MoveToTarget moveToTarget;
-    // public MoveToTarget movement;
     public EnemySpawner spawner;
     public HordeController hordeController;
     [Space(10)]
@@ -32,6 +30,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     public float circleDistance;
     public float circleSpeed;
     public float chaseDistance;
+    [Space(10)]
 
 
     public float attackDelay = 1f;
