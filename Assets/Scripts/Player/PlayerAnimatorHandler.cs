@@ -55,6 +55,7 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
 
     public void StartBlock(){
+        animator.Play(weaponHandler.currentWeapon.weaponType + " Block");
         animator.SetBool("Blocking", true);
     }
     public void EndBlock(){

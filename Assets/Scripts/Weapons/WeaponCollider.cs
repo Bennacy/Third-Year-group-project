@@ -6,11 +6,13 @@ public class WeaponCollider : MonoBehaviour
 {
     public Collider weaponCollider;
     public List<GameObject> hitEntities;
+    private WeaponHandler weapon;
     
     void Start()
     {
         weaponCollider = GetComponent<Collider>();
         weaponCollider.enabled = false;
+        weapon = GetComponentInParent<WeaponHandler>();
     }
 
     void Update()
@@ -38,12 +40,13 @@ public class WeaponCollider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject);
+        // Debug.Log(other.gameObject);
         IHasHealth damageable = other.GetComponent<IHasHealth>();
+        // Debug.Log(weapon.currentWeapon.damage);
         
         if(!CheckIfHit(other.gameObject) && damageable != null){
             hitEntities.Add(other.gameObject);
-            damageable.Damage(25);
+            damageable.Damage(weapon.currentWeapon.damage);
         }
     }
 }

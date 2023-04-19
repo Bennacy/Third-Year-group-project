@@ -156,7 +156,11 @@ public class EnemyDying : EnemyState{
         enemy.hordeController.attackingEnemies.Remove(enemy);
         enemy.spawner.spawnedEnemies.Remove(enemy);
         enemy.hordeController.enemies.Remove(enemy);
-        GameManager.Instance.enemiesKilled++;
+
+        Collider[] colliders = enemy.GetComponentsInChildren<Collider>();
+        foreach(Collider collider in colliders){
+            collider.enabled = false;
+        }
         
         enemy.animator.Play("Death");
         agent.updatePosition = false;

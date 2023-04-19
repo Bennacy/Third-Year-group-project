@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: faf35a3205463ea4387bd7f446799d61
+guid: e388f2b3a3ca78d41af30232be216f82
 ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Shield + Weapon Block
+    second: Hammer Block
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Shield + Weapon Block
+      name: Hammer Block
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 13
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

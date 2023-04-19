@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour, IHasHealth
     public int playerHealth = 250;
     public int maxHealth { get; set; }
     public int health { get; set; }
+    public float maxStamina;
+    public float stamina;
     [Space(10)]
 
     [Header("Input")]
@@ -254,11 +256,12 @@ public class PlayerController : MonoBehaviour, IHasHealth
 
     public void Damage(int damageVal)
     {
-        if(blocking)
-            damageVal /= 5;
+        if(blocking){
+            stamina -= damageVal;
+        }
         
         health -= damageVal;
-        Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
+        // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0)
         {
             GameManager.Instance.died = true;
@@ -268,7 +271,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
    public void Recover(int recoverVal)
     {
         health = Mathf.Clamp(health + recoverVal, 0, maxHealth);
-        Debug.Log(health);
+        // Debug.Log(health);
     }
 
     void OnTriggerEnter(Collider other)

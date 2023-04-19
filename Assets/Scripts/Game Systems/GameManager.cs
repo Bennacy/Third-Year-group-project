@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public Image globalImage;
     public TextMeshProUGUI globalText;
 
+    public HighScores highScores;
+
     public bool paused;
     public bool won;
     public bool died;
@@ -28,12 +30,14 @@ public class GameManager : MonoBehaviour
     public bool inGame;
     public bool fading;
     public bool waitForFade;
+    public int score;
     public List<Enemy> aliveEnemies;
     public int currentWave;
     public int maxWave;
 
     [Space(10)]
     [Header("Map Variables")]
+    public int drawbridgeState;
     public bool lowerDrawbridge;
     public bool raiseDrawbridge;
     
@@ -50,6 +54,26 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SceneManager.sceneLoaded += delegate{NewScene();};
+
+        SaveSystem.Init();
+
+        highScores = new HighScores();
+        string scoreString = SaveSystem.Load("High Scores");
+        if(scoreString != null)
+            highScores = JsonUtility.FromJson<HighScores>(scoreString);
+
+        // PersonalScore score = new PersonalScore(100, 40, "Bruh");
+        // highScores.InsertScore(score, 0);
+
+        // score = new PersonalScore(40, 100, "Bruh2");
+        // highScores.InsertScore(score, 0);
+
+        // score = new PersonalScore(999, 100, "Bruh3");
+        // highScores.InsertScore(score, 0);
+
+        // string saving = JsonUtility.ToJson(highScores, true);
+        // SaveSystem.Save(saving, "High Scores");
+
 
         NewScene();
     }
@@ -83,6 +107,12 @@ public class GameManager : MonoBehaviour
             inGame = false;
             FadeInImage(.3f, null, Color.black);
             waitForFade = true;
+            
+            PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
+            highScores.InsertScore(personalScore);
+            string saving = JsonUtility.ToJson(highScores, true);
+            SaveSystem.Save(saving, "High Scores");
+
         }
     }
 
@@ -99,6 +129,7 @@ public class GameManager : MonoBehaviour
             enemiesKilled = 0;
             time = 0;
             currency = 0;
+            score = 0;
 
             FadeOutImage(1.25f, null, Color.black);
             return;
@@ -108,7 +139,7 @@ public class GameManager : MonoBehaviour
     }
 
     bool GetPlayerController(){
-        Debug.Log("Loaded");
+        // Debug.Log("Loaded");
         playerController = FindObjectOfType<PlayerController>();
         if(playerController != null){
             playerInput = playerController.playerInput;
@@ -154,7 +185,7 @@ public class GameManager : MonoBehaviour
         globalImage.color = colorToUse == null ? Color.black : colorToUse;
         uiAnimator.speed = 1 / fadeTime;
 
-        Debug.Log("Fade In");
+        // Debug.Log("Fade In");
         uiAnimator.Play("Fade In");
     }
 
@@ -163,7 +194,7 @@ public class GameManager : MonoBehaviour
         globalImage.color = colorToUse;
         uiAnimator.speed = 1 / fadeTime;
 
-        Debug.Log("Fade Out");
+        // Debug.Log("Fade Out");
         uiAnimator.Play("Fade Out");
     }
     #endregion
