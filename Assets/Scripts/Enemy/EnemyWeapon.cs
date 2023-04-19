@@ -21,7 +21,7 @@ public class EnemyWeapon : MonoBehaviour
     {
         IHasHealth health = other.GetComponent<IHasHealth>();
         if(health != null){
-            health.Damage(50);
+            health.Damage(parent.enemyScriptableObject.damage);
         }
     }
 }

@@ -1,14 +1,14 @@
 {
     "scores": [
         {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
+            "name": "Test",
+            "score": 50,
+            "time": 18
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "time": 9
         },
         {
             "name": "NULL",

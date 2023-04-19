@@ -24,4 +24,4 @@ MonoBehaviour:
   equipClip: {fileID: 0}
   impactClip: {fileID: 0}
   swingClips: []
-  damage: 0
+  damage: 35

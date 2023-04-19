@@ -27,5 +27,6 @@ MonoBehaviour:
   Speed: 3.5
   StoppingDistance: 0.5
   scoreGiven: 50
+  damage: 7
   prefab: {fileID: 3382557049404512039, guid: b58b0823b5290734ca35577177a086bc, type: 3}
   spawnWeight: 0.3333
