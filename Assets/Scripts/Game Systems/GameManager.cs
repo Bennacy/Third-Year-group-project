@@ -28,12 +28,14 @@ public class GameManager : MonoBehaviour
     public bool inGame;
     public bool fading;
     public bool waitForFade;
+    public int score;
     public List<Enemy> aliveEnemies;
     public int currentWave;
     public int maxWave;
 
     [Space(10)]
     [Header("Map Variables")]
+    public int drawbridgeState;
     public bool lowerDrawbridge;
     public bool raiseDrawbridge;
     
@@ -99,6 +101,7 @@ public class GameManager : MonoBehaviour
             enemiesKilled = 0;
             time = 0;
             currency = 0;
+            score = 0;
 
             FadeOutImage(1.25f, null, Color.black);
             return;
