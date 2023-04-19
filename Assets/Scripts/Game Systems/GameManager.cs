@@ -102,7 +102,13 @@ public class GameManager : MonoBehaviour
             inGame = false;
             FadeInImage(1, null, Color.black);
             waitForFade = true;
+            
+            PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
+            highScores.InsertScore(personalScore);
+            string saving = JsonUtility.ToJson(highScores, true);
+            SaveSystem.Save(saving, "High Scores");
         }
+
         if(died && inGame && !waitForFade){
             inGame = false;
             FadeInImage(.3f, null, Color.black);
@@ -171,6 +177,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void Quit(){
+        PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
+        highScores.InsertScore(personalScore);
+        string saving = JsonUtility.ToJson(highScores, true);
+        SaveSystem.Save(saving, "High Scores");
+        
         Application.Quit();
     }
 
