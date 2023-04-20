@@ -26,3 +26,4 @@ MonoBehaviour:
   swingClips:
   - {fileID: 8300000, guid: 09e901b6bdf1e304dabd2e4ead4e6656, type: 3}
   damage: 55
+  defaultDamage: 55

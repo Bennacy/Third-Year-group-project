@@ -25,4 +25,5 @@ public class WeaponScript : ScriptableObject
 
     [Header("Stats")]
     public float damage;
+    public float defaultDamage;
 }

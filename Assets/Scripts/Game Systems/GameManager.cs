@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public int currentWave;
     public int maxWave;
 
+    public WeaponScript[] weapons;
+
     [Space(10)]
     [Header("Map Variables")]
     public int drawbridgeState;
@@ -136,6 +138,11 @@ public class GameManager : MonoBehaviour
             time = 0;
             currency = 0;
             score = 0;
+            
+            foreach(WeaponScript weapon in weapons)
+            {
+                weapon.damage = weapon.defaultDamage;
+            }
 
             FadeOutImage(1.25f, null, Color.black);
             return;
