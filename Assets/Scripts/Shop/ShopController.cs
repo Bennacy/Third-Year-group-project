@@ -15,7 +15,7 @@ public class ShopController : MonoBehaviour
 
     public Transform shopContent;
     public GameObject itemPrefab;
-    public GameObject[] item;
+    public GameObject item;
 
     public WeaponScript[] weapons;
 
@@ -37,13 +37,13 @@ public class ShopController : MonoBehaviour
     {
         foreach (Upgrade upgrade in upgrades)
         {
-            for (int i = 0; i < upgrades.Length; i++) {
-                item[i] = Instantiate(itemPrefab, shopContent);
+            
+                item = Instantiate(itemPrefab, shopContent);
 
-                upgrade.itemRef = item[i];
+                upgrade.itemRef = item;
 
 
-                foreach (Transform child in item[i].transform)
+                foreach (Transform child in item.transform)
                 {
                     if (child.gameObject.name == "Cost")
                     {
@@ -59,11 +59,11 @@ public class ShopController : MonoBehaviour
                     }
                 }
 
-                item[i].GetComponent<Button>().onClick.AddListener(() =>
+                item.GetComponent<Button>().onClick.AddListener(() =>
                 {
                     BuyUpgrade(upgrade);
                 });
-            }
+            
 
             
 
@@ -79,19 +79,16 @@ public class ShopController : MonoBehaviour
         foreach (Upgrade upgrade in upgrades) 
         {
 
-            for (int i = 0; i < upgrades.Length; i++) {
-                foreach (Transform child in item[i].transform)
-                {
-                    if (child.gameObject.name == "Cost")
-                    {
+            
+                
                         if (upgrade.currentTier >= upgrade.maxTier)
                         {
-                            child.gameObject.GetComponent<Text>().text = "Cost: " + " MAX ";
-                            upgrade.cost = int.MaxValue;
+                         upgrade.itemRef.transform.GetChild(2).GetComponent<Text>().text = "Cost: " + " MAX ";
+                         upgrade.cost = int.MaxValue;
                         }
-                    }
-                }
-            }
+                    
+                
+            
         }
 
 
@@ -104,19 +101,10 @@ public class ShopController : MonoBehaviour
         {
             GameManager.Instance.score -= upgrade.cost;
             upgrade.cost = Mathf.RoundToInt(upgrade.cost * 1.5f);
-
-            for (int i = 0; i < upgrades.Length; i++)
-            {
-                foreach (Transform child in item[i].transform)
-                {
-                    if (child.gameObject.name == "Cost")
-                    {
-                        child.gameObject.GetComponent<Text>().text = "Cost: " + upgrade.cost.ToString();
-
-
-                    }
-                }
-            }
+            upgrade.itemRef.transform.GetChild(2).GetComponent<Text>().text = "Cost: " + upgrade.cost.ToString();
+            
+                
+            
 
             ApplyUpgrade(upgrade);
         }
