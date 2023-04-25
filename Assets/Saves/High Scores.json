@@ -12,6 +12,11 @@
         },
         {
             "name": "Test",
+            "score": 50,
+            "time": 37
+        },
+        {
+            "name": "Test",
             "score": 0,
             "time": 2
         },
@@ -19,11 +24,6 @@
             "name": "Test",
             "score": 0,
             "time": 4
-        },
-        {
-            "name": "Test",
-            "score": 0,
-            "time": 19
         }
     ]
 }
