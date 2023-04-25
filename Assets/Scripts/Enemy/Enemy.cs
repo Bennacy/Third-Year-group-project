@@ -146,6 +146,8 @@ public class Enemy : MonoBehaviour, IHasHealth
     public void Damage(int damageVal)
     {
         health -= damageVal;
+        StartCoroutine(HitStop());
+        // StartCoroutine(player.HitStop());
         // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0 && animator != null)
         {
@@ -155,6 +157,16 @@ public class Enemy : MonoBehaviour, IHasHealth
         {
             Die();
         }
+    }
+
+    public IEnumerator HitStop(){
+        // animator.enabled = false;
+        Time.timeScale = 0;
+        // agent.updatePosition = false;
+        yield return new WaitForSecondsRealtime(.1f);
+        Time.timeScale = 1;
+        // animator.enabled = true;
+        // agent.updatePosition = true;
     }
 
     public void Recover(int recoverVal)

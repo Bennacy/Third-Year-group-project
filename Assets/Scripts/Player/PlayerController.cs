@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
     public GameObject weapon;
     public GameObject shield;
     public AudioSource audioSource;
+    private CameraShake cameraShake;
     [Space(10)]
 
     [Header("Camera")]
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
     void Awake()
     {
         animatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
+        cameraShake = GetComponentInChildren<CameraShake>();
         audioSource = GetComponent<AudioSource>();
                 
         currCameraAngle = 0;
@@ -252,6 +254,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
 
         if(!attacking || animatorHandler.nextInCombo){ // If the player is not attacking at all, or if the combo window is open
             animatorHandler.StartAttack();
+            // cameraShake.ShakeRotation(1f, 1f, 1f, .25f);
             return;
         }
     }
@@ -269,9 +272,18 @@ public class PlayerController : MonoBehaviour, IHasHealth
             // animatorHandler.EndBlock();
         }
     }
-
+    
+    public IEnumerator HitStop(){
+        animatorHandler.animator.enabled = false;
+        // agent.updatePosition = false;
+        yield return new WaitForSeconds(.1f);
+        animatorHandler.animator.enabled = true;
+        // agent.updatePosition = true;
+    }
     public void Damage(int damageVal)
     {
+        cameraShake.ShakeRotation(1f, 1f, 1f, .25f);
+
         if(blocking){
             stamina -= damageVal;
             animatorHandler.SetTrigger("BlockRecoil");
