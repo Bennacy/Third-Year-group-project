@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 3382557049404512037}
   - component: {fileID: 3382557049404512036}
   m_Layer: 3
-  m_Name: Firefly
+  m_Name: Firefly (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,7 +388,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -351022541804052484, guid: 88c35edacb737d3449f1ecbdb5be5fbc, type: 3}
+  - {fileID: 2100000, guid: d438a4c43a75c5f41a9a9aff838afcb5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 7011011141680210918}
   - component: {fileID: 8251181639344632322}
   m_Layer: 3
-  m_Name: Necromancer 1
+  m_Name: Necromancer 1 (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,7 +341,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: cba1c4293043b0843b26cbf54cb5a86a, type: 3}
+  - {fileID: 2100000, guid: c421cd712d2845e4f84888b5266110e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

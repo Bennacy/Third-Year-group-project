@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.081865855, g: 0.01440134, b: 0.15617536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000004, guid: 168ab67e246b908449a992d697c4aaef,
+    type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -566,6 +567,23 @@ MonoBehaviour:
   uiAnimator: {fileID: 1559406631154296510}
   globalImage: {fileID: 1006299179}
   globalText: {fileID: 585423774}
+  highScores:
+    scores:
+    - name: NULL
+      score: -1
+      time: -1
+    - name: NULL
+      score: -1
+      time: -1
+    - name: NULL
+      score: -1
+      time: -1
+    - name: NULL
+      score: -1
+      time: -1
+    - name: NULL
+      score: -1
+      time: -1
   paused: 0
   won: 0
   died: 0
@@ -577,9 +595,14 @@ MonoBehaviour:
   inGame: 0
   fading: 0
   waitForFade: 0
+  score: 0
   aliveEnemies: []
   currentWave: 1
   maxWave: 0
+  weapons: []
+  drawbridgeState: 0
+  lowerDrawbridge: 0
+  raiseDrawbridge: 0
 --- !u!95 &1559406631154296510
 Animator:
   serializedVersion: 4
