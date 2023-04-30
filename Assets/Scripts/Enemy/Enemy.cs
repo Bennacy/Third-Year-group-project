@@ -146,7 +146,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     public void Damage(int damageVal)
     {
         health -= damageVal;
-        StartCoroutine(HitStop());
+        // StartCoroutine(HitStop());
         // StartCoroutine(player.HitStop());
         // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0 && animator != null)
