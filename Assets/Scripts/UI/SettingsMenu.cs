@@ -11,11 +11,32 @@ public class SettingsMenu : MonoBehaviour
     public TextMeshProUGUI volumeText;
     public AudioMixer audioMixer;
     public float volume;
+    public Resolution[] resolutions;
+    public TMP_Dropdown resolutionDropdown;
+
 
     // Start is called before the first frame update
     void Start()
     {
         SetVolume(volumeSlider.value);
+        resolutions = Screen.resolutions;
+
+        resolutionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+
+        int currentResolutionIndex = 0;
+        for(int i = 0; i < resolutions.Length; i++){
+            Resolution resolution = resolutions[i];
+            options.Add($"{resolution.width}x{resolution.height}");
+
+            if(Screen.currentResolution.width == resolution.width && Screen.currentResolution.height == resolution.height){
+                currentResolutionIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
     }
 
     // Update is called once per frame
@@ -33,6 +54,14 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetQuality(int qualityIndex){
         QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    public void SetFullscreen(bool isFullscreen){
+        Screen.fullScreen = isFullscreen;
+    }
+
+    public void SetResolution(int resolutionIndex){
+        Screen.SetResolution(Screen.resolutions[resolutionIndex].width, Screen.resolutions[resolutionIndex].height, Screen.fullScreen);
     }
 }
 
