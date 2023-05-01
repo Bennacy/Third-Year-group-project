@@ -118,7 +118,7 @@ public class Enemy : MonoBehaviour, IHasHealth
 
         health = maxHealth = enemyScriptableObject.health;
 
-        Debug.Log("Enemy Health is: " + health);
+        // Debug.Log("Enemy Health is: " + health);
     }
 
 

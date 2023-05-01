@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,7 +28,10 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        
+        Debug.Log("Audio values");
+        SetMasterVolume(masterVolume);
+        SetSFXVolume(sfxVolume);
+        SetMusicVolume(musicVolume);
     }
 
     void Update()
@@ -41,10 +45,10 @@ public class AudioManager : MonoBehaviour
     }
     public void SetSFXVolume(float value){
         sfxVolume = value;
-        mixer.SetFloat(MIXER_SFX, Mathf.Log10(masterVolume) * 20);
+        mixer.SetFloat(MIXER_SFX, Mathf.Log10(sfxVolume) * 20);
     }
     public void SetMusicVolume(float value){
         musicVolume = value;
-        mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(masterVolume) * 20);
+        mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(musicVolume) * 20);
     }
 }

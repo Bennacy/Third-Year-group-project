@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
+
+        LoadSettings();
     }
     
     void Start()
@@ -61,23 +63,7 @@ public class GameManager : MonoBehaviour
 
         SaveSystem.Init();
 
-        highScores = new HighScores();
-        string scoreString = SaveSystem.Load("High Scores");
-        if(scoreString != null)
-            highScores = JsonUtility.FromJson<HighScores>(scoreString);
-
-        // PersonalScore score = new PersonalScore(100, 40, "Bruh");
-        // highScores.InsertScore(score, 0);
-
-        // score = new PersonalScore(40, 100, "Bruh2");
-        // highScores.InsertScore(score, 0);
-
-        // score = new PersonalScore(999, 100, "Bruh3");
-        // highScores.InsertScore(score, 0);
-
-        // string saving = JsonUtility.ToJson(highScores, true);
-        // SaveSystem.Save(saving, "High Scores");
-
+        LoadScores();
 
         NewScene();
     }
@@ -107,10 +93,7 @@ public class GameManager : MonoBehaviour
             FadeInImage(1, null, Color.black);
             waitForFade = true;
             
-            PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
-            highScores.InsertScore(personalScore);
-            string saving = JsonUtility.ToJson(highScores, true);
-            SaveSystem.Save(saving, "High Scores");
+            SaveScores();
         }
 
         if(died && inGame && !waitForFade){
@@ -118,35 +101,17 @@ public class GameManager : MonoBehaviour
             FadeInImage(.3f, null, Color.black);
             waitForFade = true;
             
-            PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
-            highScores.InsertScore(personalScore);
-            string saving = JsonUtility.ToJson(highScores, true);
-            SaveSystem.Save(saving, "High Scores");
-
+            SaveScores();
         }
 
 
+        if(Input.GetKeyDown(KeyCode.O)){
+            SaveSettings();
+        }
         if(Input.GetKeyDown(KeyCode.L)){
-            Debug.Log("Saving");
-
-            PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
-            highScores.InsertScore(personalScore);
-
-            Settings saveSettings = new Settings(
-                AudioManager.Instance.masterVolume,
-                AudioManager.Instance.sfxVolume,
-                AudioManager.Instance.musicVolume,
-                FOV,
-                QualitySettings.GetQualityLevel()
-            );
-
-            SaveInfo info = new SaveInfo(highScores, saveSettings);
-
-            string saving = JsonUtility.ToJson(info, true);
-            SaveSystem.Save(saving, "High Scores");
+            SaveScores();
         }
         if(Input.GetKeyDown(KeyCode.K)){
-            Debug.Log("Clearing");
             SaveSystem.ClearSave("", "High Scores");
         }
     }
@@ -209,6 +174,64 @@ public class GameManager : MonoBehaviour
     public void ToggleCursor(){
 
     }
+
+
+    //! =============== Save Functions ===============
+    public void SaveScores(){
+        Debug.Log("Saving");
+
+        PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
+        highScores.InsertScore(personalScore);
+        string saving = JsonUtility.ToJson(highScores, true);
+        SaveSystem.Save(saving, "High Scores");
+    }
+    public void LoadScores(){
+        Debug.Log("Loading Scores");
+        
+        highScores = new HighScores();
+        string scoreString = SaveSystem.Load("High Scores");
+        if(scoreString != null)
+            highScores = JsonUtility.FromJson<HighScores>(scoreString);
+    }
+
+    public void SaveSettings(){
+        Debug.Log("Saving Settings");
+        
+        Settings saveSettings = new Settings(
+            AudioManager.Instance.masterVolume,
+            AudioManager.Instance.sfxVolume,
+            AudioManager.Instance.musicVolume,
+            FOV,
+            QualitySettings.GetQualityLevel()
+        );
+
+        string saving = JsonUtility.ToJson(saveSettings, true);
+        SaveSystem.Save(saving, "Settings");
+    }
+    public void LoadSettings(){
+        Debug.Log("Loading Settings");
+
+        string settingString = SaveSystem.Load("Settings");
+        if(settingString != null){
+            Settings loadedSettings = JsonUtility.FromJson<Settings>(settingString);
+
+            AudioManager.Instance.SetMasterVolume(loadedSettings.masterVolume);
+            AudioManager.Instance.SetSFXVolume(loadedSettings.sfxVolume);
+            AudioManager.Instance.SetMusicVolume(loadedSettings.musicVolume);
+            FOV = loadedSettings.fov;
+            QualitySettings.SetQualityLevel(loadedSettings.graphicsQuality);
+        }else{
+            Debug.Log("No settings saved");
+            
+            AudioManager.Instance.SetMasterVolume(.5f);
+            AudioManager.Instance.SetSFXVolume(.5f);
+            AudioManager.Instance.SetMusicVolume(.5f);
+            FOV = 90;
+            QualitySettings.SetQualityLevel(2);
+        }
+    }
+    //! =============== Save Functions ===============
+
 
     public void Quit(){
         PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));

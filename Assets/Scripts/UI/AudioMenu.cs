@@ -17,13 +17,24 @@ public class AudioMenu : MonoBehaviour
     
     void Start()
     {
-        
+        SetSliders();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void SetSliders(){
+        Debug.Log("Setting sliders");
+        masterSlider.value = AudioManager.Instance.masterVolume;
+        sfxSlider.value = AudioManager.Instance.sfxVolume;
+        musicSlider.value = AudioManager.Instance.musicVolume;
+
+        SetMasterVolume(AudioManager.Instance.masterVolume);
+        SetSFXVolume(AudioManager.Instance.sfxVolume);
+        SetMusicVolume(AudioManager.Instance.musicVolume);
     }
 
     public void SetMasterVolume(float value){

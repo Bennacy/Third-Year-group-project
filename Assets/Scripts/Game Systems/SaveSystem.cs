@@ -31,8 +31,7 @@ public static class SaveSystem{
     }
 }
 
-[System.Serializable]
-public class PersonalScore{
+[System.Serializable] public class PersonalScore{
     public string name;
     public int score;
     public int time;
@@ -50,8 +49,7 @@ public class PersonalScore{
     }
 }
 
-[System.Serializable]
-public class HighScores{
+[System.Serializable] public class HighScores{
     public PersonalScore[] scores;
 
     public HighScores(){
@@ -79,8 +77,7 @@ public class HighScores{
     }
 }
 
-[System.Serializable]
-public class Settings{
+[System.Serializable] public class Settings{
     public float masterVolume, sfxVolume, musicVolume;
     public int fov;
     public int graphicsQuality;
@@ -91,16 +88,5 @@ public class Settings{
         musicVolume = _music;
         fov = _fov;
         graphicsQuality = _graphics;
-    }
-}
-
-[System.Serializable]
-public class SaveInfo{
-    public HighScores highScores;
-    public Settings settings;
-
-    public SaveInfo(HighScores _scores, Settings _settings){
-        highScores = _scores;
-        settings = _settings;
     }
 }
