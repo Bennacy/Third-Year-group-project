@@ -131,8 +131,23 @@ public class GameManager : MonoBehaviour
 
             PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
             highScores.InsertScore(personalScore);
-            string saving = JsonUtility.ToJson(highScores, true);
+
+            Settings saveSettings = new Settings(
+                AudioManager.Instance.masterVolume,
+                AudioManager.Instance.sfxVolume,
+                AudioManager.Instance.musicVolume,
+                FOV,
+                QualitySettings.GetQualityLevel()
+            );
+
+            SaveInfo info = new SaveInfo(highScores, saveSettings);
+
+            string saving = JsonUtility.ToJson(info, true);
             SaveSystem.Save(saving, "High Scores");
+        }
+        if(Input.GetKeyDown(KeyCode.K)){
+            Debug.Log("Clearing");
+            SaveSystem.ClearSave("", "High Scores");
         }
     }
 

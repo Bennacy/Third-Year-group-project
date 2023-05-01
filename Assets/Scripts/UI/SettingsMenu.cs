@@ -27,7 +27,7 @@ public class SettingsMenu : MonoBehaviour
         panels = new Stack<GameObject>();
         panels.Push(firstPanel);
         
-        SetVolume(volumeSlider.value);
+        // SetVolume(volumeSlider.value);
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -56,13 +56,6 @@ public class SettingsMenu : MonoBehaviour
         }
         
         previousPause = GameManager.Instance.paused;
-    }
-
-    public void SetVolume(float newVolume){
-        volume = newVolume;
-        audioMixer.SetFloat("MasterVolume", volume);
-
-        volumeText.text = Mathf.Round(volume.Remap(-80, 0, 0, 100)).ToString();
     }
 
     // public void SetQuality(int qualityIndex){
