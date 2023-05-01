@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &924174230824485953
 MeshFilter:
@@ -94,11 +94,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 3474343119848362334}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.25
-  m_Height: 7
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0.1}
+  m_Enabled: 0
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 2
+  m_Center: {x: 0, y: 2, z: 0.1}
 --- !u!114 &3474343119848362333
 MonoBehaviour:
   m_ObjectHideFlags: 0

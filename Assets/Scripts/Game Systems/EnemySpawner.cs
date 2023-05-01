@@ -145,7 +145,7 @@ public class EnemySpawner : MonoBehaviour
 
     void FindClosestSpawnPoints(){
         PlayerController playerController = GameManager.Instance.playerController;
-        Debug.Log(playerController);
+        // Debug.Log(playerController);
 
         closestSpawnPoints = new Transform[spawnPointCount];
         float maxDistance = 0;

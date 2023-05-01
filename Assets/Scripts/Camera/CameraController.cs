@@ -19,6 +19,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FOV = GameManager.Instance.FOV;
+        
         mainCam.fieldOfView = FOV;
         characterCam.fieldOfView = FOV;
     }

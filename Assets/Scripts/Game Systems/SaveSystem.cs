@@ -15,6 +15,10 @@ public static class SaveSystem{
         File.WriteAllText(NETWORK_SAVE_FOLDER + fileName + format, saveString);
     }
 
+    public static void ClearSave(string saveString, string fileName, string format = ".json"){
+        File.WriteAllText(NETWORK_SAVE_FOLDER + fileName + format, "");
+    }
+
     public static bool FileExists(string fileName, string format = ".json"){
         return File.Exists(NETWORK_SAVE_FOLDER + fileName + format);
     }
@@ -27,8 +31,7 @@ public static class SaveSystem{
     }
 }
 
-[System.Serializable]
-public class PersonalScore{
+[System.Serializable] public class PersonalScore{
     public string name;
     public int score;
     public int time;
@@ -46,8 +49,7 @@ public class PersonalScore{
     }
 }
 
-[System.Serializable]
-public class HighScores{
+[System.Serializable] public class HighScores{
     public PersonalScore[] scores;
 
     public HighScores(){
@@ -72,5 +74,19 @@ public class HighScores{
                 return;
             }
         }
+    }
+}
+
+[System.Serializable] public class Settings{
+    public float masterVolume, sfxVolume, musicVolume;
+    public int fov;
+    public int graphicsQuality;
+
+    public Settings(float _master, float _sfx, float _music, int _fov, int _graphics){
+        masterVolume = _master;
+        sfxVolume = _sfx;
+        musicVolume = _music;
+        fov = _fov;
+        graphicsQuality = _graphics;
     }
 }

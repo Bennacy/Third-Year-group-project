@@ -1,5 +1,8 @@
+#if UNITY_EDITOR
 using UnityEditor.Rendering.Universal;
 using UnityEditor.UIElements;
+#endif
+
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -6,8 +6,9 @@ public class PlayerAnimatorHandler : MonoBehaviour
 {
     private WeaponHandler weaponHandler;
     private PlayerController controller;
+    private CameraShake cameraShake;
     private Rigidbody playerRb;
-    private Animator animator;
+    public Animator animator;
 
     public bool nextInCombo;
     public int comboIndex;
@@ -18,6 +19,7 @@ public class PlayerAnimatorHandler : MonoBehaviour
         weaponHandler = GetComponentInParent<WeaponHandler>();
         playerRb = GetComponentInParent<Rigidbody>();
         animator = GetComponent<Animator>();
+        cameraShake = controller.GetComponentInChildren<CameraShake>();
     }
 
     void Update()
@@ -91,5 +93,9 @@ public class PlayerAnimatorHandler : MonoBehaviour
 
     public void SetTrigger(string triggerName){
         animator.SetTrigger(triggerName);
+    }
+
+    public void CameraShake(float test){
+        // cameraShake.ShakeRotation(1f, 1f, 1f, .25f);
     }
 }
