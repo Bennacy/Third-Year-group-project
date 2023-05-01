@@ -116,6 +116,11 @@ public class PlayerController : MonoBehaviour, IHasHealth
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        Debug.Log(moveAction.bindings.Count);
+        foreach(InputBinding binding in moveAction.bindings){
+            Debug.Log(binding);
+        }
     }
 
     void Update()
@@ -131,36 +136,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }else{
             animatorHandler.EndBlock();
         }
-        
-        // Debug.Log(playerInput.currentControlScheme);
-
-        // if(lastPositionTime + positionHistoryInterval <= Time.time)
-        // {
-        //     if(velocityHistory.Count == maxQueueSize)
-        //     {
-        //         velocityHistory.Dequeue();
-        //     }
-
-        // // Debug.DrawRay(transform.position, transform.forward, Color.red, 100);
-        //     velocityHistory.Enqueue(rb.velocity);
-        //     lastPositionTime = Time.time;
-        // }
-
-
-        // if(Input.GetKeyDown(KeyCode.Space)){
-        //     playerInput.SwitchCurrentActionMap("Rebinding");
-
-        //     rebindingOperation = moveAction.PerformInteractiveRebinding()
-        //         .WithControlsExcluding("Mouse")
-        //         .OnMatchWaitForAnother(.1f)
-        //         .WithCancelingThrough("<Keyboard>/P")
-        //         .OnComplete(operation => {
-        //             Debug.Log("Done");
-        //             playerInput.SwitchCurrentActionMap("In-Game");
-        //             rebindingOperation.Dispose();
-        //         })
-        //         .Start();
-        // }
     }
 
     void FixedUpdate()

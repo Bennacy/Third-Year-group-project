@@ -3343,6 +3343,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 1055051278491203616, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_BindingId
+      value: f4989878-315e-4b6f-baf9-c466f74d4b3e
+      objectReference: {fileID: 0}
     - target: {fileID: 1214625751045933970, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3423,6 +3428,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2206616092957786164, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: kbScrollBar
+      value: 
+      objectReference: {fileID: 1400589555}
+    - target: {fileID: 2206616092957786164, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: psScrollBar
+      value: 
+      objectReference: {fileID: 1472395465}
+    - target: {fileID: 2206616092957786164, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: xBoxScrollBar
+      value: 
+      objectReference: {fileID: 1400589555}
     - target: {fileID: 2409441795807572132, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3588,6 +3608,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4990532321123489519, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5020132220540577410, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: m_Size
@@ -3722,6 +3747,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555841793151404498, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889117568258049445, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_Text
+      value: W/A/S/D
       objectReference: {fileID: 0}
     - target: {fileID: 6918382560051148270, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
@@ -4548,6 +4583,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9153774888810676091, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d0a55af42f2d24747b036e2d67567743, type: 3}
@@ -5144,6 +5184,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1364087873485794358, guid: c6b9823c7f13b4a478acf6e846707e1b, type: 3}
+--- !u!114 &1400589555 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5823784455896516252, guid: d0a55af42f2d24747b036e2d67567743,
+    type: 3}
+  m_PrefabInstance: {fileID: 1141554053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1432750872
 GameObject:
   m_ObjectHideFlags: 0
@@ -5255,6 +5307,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8421744311104621043, guid: c6b9823c7f13b4a478acf6e846707e1b, type: 3}
+--- !u!114 &1472395465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1968268172206393552, guid: d0a55af42f2d24747b036e2d67567743,
+    type: 3}
+  m_PrefabInstance: {fileID: 1141554053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4db7a114972834c8e4117be1d82ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1473710309
 GameObject:
   m_ObjectHideFlags: 0
