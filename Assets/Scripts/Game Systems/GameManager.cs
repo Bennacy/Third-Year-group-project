@@ -183,7 +183,7 @@ public class GameManager : MonoBehaviour
 
     //! =============== Save Functions ===============
     public void SaveScores(){
-        Debug.Log("Saving");
+        // Debug.Log("Saving");
 
         PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
         highScores.InsertScore(personalScore);
@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
         SaveSystem.Save(saving, "High Scores");
     }
     public void LoadScores(){
-        Debug.Log("Loading Scores");
+        // Debug.Log("Loading Scores");
         
         highScores = new HighScores();
         string scoreString = SaveSystem.Load("High Scores");
@@ -200,7 +200,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void SaveSettings(){
-        Debug.Log("Saving Settings");
+        // Debug.Log("Saving Settings");
         
         Settings saveSettings = new Settings(
             AudioManager.Instance.masterVolume,
@@ -214,7 +214,7 @@ public class GameManager : MonoBehaviour
         SaveSystem.Save(saving, "Settings");
     }
     public void LoadSettings(){
-        Debug.Log("Loading Settings");
+        // Debug.Log("Loading Settings");
 
         string settingString = SaveSystem.Load("Settings");
         if(settingString != null){

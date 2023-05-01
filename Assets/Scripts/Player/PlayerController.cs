@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
         sprintAction.performed += context => Sprint(context);
         sprintAction.canceled += context => Sprint(context);
 
-        moveAction = playerInput.actions["Move"];
+        moveAction = playerInput.actions["Walk"];
         moveAction.performed += context => MovePlayer(context);
         moveAction.canceled += context => MovePlayer(context);
 
@@ -226,9 +226,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
         if(GameManager.Instance.paused)
             return;
 
-
         Vector2 inputVector = context.ReadValue<Vector2>();
-        Debug.Log(inputVector);
         float sens = cameraController.sens;
 
         cameraRotate = inputVector;

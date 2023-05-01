@@ -26,26 +26,6 @@ public class SettingsMenu : MonoBehaviour
         previousPause = false;
         panels = new Stack<GameObject>();
         panels.Push(firstPanel);
-        
-        // SetVolume(volumeSlider.value);
-        resolutions = Screen.resolutions;
-
-        resolutionDropdown.ClearOptions();
-        List<string> options = new List<string>();
-
-        int currentResolutionIndex = 0;
-        for(int i = 0; i < resolutions.Length; i++){
-            Resolution resolution = resolutions[i];
-            options.Add($"{resolution.width}x{resolution.height}");
-
-            if(Screen.currentResolution.width == resolution.width && Screen.currentResolution.height == resolution.height){
-                currentResolutionIndex = i;
-            }
-        }
-
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
     }
 
     // Update is called once per frame
