@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     public int currentWave;
     public int maxWave;
 
+    public int FOV;
+
     public WeaponScript[] weapons;
 
     [Space(10)]

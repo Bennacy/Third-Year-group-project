@@ -43,6 +43,7 @@ public class GraphicsMenu : MonoBehaviour
 
         Debug.Log(QualitySettings.GetQualityLevel());
 
+        fovSlider.value = GameManager.Instance.FOV;
         SetFOV(fovSlider.value);
     }
 
@@ -53,6 +54,8 @@ public class GraphicsMenu : MonoBehaviour
 
     public void SetFOV(float fov){
         fovLabel.text = fov.ToString();
+
+        GameManager.Instance.FOV = Mathf.RoundToInt(fov);
     }
 
     public void SetQuality(int qualityIndex){

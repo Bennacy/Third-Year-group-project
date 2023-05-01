@@ -17,10 +17,13 @@ public class SettingsMenu : MonoBehaviour
     public GameObject firstPanel;
     public GameObject settingsPanel;
 
+    private bool previousPause;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        previousPause = false;
         panels = new Stack<GameObject>();
         panels.Push(firstPanel);
         
@@ -48,7 +51,11 @@ public class SettingsMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(previousPause && !GameManager.Instance.paused){
+            CollapseStack();
+        }
         
+        previousPause = GameManager.Instance.paused;
     }
 
     public void SetVolume(float newVolume){
@@ -104,6 +111,8 @@ public class SettingsMenu : MonoBehaviour
         while(panels.Count > 1){
             ClosePanel();
         }
+        
+        CloseSettings();
     }
 }
 
