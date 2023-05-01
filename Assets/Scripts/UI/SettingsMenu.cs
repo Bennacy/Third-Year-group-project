@@ -93,11 +93,11 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public void OpenSettings(){
-
+        settingsPanel.SetActive(true);
     }
 
     public void CloseSettings(){
-
+        settingsPanel.SetActive(false);
     }
 
     public void CollapseStack(){
