@@ -29,4 +29,4 @@ MonoBehaviour:
   scoreGiven: 50
   damage: 7
   prefab: {fileID: 3382557049404512039, guid: 7e1f455fb33b0df429bf67abaa5e260a, type: 3}
-  spawnWeight: 0.3333
+  spawnWeight: 0
