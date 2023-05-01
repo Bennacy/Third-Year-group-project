@@ -20,13 +20,13 @@ MonoBehaviour:
   AngularSpeed: 120
   AreaMask: -1
   AvoidancePriority: 50
-  BaseOffset: 5.01
-  Height: 14.5
+  BaseOffset: 6.88
+  Height: 17.23
   ObstacleAvoidanceType: 1
-  Radius: 4.1
+  Radius: 4.72
   Speed: 3.5
   StoppingDistance: 0.5
   scoreGiven: 50
   damage: 7
-  prefab: {fileID: 3382557049404512039, guid: 7e1f455fb33b0df429bf67abaa5e260a, type: 3}
-  spawnWeight: 0.3333
+  prefab: {fileID: 8550192648152961314, guid: 3c2e1855cf2bf874899ec3d329ae739e, type: 3}
+  spawnWeight: 0.3
