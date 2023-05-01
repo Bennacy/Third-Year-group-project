@@ -1,8 +1,14 @@
 fileFormatVersion: 2
-guid: fda062c0e69a33d4893d4e15e7877745
+guid: 52afde07b6c90474eb30d66085df047d
 ModelImporter:
   serializedVersion: 22103
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -8174932166352858121
+    second: group12|group12|group12|group12|Take 001|BaseLayer
+  - first:
+      74: -3968465333713883581
+    second: group12|group12|group12|QuickRigCharacter_Ctrl_Reference|Take 001|BaseL
   externalObjects: {}
   materials:
     materialImportMode: 2

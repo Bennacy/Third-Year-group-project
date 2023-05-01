@@ -765,6 +765,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 22705486319616451}
+  - component: {fileID: 2337767209454192127}
+  - component: {fileID: 4101260855948198920}
   m_Layer: 3
   m_Name: armpit_jnt2
   m_TagString: Untagged
@@ -789,6 +791,31 @@ Transform:
   m_Father: {fileID: 1747533458274448716}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2337767209454192127
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120091414190654679}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.035172146, y: 0.011456954, z: 0.011893158}
+  m_Center: {x: -0.0064225085, y: 0.00047868563, z: -0.0003452993}
+--- !u!114 &4101260855948198920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6120091414190654679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c9225820407134cb04d10d90f821b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6482313669735451536
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,7 +1014,7 @@ Transform:
   - {fileID: 4456692810104198080}
   - {fileID: 2950551772336675773}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &136595555174759763
 SkinnedMeshRenderer:
