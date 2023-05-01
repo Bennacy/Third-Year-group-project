@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
 
     [Header("Camera")]
     public Vector2 cameraVerticalBounds;
+    private Vector2 cameraRotate;
     private float currCameraAngle;
     [Space(10)]
 
@@ -80,7 +81,8 @@ public class PlayerController : MonoBehaviour, IHasHealth
         playerInput = GetComponent<PlayerInput>();
 
         controlCamAction = playerInput.actions["Look"];
-        controlCamAction.performed += context => MoveCamera(context);
+        controlCamAction.performed += context => CameraInput(context);
+        controlCamAction.canceled += context => CameraInput(context);
 
         sprintAction = playerInput.actions["Sprint"];
         sprintAction.performed += context => Sprint(context);
@@ -176,7 +178,13 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }
         
         rb.AddForce(Physics.gravity * gravityForce);
-        
+    }
+    void LateUpdate()
+    {
+        if(GameManager.Instance.paused)
+            return;
+
+        RotateCamera();
     }
 
     public Vector3 AverageVelocity
@@ -199,13 +207,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
     private void MovePlayer(InputAction.CallbackContext context){
         Vector2 inputVector = context.ReadValue<Vector2>();
 
-        // if(context.performed){
-        //     Debug.Log(inputVector);
-        // }
-        // if(context.canceled){
-        //     Debug.Log("Canceled");
-        // }
-
         walking = context.performed;
 
         moveDirection = new Vector2(inputVector.x, inputVector.y);
@@ -221,23 +222,27 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }
     }
 
-    private void MoveCamera(InputAction.CallbackContext context){
+    private void CameraInput(InputAction.CallbackContext context){
         if(GameManager.Instance.paused)
             return;
 
+
         Vector2 inputVector = context.ReadValue<Vector2>();
+        Debug.Log(inputVector);
         float sens = cameraController.sens;
 
-        if(playerInput.currentControlScheme == "Gamepad"){
-            sens *= 100;
-        }
-        
-        if(context.performed){
+        cameraRotate = inputVector;
+    }
+    private void RotateCamera(){
             Vector3 currPlayerRotation = transform.localRotation.eulerAngles;
             Vector3 currCamRotation = cameraController.transform.rotation.eulerAngles;
 
-            currPlayerRotation.y += inputVector.x * sens;
-            currCameraAngle -= inputVector.y * sens;
+            float sens = cameraController.sens;
+            if(playerInput.currentControlScheme == "Gamepad")
+                sens *= 10;
+
+            currPlayerRotation.y += cameraRotate.x * sens;
+            currCameraAngle -= cameraRotate.y * sens;
             currCamRotation.y = 0;
             
             currCameraAngle = Mathf.Clamp(currCameraAngle, cameraVerticalBounds.x, cameraVerticalBounds.y);
@@ -245,7 +250,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
 
             cameraController.transform.localRotation = Quaternion.Euler(currCamRotation);
             transform.rotation = Quaternion.Euler(currPlayerRotation);
-        }
     }
 
     private void Attack(InputAction.CallbackContext context){

@@ -143,6 +143,11 @@ public class GameManager : MonoBehaviour
         inGame = false;
     }
 
+    void OnApplicationQuit()
+    {
+        SaveSettings();
+    }
+
     bool GetPlayerController(){
         // Debug.Log("Loaded");
         playerController = FindObjectOfType<PlayerController>();
