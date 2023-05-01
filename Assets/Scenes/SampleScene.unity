@@ -175,6 +175,18 @@ MonoBehaviour:
   m_Bidirectional: 0
   m_AutoUpdatePosition: 0
   m_Area: 2
+--- !u!114 &38046281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8813503645835406318, guid: d0a55af42f2d24747b036e2d67567743,
+    type: 3}
+  m_PrefabInstance: {fileID: 1141554053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d4ef5d8fc75df4a9aca133a56d3fa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &55851515
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3154,6 +3166,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6500392595846161425, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6500392597069022978, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: m_Name
@@ -3264,6 +3281,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8813503644970651936, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 38046281}
+    - target: {fileID: 8813503644970651936, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenPanelClosePrevious
+      objectReference: {fileID: 0}
     - target: {fileID: 8813503644970651999, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3293,6 +3320,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -282.49994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813503644979299892, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813503644979299894, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 38046281}
+    - target: {fileID: 8813503644979299894, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClosePanel
       objectReference: {fileID: 0}
     - target: {fileID: 8813503645098748436, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
@@ -3554,6 +3596,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -142.49994
       objectReference: {fileID: 0}
+    - target: {fileID: 8813503645962059525, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 38046281}
+    - target: {fileID: 8813503645962059525, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenPanelClosePrevious
+      objectReference: {fileID: 0}
     - target: {fileID: 8813503646000909815, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: m_Value
@@ -3634,6 +3686,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -282.49994
       objectReference: {fileID: 0}
+    - target: {fileID: 8813503646407140826, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 38046281}
+    - target: {fileID: 8813503646407140826, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenPanelClosePrevious
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813503646448301100, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8813503646585085210, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3663,6 +3730,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -142.49994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8813503646585085211, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 38046281}
+    - target: {fileID: 8813503646585085211, guid: d0a55af42f2d24747b036e2d67567743,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenPanelClosePrevious
       objectReference: {fileID: 0}
     - target: {fileID: 8813503646591241265, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
