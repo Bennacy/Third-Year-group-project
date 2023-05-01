@@ -124,6 +124,16 @@ public class GameManager : MonoBehaviour
             SaveSystem.Save(saving, "High Scores");
 
         }
+
+
+        if(Input.GetKeyDown(KeyCode.L)){
+            Debug.Log("Saving");
+
+            PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
+            highScores.InsertScore(personalScore);
+            string saving = JsonUtility.ToJson(highScores, true);
+            SaveSystem.Save(saving, "High Scores");
+        }
     }
 
     void NewScene(){

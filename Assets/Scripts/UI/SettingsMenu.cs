@@ -78,12 +78,10 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public void OpenPanel(GameObject panel){
-        // Debug.Log(panel);        
         panels.Push(panel);
         panels.Peek().SetActive(true);
     }
     public void OpenPanelClosePrevious(GameObject panel){
-        // Debug.Log(panel);
         panels.Peek().SetActive(false);
 
         panels.Push(panel);
@@ -111,15 +109,13 @@ public class SettingsMenu : MonoBehaviour
         while(panels.Count > 1){
             ClosePanel();
         }
-        
+
         CloseSettings();
     }
 }
 
 public static class ExtensionMethods {
- 
-public static float Remap (this float value, float from1, float to1, float from2, float to2) {
-    return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
-}
-   
+    public static float Remap (this float value, float from1, float to1, float from2, float to2) {
+        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
+    }
 }

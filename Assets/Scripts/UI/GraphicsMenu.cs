@@ -41,8 +41,6 @@ public class GraphicsMenu : MonoBehaviour
 
         fullscreenToggle.isOn = Screen.fullScreen;
 
-        Debug.Log(QualitySettings.GetQualityLevel());
-
         fovSlider.value = GameManager.Instance.FOV;
         SetFOV(fovSlider.value);
     }
