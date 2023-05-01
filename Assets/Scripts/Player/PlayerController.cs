@@ -14,10 +14,12 @@ public class PlayerController : MonoBehaviour, IHasHealth
     public GameObject weapon;
     public GameObject shield;
     public AudioSource audioSource;
+    private CameraShake cameraShake;
     [Space(10)]
 
     [Header("Camera")]
     public Vector2 cameraVerticalBounds;
+    private Vector2 cameraRotate;
     private float currCameraAngle;
     [Space(10)]
 
@@ -71,6 +73,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
     void Awake()
     {
         animatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
+        cameraShake = GetComponentInChildren<CameraShake>();
         audioSource = GetComponent<AudioSource>();
                 
         currCameraAngle = 0;
@@ -78,13 +81,14 @@ public class PlayerController : MonoBehaviour, IHasHealth
         playerInput = GetComponent<PlayerInput>();
 
         controlCamAction = playerInput.actions["Look"];
-        controlCamAction.performed += context => MoveCamera(context);
+        controlCamAction.performed += context => CameraInput(context);
+        controlCamAction.canceled += context => CameraInput(context);
 
         sprintAction = playerInput.actions["Sprint"];
         sprintAction.performed += context => Sprint(context);
         sprintAction.canceled += context => Sprint(context);
 
-        moveAction = playerInput.actions["Move"];
+        moveAction = playerInput.actions["Walk"];
         moveAction.performed += context => MovePlayer(context);
         moveAction.canceled += context => MovePlayer(context);
 
@@ -174,7 +178,13 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }
         
         rb.AddForce(Physics.gravity * gravityForce);
-        
+    }
+    void LateUpdate()
+    {
+        if(GameManager.Instance.paused)
+            return;
+
+        RotateCamera();
     }
 
     public Vector3 AverageVelocity
@@ -197,13 +207,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
     private void MovePlayer(InputAction.CallbackContext context){
         Vector2 inputVector = context.ReadValue<Vector2>();
 
-        // if(context.performed){
-        //     Debug.Log(inputVector);
-        // }
-        // if(context.canceled){
-        //     Debug.Log("Canceled");
-        // }
-
         walking = context.performed;
 
         moveDirection = new Vector2(inputVector.x, inputVector.y);
@@ -219,23 +222,25 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }
     }
 
-    private void MoveCamera(InputAction.CallbackContext context){
+    private void CameraInput(InputAction.CallbackContext context){
         if(GameManager.Instance.paused)
             return;
 
         Vector2 inputVector = context.ReadValue<Vector2>();
         float sens = cameraController.sens;
 
-        if(playerInput.currentControlScheme == "Gamepad"){
-            sens *= 100;
-        }
-        
-        if(context.performed){
+        cameraRotate = inputVector;
+    }
+    private void RotateCamera(){
             Vector3 currPlayerRotation = transform.localRotation.eulerAngles;
             Vector3 currCamRotation = cameraController.transform.rotation.eulerAngles;
 
-            currPlayerRotation.y += inputVector.x * sens;
-            currCameraAngle -= inputVector.y * sens;
+            float sens = cameraController.sens;
+            if(playerInput.currentControlScheme == "Gamepad")
+                sens *= 10;
+
+            currPlayerRotation.y += cameraRotate.x * sens;
+            currCameraAngle -= cameraRotate.y * sens;
             currCamRotation.y = 0;
             
             currCameraAngle = Mathf.Clamp(currCameraAngle, cameraVerticalBounds.x, cameraVerticalBounds.y);
@@ -243,7 +248,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
 
             cameraController.transform.localRotation = Quaternion.Euler(currCamRotation);
             transform.rotation = Quaternion.Euler(currPlayerRotation);
-        }
     }
 
     private void Attack(InputAction.CallbackContext context){
@@ -252,6 +256,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
 
         if(!attacking || animatorHandler.nextInCombo){ // If the player is not attacking at all, or if the combo window is open
             animatorHandler.StartAttack();
+            // cameraShake.ShakeRotation(1f, 1f, 1f, .25f);
             return;
         }
     }
@@ -269,9 +274,18 @@ public class PlayerController : MonoBehaviour, IHasHealth
             // animatorHandler.EndBlock();
         }
     }
-
+    
+    public IEnumerator HitStop(){
+        animatorHandler.animator.enabled = false;
+        // agent.updatePosition = false;
+        yield return new WaitForSeconds(.1f);
+        animatorHandler.animator.enabled = true;
+        // agent.updatePosition = true;
+    }
     public void Damage(int damageVal)
     {
+        cameraShake.ShakeRotation(1f, 1f, 1f, .25f);
+
         if(blocking){
             stamina -= damageVal;
             animatorHandler.SetTrigger("BlockRecoil");
