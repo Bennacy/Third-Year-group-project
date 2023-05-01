@@ -13,11 +13,17 @@ public class SettingsMenu : MonoBehaviour
     public float volume;
     public Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
+    public Stack<GameObject> panels;
+    public GameObject firstPanel;
+    public GameObject settingsPanel;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        panels = new Stack<GameObject>();
+        panels.Push(firstPanel);
+        
         SetVolume(volumeSlider.value);
         resolutions = Screen.resolutions;
 
@@ -52,9 +58,9 @@ public class SettingsMenu : MonoBehaviour
         volumeText.text = Mathf.Round(volume.Remap(-80, 0, 0, 100)).ToString();
     }
 
-    public void SetQuality(int qualityIndex){
-        QualitySettings.SetQualityLevel(qualityIndex);
-    }
+    // public void SetQuality(int qualityIndex){
+    //     QualitySettings.SetQualityLevel(qualityIndex);
+    // }
 
     public void SetFullscreen(bool isFullscreen){
         Screen.fullScreen = isFullscreen;
@@ -62,6 +68,42 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetResolution(int resolutionIndex){
         Screen.SetResolution(Screen.resolutions[resolutionIndex].width, Screen.resolutions[resolutionIndex].height, Screen.fullScreen);
+    }
+
+    public void OpenPanel(GameObject panel){
+        // Debug.Log(panel);        
+        panels.Push(panel);
+        panels.Peek().SetActive(true);
+    }
+    public void OpenPanelClosePrevious(GameObject panel){
+        // Debug.Log(panel);
+        panels.Peek().SetActive(false);
+
+        panels.Push(panel);
+        panels.Peek().SetActive(true);
+    }
+
+    public void ClosePanel(){
+        if(panels.Count > 1){
+            panels.Pop().SetActive(false);
+            panels.Peek().SetActive(true);
+        }else{
+            CloseSettings();
+        }
+    }
+
+    public void OpenSettings(){
+
+    }
+
+    public void CloseSettings(){
+
+    }
+
+    public void CollapseStack(){
+        while(panels.Count > 1){
+            ClosePanel();
+        }
     }
 }
 
