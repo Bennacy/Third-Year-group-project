@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Sword
   prefab: {fileID: 7724613970817878120, guid: 4050aced74be9ed46825e9d3b119acfe, type: 3}
+  offhand: {fileID: 2796536436804686330, guid: c1395b9d7b27c3e409947bfc4cc5f182, type: 3}
   icon: {fileID: 0}
   leftHand: 0
   weaponType: Sword
@@ -27,3 +28,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1bbc9925d33ae674d9faf527789a175c, type: 3}
   damage: 35
   defaultDamage: 35
+  damageBlocked: 0.75

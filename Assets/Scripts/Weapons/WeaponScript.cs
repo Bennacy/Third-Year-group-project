@@ -8,6 +8,7 @@ public class WeaponScript : ScriptableObject
     [Header("Info")]
     public string weaponName;
     public GameObject prefab;
+    public GameObject offhand;
     public Sprite icon;
     public bool leftHand;
     [Space(10)]
@@ -26,4 +27,5 @@ public class WeaponScript : ScriptableObject
     [Header("Stats")]
     public float damage;
     public float defaultDamage;
+    public float damageBlocked;
 }

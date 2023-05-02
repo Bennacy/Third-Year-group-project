@@ -10,6 +10,7 @@ public class SettingsMenu : MonoBehaviour
     public Stack<GameObject> panels;
     public GameObject firstPanel;
     public GameObject settingsPanel;
+    private CanvasGroup group;
 
     private bool previousPause;
 
@@ -17,6 +18,7 @@ public class SettingsMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        group = GetComponent<CanvasGroup>();
         previousPause = false;
         panels = new Stack<GameObject>();
         panels.Push(firstPanel);
@@ -51,8 +53,18 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
-    public void OpenSettings(){
+    public void OpenSettings(){     
+        StartCoroutine(OpenSettingsFade());
+    }
+
+    private IEnumerator OpenSettingsFade(){
+        group.alpha = 0;
         settingsPanel.SetActive(true);
+
+        while(group.alpha < 1){
+            group.alpha += Time.unscaledDeltaTime*7.5f;
+            yield return null;
+        }   
     }
 
     public void CloseSettings(){

@@ -32,6 +32,7 @@ public class HordeController : MonoBehaviour
 
         foreach(Enemy enemy in enemies){
             if(enemy.currentState == enemy.circlingState){
+                // Debug.Log(playerController);
                 float testingDistance = Vector3.Distance(playerController.transform.position, enemy.transform.position);
                 if(testingDistance < closestDistance){
                     closestDistance = testingDistance;

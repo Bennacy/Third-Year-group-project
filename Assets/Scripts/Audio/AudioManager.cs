@@ -24,7 +24,7 @@ public class AudioManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
-        Debug.Log("Audio values");
+        // Debug.Log("Audio values");
     }
 
     void Start()

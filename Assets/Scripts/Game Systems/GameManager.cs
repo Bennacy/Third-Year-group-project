@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public bool newHighScore;
     public bool inGame;
     public bool fading;
+    public bool loadingScene;
     public bool waitForFade;
     public int score;
     public List<Enemy> aliveEnemies;
@@ -54,23 +55,24 @@ public class GameManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
+
+        uiAnimator = GetComponentInChildren<Animator>();
     }
 
     void OnEnable()
     {
-        Debug.Log("Loading Settings");
         LoadSettings();
-    }
-    
-    void Start()
-    {
         SceneManager.sceneLoaded += delegate{NewScene();};
 
         SaveSystem.Init();
 
         LoadScores();
 
-        NewScene();
+        // NewScene();
+    }
+    
+    void Start()
+    {
     }
 
     void Update()
@@ -122,19 +124,23 @@ public class GameManager : MonoBehaviour
     }
 
     void NewScene(){
+        // uiAnimator.SetTrigger("New Scene");
+        Debug.Log("New Scene");
+
+        Time.timeScale = 1;
+        paused = false;
+        won = false;
+        died = false;
+        newHighScore = false;
+        currentWave = 1;
+        enemiesKilled = 0;
+        time = 0;
+        currency = 0;
+        score = 0;
+        AudioListener.pause = false;
+        
         if(GetPlayerController()){
-            uiAnimator = GetComponentInChildren<Animator>();
             inGame = true;
-            won = false;
-            paused = false;
-            Time.timeScale = 1;
-            died = false;
-            newHighScore = false;
-            currentWave = 1;
-            enemiesKilled = 0;
-            time = 0;
-            currency = 0;
-            score = 0;
             
             foreach(WeaponScript weapon in weapons)
             {
@@ -154,7 +160,6 @@ public class GameManager : MonoBehaviour
     }
 
     bool GetPlayerController(){
-        // Debug.Log("Loaded");
         playerController = FindObjectOfType<PlayerController>();
         if(playerController != null){
             playerInput = playerController.playerInput;
@@ -188,7 +193,6 @@ public class GameManager : MonoBehaviour
 
     //! =============== Save Functions ===============
     public void SaveScores(){
-        // Debug.Log("Saving");
 
         PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
         highScores.InsertScore(personalScore);
@@ -196,7 +200,6 @@ public class GameManager : MonoBehaviour
         SaveSystem.Save(saving, "High Scores");
     }
     public void LoadScores(){
-        // Debug.Log("Loading Scores");
         
         highScores = new HighScores();
         string scoreString = SaveSystem.Load("High Scores");
@@ -205,7 +208,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void SaveSettings(){
-        // Debug.Log("Saving Settings");
         
         Settings saveSettings = new Settings(
             AudioManager.Instance.masterVolume,
@@ -229,7 +231,6 @@ public class GameManager : MonoBehaviour
             FOV = loadedSettings.fov;
             QualitySettings.SetQualityLevel(loadedSettings.graphicsQuality);
         }else{
-            Debug.Log("No settings saved");
             
             AudioManager.Instance.SetMasterVolume(.5f);
             AudioManager.Instance.SetSFXVolume(.5f);
@@ -242,16 +243,34 @@ public class GameManager : MonoBehaviour
 
 
     public void Quit(){
-        PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
-        highScores.InsertScore(personalScore);
-        string saving = JsonUtility.ToJson(highScores, true);
-        SaveSystem.Save(saving, "High Scores");
+        SaveScores();
         
         Application.Quit();
     }
 
     public void LoadScene(string sceneName){
+        // SceneManager.LoadScene(sceneName);
+        // Debug.Log("Normal - Loading scene " + sceneName);
+        StartCoroutine(LoadSceneWait(sceneName));
+    }
+
+    private IEnumerator LoadSceneWait(string sceneName){
+        // uiAnimator.Play("Fade In");
+        loadingScene = true;
+
+        Debug.Log("Coroutine - Loading scene " + sceneName);
+        float test = 0;
+        while(test < 1){
+            test += Time.unscaledDeltaTime;
+            if(test >= 0.3f){
+                loadingScene = false;
+            }
+            yield return null;
+        }
+        // yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneName);
+
+        Debug.Log("Loaded scene " + sceneName);
     }
 
 
