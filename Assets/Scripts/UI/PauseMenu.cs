@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         // Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsName("Pause Slide Out"));
-        if(GameManager.Instance.paused == !menu.activeSelf && !playingAnim){
+        if(GameManager.Instance.paused == !menu.activeSelf && !playingAnim && !GameManager.Instance.shopOpen){
             ToggleMenu();
         }
     }

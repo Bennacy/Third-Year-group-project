@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public HighScores highScores;
 
     public bool paused;
+    public bool shopOpen;
     public bool won;
     public bool died;
     public float time;
@@ -184,10 +185,6 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-    }
-
-    public void ToggleCursor(){
-
     }
 
 
