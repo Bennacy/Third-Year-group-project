@@ -2486,6 +2486,7 @@ MonoBehaviour:
   currentWave: 1
   maxWave: 0
   FOV: 90
+  sensitivity: 0.1
   weapons:
   - {fileID: 11400000, guid: 3bb73d2fae8d41942a60d941b0583d4b, type: 2}
   - {fileID: 11400000, guid: 2cf401326735dbf4aa9caef43ae6c689, type: 2}
@@ -3286,6 +3287,10 @@ PrefabInstance:
     - target: {fileID: 916968866, guid: d0a55af42f2d24747b036e2d67567743, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155880612809897, guid: d0a55af42f2d24747b036e2d67567743, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 271717633300645338, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}

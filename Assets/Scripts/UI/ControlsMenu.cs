@@ -19,18 +19,18 @@ public class ControlsMenu : MonoBehaviour
 
     private Vector3 currentPos;
 
+    public RectTransform buttonGlow;
+    public RectTransform optionsBtn;
+    public RectTransform keybindsBtn;
+
     public int schemeIndex;
     private int prevSchemeIndex;
 
 
     void Start()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        sensSlider.value = GameManager.Instance.sensitivity * 100;
+        UpdateSensitivity(sensSlider.value);
     }
 
     void OnEnable()
@@ -41,11 +41,18 @@ public class ControlsMenu : MonoBehaviour
     public void OpenOptions(){
         options.SetActive(true);
         keybinds.SetActive(false);
+        buttonGlow.position = optionsBtn.position;
     }
 
     public void OpenKeybinds(){
         options.SetActive(false);
         keybinds.SetActive(true);
+        buttonGlow.position = keybindsBtn.position;
+    }
+
+    public void UpdateSensitivity(float sens){
+        GameManager.Instance.sensitivity = sens / 100;
+        sensText.text = Mathf.RoundToInt(sens).ToString();
     }
 
     public void UpdateSchemeIndex(int newIndex){

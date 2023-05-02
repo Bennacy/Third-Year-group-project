@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public int maxWave;
 
     public int FOV;
+    public float sensitivity;
 
     public WeaponScript[] weapons;
 

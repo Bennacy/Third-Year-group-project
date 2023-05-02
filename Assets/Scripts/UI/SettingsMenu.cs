@@ -7,12 +7,6 @@ using TMPro;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public Slider volumeSlider;
-    public TextMeshProUGUI volumeText;
-    public AudioMixer audioMixer;
-    public float volume;
-    public Resolution[] resolutions;
-    public TMP_Dropdown resolutionDropdown;
     public Stack<GameObject> panels;
     public GameObject firstPanel;
     public GameObject settingsPanel;
@@ -28,7 +22,6 @@ public class SettingsMenu : MonoBehaviour
         panels.Push(firstPanel);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(previousPause && !GameManager.Instance.paused){
@@ -36,18 +29,6 @@ public class SettingsMenu : MonoBehaviour
         }
         
         previousPause = GameManager.Instance.paused;
-    }
-
-    // public void SetQuality(int qualityIndex){
-    //     QualitySettings.SetQualityLevel(qualityIndex);
-    // }
-
-    public void SetFullscreen(bool isFullscreen){
-        Screen.fullScreen = isFullscreen;
-    }
-
-    public void SetResolution(int resolutionIndex){
-        Screen.SetResolution(Screen.resolutions[resolutionIndex].width, Screen.resolutions[resolutionIndex].height, Screen.fullScreen);
     }
 
     public void OpenPanel(GameObject panel){
