@@ -9,7 +9,7 @@ public class TransitionScript : MonoBehaviour
     void Update()
     {
         if(GameManager.Instance.loadingScene){
-            GameManager.Instance.loadingScene = false;
+            // GameManager.Instance.loadingScene = false;
             animator.SetTrigger("New Scene");
         }
     }

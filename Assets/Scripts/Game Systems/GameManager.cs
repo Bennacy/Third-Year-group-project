@@ -262,7 +262,9 @@ public class GameManager : MonoBehaviour
         float test = 0;
         while(test < 1){
             test += Time.unscaledDeltaTime;
-            Debug.Log("Testing: " + test);
+            if(test >= 0.3f){
+                loadingScene = false;
+            }
             yield return null;
         }
         // yield return new WaitForSeconds(1);
