@@ -60,10 +60,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Loading Settings");
         LoadSettings();
-    }
-    
-    void Start()
-    {
         SceneManager.sceneLoaded += delegate{NewScene();};
 
         SaveSystem.Init();
@@ -71,6 +67,10 @@ public class GameManager : MonoBehaviour
         LoadScores();
 
         NewScene();
+    }
+    
+    void Start()
+    {
     }
 
     void Update()
