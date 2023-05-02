@@ -15,9 +15,7 @@ public class ControlsMenu : MonoBehaviour
     public GameObject keyboardBindings;
     public GameObject xBoxBindings;
     public GameObject psBindings;
-    public Scrollbar kbScrollBar;
-    public Scrollbar xBoxScrollBar;
-    public Scrollbar psScrollBar;
+    public ScrollRect scrollRect;
 
     private Vector3 currentPos;
 
@@ -33,6 +31,11 @@ public class ControlsMenu : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnEnable()
+    {
+        OpenOptions();
     }
     
     public void OpenOptions(){
@@ -56,39 +59,42 @@ public class ControlsMenu : MonoBehaviour
         xBoxBindings.SetActive(false);
         psBindings.SetActive(false);
 
-        float scrollValue = 0;
+        Vector3 position = Vector3.zero;
         switch(prevSchemeIndex){
             case 0:
-                scrollValue = kbScrollBar.value;
+                position = keyboardBindings.transform.position;
             break;
 
             case 1:
-                scrollValue = xBoxScrollBar.value;
+                position = xBoxBindings.transform.position;
             break;
 
             case 2:
-                scrollValue = psScrollBar.value;
+                position = psBindings.transform.position;
             break;
         }
 
-        Debug.Log(scrollValue + ", " + prevSchemeIndex);
+        Debug.Log(position + ", " + prevSchemeIndex);
 
-        kbScrollBar.value = scrollValue;
-        xBoxScrollBar.value = scrollValue;
-        psScrollBar.value = scrollValue;
+        keyboardBindings.transform.position = position;
+        xBoxBindings.transform.position = position;
+        psBindings.transform.position = position;
 
 
         switch(schemeIndex){
             case 0:
                 keyboardBindings.SetActive(true);
+                scrollRect.content = (RectTransform)keyboardBindings.transform;
             break;
 
             case 1:
                 xBoxBindings.SetActive(true);
+                scrollRect.content = (RectTransform)xBoxBindings.transform;
             break;
 
             case 2:
                 psBindings.SetActive(true);
+                scrollRect.content = (RectTransform)psBindings.transform;
             break;
         }
 
