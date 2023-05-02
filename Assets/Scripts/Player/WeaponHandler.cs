@@ -12,6 +12,7 @@ public class WeaponHandler : MonoBehaviour
     public WeaponScript[] weaponPrefabs;
     public WeaponScript currentWeapon;
     private WeaponCollider weaponColliderScript;
+    private WeaponCollider offhandColliderScript;
     public PlayerAnimatorHandler animatorHandler;
     private PlayerController playerController;
 
@@ -58,16 +59,25 @@ public class WeaponHandler : MonoBehaviour
 
         if(playerController.attacking || playerController.blocking)
             return;
-            
+
         // Debug.Log("Switching");
         if(weaponColliderScript != null){
             Destroy(weaponColliderScript.gameObject);
         }
+        if(offhandColliderScript != null){
+            Destroy(offhandColliderScript.gameObject);
+        }
         
         if(weapon.leftHand){
             weaponColliderScript = Instantiate(weapon.prefab, leftHand).GetComponentInChildren<WeaponCollider>();
+            if(weapon.offhand){
+                offhandColliderScript = Instantiate(weapon.offhand, rightHand).GetComponentInChildren<WeaponCollider>();
+            }
         }else{
             weaponColliderScript = Instantiate(weapon.prefab, rightHand).GetComponentInChildren<WeaponCollider>();
+            if(weapon.offhand){
+                offhandColliderScript = Instantiate(weapon.offhand, leftHand).GetComponentInChildren<WeaponCollider>();
+            }
         }
         currentWeapon = weapon;
 

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
     private PlayerAnimatorHandler animatorHandler;
     public PlayerInput playerInput;
     public GameObject weapon;
+    private WeaponHandler weaponHandler;
     public GameObject shield;
     public AudioSource audioSource;
     private CameraShake cameraShake;
@@ -75,6 +76,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
         animatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
         cameraShake = GetComponentInChildren<CameraShake>();
         audioSource = GetComponent<AudioSource>();
+        weaponHandler = GetComponent<WeaponHandler>();
                 
         currCameraAngle = 0;
         moveSpeed = walkSpeed;
@@ -257,7 +259,9 @@ public class PlayerController : MonoBehaviour, IHasHealth
         cameraShake.ShakeRotation(1f, 1f, 1f, .25f);
 
         if(blocking){
-            stamina -= damageVal;
+            float staminaDamage = damageVal * weaponHandler.currentWeapon.damageBlocked;
+            damageVal -= Mathf.RoundToInt(staminaDamage);
+            stamina -= staminaDamage;
             animatorHandler.SetTrigger("BlockRecoil");
 
             if(stamina <= 0){
@@ -265,13 +269,14 @@ public class PlayerController : MonoBehaviour, IHasHealth
                 animatorHandler.EndBlock();
                 staminaCooldown = 1.5f;
             }
-        }else{
-            health -= damageVal;
-            // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
-
-            if (health <= 0)
-                GameManager.Instance.died = true;
         }
+
+        health -= damageVal;
+        // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
+
+        if (health <= 0)
+            GameManager.Instance.died = true;
+        
     }
 
    public void Recover(int recoverVal)
