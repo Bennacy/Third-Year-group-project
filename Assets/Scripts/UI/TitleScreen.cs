@@ -6,10 +6,13 @@ using TMPro;
 
 public class TitleScreen : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private AudioSource audioSource;
+
+    void OnEnable()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+        Debug.Log(audioSource.isPlaying);
     }
 
     // Update is called once per frame

@@ -60,7 +60,6 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("Loading Settings");
         LoadSettings();
         SceneManager.sceneLoaded += delegate{NewScene();};
 
@@ -68,7 +67,7 @@ public class GameManager : MonoBehaviour
 
         LoadScores();
 
-        NewScene();
+        // NewScene();
     }
     
     void Start()
@@ -124,20 +123,23 @@ public class GameManager : MonoBehaviour
     }
 
     void NewScene(){
-        uiAnimator.Play("Fade Out");
+        // uiAnimator.SetTrigger("New Scene");
+        Debug.Log("New Scene");
+
+        Time.timeScale = 1;
+        paused = false;
+        won = false;
+        died = false;
+        newHighScore = false;
+        currentWave = 1;
+        enemiesKilled = 0;
+        time = 0;
+        currency = 0;
+        score = 0;
+        AudioListener.pause = false;
         
         if(GetPlayerController()){
             inGame = true;
-            won = false;
-            paused = false;
-            Time.timeScale = 1;
-            died = false;
-            newHighScore = false;
-            currentWave = 1;
-            enemiesKilled = 0;
-            time = 0;
-            currency = 0;
-            score = 0;
             
             foreach(WeaponScript weapon in weapons)
             {
@@ -157,7 +159,6 @@ public class GameManager : MonoBehaviour
     }
 
     bool GetPlayerController(){
-        // Debug.Log("Loaded");
         playerController = FindObjectOfType<PlayerController>();
         if(playerController != null){
             playerInput = playerController.playerInput;
@@ -191,7 +192,6 @@ public class GameManager : MonoBehaviour
 
     //! =============== Save Functions ===============
     public void SaveScores(){
-        // Debug.Log("Saving");
 
         PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
         highScores.InsertScore(personalScore);
@@ -199,7 +199,6 @@ public class GameManager : MonoBehaviour
         SaveSystem.Save(saving, "High Scores");
     }
     public void LoadScores(){
-        // Debug.Log("Loading Scores");
         
         highScores = new HighScores();
         string scoreString = SaveSystem.Load("High Scores");
@@ -208,7 +207,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void SaveSettings(){
-        // Debug.Log("Saving Settings");
         
         Settings saveSettings = new Settings(
             AudioManager.Instance.masterVolume,
@@ -232,7 +230,6 @@ public class GameManager : MonoBehaviour
             FOV = loadedSettings.fov;
             QualitySettings.SetQualityLevel(loadedSettings.graphicsQuality);
         }else{
-            Debug.Log("No settings saved");
             
             AudioManager.Instance.SetMasterVolume(.5f);
             AudioManager.Instance.SetSFXVolume(.5f);
@@ -254,7 +251,18 @@ public class GameManager : MonoBehaviour
     }
 
     public void LoadScene(string sceneName){
+        SceneManager.LoadScene(sceneName);
+        // Debug.Log("Normal - Loading scene " + sceneName);
+        // StartCoroutine(LoadSceneWait(sceneName));
+    }
+
+    private IEnumerator LoadSceneWait(string sceneName){
         uiAnimator.Play("Fade In");
+
+        Debug.Log("Coroutine - Loading scene " + sceneName);
+        yield return new WaitForSeconds(1);
+        Debug.Log("Loading scene " + sceneName);
+
         SceneManager.LoadScene(sceneName);
     }
 
