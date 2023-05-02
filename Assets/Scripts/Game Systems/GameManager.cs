@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
+
+        uiAnimator = GetComponentInChildren<Animator>();
     }
 
     void OnEnable()
@@ -122,8 +124,9 @@ public class GameManager : MonoBehaviour
     }
 
     void NewScene(){
+        uiAnimator.Play("Fade Out");
+        
         if(GetPlayerController()){
-            uiAnimator = GetComponentInChildren<Animator>();
             inGame = true;
             won = false;
             paused = false;
@@ -251,6 +254,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void LoadScene(string sceneName){
+        uiAnimator.Play("Fade In");
         SceneManager.LoadScene(sceneName);
     }
 
