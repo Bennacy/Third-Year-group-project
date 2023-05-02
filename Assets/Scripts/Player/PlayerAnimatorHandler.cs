@@ -67,11 +67,15 @@ public class PlayerAnimatorHandler : MonoBehaviour
     public void EnableWeaponCollider(){
         // animator.SetBool("AttackingNext", false);
         weaponHandler.ToggleWeaponCollider(true);
-        controller.audioSource.pitch = Random.Range(0.5f, 1.5f);
-        controller.audioSource.PlayOneShot(weaponHandler.currentWeapon.swingClips[0]);
     }
     public void DisableWeaponCollider(){
         weaponHandler.ToggleWeaponCollider(false);
+    }
+
+    public void PlaySwingClip(){
+        controller.audioSource.pitch = Random.Range(0.5f, 1.5f);
+        AudioClip[] clips = weaponHandler.currentWeapon.swingClips;
+        controller.audioSource.PlayOneShot(clips[Random.Range(0, clips.Length)]);
     }
 
     public void EnableShieldCollider(){
@@ -96,6 +100,6 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
 
     public void CameraShake(float test){
-        // cameraShake.ShakeRotation(1f, 1f, 1f, .25f);
+        cameraShake.ShakeRotation(1f, 1f, 1f, .2f);
     }
 }
