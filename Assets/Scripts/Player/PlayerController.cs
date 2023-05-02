@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using EZCameraShake;
 
 public class PlayerController : MonoBehaviour, IHasHealth
 {
@@ -256,7 +257,8 @@ public class PlayerController : MonoBehaviour, IHasHealth
     }
     public void Damage(int damageVal)
     {
-        cameraShake.ShakeRotation(1f, 1f, 1f, .25f);
+        // cameraShake.ShakeRotation(1f, 1f, 1f, .25f);
+        CameraShaker.Instance.ShakeOnce(3f, 2f, .1f, .1f);
 
         if(blocking){
             float staminaDamage = damageVal * weaponHandler.currentWeapon.damageBlocked;
@@ -272,7 +274,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }
 
         health -= damageVal;
-        // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
 
         if (health <= 0)
             GameManager.Instance.died = true;

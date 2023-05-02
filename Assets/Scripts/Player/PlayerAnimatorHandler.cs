@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class PlayerAnimatorHandler : MonoBehaviour
 {
@@ -100,6 +101,7 @@ public class PlayerAnimatorHandler : MonoBehaviour
     }
 
     public void CameraShake(float test){
-        cameraShake.ShakeRotation(1f, 1f, 1f, .2f);
+        // cameraShake.ShakeRotation(1f, 1f, 1f, .2f);
+        CameraShaker.Instance.ShakeOnce(3f, 3f, .1f, .1f);
     }
 }
