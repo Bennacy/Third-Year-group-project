@@ -123,6 +123,17 @@
                 },
                 {
                     "name": "",
+                    "id": "3ed37754-1905-4320-879f-ae5336718ac0",
+                    "path": "<DualShockGamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -136,6 +147,17 @@
                     "name": "",
                     "id": "9ba693aa-a559-49a0-b405-973e0eae1c36",
                     "path": "<XInputController>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb444242-6c11-4c5a-8607-512bad22ca03",
+                    "path": "<DualShockGamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -167,6 +189,17 @@
                 },
                 {
                     "name": "",
+                    "id": "031729e3-8e61-49b5-a193-cd0cc24a0f68",
+                    "path": "<DualShockGamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "1a124175-75a5-4942-b6d8-3b62e3727de0",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -180,6 +213,17 @@
                     "name": "",
                     "id": "74397eb3-8dfa-4e84-acc8-98f126d4b32f",
                     "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Block",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f422053f-300b-4b6b-b7f3-072ec32d0771",
+                    "path": "<DualShockGamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -211,6 +255,17 @@
                 },
                 {
                     "name": "",
+                    "id": "58e9541d-7491-4932-8b2e-4cb55635c918",
+                    "path": "<DualShockGamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "39525152-8582-45b6-b436-f553a54dfd13",
                     "path": "<Keyboard>/1",
                     "interactions": "",
@@ -223,7 +278,18 @@
                 {
                     "name": "",
                     "id": "7eb6ef25-5603-4dff-97a6-7e75b500c61f",
-                    "path": "<Gamepad>/dpad/left",
+                    "path": "<XInputController>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon Slot 1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5007c28b-0d2b-43bb-a8ed-69e6f231b269",
+                    "path": "<DualShockGamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -245,7 +311,18 @@
                 {
                     "name": "",
                     "id": "8b405966-97ac-49c5-89d8-a9816b791390",
-                    "path": "<Gamepad>/dpad/up",
+                    "path": "<XInputController>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon Slot 2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ff0487e2-877c-48b5-922b-c62863a15f6c",
+                    "path": "<DualShockGamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -267,7 +344,18 @@
                 {
                     "name": "",
                     "id": "9a6b2f5b-f4d9-4387-925c-b1a1fc87ce91",
-                    "path": "<Gamepad>/dpad/right",
+                    "path": "<XInputController>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon Slot 3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "514e8237-3f20-4a04-afab-a1bbfb2971c1",
+                    "path": "<DualShockGamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -334,6 +422,17 @@
                     "name": "",
                     "id": "99fde025-9c30-48d3-ae2d-4ac9cf1ef7c2",
                     "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "24bddc3e-3902-4681-90f4-739bc41f2563",
+                    "path": "<DualShockGamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

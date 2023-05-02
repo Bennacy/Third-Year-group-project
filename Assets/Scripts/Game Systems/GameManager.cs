@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public int maxWave;
 
     public int FOV;
+    public float sensitivity;
 
     public WeaponScript[] weapons;
 
@@ -53,7 +54,11 @@ public class GameManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
+    }
 
+    void OnEnable()
+    {
+        Debug.Log("Loading Settings");
         LoadSettings();
     }
     
@@ -214,8 +219,6 @@ public class GameManager : MonoBehaviour
         SaveSystem.Save(saving, "Settings");
     }
     public void LoadSettings(){
-        // Debug.Log("Loading Settings");
-
         string settingString = SaveSystem.Load("Settings");
         if(settingString != null){
             Settings loadedSettings = JsonUtility.FromJson<Settings>(settingString);
