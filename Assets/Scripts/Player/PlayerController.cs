@@ -116,11 +116,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
         rb = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        Debug.Log(moveAction.bindings.Count);
-        foreach(InputBinding binding in moveAction.bindings){
-            Debug.Log(binding);
-        }
     }
 
     void Update()

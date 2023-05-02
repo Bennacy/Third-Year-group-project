@@ -24,11 +24,11 @@ public class AudioManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
+        Debug.Log("Audio values");
     }
 
     void Start()
     {
-        Debug.Log("Audio values");
         SetMasterVolume(masterVolume);
         SetSFXVolume(sfxVolume);
         SetMusicVolume(musicVolume);
