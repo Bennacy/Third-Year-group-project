@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public bool newHighScore;
     public bool inGame;
     public bool fading;
+    public bool loadingScene;
     public bool waitForFade;
     public int score;
     public List<Enemy> aliveEnemies;
@@ -242,28 +243,32 @@ public class GameManager : MonoBehaviour
 
 
     public void Quit(){
-        PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
-        highScores.InsertScore(personalScore);
-        string saving = JsonUtility.ToJson(highScores, true);
-        SaveSystem.Save(saving, "High Scores");
+        SaveScores();
         
         Application.Quit();
     }
 
     public void LoadScene(string sceneName){
-        SceneManager.LoadScene(sceneName);
+        // SceneManager.LoadScene(sceneName);
         // Debug.Log("Normal - Loading scene " + sceneName);
-        // StartCoroutine(LoadSceneWait(sceneName));
+        StartCoroutine(LoadSceneWait(sceneName));
     }
 
     private IEnumerator LoadSceneWait(string sceneName){
-        uiAnimator.Play("Fade In");
+        // uiAnimator.Play("Fade In");
+        loadingScene = true;
 
         Debug.Log("Coroutine - Loading scene " + sceneName);
-        yield return new WaitForSeconds(1);
-        Debug.Log("Loading scene " + sceneName);
-
+        float test = 0;
+        while(test < 1){
+            test += Time.unscaledDeltaTime;
+            Debug.Log("Testing: " + test);
+            yield return null;
+        }
+        // yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneName);
+
+        Debug.Log("Loaded scene " + sceneName);
     }
 
 
