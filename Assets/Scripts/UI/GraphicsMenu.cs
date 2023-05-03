@@ -54,6 +54,7 @@ public class GraphicsMenu : MonoBehaviour
         fovLabel.text = fov.ToString();
 
         GameManager.Instance.FOV = Mathf.RoundToInt(fov);
+        AudioManager.Instance.PlayUISlider();
     }
 
     public void SetQuality(int qualityIndex){

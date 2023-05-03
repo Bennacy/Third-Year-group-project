@@ -11,11 +11,13 @@ public class AudioManager : MonoBehaviour
     public const string MIXER_MASTER = "masterVolume";
     public const string MIXER_SFX = "sfxVolume";
     public const string MIXER_MUSIC = "musicVolume";
+    public const string MIXER_UI = "uiVolume";
 
     public AudioMixer mixer;
     public float masterVolume;
     public float sfxVolume;
     public float musicVolume;
+    public float uiVolume;
 
     private EventSystem eventSystem;
     private AudioSource UIsource;
@@ -42,6 +44,7 @@ public class AudioManager : MonoBehaviour
         SetMasterVolume(masterVolume);
         SetSFXVolume(sfxVolume);
         SetMusicVolume(musicVolume);
+        SetUIVolume(uiVolume);
     }
 
     void Update()
@@ -69,6 +72,10 @@ public class AudioManager : MonoBehaviour
     public void SetMusicVolume(float value){
         musicVolume = value;
         mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(musicVolume) * 20);
+    }
+    public void SetUIVolume(float value){
+        uiVolume = value/4;
+        mixer.SetFloat(MIXER_UI, Mathf.Log10(uiVolume) * 20);
     }
 
     public void PlayUIClick(){

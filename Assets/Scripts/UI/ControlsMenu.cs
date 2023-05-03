@@ -60,6 +60,7 @@ public class ControlsMenu : MonoBehaviour
     public void UpdateSensitivity(float sens){
         GameManager.Instance.sensitivity = sens / 100;
         sensText.text = Mathf.RoundToInt(sens).ToString();
+        AudioManager.Instance.PlayUISlider();
     }
 
     public void UpdateSchemeIndex(int newIndex){

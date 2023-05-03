@@ -46,19 +46,19 @@
             "name": "Test",
             "score": 0,
             "kills": 0,
-            "time": 1
+            "time": 0
         },
         {
             "name": "Test",
             "score": 0,
             "kills": 0,
-            "time": 3
+            "time": 0
         },
         {
             "name": "Test",
             "score": 0,
             "kills": 0,
-            "time": 4
+            "time": 0
         }
     ]
 }

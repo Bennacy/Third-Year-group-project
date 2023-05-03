@@ -206,6 +206,7 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.masterVolume,
             AudioManager.Instance.sfxVolume,
             AudioManager.Instance.musicVolume,
+            AudioManager.Instance.uiVolume,
             FOV,
             QualitySettings.GetQualityLevel(),
             invertX,
@@ -223,6 +224,7 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.SetMasterVolume(loadedSettings.masterVolume);
             AudioManager.Instance.SetSFXVolume(loadedSettings.sfxVolume);
             AudioManager.Instance.SetMusicVolume(loadedSettings.musicVolume);
+            AudioManager.Instance.SetUIVolume(loadedSettings.uiVolume);
             FOV = loadedSettings.fov;
             QualitySettings.SetQualityLevel(loadedSettings.graphicsQuality);
             invertX = loadedSettings.invertX;
