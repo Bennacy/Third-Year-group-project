@@ -13,10 +13,6 @@ public class GameManager : MonoBehaviour
     public PlayerInput playerInput;
     public Camera mainCam;
 
-    public Animator uiAnimator;
-    public Image globalImage;
-    public TextMeshProUGUI globalText;
-
     public HighScores highScores;
 
     public bool paused;
@@ -26,12 +22,11 @@ public class GameManager : MonoBehaviour
     public float time;
     public float highScore;
     public int currency;
+    public int totalUpgrades;
     public int enemiesKilled;
     public bool newHighScore;
     public bool inGame;
-    public bool fading;
     public bool loadingScene;
-    public bool waitForFade;
     public int score;
     public List<Enemy> aliveEnemies;
     public int currentWave;
@@ -44,7 +39,6 @@ public class GameManager : MonoBehaviour
 
     [Space(10)]
     [Header("Map Variables")]
-    public int drawbridgeState;
     public bool lowerDrawbridge;
     public bool raiseDrawbridge;
     
@@ -56,8 +50,6 @@ public class GameManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
-
-        uiAnimator = GetComponentInChildren<Animator>();
     }
 
     void OnEnable()
@@ -68,12 +60,6 @@ public class GameManager : MonoBehaviour
         SaveSystem.Init();
 
         LoadScores();
-
-        // NewScene();
-    }
-    
-    void Start()
-    {
     }
 
     void Update()
@@ -82,52 +68,27 @@ public class GameManager : MonoBehaviour
             time += Time.deltaTime;
         }
         
-        if(waitForFade && !fading){
-            waitForFade = false;
+        if(!loadingScene && inGame){
             if(won){
-                LoadScene("Victory Screen");
                 if(highScore > 0 && time < highScore){
                     newHighScore = true;
                     highScore = time;
                 }
+                inGame = false;
+                SaveScores();
+
+                LoadScene("Victory Screen");
             }
             if(died){
+                inGame = false;
+                SaveScores();
+
                 LoadScene("Death Screen");
             }
-        }
-
-        if(won && inGame && !waitForFade){
-            inGame = false;
-            FadeInImage(1, null, Color.black);
-            waitForFade = true;
-            
-            SaveScores();
-        }
-
-        if(died && inGame && !waitForFade){
-            inGame = false;
-            FadeInImage(.3f, null, Color.black);
-            waitForFade = true;
-            
-            SaveScores();
-        }
-
-
-        if(Input.GetKeyDown(KeyCode.O)){
-            SaveSettings();
-        }
-        if(Input.GetKeyDown(KeyCode.L)){
-            SaveScores();
-        }
-        if(Input.GetKeyDown(KeyCode.K)){
-            SaveSystem.ClearSave("", "High Scores");
         }
     }
 
     void NewScene(){
-        // uiAnimator.SetTrigger("New Scene");
-        Debug.Log("New Scene");
-
         Time.timeScale = 1;
         paused = false;
         won = false;
@@ -138,6 +99,7 @@ public class GameManager : MonoBehaviour
         time = 0;
         currency = 0;
         score = 0;
+        totalUpgrades = 0;
         AudioListener.pause = false;
         
         if(GetPlayerController()){
@@ -147,8 +109,6 @@ public class GameManager : MonoBehaviour
             {
                 weapon.damage = weapon.defaultDamage;
             }
-
-            FadeOutImage(1.25f, null, Color.black);
             return;
         }
 
@@ -269,26 +229,4 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Loaded scene " + sceneName);
     }
-
-
-
-    #region Global UI stuff
-    public void FadeInImage(float fadeTime, Sprite spriteToUse, Color colorToUse){
-        globalImage.sprite = null;
-        globalImage.color = colorToUse == null ? Color.black : colorToUse;
-        uiAnimator.speed = 1 / fadeTime;
-
-        // Debug.Log("Fade In");
-        uiAnimator.Play("Fade In");
-    }
-
-    public void FadeOutImage(float fadeTime, Sprite spriteToUse, Color colorToUse){
-        globalImage.sprite = spriteToUse;
-        globalImage.color = colorToUse;
-        uiAnimator.speed = 1 / fadeTime;
-
-        // Debug.Log("Fade Out");
-        uiAnimator.Play("Fade Out");
-    }
-    #endregion
 }

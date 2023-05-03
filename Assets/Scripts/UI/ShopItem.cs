@@ -33,7 +33,7 @@ public class ShopItem : MonoBehaviour
 
     void OnEnable()
     {
-        if(GameManager.Instance.score < price*100){
+        if(GameManager.Instance.currency < price*100){
             priceText.color = Color.red;
         }else{
             priceText.color = Color.white;
@@ -44,11 +44,11 @@ public class ShopItem : MonoBehaviour
     public void BuyUpgrade(){
         if(level >= maxLevel)
             return;
-        
-        if(GameManager.Instance.score < price*100)
+        if(GameManager.Instance.currency < price*100)
             return;
-
-        GameManager.Instance.score -= price*100;
+        
+        GameManager.Instance.totalUpgrades++;
+        GameManager.Instance.currency -= price*100;
         price = Mathf.RoundToInt(price * 1.5f);
 
         level++;
@@ -56,7 +56,7 @@ public class ShopItem : MonoBehaviour
         LevelText.text = "Level " + level;
         priceText.text = "Price: " + price*100;
 
-        if(GameManager.Instance.score < price*100){
+        if(GameManager.Instance.currency < price*100){
             priceText.color = Color.red;
         }else{
             priceText.color = Color.white;

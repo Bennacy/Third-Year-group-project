@@ -25,7 +25,7 @@ public class ShopMenu : MonoBehaviour
             SecondCloseShop();
         }
 
-        runesText.text = "Runes: " + GameManager.Instance.score;
+        runesText.text = "Runes: " + GameManager.Instance.currency;
     }
 
     public void OpenShop(){     
