@@ -104,6 +104,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 
                 currentWave++;
+                hordeController.attackingMax += Random.Range(0, 2);
                 GameManager.Instance.betweenWaves = true;
                 GameManager.Instance.currentWave = currentWave;
                 totalEnemies = totalEnemies += Random.Range(2, 6);

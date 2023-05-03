@@ -72,6 +72,8 @@ public class PlayerController : MonoBehaviour, IHasHealth
     private InputAction pauseAction;
     private InputAction unpauseAction;
 
+    public TransitionScript transitionScript;
+
     void Awake()
     {
         animatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();

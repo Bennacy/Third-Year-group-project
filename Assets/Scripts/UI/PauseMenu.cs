@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject menu;
     public Animator animator;
     private bool playingAnim;
+    public TransitionScript transitionScript;
 
     void Start()
     {
@@ -39,11 +40,13 @@ public class PauseMenu : MonoBehaviour
 
     public void Quit(){
         AudioManager.Instance.PlayUIClick();
+        transitionScript.animator.SetTrigger("New Scene");
         GameManager.Instance.Quit();
     }
 
     public void BackToMain(){
         AudioManager.Instance.PlayUIClick();
+        transitionScript.animator.SetTrigger("New Scene");
         GameManager.Instance.LoadScene("Title Screen");
     }
 

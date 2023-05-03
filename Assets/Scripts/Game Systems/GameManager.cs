@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public HighScores highScores;
     public PersonalScore savedScore;
+    private TransitionScript transitionScript;
 
     public bool paused;
     public bool shopOpen;
@@ -126,6 +127,7 @@ public class GameManager : MonoBehaviour
             currency = 0;
             score = 0;
             totalUpgrades = 0;
+            transitionScript = playerController.transitionScript;
             
             foreach(WeaponScript weapon in weapons)
             {
@@ -245,6 +247,8 @@ public class GameManager : MonoBehaviour
 
 
     public void Quit(){
+        if(transitionScript)
+            transitionScript.animator.SetTrigger("New Scene");
         Application.Quit();
     }
 
