@@ -4,7 +4,7 @@
     "musicVolume": 1.0,
     "uiVolume": 1.0,
     "fov": 80,
-    "graphicsQuality": 0,
+    "graphicsQuality": 2,
     "invertX": false,
     "invertY": false
 }
