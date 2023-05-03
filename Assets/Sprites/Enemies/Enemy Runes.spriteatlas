@@ -17,22 +17,10 @@ SpriteAtlas:
       textureCompression: 0
       filterMode: 1
       generateMipMaps: 0
-      readable: 1
+      readable: 0
       crunchedCompression: 0
       sRGB: 1
-    platformSettings:
-    - serializedVersion: 3
-      m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 2048
-      m_ResizeAlgorithm: 0
-      m_TextureFormat: -1
-      m_TextureCompression: 1
-      m_CompressionQuality: 50
-      m_CrunchedCompression: 0
-      m_AllowsAlphaSplitting: 0
-      m_Overridden: 0
-      m_AndroidETC2FallbackOverride: 0
-      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    platformSettings: []
     packingSettings:
       serializedVersion: 2
       padding: 4
@@ -46,14 +34,14 @@ SpriteAtlas:
     packables:
     - {fileID: -697136287, guid: 8d39db31a65e6c346b141c0441e63f94, type: 3}
     - {fileID: 953761310, guid: 6117f8e2e3c00b24dabab08b39c41bbc, type: 3}
-    - {fileID: 886047561, guid: f82dacf1892ba9f41ac9022d2825a113, type: 3}
-    - {fileID: 282111819, guid: 17021198c721df74f8b34b48cc622da7, type: 3}
-    - {fileID: 1223874132, guid: 0eeffd0b07fa35f4085eb3e36fadf440, type: 3}
-    - {fileID: 1109388919, guid: 37d027b0378dcfb448ed39a0a2f21858, type: 3}
-    - {fileID: -793785926, guid: cb4ed4081141ecd4da04b567102a762a, type: 3}
-    - {fileID: -511527648, guid: 880ad622e6fa80840be6363a8db46038, type: 3}
-    - {fileID: 1859757956, guid: da6791e344f2e3d4caf18533b640e4e3, type: 3}
     - {fileID: -1164283937, guid: 8cd2f25a6f27ee94dbb684febde0e72b, type: 3}
+    - {fileID: 1859757956, guid: da6791e344f2e3d4caf18533b640e4e3, type: 3}
+    - {fileID: -511527648, guid: 880ad622e6fa80840be6363a8db46038, type: 3}
+    - {fileID: -793785926, guid: cb4ed4081141ecd4da04b567102a762a, type: 3}
+    - {fileID: 1109388919, guid: 37d027b0378dcfb448ed39a0a2f21858, type: 3}
+    - {fileID: 1223874132, guid: 0eeffd0b07fa35f4085eb3e36fadf440, type: 3}
+    - {fileID: 282111819, guid: 17021198c721df74f8b34b48cc622da7, type: 3}
+    - {fileID: 886047561, guid: f82dacf1892ba9f41ac9022d2825a113, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
