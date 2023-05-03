@@ -209,7 +209,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
             Vector3 currCamRotation = cameraController.transform.rotation.eulerAngles;
 
             float sens = cameraController.sens;
-            if(playerInput.currentControlScheme == "Gamepad")
+            if(playerInput.currentControlScheme != "Keyboard&Mouse")
                 sens *= 10;
 
             currPlayerRotation.y += cameraRotate.x * sens;

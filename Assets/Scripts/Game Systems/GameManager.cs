@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public bool newHighScore;
     public bool inGame;
     public bool loadingScene;
+    public bool betweenWaves;
     public int score;
     public List<Enemy> aliveEnemies;
     public int currentWave;
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
         time = 0;
         currency = 0;
         score = 0;
+        betweenWaves = false;
         totalUpgrades = 0;
         AudioListener.pause = false;
         
@@ -109,6 +111,12 @@ public class GameManager : MonoBehaviour
             {
                 weapon.damage = weapon.defaultDamage;
             }
+
+            InputAction nextWave = playerInput.actions["New Wave"];
+            nextWave.performed += context => {
+                if(betweenWaves)
+                    betweenWaves = false;
+            };
             return;
         }
 

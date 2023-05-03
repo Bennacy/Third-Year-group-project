@@ -75,9 +75,9 @@ public class EnemySpawner : MonoBehaviour
 
         while (currentWave <= totalWaves)
         {
+            
 
-
-            while (enemiesRemaining > 0)
+            while (enemiesRemaining > 0 && !GameManager.Instance.betweenWaves)
             {
                 FindClosestSpawnPoints();
                 GameObject prefab = SelectEnemyType();
@@ -97,12 +97,12 @@ public class EnemySpawner : MonoBehaviour
 
             if (spawnedEnemies.Count == 0 && enemiesRemaining == 0)
             {
-                if(currentWave % 2 == 0){
-                    GameManager.Instance.raiseDrawbridge = true;
-                }else{
+                if(currentWave > 1 && !GameManager.Instance.lowerDrawbridge){
                     GameManager.Instance.lowerDrawbridge = true;
                 }
+                
                 currentWave++;
+                GameManager.Instance.betweenWaves = true;
                 GameManager.Instance.currentWave = currentWave;
                 totalEnemies = totalEnemies += Random.Range(2, 6);
                 enemiesRemaining = totalEnemies;

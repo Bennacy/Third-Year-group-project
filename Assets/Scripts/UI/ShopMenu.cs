@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
@@ -14,6 +15,15 @@ public class ShopMenu : MonoBehaviour
     public GameObject characterWrapper;
 
     public TextMeshProUGUI runesText;
+    private PlayerInput playerInput;
+
+    void Start()
+    {
+        playerInput = GameManager.Instance.playerInput;
+
+        InputAction openShop = playerInput.actions["Shop"];
+        openShop.performed += context => OpenShop();
+    }
 
     void Update()
     {
@@ -28,8 +38,9 @@ public class ShopMenu : MonoBehaviour
         runesText.text = "Runes: " + GameManager.Instance.currency;
     }
 
-    public void OpenShop(){     
-        StartCoroutine(OpenShopFade());
+    public void OpenShop(){   
+        if(GameManager.Instance.betweenWaves && !GameManager.Instance.paused) 
+            StartCoroutine(OpenShopFade());
     }
 
     private IEnumerator OpenShopFade(){

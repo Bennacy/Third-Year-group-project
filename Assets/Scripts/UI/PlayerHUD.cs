@@ -60,8 +60,9 @@ public class PlayerHUD : MonoBehaviour
             playedNoEnemies = false;
         }
 
+        // Debug.Log(playerInput.currentControlScheme);
         switch(playerInput.currentControlScheme){
-            case "Keyboard":
+            case "Keyboard&Mouse":
                 shopImage.sprite = shopIcons[0];
                 waveImage.sprite = waveIcons[0];
                 break;
