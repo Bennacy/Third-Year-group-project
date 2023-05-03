@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.081865855, g: 0.01440134, b: 0.15617536, a: 1}
+  m_IndirectSpecularColor: {r: 0.0924757, g: 0.11004581, b: 0.21481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -564,43 +564,57 @@ MonoBehaviour:
   playerController: {fileID: 0}
   playerInput: {fileID: 0}
   mainCam: {fileID: 0}
-  uiAnimator: {fileID: 1559406631154296510}
-  globalImage: {fileID: 1006299179}
-  globalText: {fileID: 585423774}
   highScores:
     scores:
     - name: NULL
       score: -1
+      kills: -1
       time: -1
     - name: NULL
       score: -1
+      kills: -1
       time: -1
     - name: NULL
       score: -1
+      kills: -1
       time: -1
     - name: NULL
       score: -1
+      kills: -1
       time: -1
     - name: NULL
       score: -1
+      kills: -1
       time: -1
+  savedScore:
+    name: NULL
+    score: -1
+    kills: -1
+    time: -1
   paused: 0
+  shopOpen: 0
   won: 0
   died: 0
   time: 0
   highScore: 999999
   currency: 0
+  totalUpgrades: 0
   enemiesKilled: 0
   newHighScore: 0
   inGame: 0
-  fading: 0
-  waitForFade: 0
+  loadingScene: 0
+  betweenWaves: 0
   score: 0
+  kills: 0
   aliveEnemies: []
   currentWave: 1
   maxWave: 0
+  leaderboardPlacement: 0
+  FOV: 0
+  sensitivity: 0
+  invertX: 0
+  invertY: 0
   weapons: []
-  drawbridgeState: 0
   lowerDrawbridge: 0
   raiseDrawbridge: 0
 --- !u!95 &1559406631154296510
