@@ -28,6 +28,7 @@ public class PlayerHUD : MonoBehaviour
 
     private Animator animator;
     private bool playedNoEnemies;
+    private bool hidingUI;
 
 
     void Start()
@@ -43,6 +44,9 @@ public class PlayerHUD : MonoBehaviour
 
     void Update()
     {
+        if(GameManager.Instance.hideUI != hidingUI)
+            ToggleHUD();
+        
         UpdateHealthBar();
         enemiesRemaining.text = GameManager.Instance.aliveEnemies.Count.ToString();
         waveCount.text = "Wave " + GameManager.Instance.currentWave + "/" + GameManager.Instance.maxWave;
@@ -74,6 +78,14 @@ public class PlayerHUD : MonoBehaviour
                 shopImage.sprite = shopIcons[2];
                 waveImage.sprite = waveIcons[2];
                 break;
+        }
+    }
+
+    private void ToggleHUD(){
+        hidingUI = GameManager.Instance.hideUI;
+        
+        foreach(Transform child in transform){
+            child.gameObject.SetActive(!GameManager.Instance.hideUI);
         }
     }
 

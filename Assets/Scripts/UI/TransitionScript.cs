@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TransitionScript : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    public Animator animator;
     
     void Update()
     {

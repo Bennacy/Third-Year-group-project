@@ -79,6 +79,11 @@ public class EnemySpawner : MonoBehaviour
 
             while (enemiesRemaining > 0 && !GameManager.Instance.betweenWaves)
             {
+                if(currentWave > 1 && !GameManager.Instance.loweredDrawbridge){
+                    GameManager.Instance.lowerDrawbridge = true;
+                    GameManager.Instance.loweredDrawbridge = true;
+                }
+
                 FindClosestSpawnPoints();
                 GameObject prefab = SelectEnemyType();
                 Transform randomSpawnPoint = closestSpawnPoints[Random.Range(0, closestSpawnPoints.Length)];
@@ -97,17 +102,14 @@ public class EnemySpawner : MonoBehaviour
 
             if (spawnedEnemies.Count == 0 && enemiesRemaining == 0)
             {
-                if(currentWave > 1 && !GameManager.Instance.lowerDrawbridge){
-                    GameManager.Instance.lowerDrawbridge = true;
-                }
                 
                 currentWave++;
                 GameManager.Instance.betweenWaves = true;
                 GameManager.Instance.currentWave = currentWave;
                 totalEnemies = totalEnemies += Random.Range(2, 6);
                 enemiesRemaining = totalEnemies;
-                Debug.Log(currentWave);
-                yield return new WaitForSeconds(waveDelay);
+                // Debug.Log(currentWave);
+                yield return new WaitForSeconds(0);
             }
 
             yield return null;

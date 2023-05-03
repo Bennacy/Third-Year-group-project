@@ -41,11 +41,14 @@ public class GameManager : MonoBehaviour
     public bool invertX;
     public bool invertY;
 
+    public bool hideUI;
+
     public WeaponScript[] weapons;
 
     [Space(10)]
     [Header("Map Variables")]
     public bool lowerDrawbridge;
+    public bool loweredDrawbridge;
     public bool raiseDrawbridge;
     
     void Awake()

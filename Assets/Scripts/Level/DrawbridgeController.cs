@@ -8,8 +8,10 @@ public class DrawbridgeController : MonoBehaviour
     public GameObject blocker2;
     public bool blockerActive;
     private Animator animator;
+    public TransitionScript transitionScript;
+    public GameObject bridgeCamera;
     
-    // Start is called before the first frame update
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -24,12 +26,23 @@ public class DrawbridgeController : MonoBehaviour
         }
         
         if(GameManager.Instance.lowerDrawbridge){
+            // GameManager.Instance.paused = true;
+            GameManager.Instance.hideUI = true;
+            transitionScript.animator.SetTrigger("Fade");
             GameManager.Instance.lowerDrawbridge = false;
             animator.Play("Lower Bridge");
+            bridgeCamera.SetActive(true);
         }
         if(GameManager.Instance.raiseDrawbridge){
             GameManager.Instance.raiseDrawbridge = false;
             animator.Play("Raise Bridge");
         }
+    }
+
+    private void FinishedLower(){
+        GameManager.Instance.hideUI = false;
+        // transitionScript.animator.SetTrigger("Fade");
+        bridgeCamera.SetActive(false);
+        // GameManager.Instance.paused = false;
     }
 }

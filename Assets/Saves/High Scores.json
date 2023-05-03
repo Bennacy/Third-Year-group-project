@@ -2,6 +2,18 @@
     "scores": [
         {
             "name": "Test",
+            "score": 350,
+            "kills": 7,
+            "time": 32
+        },
+        {
+            "name": "Test",
+            "score": 350,
+            "kills": 7,
+            "time": 58
+        },
+        {
+            "name": "Test",
             "score": 250,
             "kills": 5,
             "time": 20
@@ -34,7 +46,7 @@
             "name": "Test",
             "score": 50,
             "kills": 1,
-            "time": 8
+            "time": 6
         },
         {
             "name": "no1",
@@ -46,19 +58,7 @@
             "name": "Test",
             "score": 50,
             "kills": 1,
-            "time": 15
-        },
-        {
-            "name": "Test",
-            "score": 0,
-            "kills": 0,
-            "time": 0
-        },
-        {
-            "name": "Test",
-            "score": 0,
-            "kills": 0,
-            "time": 0
+            "time": 8
         }
     ]
 }
