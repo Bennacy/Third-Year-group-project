@@ -532,9 +532,6 @@ AnimatorStateMachine:
     m_State: {fileID: 3453120210025755971}
     m_Position: {x: 130, y: -140, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 251125870741360508}
-    m_Position: {x: -140, y: -360, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 9118767504253594321}
     m_Position: {x: 350, y: -140, z: 0}
   m_ChildStateMachines: []
@@ -593,7 +590,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f889b846d95e9014b9c71206515a33f3, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0e2ea08a049f06b4c8f6f3c66a35a061, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -818,32 +815,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &251125870741360508
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sword Death
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 24bb34c43badfe94fa3dc457883e294f, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!206 &566373134295536779
 BlendTree:
   m_ObjectHideFlags: 1
@@ -1402,7 +1373,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 872203566ed668347b72c0742e565691, type: 2}
+  m_Motion: {fileID: 7400000, guid: 544cf8c878f630649bfe298bdf9b938c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1458,7 +1429,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 544cf8c878f630649bfe298bdf9b938c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8f0acb9503564924d9cea52eafc5ca10, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

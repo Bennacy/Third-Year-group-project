@@ -10,12 +10,14 @@ public class PlayerAnimatorHandler : MonoBehaviour
     private CameraShake cameraShake;
     private Rigidbody playerRb;
     public Animator animator;
+    private PlayerAudio playerAudio;
 
     public bool nextInCombo;
     public int comboIndex;
     
     void Start()
     {
+        playerAudio = GetComponentInParent<PlayerAudio>();
         controller = GetComponentInParent<PlayerController>();
         weaponHandler = GetComponentInParent<WeaponHandler>();
         playerRb = GetComponentInParent<Rigidbody>();
@@ -103,5 +105,10 @@ public class PlayerAnimatorHandler : MonoBehaviour
     public void CameraShake(float test){
         // cameraShake.ShakeRotation(1f, 1f, 1f, .2f);
         CameraShaker.Instance.ShakeOnce(3f, 3f, .1f, .1f);
+    }
+
+    public void Footstep(){
+        controller.audioSource.pitch = Random.Range(0.7f, 1.3f);
+        controller.audioSource.PlayOneShot(playerAudio.footsteps[Random.Range(0, playerAudio.footsteps.Length)]);
     }
 }

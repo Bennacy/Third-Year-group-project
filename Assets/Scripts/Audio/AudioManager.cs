@@ -74,7 +74,7 @@ public class AudioManager : MonoBehaviour
         mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(musicVolume) * 20);
     }
     public void SetUIVolume(float value){
-        uiVolume = value/4;
+        uiVolume = value;
         mixer.SetFloat(MIXER_UI, Mathf.Log10(uiVolume) * 20);
     }
 

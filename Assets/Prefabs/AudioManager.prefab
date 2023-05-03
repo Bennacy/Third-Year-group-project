@@ -49,9 +49,10 @@ MonoBehaviour:
   masterVolume: 0
   sfxVolume: 0
   musicVolume: 0
+  uiVolume: 0
   uiClick: {fileID: 8300000, guid: a82d35acfc2813b40aaa35f84fa409f9, type: 3}
   uiNavigation: {fileID: 8300000, guid: 6c5ab0ffce58da7458bf0b903406a57d, type: 3}
-  uiSlider: {fileID: 8300000, guid: 09328076692867a4bb74873a92f2c2a8, type: 3}
+  uiSlider: {fileID: 8300000, guid: 6c5ab0ffce58da7458bf0b903406a57d, type: 3}
 --- !u!82 &1541483359
 AudioSource:
   m_ObjectHideFlags: 0
@@ -71,7 +72,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 256
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
