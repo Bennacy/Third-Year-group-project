@@ -9,11 +9,19 @@ public class DeathScreen : MonoBehaviour
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI killsText;
     private Animator animator;
+
+    public GameObject nameInput;
+    public TMP_InputField inputField;
     
     void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None; 
+        
+        if(GameManager.Instance.leaderboardPlacement > -1){
+            nameInput.SetActive(true);
+        }
+        
         SetTimeText();
     }
 
@@ -60,5 +68,16 @@ public class DeathScreen : MonoBehaviour
     public void Load(string sceneName){
         Debug.Log("Loading " + sceneName);
         GameManager.Instance.LoadScene(sceneName);
+    }
+
+    public void SubmitName(){
+        string submitting = inputField.text;
+        if(submitting.Length < 5){
+            GameManager.Instance.savedScore.name = submitting;
+            GameManager.Instance.SaveScores(GameManager.Instance.savedScore);
+        }
+
+        nameInput.SetActive(false);
+        GetComponent<ISelectable>().SetSelected();
     }
 }

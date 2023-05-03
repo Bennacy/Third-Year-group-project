@@ -40,8 +40,8 @@ public static class SaveSystem{
     public PersonalScore(int _score, int _time, int _kills, string _name = "Test"){
         score = _score;
         time = _time;
-        name = _name;
         kills = _kills;
+        name = _name;
     }
 
     public PersonalScore(){
@@ -74,6 +74,19 @@ public static class SaveSystem{
                 PersonalScore temp = new PersonalScore(scores[i].score, scores[i].time, scores[i].kills, scores[i].name);
                 scores[i] = newScore;
                 InsertScore(temp, startingIndex+1);
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public int IsInLeaderboard(PersonalScore newScore){
+        for(int i = 0; i < 10; i++){
+            if(scores[i].score < newScore.score){
+                return i;
+            }
+            if(scores[i].score == newScore.score && scores[i].time > newScore.time){
                 return i;
             }
         }

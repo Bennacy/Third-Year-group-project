@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public Camera mainCam;
 
     public HighScores highScores;
+    public PersonalScore savedScore;
 
     public bool paused;
     public bool shopOpen;
@@ -86,14 +87,18 @@ public class GameManager : MonoBehaviour
                     highScore = time;
                 }
                 inGame = false;
-                SaveScores();
-
+                // SaveScores();
+                savedScore = new PersonalScore(score, Mathf.RoundToInt(time), kills);
+                leaderboardPlacement = highScores.IsInLeaderboard(savedScore);
+                
                 LoadScene("Victory Screen");
             }
             if(died){
                 inGame = false;
-                SaveScores();
+                // SaveScores();
 
+                savedScore = new PersonalScore(score, Mathf.RoundToInt(time), kills);
+                leaderboardPlacement = highScores.IsInLeaderboard(savedScore);
                 LoadScene("Death Screen");
             }
         }
@@ -171,7 +176,13 @@ public class GameManager : MonoBehaviour
     public void SaveScores(){
         PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time), kills);
         leaderboardPlacement = highScores.InsertScore(personalScore);
-        Debug.Log(leaderboardPlacement);
+        // Debug.Log(leaderboardPlacement);
+        string saving = JsonUtility.ToJson(highScores, true);
+        SaveSystem.Save(saving, "High Scores");
+    }
+    public void SaveScores(PersonalScore personalScore){
+        leaderboardPlacement = highScores.InsertScore(personalScore);
+        // Debug.Log(leaderboardPlacement);
         string saving = JsonUtility.ToJson(highScores, true);
         SaveSystem.Save(saving, "High Scores");
     }

@@ -10,18 +10,20 @@ public class VictoryScreen : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     private Animator animator;
+
+    public GameObject nameInput;
+    public TMP_InputField inputField;
     
     void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None; 
-        SetTimeText();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
+        if(GameManager.Instance.leaderboardPlacement > -1){
+            nameInput.SetActive(true);
+        }
         
+        SetTimeText();
     }
 
     void SetTimeText(){
@@ -48,32 +50,32 @@ public class VictoryScreen : MonoBehaviour
         //         break;
         // }
 
-        int placement = GameManager.Instance.leaderboardPlacement;
+        int placement = GameManager.Instance.leaderboardPlacement + 1;
 
         switch(placement){
-            case -1:
+            case 0:
                 highScoreText.fontStyle = FontStyles.Normal;
                 highScoreText.text = "But didn't reach the leaderboard";
             break;
 
-            case 0:
+            case 1:
                 highScoreText.fontStyle = FontStyles.Underline;
                 highScoreText.text = "You've reached 1st place!";
             break;
 
-            case 1:
+            case 2:
                 highScoreText.fontStyle = FontStyles.Underline;
                 highScoreText.text = "You've reached 2nd place!";
             break;
 
-            case 2:
+            case 3:
                 highScoreText.fontStyle = FontStyles.Underline;
                 highScoreText.text = "You've reached 3rd place!";
             break;
 
             default:
                 highScoreText.fontStyle = FontStyles.Underline;
-                highScoreText.text = "You've reached " + placement+1 + "th place!";
+                highScoreText.text = "You've reached " + placement + "th place!";
             break;
         }
 
@@ -93,5 +95,16 @@ public class VictoryScreen : MonoBehaviour
 
     public void Load(string sceneName){
         GameManager.Instance.LoadScene(sceneName);
+    }
+
+    public void SubmitName(){
+        string submitting = inputField.text;
+        if(submitting.Length < 5){
+            GameManager.Instance.savedScore.name = submitting;
+            GameManager.Instance.SaveScores(GameManager.Instance.savedScore);
+        }
+
+        nameInput.SetActive(false);
+        GetComponent<ISelectable>().SetSelected();
     }
 }
