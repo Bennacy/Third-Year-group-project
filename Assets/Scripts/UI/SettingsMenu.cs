@@ -87,6 +87,10 @@ public class SettingsMenu : MonoBehaviour
 
         CloseSettings();
     }
+
+    public void ClearSave(){
+        GameManager.Instance.ClearSave();
+    }
 }
 
 public static class ExtensionMethods {

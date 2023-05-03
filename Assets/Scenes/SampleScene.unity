@@ -4592,7 +4592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1606667450, guid: d0a55af42f2d24747b036e2d67567743, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1894574676, guid: d0a55af42f2d24747b036e2d67567743, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5070,10 +5070,10 @@ MonoBehaviour:
   - {fileID: 0}
   spawnPointCount: 3
   spawnedEnemies: []
-  startingEnemiesPerWave: 5
-  totalEnemies: 7
+  startingEnemiesPerWave: 1
+  totalEnemies: 1
   numWaves: 5
-  totalWaves: 6
+  totalWaves: 1
   waveDelay: 5
   spawnDelay: 1
 --- !u!4 &1190306309

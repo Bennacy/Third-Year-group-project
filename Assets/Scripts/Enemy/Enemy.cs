@@ -178,15 +178,11 @@ public class Enemy : MonoBehaviour, IHasHealth
     public void Die(){
         float healthChance = Random.Range(0, 2);
         // Debug.Log("Health: " + healthChance);
-        GameManager.Instance.enemiesKilled++;
         if (healthChance > 0.5)
         {
             Instantiate(healthPickUp, new Vector3(transform.position.x, transform.position.y + 2, transform.position.z), transform.rotation);
         }
 
-        GameManager.Instance.score += enemyScriptableObject.scoreGiven;
-        GameManager.Instance.kills++;
-        GameManager.Instance.currency += enemyScriptableObject.scoreGiven;
         Destroy(gameObject);
     }
 

@@ -27,10 +27,6 @@ public class ShopMenu : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P)){
-            OpenShop();
-        }
-
         if(!GameManager.Instance.paused && group.gameObject.activeSelf){
             SecondCloseShop();
         }

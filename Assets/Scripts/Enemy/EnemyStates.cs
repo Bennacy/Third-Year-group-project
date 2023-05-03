@@ -161,6 +161,11 @@ public class EnemyDying : EnemyState{
         foreach(Collider collider in colliders){
             collider.enabled = false;
         }
+
+        GameManager.Instance.enemiesKilled++;
+        GameManager.Instance.score += enemy.enemyScriptableObject.scoreGiven;
+        GameManager.Instance.kills++;
+        GameManager.Instance.currency += enemy.enemyScriptableObject.scoreGiven;
         
         enemy.animator.Play("Death");
         agent.updatePosition = false;

@@ -2,39 +2,39 @@
     "scores": [
         {
             "name": "Test",
-            "score": 5463,
-            "kills": 107,
-            "time": 314
+            "score": 0,
+            "kills": 0,
+            "time": 6
         },
         {
             "name": "Test",
             "score": 0,
             "kills": 0,
-            "time": 0
+            "time": 6
         },
         {
             "name": "Test",
             "score": 0,
-            "kills": 108,
-            "time": 0
+            "kills": 0,
+            "time": 6
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "kills": 0,
+            "time": 6
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "kills": 0,
+            "time": 6
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "kills": 0,
+            "time": 6
         },
         {
             "name": "NULL",

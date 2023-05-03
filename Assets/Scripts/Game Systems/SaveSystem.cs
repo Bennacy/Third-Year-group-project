@@ -15,7 +15,7 @@ public static class SaveSystem{
         File.WriteAllText(NETWORK_SAVE_FOLDER + fileName + format, saveString);
     }
 
-    public static void ClearSave(string saveString, string fileName, string format = ".json"){
+    public static void ClearSave(string fileName, string format = ".json"){
         File.WriteAllText(NETWORK_SAVE_FOLDER + fileName + format, "");
     }
 
@@ -62,21 +62,23 @@ public static class SaveSystem{
         }
     }
 
-    public void InsertScore(PersonalScore newScore, int startingIndex = 0){
+    public int InsertScore(PersonalScore newScore, int startingIndex = 0){
         for(int i = startingIndex; i < 10; i++){
             if(scores[i].score < newScore.score){
                 PersonalScore temp = new PersonalScore(scores[i].score, scores[i].time, scores[i].kills, scores[i].name);
                 scores[i] = newScore;
                 InsertScore(temp, startingIndex+1);
-                return;
+                return i;
             }
             if(scores[i].score == newScore.score && scores[i].time > newScore.time){
                 PersonalScore temp = new PersonalScore(scores[i].score, scores[i].time, scores[i].kills, scores[i].name);
                 scores[i] = newScore;
                 InsertScore(temp, startingIndex+1);
-                return;
+                return i;
             }
         }
+
+        return -1;
     }
 }
 

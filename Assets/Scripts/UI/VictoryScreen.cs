@@ -7,7 +7,7 @@ using TMPro;
 public class VictoryScreen : MonoBehaviour
 {
     public TextMeshProUGUI timeText;
-    public TextMeshProUGUI killsText;
+    public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
     private Animator animator;
     
@@ -25,34 +25,66 @@ public class VictoryScreen : MonoBehaviour
     }
 
     void SetTimeText(){
+        int score = GameManager.Instance.score;
+        scoreText.text = "You scored " + score + " points";
+        
         int totalTime = Mathf.RoundToInt(GameManager.Instance.time);
         int seconds = totalTime % 60;
         int minutes = (totalTime - seconds) / 60;
-        timeText.text = "You took " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
+        timeText.text = "And lasted " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
 
-        int kills = GameManager.Instance.enemiesKilled;
-        switch(kills){
-             case 0: 
-                killsText.text = "and didn't kill any enemies";
-                break;
+        // int kills = GameManager.Instance.enemiesKilled;
+        // switch(kills){
+        //      case 0: 
+        //         killsText.text = "and didn't kill any enemies";
+        //         break;
+
+        //     case 1:
+        //         killsText.text = "and killed " + kills + " enemy";
+        //         break;
+
+        //     default:
+        //         killsText.text = "and killed " + kills + " enemies";
+        //         break;
+        // }
+
+        int placement = GameManager.Instance.leaderboardPlacement;
+
+        switch(placement){
+            case -1:
+                highScoreText.fontStyle = FontStyles.Normal;
+                highScoreText.text = "But didn't reach the leaderboard";
+            break;
+
+            case 0:
+                highScoreText.fontStyle = FontStyles.Underline;
+                highScoreText.text = "You've reached 1st place!";
+            break;
 
             case 1:
-                killsText.text = "and killed " + kills + " enemy";
-                break;
+                highScoreText.fontStyle = FontStyles.Underline;
+                highScoreText.text = "You've reached 2nd place!";
+            break;
+
+            case 2:
+                highScoreText.fontStyle = FontStyles.Underline;
+                highScoreText.text = "You've reached 3rd place!";
+            break;
 
             default:
-                killsText.text = "and killed " + kills + " enemies";
-                break;
+                highScoreText.fontStyle = FontStyles.Underline;
+                highScoreText.text = "You've reached " + placement+1 + "th place!";
+            break;
         }
 
-        if(GameManager.Instance.newHighScore){
-            highScoreText.text = "New high score!";
-        }else{
-            int hs_totalTime = Mathf.RoundToInt(GameManager.Instance.highScore);
-            int hs_seconds = hs_totalTime % 60;
-            int hs_minutes = (hs_totalTime - hs_seconds) / 60;
-            highScoreText.text = "High score: " + hs_minutes.ToString().PadLeft(2, '0') + ":" + hs_seconds.ToString().PadLeft(2, '0');
-        }
+        // if(GameManager.Instance.newHighScore){
+        //     highScoreText.text = "New high score!";
+        // }else{
+        //     int hs_totalTime = Mathf.RoundToInt(GameManager.Instance.highScore);
+        //     int hs_seconds = hs_totalTime % 60;
+        //     int hs_minutes = (hs_totalTime - hs_seconds) / 60;
+        //     highScoreText.text = "High score: " + hs_minutes.ToString().PadLeft(2, '0') + ":" + hs_seconds.ToString().PadLeft(2, '0');
+        // }
     }
 
     public void Quit(){
@@ -60,7 +92,6 @@ public class VictoryScreen : MonoBehaviour
     }
 
     public void Load(string sceneName){
-        Debug.Log("Loading " + sceneName);
         GameManager.Instance.LoadScene(sceneName);
     }
 }

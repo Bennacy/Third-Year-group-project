@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public List<Enemy> aliveEnemies;
     public int currentWave;
     public int maxWave;
+    public int leaderboardPlacement;
 
     public int FOV;
     public float sensitivity;
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(inGame){
+        if(inGame && !betweenWaves){
             time += Time.deltaTime;
         }
         
@@ -167,7 +168,8 @@ public class GameManager : MonoBehaviour
     //! =============== Save Functions ===============
     public void SaveScores(){
         PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time), kills);
-        highScores.InsertScore(personalScore);
+        leaderboardPlacement = highScores.InsertScore(personalScore);
+        Debug.Log(leaderboardPlacement);
         string saving = JsonUtility.ToJson(highScores, true);
         SaveSystem.Save(saving, "High Scores");
     }
@@ -176,6 +178,11 @@ public class GameManager : MonoBehaviour
         string scoreString = SaveSystem.Load("High Scores");
         if(scoreString != null)
             highScores = JsonUtility.FromJson<HighScores>(scoreString);
+    }
+    public void ClearSave(){
+        highScores = new HighScores();
+        string saving = JsonUtility.ToJson(highScores, true);
+        SaveSystem.Save(saving, "High Scores");
     }
 
     public void SaveSettings(){

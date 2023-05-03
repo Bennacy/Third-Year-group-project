@@ -28,6 +28,8 @@ public class LeaderboardMenu : MonoBehaviour
     }
 
     public void OpenLeaderboard(){      
+        CloseInfo();
+
         scoreJSON = JsonUtility.ToJson(GameManager.Instance.highScores);
         Debug.Log(scoreJSON);
 
