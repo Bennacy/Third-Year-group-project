@@ -48,6 +48,10 @@ public class SettingsMenu : MonoBehaviour
         if(panels.Count > 1){
             panels.Pop().SetActive(false);
             panels.Peek().SetActive(true);
+            ISelectable selectable = panels.Peek().GetComponent<ISelectable>();
+            if(selectable != null){
+                selectable.SetSelected();
+            }
         }else{
             CloseSettings();
         }
@@ -77,6 +81,11 @@ public class SettingsMenu : MonoBehaviour
             yield return null;
         }   
 
+
+        ISelectable selectable = GetComponentInParent<ISelectable>();
+        if(selectable != null){
+            selectable.SetSelected();
+        }
         settingsPanel.SetActive(false);
     }
 

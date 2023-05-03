@@ -8,7 +8,7 @@ public class ISelectable : MonoBehaviour
     public GameObject firstSelected;
     public EventSystem eventSystem;
     
-    void Start()
+    void Awake()
     {
         eventSystem = EventSystem.current;
 

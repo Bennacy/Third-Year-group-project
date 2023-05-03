@@ -83,6 +83,10 @@ public class LeaderboardMenu : MonoBehaviour
             yield return null;
         }   
 
+        ISelectable selectable = GetComponentInParent<ISelectable>();
+        if(selectable != null){
+            selectable.SetSelected();
+        }
         group.gameObject.SetActive(false);
     }
 

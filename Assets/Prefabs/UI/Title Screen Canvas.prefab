@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 6674662045647000159}
   - component: {fileID: 6674662045647000099}
   - component: {fileID: 174691955384534651}
+  - component: {fileID: 3943905121649854824}
   m_Layer: 5
   m_Name: Title Screen Canvas
   m_TagString: Untagged
@@ -702,6 +703,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3943905121649854824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674662045647000158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8edc5425e3f30a41a71be88ac7347b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstSelected: {fileID: 6674662045107632127}
+  eventSystem: {fileID: 0}
 --- !u!1 &6674662045669972558
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,16 +1449,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 6674662045647000098}
     m_Modifications:
-    - target: {fileID: 1389098155224589081, guid: bd3a94a70300a6a44af56360dbbf6336,
-        type: 3}
-      propertyPath: m_Navigation.m_SelectOnDown
-      value: 
-      objectReference: {fileID: 2805446914200821600}
-    - target: {fileID: 1389098155224589081, guid: bd3a94a70300a6a44af56360dbbf6336,
-        type: 3}
-      propertyPath: m_Navigation.m_SelectOnRight
-      value: 
-      objectReference: {fileID: 2805446914200821600}
     - target: {fileID: 1389098155550478408, guid: bd3a94a70300a6a44af56360dbbf6336,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1554,16 +1559,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leaderboard
       objectReference: {fileID: 0}
-    - target: {fileID: 1389098156324746589, guid: bd3a94a70300a6a44af56360dbbf6336,
-        type: 3}
-      propertyPath: m_Navigation.m_SelectOnDown
-      value: 
-      objectReference: {fileID: 2805446914200821600}
-    - target: {fileID: 1389098156324746589, guid: bd3a94a70300a6a44af56360dbbf6336,
-        type: 3}
-      propertyPath: m_Navigation.m_SelectOnRight
-      value: 
-      objectReference: {fileID: 2805446914200821600}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: bd3a94a70300a6a44af56360dbbf6336, type: 3}
@@ -1671,18 +1666,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17d4ef5d8fc75df4a9aca133a56d3fa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2805446914200821600 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8813503646684316701, guid: 147b56c0b510a9d4d86053ffc0eb22af,
-    type: 3}
-  m_PrefabInstance: {fileID: 6674662045102463869}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &2805446915000847790 stripped
