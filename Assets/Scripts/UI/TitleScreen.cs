@@ -8,6 +8,7 @@ public class TitleScreen : MonoBehaviour
 {
     private AudioSource audioSource;
     private bool loweringSound = false;
+    public TransitionScript transitionScript;
 
     void OnEnable()
     {
@@ -35,6 +36,7 @@ public class TitleScreen : MonoBehaviour
     }
 
     public void Quit(){
+        transitionScript.animator.SetTrigger("New Scene");
         AudioManager.Instance.PlayUIClick();
         Application.Quit();
     }
