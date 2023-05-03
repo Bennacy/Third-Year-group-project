@@ -56,7 +56,6 @@ public class SettingsMenu : MonoBehaviour
     public void OpenSettings(){     
         StartCoroutine(OpenSettingsFade());
     }
-
     private IEnumerator OpenSettingsFade(){
         group.alpha = 0;
         settingsPanel.SetActive(true);
@@ -68,6 +67,16 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public void CloseSettings(){
+        StartCoroutine(CloseSettingsFade());
+    }
+    private IEnumerator CloseSettingsFade(){
+        group.alpha = 1;
+
+        while(group.alpha > 0){
+            group.alpha -= Time.unscaledDeltaTime*7.5f;
+            yield return null;
+        }   
+
         settingsPanel.SetActive(false);
     }
 

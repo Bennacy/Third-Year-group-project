@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
+        SaveScores();
         SaveSettings();
     }
 
@@ -158,14 +159,12 @@ public class GameManager : MonoBehaviour
 
     //! =============== Save Functions ===============
     public void SaveScores(){
-
         PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
         highScores.InsertScore(personalScore);
         string saving = JsonUtility.ToJson(highScores, true);
         SaveSystem.Save(saving, "High Scores");
     }
     public void LoadScores(){
-        
         highScores = new HighScores();
         string scoreString = SaveSystem.Load("High Scores");
         if(scoreString != null)
@@ -208,8 +207,6 @@ public class GameManager : MonoBehaviour
 
 
     public void Quit(){
-        SaveScores();
-        
         Application.Quit();
     }
 

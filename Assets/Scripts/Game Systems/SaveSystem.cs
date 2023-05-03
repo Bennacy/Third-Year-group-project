@@ -53,14 +53,14 @@ public static class SaveSystem{
     public PersonalScore[] scores;
 
     public HighScores(){
-        scores = new PersonalScore[5];
-        for(int i = 0; i < 5; i++){
+        scores = new PersonalScore[10];
+        for(int i = 0; i < 10; i++){
             scores[i] = new PersonalScore();
         }
     }
 
     public void InsertScore(PersonalScore newScore, int startingIndex = 0){
-        for(int i = startingIndex; i < 5; i++){
+        for(int i = startingIndex; i < 10; i++){
             if(scores[i].score < newScore.score){
                 PersonalScore temp = new PersonalScore(scores[i].score, scores[i].time, scores[i].name);
                 scores[i] = newScore;
