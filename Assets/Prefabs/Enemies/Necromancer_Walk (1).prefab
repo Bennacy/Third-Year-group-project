@@ -1147,7 +1147,7 @@ MonoBehaviour:
   attackRange: 2
   lookAtPlayer: 0
   attacking: 0
-  healthPickUp: {fileID: 4917739066559150413, guid: 9fd7d39b511714c498119ea8f781509b,
+  healthPickUp: {fileID: 2925619617226897718, guid: d54c28303564aa0499651039b618da22,
     type: 3}
 --- !u!114 &6759699672131608659
 MonoBehaviour:
