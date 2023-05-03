@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 
@@ -16,14 +17,26 @@ public class PlayerHUD : MonoBehaviour
     private int healthBar_PreviousHealth;
     private float healthBar_targetFill;
 
+    public Image shopImage;
+    public Sprite[] shopIcons;
+    public Image waveImage;
+    public Sprite[] waveIcons;
+
     public TextMeshProUGUI enemiesRemaining;
     public TextMeshProUGUI waveCount;
+    private PlayerInput playerInput;
+
+    private Animator animator;
+    private bool playedNoEnemies;
 
 
     void Start()
     {
         canvas = GetComponentInParent<Canvas>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerInput = player.playerInput;
+
+        animator = GetComponent<Animator>();
 
         InitializeHealthBar();
     }
@@ -31,11 +44,36 @@ public class PlayerHUD : MonoBehaviour
     void Update()
     {
         UpdateHealthBar();
-        enemiesRemaining.text = "Enemies remaining: " + GameManager.Instance.aliveEnemies.Count;
+        enemiesRemaining.text = GameManager.Instance.aliveEnemies.Count.ToString();
         waveCount.text = "Wave " + GameManager.Instance.currentWave + "/" + GameManager.Instance.maxWave;
 
         float staminaBar_targetFill = (float)player.stamina / (float)player.maxStamina;
         staminaBar.fillAmount = Mathf.Lerp(staminaBar.fillAmount, staminaBar_targetFill, 5*Time.deltaTime);
+
+        if(GameManager.Instance.aliveEnemies.Count == 0 && !playedNoEnemies){
+            animator.SetTrigger("No Enemies");
+            playedNoEnemies = true;
+        }
+
+        if(GameManager.Instance.aliveEnemies.Count != 0 && playedNoEnemies){
+            animator.SetTrigger("Hide Prompt");
+            playedNoEnemies = false;
+        }
+
+        switch(playerInput.currentControlScheme){
+            case "Keyboard":
+                shopImage.sprite = shopIcons[0];
+                waveImage.sprite = waveIcons[0];
+                break;
+            case "xBox":
+                shopImage.sprite = shopIcons[1];
+                waveImage.sprite = waveIcons[1];
+                break;
+            case "PS4":
+                shopImage.sprite = shopIcons[2];
+                waveImage.sprite = waveIcons[2];
+                break;
+        }
     }
 
     void InitializeHealthBar(){
