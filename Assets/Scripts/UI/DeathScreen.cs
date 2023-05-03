@@ -24,25 +24,33 @@ public class DeathScreen : MonoBehaviour
     }
 
     void SetTimeText(){
+        int score = GameManager.Instance.score;
+        killsText.text = "You scored " + score + " points";
+        
         int totalTime = Mathf.RoundToInt(GameManager.Instance.time);
         int seconds = totalTime % 60;
         int minutes = (totalTime - seconds) / 60;
-        timeText.text = "You survived for " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
+        timeText.text = "And lasted " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
 
-        int kills = GameManager.Instance.enemiesKilled;
-        switch(kills){
-            case 0: 
-                killsText.text = "You didn't kill any enemies";
-                break;
+        // int totalTime = Mathf.RoundToInt(GameManager.Instance.time);
+        // int seconds = totalTime % 60;
+        // int minutes = (totalTime - seconds) / 60;
+        // timeText.text = "You survived for " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
 
-            case 1:
-                killsText.text = "You killed " + kills + " enemy";
-                break;
+        // int kills = GameManager.Instance.enemiesKilled;
+        // switch(kills){
+        //     case 0: 
+        //         killsText.text = "You didn't kill any enemies";
+        //         break;
 
-            default:
-                killsText.text = "You killed " + kills + " enemies";
-                break;
-        }
+        //     case 1:
+        //         killsText.text = "You killed " + kills + " enemy";
+        //         break;
+
+        //     default:
+        //         killsText.text = "You killed " + kills + " enemies";
+        //         break;
+        // }
     }
 
     public void Quit(){
