@@ -14,10 +14,18 @@ public class ShopMenu : MonoBehaviour
     public GameObject characterWrapper;
 
     public TextMeshProUGUI runesText;
-    
-    void Start()
+
+    void Update()
     {
-        group = GetComponent<CanvasGroup>();
+        if(Input.GetKeyDown(KeyCode.P)){
+            OpenShop();
+        }
+
+        if(!GameManager.Instance.paused && group.gameObject.activeSelf){
+            SecondCloseShop();
+        }
+
+        runesText.text = "Runes: " + GameManager.Instance.score;
     }
 
     public void OpenShop(){     
@@ -29,16 +37,22 @@ public class ShopMenu : MonoBehaviour
         group.gameObject.SetActive(true);
         GameManager.Instance.TogglePause();
         GameManager.Instance.shopOpen = true;
+        ShowWeapons();
 
         while(group.alpha < 1){
             group.alpha += Time.unscaledDeltaTime*7.5f;
             yield return null;
-        }   
+        }
     }
     
     public void CloseShop(){
         group.gameObject.SetActive(false);
         GameManager.Instance.TogglePause();
+        GameManager.Instance.shopOpen = false;
+    }
+
+    private void SecondCloseShop(){
+        group.gameObject.SetActive(false);
         GameManager.Instance.shopOpen = false;
     }
 
