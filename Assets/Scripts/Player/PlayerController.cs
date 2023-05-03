@@ -200,8 +200,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
             return;
 
         Vector2 inputVector = context.ReadValue<Vector2>();
-        float sens = cameraController.sens;
-
         cameraRotate = inputVector;
     }
     private void RotateCamera(){
@@ -209,11 +207,18 @@ public class PlayerController : MonoBehaviour, IHasHealth
             Vector3 currCamRotation = cameraController.transform.rotation.eulerAngles;
 
             float sens = cameraController.sens;
-            if(playerInput.currentControlScheme != "Keyboard&Mouse")
+            if(playerInput.currentControlScheme != "Keyboard&Mouse"){
                 sens *= 10;
+            }
 
-            currPlayerRotation.y += cameraRotate.x * sens;
-            currCameraAngle -= cameraRotate.y * sens;
+            Vector2 localRotate = cameraRotate;
+            if(GameManager.Instance.invertX)
+                localRotate.x *= -1;
+            if(GameManager.Instance.invertY)
+                localRotate.y *= -1;
+
+            currPlayerRotation.y += localRotate.x * sens;
+            currCameraAngle -= localRotate.y * sens;
             currCamRotation.y = 0;
             
             currCameraAngle = Mathf.Clamp(currCameraAngle, cameraVerticalBounds.x, cameraVerticalBounds.y);

@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
 
     public int FOV;
     public float sensitivity;
+    public bool invertX;
+    public bool invertY;
 
     public WeaponScript[] weapons;
 
@@ -192,7 +194,9 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.sfxVolume,
             AudioManager.Instance.musicVolume,
             FOV,
-            QualitySettings.GetQualityLevel()
+            QualitySettings.GetQualityLevel(),
+            invertX,
+            invertY
         );
 
         string saving = JsonUtility.ToJson(saveSettings, true);
@@ -208,6 +212,8 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.SetMusicVolume(loadedSettings.musicVolume);
             FOV = loadedSettings.fov;
             QualitySettings.SetQualityLevel(loadedSettings.graphicsQuality);
+            invertX = loadedSettings.invertX;
+            invertY = loadedSettings.invertY;
         }else{
             
             AudioManager.Instance.SetMasterVolume(.5f);

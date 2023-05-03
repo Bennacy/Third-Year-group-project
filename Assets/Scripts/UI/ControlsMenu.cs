@@ -23,6 +23,9 @@ public class ControlsMenu : MonoBehaviour
     public RectTransform optionsBtn;
     public RectTransform keybindsBtn;
 
+    public Toggle invertX;
+    public Toggle invertY;
+
     public int schemeIndex;
     private int prevSchemeIndex;
 
@@ -30,6 +33,8 @@ public class ControlsMenu : MonoBehaviour
     void Start()
     {
         sensSlider.value = GameManager.Instance.sensitivity * 100;
+        invertX.isOn = GameManager.Instance.invertX;
+        invertY.isOn = GameManager.Instance.invertY;
         UpdateSensitivity(sensSlider.value);
     }
 
@@ -106,5 +111,12 @@ public class ControlsMenu : MonoBehaviour
         }
 
         prevSchemeIndex = schemeIndex;
+    }
+
+    public void InvertX(bool inverted){
+        GameManager.Instance.invertX = inverted;
+    }
+    public void InvertY(bool inverted){
+        GameManager.Instance.invertY = inverted;
     }
 }

@@ -86,12 +86,15 @@ public static class SaveSystem{
     public float masterVolume, sfxVolume, musicVolume;
     public int fov;
     public int graphicsQuality;
+    public bool invertX, invertY;
 
-    public Settings(float _master, float _sfx, float _music, int _fov, int _graphics){
+    public Settings(float _master, float _sfx, float _music, int _fov, int _graphics, bool _invertX, bool _invertY){
         masterVolume = _master;
         sfxVolume = _sfx;
         musicVolume = _music;
         fov = _fov;
         graphicsQuality = _graphics;
+        invertX = _invertX;
+        invertY = _invertY;
     }
 }
