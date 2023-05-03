@@ -614,8 +614,10 @@ MonoBehaviour:
   sensitivity: 0
   invertX: 0
   invertY: 0
+  hideUI: 0
   weapons: []
   lowerDrawbridge: 0
+  loweredDrawbridge: 0
   raiseDrawbridge: 0
 --- !u!95 &1559406631154296510
 Animator:

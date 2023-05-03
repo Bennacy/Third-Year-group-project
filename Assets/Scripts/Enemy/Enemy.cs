@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour, IHasHealth
 
     public GameObject healthPickUp;
 
+    public ParticleSystem part;
 
     void InitializeStates(){
         attackingState = new EnemyAttacking(this);
@@ -59,6 +60,7 @@ public class Enemy : MonoBehaviour, IHasHealth
         SetupEnemyFromConfig();
         player = GameManager.Instance.playerController;
         weaponHandler = GetComponentInChildren<EnemyWeapon>();
+        part = GetComponentInChildren<ParticleSystem>();
         // moveToTarget = GetComponent<MoveToTarget>();
 
         InitializeStates();
@@ -136,6 +138,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     public void BeginAttack()
     {
         attacking = true;
+        part.Play();
     }
 
     public void EndAttack()

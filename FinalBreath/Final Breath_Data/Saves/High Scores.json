@@ -1,0 +1,64 @@
+{
+    "scores": [
+        {
+            "name": "Test",
+            "score": 0,
+            "kills": 0,
+            "time": 23
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        }
+    ]
+}
