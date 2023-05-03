@@ -12,6 +12,7 @@ public class LeaderboardMenu : MonoBehaviour
     [SerializeField] private Button downBtn;
     [SerializeField] private Transform entryContainer;
     [SerializeField] private GameObject entryTemplate;
+    [SerializeField] private GameObject info;
     private LeaderboardEntry[] entries;
     private int displayOffset;
     private string scoreJSON;
@@ -121,5 +122,12 @@ public class LeaderboardMenu : MonoBehaviour
         downBtn.interactable = true;
 
         RefreshDisplay();
+    }
+
+    public void OpenInfo(){
+        info.SetActive(true);
+    }
+    public void CloseInfo(){
+        info.SetActive(false);
     }
 }

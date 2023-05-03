@@ -2,18 +2,6 @@
     "scores": [
         {
             "name": "Test",
-            "score": 100000000,
-            "kills": 0,
-            "time": 0
-        },
-        {
-            "name": "Test",
-            "score": 100000000,
-            "kills": 0,
-            "time": 0
-        },
-        {
-            "name": "Test",
             "score": 5463,
             "kills": 107,
             "time": 314
@@ -31,10 +19,22 @@
             "time": 0
         },
         {
-            "name": "Test",
-            "score": 0,
-            "kills": 0,
-            "time": 2
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
+        },
+        {
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
         },
         {
             "name": "NULL",
