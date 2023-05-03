@@ -1,54 +1,54 @@
 {
     "scores": [
         {
+            "name": "abc",
+            "score": 0,
+            "time": 0
+        },
+        {
+            "name": "def",
+            "score": 0,
+            "time": 0
+        },
+        {
+            "name": "ghi",
+            "score": 0,
+            "time": 0
+        },
+        {
+            "name": "jkl",
+            "score": 0,
+            "time": 0
+        },
+        {
             "name": "Test",
             "score": 0,
             "time": 0
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "time": 0
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "time": 0
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "time": 0
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "time": 0
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
-        },
-        {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
-        },
-        {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
-        },
-        {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
-        },
-        {
-            "name": "NULL",
-            "score": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "time": 0
         }
     ]
 }

@@ -34,17 +34,20 @@ public static class SaveSystem{
 [System.Serializable] public class PersonalScore{
     public string name;
     public int score;
+    public int kills;
     public int time;
 
-    public PersonalScore(int _score, int _time, string _name = "Test"){
+    public PersonalScore(int _score, int _time, int _kills, string _name = "Test"){
         score = _score;
         time = _time;
         name = _name;
+        kills = _kills;
     }
 
     public PersonalScore(){
         score = -1;
         time = -1;
+        kills = -1;
         name = "NULL";
     }
 }
@@ -62,13 +65,13 @@ public static class SaveSystem{
     public void InsertScore(PersonalScore newScore, int startingIndex = 0){
         for(int i = startingIndex; i < 10; i++){
             if(scores[i].score < newScore.score){
-                PersonalScore temp = new PersonalScore(scores[i].score, scores[i].time, scores[i].name);
+                PersonalScore temp = new PersonalScore(scores[i].score, scores[i].time, scores[i].kills, scores[i].name);
                 scores[i] = newScore;
                 InsertScore(temp, startingIndex+1);
                 return;
             }
             if(scores[i].score == newScore.score && scores[i].time > newScore.time){
-                PersonalScore temp = new PersonalScore(scores[i].score, scores[i].time, scores[i].name);
+                PersonalScore temp = new PersonalScore(scores[i].score, scores[i].time, scores[i].kills, scores[i].name);
                 scores[i] = newScore;
                 InsertScore(temp, startingIndex+1);
                 return;
