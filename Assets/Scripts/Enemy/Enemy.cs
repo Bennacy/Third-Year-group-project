@@ -185,6 +185,7 @@ public class Enemy : MonoBehaviour, IHasHealth
         }
 
         GameManager.Instance.score += enemyScriptableObject.scoreGiven;
+        GameManager.Instance.kills++;
         GameManager.Instance.currency += enemyScriptableObject.scoreGiven;
         Destroy(gameObject);
     }

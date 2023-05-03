@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public bool loadingScene;
     public bool betweenWaves;
     public int score;
+    public int kills;
     public List<Enemy> aliveEnemies;
     public int currentWave;
     public int maxWave;
@@ -51,6 +52,12 @@ public class GameManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
+        currentWave = 1;
+        enemiesKilled = 0;
+        time = 0;
+        currency = 0;
+        score = 0;
+        totalUpgrades = 0;
     }
 
     void OnEnable()
@@ -95,17 +102,17 @@ public class GameManager : MonoBehaviour
         won = false;
         died = false;
         newHighScore = false;
-        currentWave = 1;
-        enemiesKilled = 0;
-        time = 0;
-        currency = 0;
-        score = 0;
         betweenWaves = false;
-        totalUpgrades = 0;
         AudioListener.pause = false;
         
         if(GetPlayerController()){
             inGame = true;
+            currentWave = 1;
+            enemiesKilled = 0;
+            time = 0;
+            currency = 0;
+            score = 0;
+            totalUpgrades = 0;
             
             foreach(WeaponScript weapon in weapons)
             {
@@ -159,7 +166,7 @@ public class GameManager : MonoBehaviour
 
     //! =============== Save Functions ===============
     public void SaveScores(){
-        PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time));
+        PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time), kills);
         highScores.InsertScore(personalScore);
         string saving = JsonUtility.ToJson(highScores, true);
         SaveSystem.Save(saving, "High Scores");

@@ -30,6 +30,9 @@ public class LeaderboardEntry : MonoBehaviour
     }
 
     public void UpdateDisplay(){
+        if(time == -1)
+            empty = true;
+        
         if(empty){
             placeText.text = "";
             killsText.text = "";
