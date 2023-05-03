@@ -64,6 +64,7 @@ public class ShopMenu : MonoBehaviour
     }
 
     public void ShowWeapons(){
+        AudioManager.Instance.PlayUIClick();
         weaponsHighlight.SetActive(true);
         weaponsWrapper.SetActive(true);
 
@@ -72,6 +73,7 @@ public class ShopMenu : MonoBehaviour
     }
 
     public void ShowCharacter(){
+        AudioManager.Instance.PlayUIClick();
         characterHighlight.SetActive(true);
         characterWrapper.SetActive(true);
 

@@ -1297,6 +1297,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Purple Enemy Aura
       objectReference: {fileID: 0}
+    - target: {fileID: 6705318112787731869, guid: 6a2a90446ba45aa4b9b85b078feeecfc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6705318112787731870, guid: 6a2a90446ba45aa4b9b85b078feeecfc,
         type: 3}
       propertyPath: m_RootOrder

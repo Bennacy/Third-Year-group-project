@@ -27,7 +27,7 @@ public class LeaderboardMenu : MonoBehaviour
 
     }
 
-    public void OpenLeaderboard(){      
+    public void OpenLeaderboard(){    
         CloseInfo();
 
         scoreJSON = JsonUtility.ToJson(GameManager.Instance.highScores);
@@ -73,6 +73,7 @@ public class LeaderboardMenu : MonoBehaviour
     }
 
     public void CloseLeaderboard(){
+        AudioManager.Instance.PlayUIClick();
         StartCoroutine(CloseLeaderboardFade());
     }
     private IEnumerator CloseLeaderboardFade(){
@@ -106,6 +107,7 @@ public class LeaderboardMenu : MonoBehaviour
     }
 
     public void ScrollDown(){
+        AudioManager.Instance.PlayUIClick();
         displayOffset++;
 
         if(displayOffset >= 2){
@@ -118,6 +120,7 @@ public class LeaderboardMenu : MonoBehaviour
         RefreshDisplay();
     }
     public void ScrollUp(){
+        AudioManager.Instance.PlayUIClick();
         displayOffset--;
 
         if(displayOffset <= 0){
@@ -131,9 +134,11 @@ public class LeaderboardMenu : MonoBehaviour
     }
 
     public void OpenInfo(){
+        AudioManager.Instance.PlayUIClick();
         info.SetActive(true);
     }
     public void CloseInfo(){
+        AudioManager.Instance.PlayUIClick();
         info.SetActive(false);
     }
 }

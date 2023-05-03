@@ -90,14 +90,17 @@ public class VictoryScreen : MonoBehaviour
     }
 
     public void Quit(){
+        AudioManager.Instance.PlayUIClick();
         Application.Quit();
     }
 
     public void Load(string sceneName){
+        AudioManager.Instance.PlayUIClick();
         GameManager.Instance.LoadScene(sceneName);
     }
 
     public void SubmitName(){
+        AudioManager.Instance.PlayUIClick();
         string submitting = inputField.text;
         if(submitting.Length < 5){
             GameManager.Instance.savedScore.name = submitting;

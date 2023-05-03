@@ -105,6 +105,8 @@ public class GameManager : MonoBehaviour
     }
 
     void NewScene(){
+        AudioManager.Instance.GetEventSystem();
+        
         Time.timeScale = 1;
         paused = false;
         won = false;
@@ -156,7 +158,7 @@ public class GameManager : MonoBehaviour
 
     public void TogglePause(){
         paused = !paused;
-        AudioListener.pause = paused;
+        // AudioListener.pause = paused;
         
         if(paused){
             Time.timeScale = 0;

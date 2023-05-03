@@ -35,10 +35,12 @@ public class TitleScreen : MonoBehaviour
     }
 
     public void Quit(){
+        AudioManager.Instance.PlayUIClick();
         Application.Quit();
     }
 
     public void Load(string sceneName){
+        AudioManager.Instance.PlayUIClick();
         GameManager.Instance.LoadScene(sceneName);
     }
 }

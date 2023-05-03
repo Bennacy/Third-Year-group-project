@@ -34,10 +34,12 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public void OpenPanel(GameObject panel){
+        AudioManager.Instance.PlayUIClick();
         panels.Push(panel);
         panels.Peek().SetActive(true);
     }
     public void OpenPanelClosePrevious(GameObject panel){
+        AudioManager.Instance.PlayUIClick();
         panels.Peek().SetActive(false);
 
         panels.Push(panel);
@@ -45,6 +47,7 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public void ClosePanel(){
+        AudioManager.Instance.PlayUIClick();
         if(panels.Count > 1){
             panels.Pop().SetActive(false);
             panels.Peek().SetActive(true);
@@ -58,6 +61,7 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public void OpenSettings(){     
+        AudioManager.Instance.PlayUIClick();
         StartCoroutine(OpenSettingsFade());
     }
     private IEnumerator OpenSettingsFade(){
@@ -71,6 +75,7 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public void CloseSettings(){
+        AudioManager.Instance.PlayUIClick();
         StartCoroutine(CloseSettingsFade());
     }
     private IEnumerator CloseSettingsFade(){
@@ -98,6 +103,7 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public void ClearSave(){
+        AudioManager.Instance.PlayUIClick();
         GameManager.Instance.ClearSave();
     }
 }

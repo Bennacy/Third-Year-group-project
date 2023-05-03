@@ -38,10 +38,12 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Quit(){
+        AudioManager.Instance.PlayUIClick();
         GameManager.Instance.Quit();
     }
 
     public void BackToMain(){
+        AudioManager.Instance.PlayUIClick();
         GameManager.Instance.LoadScene("Title Screen");
     }
 

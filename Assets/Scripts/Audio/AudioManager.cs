@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 
 public class AudioManager : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class AudioManager : MonoBehaviour
     public float sfxVolume;
     public float musicVolume;
 
+    private EventSystem eventSystem;
+    private AudioSource UIsource;
+    public AudioClip uiClick;
+    public AudioClip uiNavigation;
+    public AudioClip uiSlider;
+    private GameObject previousSelected;
+
     void Awake()
     {
         if(Instance == null){
@@ -24,6 +32,8 @@ public class AudioManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
+        UIsource = GetComponent<AudioSource>();
+        GetEventSystem();
         // Debug.Log("Audio values");
     }
 
@@ -36,7 +46,16 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        
+        if(eventSystem.currentSelectedGameObject != previousSelected){
+            Debug.Log("Navigation");
+            previousSelected = eventSystem.currentSelectedGameObject;
+            PlayUINavigation();
+        }
+    }
+
+    public void GetEventSystem(){
+        eventSystem = EventSystem.current;
+        previousSelected = eventSystem.currentSelectedGameObject;
     }
 
     public void SetMasterVolume(float value){
@@ -50,5 +69,15 @@ public class AudioManager : MonoBehaviour
     public void SetMusicVolume(float value){
         musicVolume = value;
         mixer.SetFloat(MIXER_MUSIC, Mathf.Log10(musicVolume) * 20);
+    }
+
+    public void PlayUIClick(){
+        UIsource.PlayOneShot(uiClick);
+    }
+    public void PlayUINavigation(){
+        UIsource.PlayOneShot(uiNavigation);
+    }
+    public void PlayUISlider(){
+        UIsource.PlayOneShot(uiSlider);
     }
 }

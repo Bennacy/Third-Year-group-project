@@ -800,6 +800,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Spawn
       objectReference: {fileID: 0}
+    - target: {fileID: 6705318112787731869, guid: ab2d8f78ae805e946916875be4b415b6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6705318112787731870, guid: ab2d8f78ae805e946916875be4b415b6,
         type: 3}
       propertyPath: m_RootOrder

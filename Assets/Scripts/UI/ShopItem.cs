@@ -42,6 +42,7 @@ public class ShopItem : MonoBehaviour
 
     
     public void BuyUpgrade(){
+        AudioManager.Instance.PlayUIClick();
         if(level >= maxLevel)
             return;
         if(GameManager.Instance.currency < price*10)

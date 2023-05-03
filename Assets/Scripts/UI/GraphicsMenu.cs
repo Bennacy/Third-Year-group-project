@@ -57,14 +57,17 @@ public class GraphicsMenu : MonoBehaviour
     }
 
     public void SetQuality(int qualityIndex){
+        AudioManager.Instance.PlayUIClick();
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
     public void SetFullscreen(bool isFullscreen){
+        AudioManager.Instance.PlayUIClick();
         Screen.fullScreen = isFullscreen;
     }
 
     public void SetResolution(int resolutionIndex){
+        AudioManager.Instance.PlayUIClick();
         Screen.SetResolution(Screen.resolutions[resolutionIndex].width, Screen.resolutions[resolutionIndex].height, Screen.fullScreen);
     }
 }

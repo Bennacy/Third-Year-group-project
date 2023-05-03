@@ -44,12 +44,14 @@ public class ControlsMenu : MonoBehaviour
     }
     
     public void OpenOptions(){
+        AudioManager.Instance.PlayUIClick();
         options.SetActive(true);
         keybinds.SetActive(false);
         buttonGlow.position = optionsBtn.position;
     }
 
     public void OpenKeybinds(){
+        AudioManager.Instance.PlayUIClick();
         options.SetActive(false);
         keybinds.SetActive(true);
         buttonGlow.position = keybindsBtn.position;
@@ -61,6 +63,7 @@ public class ControlsMenu : MonoBehaviour
     }
 
     public void UpdateSchemeIndex(int newIndex){
+        AudioManager.Instance.PlayUIClick();
         schemeIndex = newIndex;
 
         UpdateBindingDisplays();
@@ -114,9 +117,11 @@ public class ControlsMenu : MonoBehaviour
     }
 
     public void InvertX(bool inverted){
+        AudioManager.Instance.PlayUIClick();
         GameManager.Instance.invertX = inverted;
     }
     public void InvertY(bool inverted){
+        AudioManager.Instance.PlayUIClick();
         GameManager.Instance.invertY = inverted;
     }
 }

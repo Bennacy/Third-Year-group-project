@@ -62,15 +62,18 @@ public class DeathScreen : MonoBehaviour
     }
 
     public void Quit(){
+        AudioManager.Instance.PlayUIClick();
         Application.Quit();
     }
 
     public void Load(string sceneName){
+        AudioManager.Instance.PlayUIClick();
         Debug.Log("Loading " + sceneName);
         GameManager.Instance.LoadScene(sceneName);
     }
 
     public void SubmitName(){
+        AudioManager.Instance.PlayUIClick();
         string submitting = inputField.text;
         if(submitting.Length < 5){
             GameManager.Instance.savedScore.name = submitting;
