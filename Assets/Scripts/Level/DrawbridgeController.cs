@@ -27,11 +27,7 @@ public class DrawbridgeController : MonoBehaviour
         
         if(GameManager.Instance.lowerDrawbridge){
             // GameManager.Instance.paused = true;
-            GameManager.Instance.hideUI = true;
-            transitionScript.animator.SetTrigger("Fade");
-            GameManager.Instance.lowerDrawbridge = false;
-            animator.Play("Lower Bridge");
-            bridgeCamera.SetActive(true);
+            StartCoroutine(LowerBridge());
         }
         if(GameManager.Instance.raiseDrawbridge){
             GameManager.Instance.raiseDrawbridge = false;
@@ -39,10 +35,49 @@ public class DrawbridgeController : MonoBehaviour
         }
     }
 
+    private IEnumerator LowerBridge(){
+        Time.timeScale = 0;
+        transitionScript.animator.SetTrigger("Fade");
+        GameManager.Instance.lowerDrawbridge = false;
+        GameManager.Instance.hideUI = true;
+        
+        float wait = 0;
+        while(wait < .5f){
+            wait += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        bridgeCamera.SetActive(true);
+        
+        wait = 0;
+        while(wait < .7f){
+            wait += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        animator.Play("Lower Bridge");
+    }
+
     private void FinishedLower(){
-        GameManager.Instance.hideUI = false;
-        // transitionScript.animator.SetTrigger("Fade");
+        StartCoroutine(FinisedLowerEnumertaor());
+    }
+    private IEnumerator FinisedLowerEnumertaor(){
+        transitionScript.animator.SetTrigger("Fade");
+        
+        float wait = 0;
+        while(wait < .5f){
+            wait += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
         bridgeCamera.SetActive(false);
-        // GameManager.Instance.paused = false;
+
+        wait = 0;
+        while(wait < .7f){
+            wait += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        GameManager.Instance.hideUI = false;
+        Time.timeScale = 1;
     }
 }
