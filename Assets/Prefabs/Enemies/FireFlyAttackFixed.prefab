@@ -1663,50 +1663,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6705318112787731871, guid: ab2d8f78ae805e946916875be4b415b6,
         type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705318112787731871, guid: ab2d8f78ae805e946916875be4b415b6,
-        type: 3}
-      propertyPath: lengthInSec
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705318112787731871, guid: ab2d8f78ae805e946916875be4b415b6,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705318112787731871, guid: ab2d8f78ae805e946916875be4b415b6,
-        type: 3}
-      propertyPath: ShapeModule.type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705318112787731871, guid: ab2d8f78ae805e946916875be4b415b6,
-        type: 3}
       propertyPath: ShapeModule.m_Mesh
       value: 
-      objectReference: {fileID: 3191843991455854740, guid: c2aa90c173fdabf489635e847ada9a6b,
+      objectReference: {fileID: 3191843991455854740, guid: 52afde07b6c90474eb30d66085df047d,
         type: 3}
-    - target: {fileID: 6705318112787731871, guid: ab2d8f78ae805e946916875be4b415b6,
-        type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705318112787731871, guid: ab2d8f78ae805e946916875be4b415b6,
-        type: 3}
-      propertyPath: ShapeModule.alignToDirection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705318112787731871, guid: ab2d8f78ae805e946916875be4b415b6,
-        type: 3}
-      propertyPath: ShapeModule.m_MeshNormalOffset
-      value: 1.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705318112787731871, guid: ab2d8f78ae805e946916875be4b415b6,
-        type: 3}
-      propertyPath: TrailModule.widthOverTrail.scalar
-      value: 0.06
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ab2d8f78ae805e946916875be4b415b6, type: 3}
