@@ -2,75 +2,63 @@
     "scores": [
         {
             "name": "Test",
-            "score": 4250,
-            "kills": 85,
-            "time": 349
-        },
-        {
-            "name": "Fuck",
-            "score": 1650,
-            "kills": 33,
-            "time": 275
+            "score": 200,
+            "kills": 4,
+            "time": 37
         },
         {
             "name": "Test",
-            "score": 750,
-            "kills": 15,
-            "time": 87
+            "score": 200,
+            "kills": 4,
+            "time": 62
         },
         {
             "name": "Test",
-            "score": 700,
-            "kills": 14,
-            "time": 106
+            "score": 0,
+            "kills": 0,
+            "time": 0
         },
         {
             "name": "Test",
-            "score": 450,
-            "kills": 9,
-            "time": 75
+            "score": 0,
+            "kills": 0,
+            "time": 0
         },
         {
             "name": "Test",
-            "score": 350,
-            "kills": 7,
-            "time": 32
+            "score": 0,
+            "kills": 0,
+            "time": 0
         },
         {
             "name": "Test",
-            "score": 350,
-            "kills": 7,
-            "time": 58
+            "score": 0,
+            "kills": 0,
+            "time": 0
         },
         {
             "name": "Test",
-            "score": 350,
-            "kills": 7,
-            "time": 106
+            "score": 0,
+            "kills": 0,
+            "time": 0
         },
         {
             "name": "Test",
-            "score": 300,
-            "kills": 6,
-            "time": 40
+            "score": 0,
+            "kills": 0,
+            "time": 0
         },
         {
             "name": "Test",
-            "score": 300,
-            "kills": 6,
-            "time": 42
-        },
-        {
-            "name": "no1",
-            "score": 50,
-            "kills": 1,
-            "time": 8
+            "score": 0,
+            "kills": 0,
+            "time": 0
         },
         {
             "name": "Test",
-            "score": 50,
-            "kills": 1,
-            "time": 8
+            "score": 0,
+            "kills": 0,
+            "time": 0
         }
     ]
 }
