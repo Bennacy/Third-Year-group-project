@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc1cab3236f7ec4f8af027cde9fd915, type: 3}
   m_Name: FlyingHead
   m_EditorClassIdentifier: 
+  prefab: {fileID: 6823740923255804046, guid: 41726ff68e74ff04fb1e8d6e5e72781b, type: 3}
   health: 250
-  attackDelay: 1
-  attackRadius: 1.5
-  updateRate: 0.01
   Acceleration: 8
   AngularSpeed: 120
   AreaMask: -1
@@ -27,6 +25,5 @@ MonoBehaviour:
   Speed: 3.5
   StoppingDistance: 0.5
   scoreGiven: 50
-  damage: 20
-  prefab: {fileID: 6823740923255804046, guid: 41726ff68e74ff04fb1e8d6e5e72781b, type: 3}
+  attack: {fileID: 11400000, guid: ae31d6b3fd4ce6a4a831075b5d5b978c, type: 2}
   spawnWeight: 0.3

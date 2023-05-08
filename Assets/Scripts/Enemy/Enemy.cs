@@ -57,7 +57,6 @@ public class Enemy : MonoBehaviour, IHasHealth
 
     public virtual void Start()
     {
-        SetupEnemyFromConfig();
         player = GameManager.Instance.playerController;
         weaponHandler = GetComponentInChildren<EnemyWeapon>();
         part = GetComponentInChildren<ParticleSystem>();
@@ -103,24 +102,6 @@ public class Enemy : MonoBehaviour, IHasHealth
         //     agent.stoppingDistance = hordeController.attackDistanceThreshold - 1;
         //     canAttack = false;
         // }
-    }
-
-    public virtual void SetupEnemyFromConfig()
-    {
-        agent.acceleration = enemyScriptableObject.Acceleration;
-        agent.angularSpeed = enemyScriptableObject.AngularSpeed;
-        agent.areaMask = enemyScriptableObject.AreaMask;
-        agent.avoidancePriority = enemyScriptableObject.AvoidancePriority;
-        agent.baseOffset = enemyScriptableObject.BaseOffset;
-        agent.height = enemyScriptableObject.Height;
-        agent.obstacleAvoidanceType = enemyScriptableObject.ObstacleAvoidanceType;
-        agent.radius = enemyScriptableObject.Radius;
-        agent.speed = enemyScriptableObject.Speed;
-        agent.stoppingDistance = enemyScriptableObject.StoppingDistance;
-
-        health = maxHealth = enemyScriptableObject.health;
-
-        // Debug.Log("Enemy Health is: " + health);
     }
 
 

@@ -12,14 +12,12 @@ using UnityEngine.AI;
 [CreateAssetMenu(fileName = "Enemy Config", menuName = "ScriptableObject/Enemy Config")]
 public class EnemyScriptableObject : ScriptableObject
 {
+    public GameObject prefab;
+    
     //Enemy Stats
     public int health = 250;
-    public float attackDelay = 1f;
-    public float attackRadius = 1.5f;
 
     //Navmesh Configs
-    public float updateRate = 0.01f;
-
     public float Acceleration = 8f;
     public float AngularSpeed = 120f;
     public int AreaMask = -1;
@@ -31,9 +29,27 @@ public class EnemyScriptableObject : ScriptableObject
     public float Speed = 3.5f;
     public float StoppingDistance = 0.5f;
     public int scoreGiven;
-    public int damage;
+    public EnemyAttackScriptableObject attack;
 
-    public GameObject prefab;
     public float spawnWeight = 1f;
 
+
+    public void SetUpEnemy(Enemy enemy){
+        enemy.agent.acceleration = Acceleration;
+        enemy.agent.angularSpeed = AngularSpeed;
+        enemy.agent.areaMask = AreaMask;
+        enemy.agent.avoidancePriority = AvoidancePriority;
+        enemy.agent.baseOffset = BaseOffset;
+        enemy.agent.height = Height;
+        enemy.agent.obstacleAvoidanceType = ObstacleAvoidanceType;
+        enemy.agent.radius = Radius;
+        enemy.agent.speed = Speed;
+        enemy.agent.stoppingDistance = StoppingDistance;
+
+        enemy.health = enemy.maxHealth = health;
+    }
+
+    public void Attack(Enemy enemy){
+        Debug.Log(enemy.transform.position);
+    }
 }

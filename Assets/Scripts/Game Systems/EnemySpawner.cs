@@ -88,6 +88,8 @@ public class EnemySpawner : MonoBehaviour
                 GameObject prefab = SelectEnemyType();
                 Transform randomSpawnPoint = closestSpawnPoints[Random.Range(0, closestSpawnPoints.Length)];
                 Enemy tempEnemy = Instantiate(prefab, randomSpawnPoint.position, randomSpawnPoint.rotation).GetComponent<Enemy>();
+                tempEnemy.enemyScriptableObject.SetUpEnemy(tempEnemy);
+                
                 tempEnemy.transform.parent = transform;
                 tempEnemy.spawner = this;
                 tempEnemy.hordeController = hordeController;

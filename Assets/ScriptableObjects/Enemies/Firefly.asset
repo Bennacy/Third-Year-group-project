@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc1cab3236f7ec4f8af027cde9fd915, type: 3}
   m_Name: Firefly
   m_EditorClassIdentifier: 
+  prefab: {fileID: 8550192648152961314, guid: 3c2e1855cf2bf874899ec3d329ae739e, type: 3}
   health: 250
-  attackDelay: 1
-  attackRadius: 1.5
-  updateRate: 0.01
   Acceleration: 8
   AngularSpeed: 120
   AreaMask: -1
@@ -27,6 +25,5 @@ MonoBehaviour:
   Speed: 3.5
   StoppingDistance: 0.5
   scoreGiven: 50
-  damage: 7
-  prefab: {fileID: 8550192648152961314, guid: 3c2e1855cf2bf874899ec3d329ae739e, type: 3}
+  attack: {fileID: 11400000, guid: 6f249838739f9824fa16861cdde4713c, type: 2}
   spawnWeight: 0.3

@@ -9,7 +9,9 @@ public class EnemyWeapon : MonoBehaviour
     
     void Start()
     {
-        parent = GetComponentInParent<Enemy>();
+        if(parent != null)
+            parent = GetComponentInParent<Enemy>();
+            
         weaponCollider = GetComponent<Collider>();
     }
 
@@ -21,7 +23,7 @@ public class EnemyWeapon : MonoBehaviour
     {
         IHasHealth health = other.GetComponent<IHasHealth>();
         if(health != null){
-            health.Damage(parent.enemyScriptableObject.damage);
+            health.Damage(parent.enemyScriptableObject.attack.damage);
         }
     }
 }
