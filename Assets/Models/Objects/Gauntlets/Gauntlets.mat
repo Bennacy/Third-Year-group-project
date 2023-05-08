@@ -45,6 +45,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 7a2ff8879898d8f4cb3caa716ad9af5f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EmissionTex:
+        m_Texture: {fileID: 2800000, guid: 907c8dc7c6a4f394ab36d3da5b9b7297, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Metallic:
         m_Texture: {fileID: 2800000, guid: c857b160e21f7b145be954b74ccae446, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -73,5 +77,6 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    m_Colors:
+    - _EmissionColour: {r: 12.996038, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

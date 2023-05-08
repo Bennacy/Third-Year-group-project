@@ -45,6 +45,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 4118aeb7ed15e684cb4f80f9eda1af93, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HammerEmission:
+        m_Texture: {fileID: 2800000, guid: 2f1296400518eb644a4ccbe212fff3c6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _HammerMetallic:
         m_Texture: {fileID: 2800000, guid: a380b0ec7f2badd40a192729e346dbe5, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -71,7 +75,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _EmissionIntensity: 1.06
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    m_Colors:
+    - _Emission: {r: 9.734288, g: 7.491834, b: 0, a: 0}
   m_BuildTextureStacks: []
