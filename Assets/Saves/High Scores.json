@@ -7,6 +7,12 @@
             "time": 349
         },
         {
+            "name": "Fuck",
+            "score": 1650,
+            "kills": 33,
+            "time": 275
+        },
+        {
             "name": "Test",
             "score": 750,
             "kills": 15,
@@ -46,19 +52,13 @@
             "name": "Test",
             "score": 300,
             "kills": 6,
+            "time": 40
+        },
+        {
+            "name": "Test",
+            "score": 300,
+            "kills": 6,
             "time": 42
-        },
-        {
-            "name": "Test",
-            "score": 300,
-            "kills": 6,
-            "time": 44
-        },
-        {
-            "name": "Test",
-            "score": 300,
-            "kills": 6,
-            "time": 55
         },
         {
             "name": "no1",
