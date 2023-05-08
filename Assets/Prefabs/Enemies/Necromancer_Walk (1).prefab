@@ -817,6 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c9225820407134cb04d10d90f821b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
 --- !u!1 &6482313669735451536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1146,7 @@ MonoBehaviour:
   circleDistance: 12.5
   circleSpeed: 2
   chaseDistance: 10
-  attackRange: 2
+  attackRange: 7
   lookAtPlayer: 0
   attacking: 0
   healthPickUp: {fileID: 2925619617226897718, guid: d54c28303564aa0499651039b618da22,
