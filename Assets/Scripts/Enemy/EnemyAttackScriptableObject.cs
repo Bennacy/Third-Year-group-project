@@ -16,8 +16,10 @@ public class EnemyAttackScriptableObject : ScriptableObject
     public int damage;
     public float attackRadius;
     public float attackDelay;
+    public float projectileVelocity;
+    public float projectileLifetime;
 
-    public Projectile projectilePrefab;
+    public EnemyWeapon projectilePrefab;
     public Vector3 projectileSpawnOffset = new Vector3(0, 1, 0);
     public LayerMask lineOfSightLayers;
 
@@ -26,6 +28,6 @@ public class EnemyAttackScriptableObject : ScriptableObject
     }
 
     public void Attack(Enemy enemy){
-        Debug.Log(enemy.gameObject.name);
+        enemy.animator.SetTrigger("Attack");
     }
 }

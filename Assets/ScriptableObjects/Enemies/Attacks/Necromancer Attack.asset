@@ -16,8 +16,11 @@ MonoBehaviour:
   damage: 25
   attackRadius: 0
   attackDelay: 0
-  projectilePrefab: {fileID: 0}
-  projectileSpawnOffset: {x: 0, y: 1, z: 0}
+  projectileVelocity: 10
+  projectileLifetime: 5
+  projectilePrefab: {fileID: 2015137438226995390, guid: 771c84ab077cd8e448140f573549b83b,
+    type: 3}
+  projectileSpawnOffset: {x: 1, y: 1, z: 0}
   lineOfSightLayers:
     serializedVersion: 2
     m_Bits: 0

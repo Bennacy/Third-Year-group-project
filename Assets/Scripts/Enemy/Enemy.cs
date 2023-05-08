@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     private EnemyWeapon weaponHandler;
     public EnemySpawner spawner;
     public HordeController hordeController;
+    private EnemyWeapon projectile;
     [Space(10)]
 
 
@@ -168,6 +169,20 @@ public class Enemy : MonoBehaviour, IHasHealth
         }
 
         Destroy(gameObject);
+    }
+
+    public void SpawnProjectile(){
+        EnemyAttackScriptableObject attack = enemyScriptableObject.attack;
+        projectile = Instantiate(attack.projectilePrefab.gameObject, transform.position + (transform.up) + (transform.forward*attack.projectileSpawnOffset.x), Quaternion.identity).GetComponent<EnemyWeapon>();
+        projectile.parent = this;
+        
+        projectile.GetComponent<EnemyProjectile>().SetupProjectile(attack);
+        StartCoroutine(projectile.Lifetime(attack.projectileLifetime));
+    }
+
+    public void ThrowProjectile(){
+        EnemyAttackScriptableObject attack = enemyScriptableObject.attack;
+        projectile.GetComponent<Rigidbody>().velocity = transform.forward * attack.projectileVelocity;
     }
 
      
