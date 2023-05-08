@@ -166,7 +166,10 @@ public class EnemyDying : EnemyState{
         GameManager.Instance.score += enemy.enemyScriptableObject.scoreGiven;
         GameManager.Instance.kills++;
         GameManager.Instance.currency += enemy.enemyScriptableObject.scoreGiven;
+
+        // Debug.Log("Dying");
         
+        enemy.animator.SetBool("Dead", true);
         enemy.animator.Play("Death");
         agent.updatePosition = false;
         agent.updateRotation = false;
