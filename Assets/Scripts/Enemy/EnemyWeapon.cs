@@ -26,7 +26,7 @@ public class EnemyWeapon : MonoBehaviour
 
     public IEnumerator Lifetime(float time){
         yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        StartCoroutine(DestroyProjectile());
     }
     
     void OnTriggerEnter(Collider other)
@@ -36,8 +36,21 @@ public class EnemyWeapon : MonoBehaviour
             health.Damage(parent.enemyScriptableObject.attack.damage);
         }
 
-        if(GetComponentInParent<Enemy>() == null){
-            Destroy(gameObject);
+        if(GetComponent<EnemyProjectile>() != null){
+            StartCoroutine(DestroyProjectile());
         }
+    }
+
+    public IEnumerator DestroyProjectile(){
+        Debug.Log("Starting Explosion");
+        EnemyProjectile projectile = GetComponent<EnemyProjectile>();
+        Destroy(GetComponent<Rigidbody>());
+        projectile.mainParticle.gameObject.SetActive(false);
+        projectile.explosionParticle.Play();
+        ToggleWeaponCollider(false);
+
+        yield return new WaitForSeconds(2);
+        Debug.Log("Ending Explosion");
+        Destroy(gameObject);
     }
 }

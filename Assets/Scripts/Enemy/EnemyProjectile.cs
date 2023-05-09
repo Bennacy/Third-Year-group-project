@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    public ParticleSystem particle;
+    public ParticleSystem mainParticle;
+    public ParticleSystem trailParticle;
+    public ParticleSystem explosionParticle;
     
     void Start()
     {
@@ -18,10 +20,11 @@ public class EnemyProjectile : MonoBehaviour
     }
 
     public void SetupProjectile(EnemyAttackScriptableObject attack){
-        var mainSettings = particle.main;
+        var mainSettings = mainParticle.main;
         mainSettings.startLifetime = attack.projectileLifetime;
         mainSettings.startSize = transform.lossyScale.x;
 
-        particle.Play();
+        mainParticle.Play(false);
+        trailParticle.Play(false);
     }
 }

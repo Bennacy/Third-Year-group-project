@@ -20,6 +20,18 @@
         },
         {
             "name": "Test",
+            "score": 200,
+            "kills": 4,
+            "time": 62
+        },
+        {
+            "name": "Test",
+            "score": 150,
+            "kills": 3,
+            "time": 42
+        },
+        {
+            "name": "Test",
             "score": 150,
             "kills": 3,
             "time": 73
@@ -47,18 +59,6 @@
             "score": 50,
             "kills": 1,
             "time": 28
-        },
-        {
-            "name": "Test",
-            "score": 0,
-            "kills": 0,
-            "time": 0
-        },
-        {
-            "name": "Test",
-            "score": 0,
-            "kills": 0,
-            "time": 0
         }
     ]
 }

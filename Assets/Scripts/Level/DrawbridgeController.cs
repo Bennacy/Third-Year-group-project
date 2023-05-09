@@ -36,7 +36,7 @@ public class DrawbridgeController : MonoBehaviour
     }
 
     private IEnumerator LowerBridge(){
-        Time.timeScale = 0;
+        // Time.timeScale = 0;
         transitionScript.animator.SetTrigger("Fade");
         GameManager.Instance.lowerDrawbridge = false;
         GameManager.Instance.hideUI = true;
