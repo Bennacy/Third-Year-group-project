@@ -175,9 +175,8 @@ public class Enemy : MonoBehaviour, IHasHealth
         EnemyAttackScriptableObject attack = enemyScriptableObject.attack;
         projectile = Instantiate(attack.projectilePrefab.gameObject, transform.position + (transform.up) + (transform.forward*attack.projectileSpawnOffset.x), Quaternion.identity).GetComponent<EnemyWeapon>();
         projectile.parent = this;
-        
-        projectile.GetComponent<EnemyProjectile>().SetupProjectile(attack);
-        StartCoroutine(projectile.Lifetime(attack.projectileLifetime));
+
+        projectile.InitializeProjectile(attack);
     }
 
     public void ThrowProjectile(){
