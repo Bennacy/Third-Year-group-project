@@ -134,13 +134,12 @@ public class Enemy : MonoBehaviour, IHasHealth
         // StartCoroutine(HitStop());
         // StartCoroutine(player.HitStop());
         // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
-        if (health <= 0 && animator != null)
+        if (health <= 0)
         {
             currentState.Transition(dyingState);
-        }
-        if (animator.enabled == false && health <= 0)
-        {
-            Die();
+            if(projectile != null){
+                StartCoroutine(projectile.DestroyProjectile());
+            }
         }
     }
 

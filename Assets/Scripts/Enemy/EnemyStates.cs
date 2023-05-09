@@ -51,6 +51,7 @@ public class EnemyAttacking : EnemyState{
         
         if(Vector3.Distance(enemy.player.transform.position, enemy.transform.position) <= enemy.attackRange){
             enemy.enemyScriptableObject.attack.Attack(enemy);
+            agent.SetDestination(enemy.transform.position);
         }else{
             agent.SetDestination(enemy.player.transform.position);
         }
