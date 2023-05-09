@@ -19,6 +19,11 @@ public class EnemyWeapon : MonoBehaviour
         weaponCollider.enabled = active;
     }
 
+    public void InitializeProjectile(EnemyAttackScriptableObject attack){
+        GetComponent<EnemyProjectile>().SetupProjectile(attack);
+        StartCoroutine(Lifetime(attack.projectileLifetime));
+    }
+
     public IEnumerator Lifetime(float time){
         yield return new WaitForSeconds(time);
         Destroy(gameObject);
