@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour, IHasHealth
 
 
     public bool lookAtPlayer;
+    public bool facingPlayer;
     public bool attacking;
 
     public int maxHealth { get; set; }
@@ -70,7 +71,6 @@ public class Enemy : MonoBehaviour, IHasHealth
     private void Update()
     {
         Vector3 playerPosition = player.transform.position;
-        currentState.Tick();
 
         if(lookAtPlayer){
             Quaternion lookRotation = Quaternion.LookRotation(playerPosition - transform.position);
@@ -78,6 +78,15 @@ public class Enemy : MonoBehaviour, IHasHealth
             lookRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lookRotation.eulerAngles.y, transform.rotation.eulerAngles.z);
             transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 10);
         }
+        
+        playerPosition.y = transform.position.y;
+        Vector3 targetDir = playerPosition - transform.position;
+
+        Debug.DrawLine(transform.position, playerPosition);
+        float angle = Vector3.Angle(targetDir, transform.forward);
+        facingPlayer = (angle < 10.0f);
+        
+        currentState.Tick();
 
         // if(Vector3.Distance(transform.position, playerPosition) > hordeController.teleportDistanceThreshold){
         //     Transform[] moveTo = spawner.FindClosestSpawnPoints(3);
@@ -180,6 +189,7 @@ public class Enemy : MonoBehaviour, IHasHealth
 
     public void ThrowProjectile(){
         EnemyAttackScriptableObject attack = enemyScriptableObject.attack;
+        projectile.ToggleWeaponCollider(true);
         projectile.GetComponent<Rigidbody>().velocity = transform.forward * attack.projectileVelocity;
     }
 
