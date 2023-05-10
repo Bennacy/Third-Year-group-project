@@ -127,6 +127,7 @@ public class GameManager : MonoBehaviour
             currency = 0;
             score = 0;
             totalUpgrades = 0;
+            kills = 0;
             transitionScript = playerController.transitionScript;
             
             foreach(WeaponScript weapon in weapons)
@@ -182,23 +183,21 @@ public class GameManager : MonoBehaviour
     //! =============== Save Functions ===============
     public void SaveScores(){
         PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time), kills);
-        leaderboardPlacement = highScores.InsertScore(personalScore);
-        // Debug.Log(leaderboardPlacement);
-        string saving = JsonUtility.ToJson(highScores, true);
-        SaveSystem.Save(saving, "High Scores");
+        SaveScores(personalScore);
     }
     public void SaveScores(PersonalScore personalScore){
         leaderboardPlacement = highScores.InsertScore(personalScore);
-        // Debug.Log(leaderboardPlacement);
         string saving = JsonUtility.ToJson(highScores, true);
         SaveSystem.Save(saving, "High Scores");
     }
+    
     public void LoadScores(){
         highScores = new HighScores();
         string scoreString = SaveSystem.Load("High Scores");
         if(scoreString != null)
             highScores = JsonUtility.FromJson<HighScores>(scoreString);
     }
+
     public void ClearSave(){
         highScores = new HighScores();
         string saving = JsonUtility.ToJson(highScores, true);
