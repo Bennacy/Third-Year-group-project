@@ -106,6 +106,12 @@ public class PlayerController : MonoBehaviour, IHasHealth
         health = maxHealth = playerHealth;
     }
 
+    void OnDisable()
+    {
+        controlCamAction.performed -= context => CameraInput(context);
+        controlCamAction.canceled -= context => CameraInput(context);
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();

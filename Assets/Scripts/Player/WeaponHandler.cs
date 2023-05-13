@@ -38,29 +38,32 @@ public class WeaponHandler : MonoBehaviour
         switch3Action.performed += context => SwitchWeapon(weaponPrefabs[2]);
     }
 
+    void OnDisable()
+    {
+        switch1Action.performed -= context => SwitchWeapon(weaponPrefabs[0]);
+        switch1Action.canceled -= context => SwitchWeapon(weaponPrefabs[0]);
+
+        switch2Action.performed -= context => SwitchWeapon(weaponPrefabs[1]);
+        switch2Action.canceled -= context => SwitchWeapon(weaponPrefabs[1]);
+        
+        switch3Action.performed -= context => SwitchWeapon(weaponPrefabs[2]);
+        switch3Action.canceled -= context => SwitchWeapon(weaponPrefabs[2]);
+    }
+
 
     void Update()
     {
         if(weaponPrefabs.Length <= 1)
             return;
-
-        // if(Input.GetKeyDown(KeyCode.Alpha1) && currentWeapon != weaponPrefabs[0]){
-        //     SwitchWeapon(weaponPrefabs[0]);
-        // }
-        // if(Input.GetKeyDown(KeyCode.Alpha2) && currentWeapon != weaponPrefabs[1]){
-        //     SwitchWeapon(weaponPrefabs[1]);
-        // }
-        // if(Input.GetKeyDown(KeyCode.Alpha3) && currentWeapon != weaponPrefabs[2]){
-        //     SwitchWeapon(weaponPrefabs[2]);
-        // }
     }
 
     public void SwitchWeapon(WeaponScript weapon){
-
+        if(animatorHandler == null)
+            return;
+        
         if(playerController.attacking || playerController.blocking)
             return;
 
-        // Debug.Log("Switching");
         if(weaponColliderScript != null){
             Destroy(weaponColliderScript.gameObject);
         }
@@ -83,8 +86,8 @@ public class WeaponHandler : MonoBehaviour
 
         if(animatorHandler)
             animatorHandler.SwitchLayer(currentWeapon.weaponType);
+            // animatorHandler.EndAttack();
             
-        animatorHandler.EndAttack();
     }
 
     public void ToggleWeaponCollider(bool active){
