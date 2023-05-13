@@ -35,6 +35,9 @@ public class VictoryScreen : MonoBehaviour
         int minutes = (totalTime - seconds) / 60;
         timeText.text = "And lasted " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
 
+        if(totalTime < 60){
+            timeText.text = "And lasted " + seconds.ToString().PadLeft(2, '0') + " seconds";
+        }
         // int kills = GameManager.Instance.enemiesKilled;
         // switch(kills){
         //      case 0: 
