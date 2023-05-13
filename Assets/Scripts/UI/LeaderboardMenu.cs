@@ -29,6 +29,9 @@ public class LeaderboardMenu : MonoBehaviour
 
     public void OpenLeaderboard(){    
         CloseInfo();
+        foreach(Transform child in entryContainer){
+            Destroy(child.gameObject);
+        }
 
         scoreJSON = JsonUtility.ToJson(GameManager.Instance.highScores);
         Debug.Log(scoreJSON);

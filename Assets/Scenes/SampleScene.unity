@@ -9343,10 +9343,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1148364716, guid: d0a55af42f2d24747b036e2d67567743, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6500392595846161430, guid: d0a55af42f2d24747b036e2d67567743,
         type: 3}
       propertyPath: transitionScript

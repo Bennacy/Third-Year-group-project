@@ -863,7 +863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.1651306, y: 2.1905003}
+  m_AnchoredPosition: {x: -3.1651306, y: 2.1904907}
   m_SizeDelta: {x: -543.66974, y: -95.619}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1148664634
@@ -2774,7 +2774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 875, y: -419.83313}
+  m_AnchoredPosition: {x: 875.0001, y: -419.83313}
   m_SizeDelta: {x: 1000, y: 155.93326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1490270748178136731
@@ -3595,7 +3595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8324245686821976094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4110,7 +4110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 875, y: -107.96663}
+  m_AnchoredPosition: {x: 875.0001, y: -107.96663}
   m_SizeDelta: {x: 1000, y: 155.93326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &15168474088576382
@@ -6444,7 +6444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 875, y: -263.8999}
+  m_AnchoredPosition: {x: 875.0001, y: -263.8999}
   m_SizeDelta: {x: 1000, y: 155.93326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4465947809538349311
@@ -7672,7 +7672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -450, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7839767983819898408
@@ -23942,6 +23942,22 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 2409441795847760290}
     m_Modifications:
+    - target: {fileID: 690190895482579582, guid: a2f892c684aaab045acb23b23ad7490d,
+        type: 3}
+      propertyPath: m_Text
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389280312648800251, guid: a2f892c684aaab045acb23b23ad7490d,
+        type: 3}
+      propertyPath: m_Action
+      value: 
+      objectReference: {fileID: -1001447676799071500, guid: f2ee85435c04bc5498728a55218e89fb,
+        type: 3}
+    - target: {fileID: 6389280312648800251, guid: a2f892c684aaab045acb23b23ad7490d,
+        type: 3}
+      propertyPath: m_BindingId
+      value: 267f90c3-4dcc-4822-84b4-78d12d49d16a
+      objectReference: {fileID: 0}
     - target: {fileID: 6389280312648800251, guid: a2f892c684aaab045acb23b23ad7490d,
         type: 3}
       propertyPath: m_RebindText
@@ -24061,6 +24077,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680292650847612335, guid: a2f892c684aaab045acb23b23ad7490d,
+        type: 3}
+      propertyPath: m_Text
+      value: Weapon Slot 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

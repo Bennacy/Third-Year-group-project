@@ -2,63 +2,63 @@
     "scores": [
         {
             "name": "Test",
-            "score": 1450,
-            "kills": 29,
-            "time": 255
+            "score": 0,
+            "kills": 0,
+            "time": 0
         },
         {
             "name": "Test",
-            "score": 250,
-            "kills": 5,
-            "time": 52
+            "score": 0,
+            "kills": 0,
+            "time": 0
         },
         {
             "name": "Test",
-            "score": 250,
-            "kills": 5,
-            "time": 72
+            "score": 0,
+            "kills": 0,
+            "time": 0
         },
         {
-            "name": "Test",
-            "score": 200,
-            "kills": 4,
-            "time": 37
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
         },
         {
-            "name": "Test",
-            "score": 200,
-            "kills": 4,
-            "time": 62
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
         },
         {
-            "name": "Test",
-            "score": 200,
-            "kills": 4,
-            "time": 62
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
         },
         {
-            "name": "Test",
-            "score": 200,
-            "kills": 4,
-            "time": 83
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
         },
         {
-            "name": "Test",
-            "score": 150,
-            "kills": 3,
-            "time": 42
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
         },
         {
-            "name": "Test",
-            "score": 150,
-            "kills": 3,
-            "time": 73
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
         },
         {
-            "name": "Test",
-            "score": 100,
-            "kills": 2,
-            "time": 26
+            "name": "NULL",
+            "score": -1,
+            "kills": -1,
+            "time": -1
         }
     ]
 }

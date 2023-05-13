@@ -182,8 +182,8 @@ public class GameManager : MonoBehaviour
 
     //! =============== Save Functions ===============
     public void SaveScores(){
-        PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time), kills);
-        SaveScores(personalScore);
+        // PersonalScore personalScore = new PersonalScore(score, Mathf.RoundToInt(time), kills);
+        // SaveScores(personalScore);
     }
     public void SaveScores(PersonalScore personalScore){
         leaderboardPlacement = highScores.InsertScore(personalScore);
@@ -201,6 +201,7 @@ public class GameManager : MonoBehaviour
     public void ClearSave(){
         highScores = new HighScores();
         string saving = JsonUtility.ToJson(highScores, true);
+        Debug.Log(saving);
         SaveSystem.Save(saving, "High Scores");
     }
 

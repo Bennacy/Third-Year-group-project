@@ -50,16 +50,12 @@ public class WeaponHandler : MonoBehaviour
         switch3Action.canceled -= context => SwitchWeapon(weaponPrefabs[2]);
     }
 
-
-    void Update()
-    {
-        if(weaponPrefabs.Length <= 1)
-            return;
-    }
-
     public void SwitchWeapon(WeaponScript weapon){
+        Debug.Log(weapon);
+        
         if(animatorHandler == null)
             return;
+        
         
         if(playerController.attacking || playerController.blocking)
             return;
