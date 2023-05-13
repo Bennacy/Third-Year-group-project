@@ -1196,11 +1196,13 @@ MonoBehaviour:
   shield: {fileID: 0}
   audioSource: {fileID: 0}
   cameraVerticalBounds: {x: -80, y: 70}
+  onSlope: 0
+  grounded: 0
   walking: 0
   sprinting: 0
   gravityForce: 10
-  walkSpeed: 14
-  runSpeed: 24
+  walkSpeed: 7
+  runSpeed: 12
   blockSpeed: 8
   moveSpeed: 0
   attacking: 0

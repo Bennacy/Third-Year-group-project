@@ -6,7 +6,6 @@ using EZCameraShake;
 
 public class PlayerController : MonoBehaviour, IHasHealth
 {
-    public bool onSlope;
 
     [Header("References")]
     public CameraController cameraController;
@@ -28,6 +27,8 @@ public class PlayerController : MonoBehaviour, IHasHealth
     [Space(10)]
 
     [Header("Movement")]
+    public bool onSlope;
+    public bool grounded;
     public bool walking;
     public bool sprinting;
     public int gravityForce;
@@ -156,23 +157,49 @@ public class PlayerController : MonoBehaviour, IHasHealth
         if(blocking){
             speedValue = blockSpeed;
         }
+
+
+        RaycastHit groundCollision;
+        if(Physics.Raycast(transform.position, Vector3.down, out groundCollision, 1.5f)){ // Touching the ground
+            grounded = true;
+
+            if(Vector3.Angle(groundCollision.normal, Vector3.up) > 5){
+                onSlope = true;
+            }else{
+                onSlope = false;
+            }
+        }else{
+            grounded = false;
+        }
         
         if(!attacking){
-            Vector3 vel = moveDirection.y * transform.forward + moveDirection.x * transform.right;
-
-            onSlope = false;
-            RaycastHit test;
-            if(Physics.Raycast(transform.position, Vector3.down, out test, 1.5f)){
-                if(test.normal != Vector3.up){
-                    onSlope = true;
-                    Vector3 newDir = Vector3.ProjectOnPlane(vel, test.normal);
-                    rb.AddForce(newDir * speedValue * 20, ForceMode.Force);
-                }
+            Vector3 direction = moveDirection.y * transform.forward + moveDirection.x * transform.right;
+            if(onSlope){
+                direction = Vector3.ProjectOnPlane(direction, groundCollision.normal);
             }
-            rb.AddForce(vel.normalized * speedValue * 10, ForceMode.Force);
+
+            rb.AddForce(direction * speedValue * 10, ForceMode.Force);
+
+
+            // if(Physics.Raycast(transform.position, Vector3.down, out test, 1.5f)){ // Touching the ground
+
+            //     Vector3 newDir = Vector3.ProjectOnPlane(vel, test.normal).normalized;
+
+            //     if(Vector3.Angle(test.normal, Vector3.up) > 5){
+            //         onSlope = true;
+            //         rb.AddForce(newDir * speedValue * 15, ForceMode.Force);
+            //     }else{
+            //         onSlope = false;
+            //         rb.AddForce(newDir * speedValue * 10, ForceMode.Force);
+            //     }
+            // }else{
+            //     Debug.Log("Falling");
+            //     rb.AddForce(transform.forward * 15, ForceMode.Force);
+            // }
         }
 
-        rb.AddForce(Physics.gravity * gravityForce, ForceMode.Force);
+        if(!grounded)
+            rb.AddForce(Physics.gravity * gravityForce, ForceMode.Force);
     }
 
     void LateUpdate()
