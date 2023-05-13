@@ -25,12 +25,6 @@ public class DeathScreen : MonoBehaviour
         SetTimeText();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void SetTimeText(){
         int score = GameManager.Instance.score;
         killsText.text = "You scored " + score + " points";
@@ -40,25 +34,9 @@ public class DeathScreen : MonoBehaviour
         int minutes = (totalTime - seconds) / 60;
         timeText.text = "And lasted " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
 
-        // int totalTime = Mathf.RoundToInt(GameManager.Instance.time);
-        // int seconds = totalTime % 60;
-        // int minutes = (totalTime - seconds) / 60;
-        // timeText.text = "You survived for " + minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0') + " minutes";
-
-        // int kills = GameManager.Instance.enemiesKilled;
-        // switch(kills){
-        //     case 0: 
-        //         killsText.text = "You didn't kill any enemies";
-        //         break;
-
-        //     case 1:
-        //         killsText.text = "You killed " + kills + " enemy";
-        //         break;
-
-        //     default:
-        //         killsText.text = "You killed " + kills + " enemies";
-        //         break;
-        // }
+        if(totalTime < 60){
+            timeText.text = "And lasted " + seconds.ToString().PadLeft(2, '0') + " seconds";
+        }
     }
 
     public void Quit(){
@@ -78,9 +56,10 @@ public class DeathScreen : MonoBehaviour
         if(submitting.Length < 5){
             GameManager.Instance.savedScore.name = submitting;
             GameManager.Instance.SaveScores(GameManager.Instance.savedScore);
-        }
 
-        nameInput.SetActive(false);
-        GetComponent<ISelectable>().SetSelected();
+            nameInput.SetActive(false);
+            GetComponentInChildren<LeaderboardMenu>().OpenLeaderboard();
+        }
+        inputField.text = "";
     }
 }

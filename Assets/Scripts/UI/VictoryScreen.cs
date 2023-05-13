@@ -38,20 +38,6 @@ public class VictoryScreen : MonoBehaviour
         if(totalTime < 60){
             timeText.text = "And lasted " + seconds.ToString().PadLeft(2, '0') + " seconds";
         }
-        // int kills = GameManager.Instance.enemiesKilled;
-        // switch(kills){
-        //      case 0: 
-        //         killsText.text = "and didn't kill any enemies";
-        //         break;
-
-        //     case 1:
-        //         killsText.text = "and killed " + kills + " enemy";
-        //         break;
-
-        //     default:
-        //         killsText.text = "and killed " + kills + " enemies";
-        //         break;
-        // }
 
         int placement = GameManager.Instance.leaderboardPlacement + 1;
 
@@ -81,15 +67,6 @@ public class VictoryScreen : MonoBehaviour
                 highScoreText.text = "You've reached " + placement + "th place!";
             break;
         }
-
-        // if(GameManager.Instance.newHighScore){
-        //     highScoreText.text = "New high score!";
-        // }else{
-        //     int hs_totalTime = Mathf.RoundToInt(GameManager.Instance.highScore);
-        //     int hs_seconds = hs_totalTime % 60;
-        //     int hs_minutes = (hs_totalTime - hs_seconds) / 60;
-        //     highScoreText.text = "High score: " + hs_minutes.ToString().PadLeft(2, '0') + ":" + hs_seconds.ToString().PadLeft(2, '0');
-        // }
     }
 
     public void Quit(){
@@ -108,9 +85,10 @@ public class VictoryScreen : MonoBehaviour
         if(submitting.Length < 5){
             GameManager.Instance.savedScore.name = submitting;
             GameManager.Instance.SaveScores(GameManager.Instance.savedScore);
-        }
 
-        nameInput.SetActive(false);
-        GetComponent<ISelectable>().SetSelected();
+            nameInput.SetActive(false);
+            GetComponentInChildren<LeaderboardMenu>().OpenLeaderboard();
+        }
+        inputField.text = "";
     }
 }
