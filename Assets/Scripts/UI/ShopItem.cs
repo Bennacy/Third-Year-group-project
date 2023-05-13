@@ -21,10 +21,11 @@ public class ShopItem : MonoBehaviour
     private int level;
     public int maxLevel;
 
+
     void Start()
-    {
-        LevelText.text = "Level 0";
-        priceText.text = "Price: " + price*10;
+    {        
+        LevelText.text = "Current: " + DisplayValue().ToString();
+        priceText.text = "Upgrade: " + price*10;
     }
 
     void Update()
@@ -50,12 +51,9 @@ public class ShopItem : MonoBehaviour
         
         GameManager.Instance.totalUpgrades++;
         GameManager.Instance.currency -= price*10;
-        price = Mathf.RoundToInt(price * 1.5f);
+        price = Mathf.RoundToInt(price * 1.2f);
 
         level++;
-
-        LevelText.text = "Level " + level;
-        priceText.text = "Price: " + price*10;
 
         if(GameManager.Instance.currency < price*10){
             priceText.color = Color.red;
@@ -84,5 +82,20 @@ public class ShopItem : MonoBehaviour
                 break;
             }
 
+        LevelText.text = "Current: " + DisplayValue().ToString();
+        priceText.text = "Upgrade: " + price*10;
+    }
+
+    int DisplayValue(){
+        switch(upgrade){
+            case CharacterUpgrades.Health:
+                return GameManager.Instance.playerController.maxHealth;
+                
+            case CharacterUpgrades.Stamina:
+                return Mathf.RoundToInt(GameManager.Instance.playerController.maxStamina);
+
+            default:
+                return Mathf.RoundToInt(weapon.damage);
+        }
     }
 }
