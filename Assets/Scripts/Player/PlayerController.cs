@@ -132,28 +132,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }else{
             animatorHandler.EndBlock();
         }
-
-        
-        // float speedValue = moveSpeed;
-        // if(blocking){
-        //     speedValue = blockSpeed;
-        // }
-
-        // Vector3 flatVelocity = rb.velocity;
-        // flatVelocity.y = 0;
-
-        // if(flatVelocity.magnitude > speedValue){
-        //     Vector3 limitedVelocity = flatVelocity.normalized * speedValue;
-        //     limitedVelocity.y = rb.velocity.y;
-        //     rb.velocity = limitedVelocity;
-        // }
-        
-        Debug.DrawRay(transform.position, Vector3.down, Color.red, 1.5f);
-        // if(Physics.Raycast(transform.position, Vector3.down, out test, 1.5f)){
-        //     Debug.Log(Vector3.Angle(test.normal, Vector3.up));
-        //     if(test.normal != Vector3.up)
-        //         onSlope = true;
-        // }
     }
 
     void FixedUpdate()
@@ -185,23 +163,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
             }
 
             rb.AddForce(direction * speedValue * 10, ForceMode.Force);
-
-
-            // if(Physics.Raycast(transform.position, Vector3.down, out test, 1.5f)){ // Touching the ground
-
-            //     Vector3 newDir = Vector3.ProjectOnPlane(vel, test.normal).normalized;
-
-            //     if(Vector3.Angle(test.normal, Vector3.up) > 5){
-            //         onSlope = true;
-            //         rb.AddForce(newDir * speedValue * 15, ForceMode.Force);
-            //     }else{
-            //         onSlope = false;
-            //         rb.AddForce(newDir * speedValue * 10, ForceMode.Force);
-            //     }
-            // }else{
-            //     Debug.Log("Falling");
-            //     rb.AddForce(transform.forward * 15, ForceMode.Force);
-            // }
         }
 
         if(!grounded)
@@ -272,7 +233,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
 
         if(!attacking || animatorHandler.nextInCombo){ // If the player is not attacking at all, or if the combo window is open
             animatorHandler.StartAttack();
-            // cameraShake.ShakeRotation(1f, 1f, 1f, .25f);
             return;
         }
     }

@@ -882,7 +882,6 @@ GameObject:
   - component: {fileID: 322341141}
   - component: {fileID: 2060530687731452344}
   - component: {fileID: 162728394}
-  - component: {fileID: 323978637944366035}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1031,31 +1030,6 @@ MonoBehaviour:
   zRot: 0
   resetPos: 0
   resetRot: 0
---- !u!114 &323978637944366035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2200808811217325788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bef8393cb7adff49995cbcd17607ac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 2200808812571352185}
-  posDuration: 0
-  rotDuration: 0
-  origPos: {x: 0, y: 0, z: 0}
-  origRot: {x: 0, y: 0, z: 0, w: 0}
-  xPos: 0
-  yPos: 0
-  zPos: 0
-  xRot: 0
-  yRot: 0
-  zRot: 0
-  resetPos: 0
-  resetRot: 0
 --- !u!1 &2200808811451503921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1070,7 @@ Transform:
   - {fileID: 2200808811943216393}
   - {fileID: 2200808812350067455}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2200808811451503925
 MeshFilter:
