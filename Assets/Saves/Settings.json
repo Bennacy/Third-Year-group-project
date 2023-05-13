@@ -1,8 +1,8 @@
 {
-    "masterVolume": 0.40469133853912356,
-    "sfxVolume": 0.00009999999747378752,
-    "musicVolume": 1.0,
-    "uiVolume": 0.00009999999747378752,
+    "masterVolume": 1.0,
+    "sfxVolume": 0.3630000054836273,
+    "musicVolume": 0.6049379110336304,
+    "uiVolume": 0.06221943721175194,
     "fov": 80,
     "graphicsQuality": 2,
     "invertX": false,
