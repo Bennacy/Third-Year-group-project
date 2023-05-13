@@ -49,7 +49,11 @@ public class PlayerHUD : MonoBehaviour
         
         UpdateHealthBar();
         enemiesRemaining.text = GameManager.Instance.aliveEnemies.Count.ToString();
-        waveCount.text = "Wave " + GameManager.Instance.currentWave + "/" + GameManager.Instance.maxWave;
+
+        int currWave = GameManager.Instance.currentWave;
+        int maxWave = GameManager.Instance.maxWave;
+        currWave = Mathf.Clamp(currWave, 0, maxWave);
+        waveCount.text = "Wave " + currWave + "/" + maxWave;
 
         float staminaBar_targetFill = (float)player.stamina / (float)player.maxStamina;
         staminaBar.fillAmount = Mathf.Lerp(staminaBar.fillAmount, staminaBar_targetFill, 5*Time.deltaTime);

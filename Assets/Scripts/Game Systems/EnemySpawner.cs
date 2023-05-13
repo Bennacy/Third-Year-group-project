@@ -18,14 +18,11 @@ public class EnemySpawner : MonoBehaviour
 
 
     [Header("Enemy")]
-    public int startingEnemiesPerWave;
     public int totalEnemies = 10;
     private int enemiesRemaining;
-    private int enemiesPerWave;
     [Space(10)]
 
     [Header("Waves")]
-    public int numWaves;
     public int totalWaves = 10;
     private int currentWave = 1;
     [Space(10)]
@@ -36,7 +33,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        enemiesPerWave = startingEnemiesPerWave;
         enemiesRemaining = totalEnemies;
         StartCoroutine(SpawnWaves());
         GameManager.Instance.aliveEnemies = spawnedEnemies;
@@ -58,25 +54,9 @@ public class EnemySpawner : MonoBehaviour
             //But other times it doesn't, and this script breaks because of null reference
             yield return null;
         }
-        
-        //for (int i = 0; i < numWaves; i++)
-        //{
-        //    for (int j = 0; j < enemiesPerWave; j++)
-        //    {
-        //        GameObject prefab = SelectEnemyType();
-        //        Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        //        Instantiate(prefab, randomSpawnPoint.position, randomSpawnPoint.rotation);
-
-        //    }
-        //    enemiesPerWave = enemiesPerWave += Random.Range(1, 5);
-        //    yield return new WaitForSeconds(spawnDelay);
-        //}
-
 
         while (currentWave <= totalWaves)
         {
-            
-
             while (enemiesRemaining > 0 && !GameManager.Instance.betweenWaves)
             {
                 if(currentWave > 1 && !GameManager.Instance.loweredDrawbridge){
@@ -104,15 +84,13 @@ public class EnemySpawner : MonoBehaviour
 
             if (spawnedEnemies.Count == 0 && enemiesRemaining == 0)
             {
-                
                 currentWave++;
                 hordeController.attackingMax += Random.Range(0, 2);
                 GameManager.Instance.betweenWaves = true;
                 GameManager.Instance.currentWave = currentWave;
                 totalEnemies = totalEnemies += Random.Range(2, 6);
                 enemiesRemaining = totalEnemies;
-                // Debug.Log(currentWave);
-                yield return new WaitForSeconds(0);
+                yield return new WaitForSeconds(waveDelay);
             }
 
             yield return null;

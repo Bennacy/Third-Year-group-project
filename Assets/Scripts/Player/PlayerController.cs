@@ -6,6 +6,8 @@ using EZCameraShake;
 
 public class PlayerController : MonoBehaviour, IHasHealth
 {
+    public bool onSlope;
+
     [Header("References")]
     public CameraController cameraController;
     private Rigidbody rb;
@@ -33,16 +35,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
     public float runSpeed;
     public float blockSpeed;
     public float moveSpeed;
-    [SerializeField]
-    [Range(0.1f, 5f)]
-    private float positionHistoryDuration = 1f;
-    [SerializeField]
-    [Range(0.001f, 1f)]
-    private float positionHistoryInterval = 0.1f;
-
-    private Queue<Vector3> velocityHistory;
-    private float lastPositionTime;
-    private int maxQueueSize;
 
     [Space(10)]
 
@@ -110,9 +102,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
         unpauseAction = playerInput.actions["Unpause"];
         unpauseAction.performed += context => GameManager.Instance.TogglePause();
 
-        maxQueueSize = Mathf.CeilToInt(1f / positionHistoryInterval * positionHistoryDuration);
-        velocityHistory = new Queue<Vector3>(maxQueueSize);
-
         health = maxHealth = playerHealth;
     }
 
@@ -136,24 +125,56 @@ public class PlayerController : MonoBehaviour, IHasHealth
         }else{
             animatorHandler.EndBlock();
         }
+
+        
+        // float speedValue = moveSpeed;
+        // if(blocking){
+        //     speedValue = blockSpeed;
+        // }
+
+        // Vector3 flatVelocity = rb.velocity;
+        // flatVelocity.y = 0;
+
+        // if(flatVelocity.magnitude > speedValue){
+        //     Vector3 limitedVelocity = flatVelocity.normalized * speedValue;
+        //     limitedVelocity.y = rb.velocity.y;
+        //     rb.velocity = limitedVelocity;
+        // }
+        
+        Debug.DrawRay(transform.position, Vector3.down, Color.red, 1.5f);
+        // if(Physics.Raycast(transform.position, Vector3.down, out test, 1.5f)){
+        //     Debug.Log(Vector3.Angle(test.normal, Vector3.up));
+        //     if(test.normal != Vector3.up)
+        //         onSlope = true;
+        // }
     }
 
     void FixedUpdate()
     {
+        
         float speedValue = moveSpeed;
         if(blocking){
             speedValue = blockSpeed;
         }
         
         if(!attacking){
-            Vector3 gravity = new Vector3(0, rb.velocity.y, 0);
             Vector3 vel = moveDirection.y * transform.forward + moveDirection.x * transform.right;
-            vel *= speedValue;
-            rb.velocity = ((vel + gravity));
+
+            onSlope = false;
+            RaycastHit test;
+            if(Physics.Raycast(transform.position, Vector3.down, out test, 1.5f)){
+                if(test.normal != Vector3.up){
+                    onSlope = true;
+                    Vector3 newDir = Vector3.ProjectOnPlane(vel, test.normal);
+                    rb.AddForce(newDir * speedValue * 20, ForceMode.Force);
+                }
+            }
+            rb.AddForce(vel.normalized * speedValue * 10, ForceMode.Force);
         }
-        
-        rb.AddForce(Physics.gravity * gravityForce);
+
+        rb.AddForce(Physics.gravity * gravityForce, ForceMode.Force);
     }
+
     void LateUpdate()
     {
         if(GameManager.Instance.paused)
@@ -162,29 +183,11 @@ public class PlayerController : MonoBehaviour, IHasHealth
         RotateCamera();
     }
 
-    public Vector3 AverageVelocity
-    {
-        get
-        {
-            Vector3 average = Vector3.zero;
-            foreach(Vector3 velocity in velocityHistory)
-            {
-                average += velocity;
-            }
-            average.y = 0;
-
-            return average / velocityHistory.Count;
-        }
-
-        
-    }
-
     private void MovePlayer(InputAction.CallbackContext context){
         Vector2 inputVector = context.ReadValue<Vector2>();
-
         walking = context.performed;
 
-        moveDirection = new Vector2(inputVector.x, inputVector.y);
+        moveDirection = inputVector;
     }
 
     private void Sprint(InputAction.CallbackContext context){
@@ -290,7 +293,6 @@ public class PlayerController : MonoBehaviour, IHasHealth
    public void Recover(int recoverVal)
     {
         health = Mathf.Clamp(health + recoverVal, 0, maxHealth);
-        // Debug.Log(health);
     }
 
     void OnTriggerEnter(Collider other)
