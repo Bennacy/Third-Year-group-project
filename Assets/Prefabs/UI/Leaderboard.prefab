@@ -679,8 +679,12 @@ MonoBehaviour:
   upBtn: {fileID: 1389098155696139001}
   downBtn: {fileID: 1389098155845374015}
   entryContainer: {fileID: 1389098155575249135}
-  entryTemplate: {fileID: 1389098155635819992}
+  entryTemplate: {fileID: 7726236721053065486, guid: dfee89debd75d2243b8c3247a03b4f16,
+    type: 3}
   info: {fileID: 1389098156653855660}
+  entries: []
+  displayOffset: 0
+  scoreJSON: 
 --- !u!1 &1389098155570417373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3878,12 +3882,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: dfee89debd75d2243b8c3247a03b4f16, type: 3}
---- !u!1 &1389098155635819992 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7726236721053065486, guid: dfee89debd75d2243b8c3247a03b4f16,
-    type: 3}
-  m_PrefabInstance: {fileID: 8682388356046300374}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1389098155635819993 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7726236721053065487, guid: dfee89debd75d2243b8c3247a03b4f16,

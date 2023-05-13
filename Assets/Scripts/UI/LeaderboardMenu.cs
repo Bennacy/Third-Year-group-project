@@ -13,19 +13,9 @@ public class LeaderboardMenu : MonoBehaviour
     [SerializeField] private Transform entryContainer;
     [SerializeField] private GameObject entryTemplate;
     [SerializeField] private GameObject info;
-    private LeaderboardEntry[] entries;
-    private int displayOffset;
-    private string scoreJSON;
-
-
-    void Start()
-    {
-    }
-
-    void OnEnable()
-    {
-
-    }
+    [SerializeField] private LeaderboardEntry[] entries;
+    [SerializeField] private int displayOffset;
+    [SerializeField] private string scoreJSON;
 
     public void OpenLeaderboard(){    
         CloseInfo();
@@ -33,8 +23,10 @@ public class LeaderboardMenu : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        GameManager.Instance.LoadScores();
+        
         scoreJSON = JsonUtility.ToJson(GameManager.Instance.highScores);
-        Debug.Log(scoreJSON);
+        // Debug.Log(scoreJSON);
 
         displayOffset = 0;
         upBtn.interactable = false;

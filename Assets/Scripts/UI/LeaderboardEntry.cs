@@ -45,10 +45,19 @@ public class LeaderboardEntry : MonoBehaviour
             
 
             placeText.text = place.ToString();
+            placeText.enabled = true;
+
             killsText.text = kills.ToString();
+            killsText.enabled = true;
+
             scoreText.text = score.ToString();
+            scoreText.enabled = true;
+
             timeText.text = minutes.ToString().PadLeft(2, '0') + ":" + seconds.ToString().PadLeft(2, '0');
+            timeText.enabled = true;
+
             usernameText.text = username.ToString();
+            usernameText.enabled = true;
         }
     }
 }
