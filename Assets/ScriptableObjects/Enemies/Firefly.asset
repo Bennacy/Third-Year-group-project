@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Firefly
   m_EditorClassIdentifier: 
   prefab: {fileID: 8550192648152961314, guid: 3c2e1855cf2bf874899ec3d329ae739e, type: 3}
-  health: 250
+  health: 200
   Acceleration: 8
   AngularSpeed: 120
   AreaMask: -1

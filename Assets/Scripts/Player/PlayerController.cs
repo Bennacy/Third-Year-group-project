@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
     {
         if (other.gameObject.tag == "Health")
         {
-            if(health < 250) 
+            if(health < maxHealth) 
             {
                 Recover(25);
                 Destroy(other.gameObject);

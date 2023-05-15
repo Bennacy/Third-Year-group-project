@@ -364,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelText: {fileID: 1243797522}
   priceText: {fileID: 222869152}
-  price: 25
+  price: 10
   weapon: {fileID: 0}
   upgrade: 1
   increaseBy: 50
@@ -1065,11 +1065,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelText: {fileID: 231941761}
   priceText: {fileID: 1961660758}
-  price: 7
+  price: 4
   weapon: {fileID: 11400000, guid: 2cf401326735dbf4aa9caef43ae6c689, type: 2}
   upgrade: 0
-  increaseBy: 5
-  maxLevel: 15
+  increaseBy: 6
+  maxLevel: 12
 --- !u!1 &341215320
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,10 +3684,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelText: {fileID: 594374261}
   priceText: {fileID: 1398618619}
-  price: 10
+  price: 8
   weapon: {fileID: 11400000, guid: 3bb73d2fae8d41942a60d941b0583d4b, type: 2}
   upgrade: 0
-  increaseBy: 7.5
+  increaseBy: 7
   maxLevel: 10
 --- !u!1 &1148364716
 GameObject:
@@ -4090,11 +4090,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelText: {fileID: 1419346268}
   priceText: {fileID: 341215322}
-  price: 15
+  price: 3
   weapon: {fileID: 0}
   upgrade: 2
   increaseBy: 25
-  maxLevel: 20
+  maxLevel: 16
 --- !u!1 &1243797520
 GameObject:
   m_ObjectHideFlags: 0
@@ -4519,11 +4519,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelText: {fileID: 90655503}
   priceText: {fileID: 1787507195}
-  price: 7
+  price: 3
   weapon: {fileID: 11400000, guid: 54be40bf34cf66046b6a77ff7fe42e8b, type: 2}
   upgrade: 0
   increaseBy: 5
-  maxLevel: 15
+  maxLevel: 12
 --- !u!1 &1275155366
 GameObject:
   m_ObjectHideFlags: 0
