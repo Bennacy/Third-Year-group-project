@@ -52,7 +52,7 @@ MonoBehaviour:
   uiVolume: 0
   uiClick: {fileID: 8300000, guid: a82d35acfc2813b40aaa35f84fa409f9, type: 3}
   uiNavigation: {fileID: 8300000, guid: 6c5ab0ffce58da7458bf0b903406a57d, type: 3}
-  uiSlider: {fileID: 8300000, guid: 6c5ab0ffce58da7458bf0b903406a57d, type: 3}
+  uiSlider: {fileID: 8300000, guid: e0383a3a9d6e00646a48970f7c11cf64, type: 3}
 --- !u!82 &1541483359
 AudioSource:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -5074136350124348359, guid: 0f6b550d4f5d94c499e481c37e302fc8,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

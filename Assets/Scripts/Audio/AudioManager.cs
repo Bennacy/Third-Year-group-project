@@ -25,6 +25,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip uiNavigation;
     public AudioClip uiSlider;
     private GameObject previousSelected;
+    private float lastSliderChange;
 
     void Awake()
     {
@@ -45,14 +46,17 @@ public class AudioManager : MonoBehaviour
         SetSFXVolume(sfxVolume);
         SetMusicVolume(musicVolume);
         SetUIVolume(uiVolume);
+        lastSliderChange = 0;
     }
 
     void Update()
     {
+        lastSliderChange += Time.unscaledDeltaTime;
+        
         if(eventSystem.currentSelectedGameObject != previousSelected){
             Debug.Log("Navigation");
             previousSelected = eventSystem.currentSelectedGameObject;
-            PlayUINavigation();
+            // PlayUINavigation();
         }
     }
 
@@ -83,8 +87,12 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayUINavigation(){
         UIsource.PlayOneShot(uiNavigation);
+
     }
     public void PlayUISlider(){
-        UIsource.PlayOneShot(uiSlider);
+        if(lastSliderChange >= .05f){
+            lastSliderChange = 0;
+            UIsource.PlayOneShot(uiSlider);
+        }
     }
 }
