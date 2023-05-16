@@ -89,6 +89,10 @@ public class GameManager : MonoBehaviour
         if(inGame && !betweenWaves){
             time += Time.deltaTime;
         }
+
+        if(Input.GetKeyDown(KeyCode.CapsLock)){
+            hideUI = !hideUI;
+        }
         
         if(!loadingScene && inGame){
             if(won){

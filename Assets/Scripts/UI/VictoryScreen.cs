@@ -83,7 +83,7 @@ public class VictoryScreen : MonoBehaviour
     public void SubmitName(){
         AudioManager.Instance.PlayUIClick();
         string submitting = inputField.text;
-        if(submitting.Length < 5){
+        if(submitting.Length < 6){
             GameManager.Instance.savedScore.name = submitting;
             GameManager.Instance.SaveScores(GameManager.Instance.savedScore);
 
