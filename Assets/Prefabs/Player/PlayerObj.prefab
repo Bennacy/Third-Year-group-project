@@ -1183,7 +1183,7 @@ MonoBehaviour:
   blocking: 0
   playerHealth: 250
   maxStamina: 100
-  staminaRegeneration: 10
+  staminaRegeneration: 2
   staminaCooldown: 0
   stamina: 1000
   transitionScript: {fileID: 0}

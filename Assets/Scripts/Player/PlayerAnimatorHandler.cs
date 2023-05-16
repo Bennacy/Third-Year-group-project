@@ -96,6 +96,9 @@ public class PlayerAnimatorHandler : MonoBehaviour
         animator.SetBool("Sprinting", controller.sprinting);
 
         animator.SetBool("Walking", controller.walking);
+        if(!controller.walking){
+            animator.SetBool("Sprinting", false);
+        }
     }
 
     public void SetTrigger(string triggerName){

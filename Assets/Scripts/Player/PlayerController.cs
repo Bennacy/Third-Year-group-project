@@ -254,7 +254,7 @@ public class PlayerController : MonoBehaviour, IHasHealth
     public IEnumerator HitStop(){
         animatorHandler.animator.enabled = false;
         // agent.updatePosition = false;
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.05f);
         animatorHandler.animator.enabled = true;
         // agent.updatePosition = true;
     }

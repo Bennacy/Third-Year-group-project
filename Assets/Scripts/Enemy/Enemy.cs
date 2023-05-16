@@ -160,7 +160,6 @@ public class Enemy : MonoBehaviour, IHasHealth
     public void Damage(int damageVal)
     {
         health -= damageVal;
-        // StartCoroutine(player.HitStop());
         // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0)
         {
@@ -169,6 +168,7 @@ public class Enemy : MonoBehaviour, IHasHealth
                 StartCoroutine(projectile.DestroyProjectile());
             }
         }else{
+            StartCoroutine(player.HitStop());
             StartCoroutine(HitStop());
         }
     }
