@@ -41,6 +41,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
+        currentWave = GameManager.Instance.currentWave;
+
         if(currentWave > totalWaves){
             GameManager.Instance.won = true;
         }
@@ -84,10 +86,8 @@ public class EnemySpawner : MonoBehaviour
 
             if (spawnedEnemies.Count == 0 && enemiesRemaining == 0)
             {
-                currentWave++;
                 hordeController.attackingMax += Random.Range(0, 2);
                 GameManager.Instance.betweenWaves = true;
-                GameManager.Instance.currentWave = currentWave;
                 totalEnemies = totalEnemies += Random.Range(2, 6);
                 enemiesRemaining = totalEnemies;
                 yield return new WaitForSeconds(waveDelay);

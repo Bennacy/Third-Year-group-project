@@ -144,8 +144,10 @@ public class GameManager : MonoBehaviour
 
             InputAction nextWave = playerInput.actions["New Wave"];
             nextWave.performed += context => {
-                if(betweenWaves)
+                if(betweenWaves){
                     betweenWaves = false;
+                    GameManager.Instance.currentWave++;
+                }
             };
             return;
         }
