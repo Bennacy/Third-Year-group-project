@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 
 public class Enemy : MonoBehaviour, IHasHealth
 {
@@ -44,6 +45,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     public GameObject healthPickUp;
 
     public ParticleSystem part;
+    public VisualEffect spawnFx;
 
     void InitializeStates(){
         attackingState = new EnemyAttacking(this);
@@ -62,7 +64,11 @@ public class Enemy : MonoBehaviour, IHasHealth
         player = GameManager.Instance.playerController;
         weaponHandler = GetComponentInChildren<EnemyWeapon>();
         part = GetComponentInChildren<ParticleSystem>();
+        spawnFx = GetComponentInChildren<VisualEffect>();
         // moveToTarget = GetComponent<MoveToTarget>();
+
+        StartCoroutine("SpawnFX");
+
 
         InitializeStates();
     }
@@ -114,7 +120,12 @@ public class Enemy : MonoBehaviour, IHasHealth
         // }
     }
 
-
+    public IEnumerator SpawnFX()
+    {
+        spawnFx.Play();
+        yield return new WaitForSeconds(1.5f);
+        spawnFx.Stop();
+    }
 
     public void EnableWeaponCollider()
     {
