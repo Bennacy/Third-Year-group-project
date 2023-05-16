@@ -135,6 +135,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     public void EnableWeaponCollider()
     {
         if(enemyScriptableObject.attack.attackClip != null){
+            audioSource.pitch = Random.Range(0.75f, 1.25f);
             audioSource.PlayOneShot(enemyScriptableObject.attack.attackClip);
         }
         weaponHandler.ToggleWeaponCollider(true);
