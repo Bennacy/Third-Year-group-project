@@ -56,11 +56,15 @@ MonoBehaviour:
   uiClick: {fileID: 8300000, guid: a82d35acfc2813b40aaa35f84fa409f9, type: 3}
   uiNavigation: {fileID: 8300000, guid: 6c5ab0ffce58da7458bf0b903406a57d, type: 3}
   uiSlider: {fileID: 8300000, guid: e0383a3a9d6e00646a48970f7c11cf64, type: 3}
-  titleScreenMusic: {fileID: 8300000, guid: 8a1b66c111078d94ba52fa372c2d55d9, type: 3}
+  titleScreenMusic:
+    intro: {fileID: 8300000, guid: 8a1b66c111078d94ba52fa372c2d55d9, type: 3}
+    loop: {fileID: 0}
   inGameMusic:
     intro: {fileID: 8300000, guid: 3110b3d4c57376243b37d8d54c53bed9, type: 3}
     loop: {fileID: 8300000, guid: 2b09f7e40ca4b7744b151d81ee37cf34, type: 3}
-  gameOverMusic: {fileID: 8300000, guid: 0c54cefe1e0bc434084785c6e6234b98, type: 3}
+  gameOverMusic:
+    intro: {fileID: 8300000, guid: 0c54cefe1e0bc434084785c6e6234b98, type: 3}
+    loop: {fileID: 0}
 --- !u!82 &1649412219
 AudioSource:
   m_ObjectHideFlags: 0
@@ -74,7 +78,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

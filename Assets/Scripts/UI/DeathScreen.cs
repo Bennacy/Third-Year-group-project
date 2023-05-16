@@ -23,6 +23,7 @@ public class DeathScreen : MonoBehaviour
         }
         
         SetTimeText();
+        StartCoroutine(AudioManager.Instance.PlayMusic(AudioManager.Instance.gameOverMusic));
     }
 
     void SetTimeText(){

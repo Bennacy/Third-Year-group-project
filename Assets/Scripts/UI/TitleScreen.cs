@@ -10,21 +10,19 @@ public class TitleScreen : MonoBehaviour
     private bool loweringSound = false;
     public TransitionScript transitionScript;
 
-    void OnEnable()
+    void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.volume = 0.3f;
-        audioSource.Play();
-        
-        loweringSound = false;
+
+        StartCoroutine(AudioManager.Instance.PlayMusic(AudioManager.Instance.titleScreenMusic));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.loadingScene && !loweringSound){
-            StartCoroutine(FadeAudio());
-        }
+        // if(GameManager.Instance.loadingScene && !loweringSound){
+        //     StartCoroutine(FadeAudio());
+        // }
     }
 
     private IEnumerator FadeAudio(){

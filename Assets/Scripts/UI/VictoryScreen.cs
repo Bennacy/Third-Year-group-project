@@ -24,6 +24,7 @@ public class VictoryScreen : MonoBehaviour
         }
         
         SetTimeText();
+        StartCoroutine(AudioManager.Instance.PlayMusic(AudioManager.Instance.gameOverMusic));
     }
 
     void SetTimeText(){

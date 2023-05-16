@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource UIsource;
     private GameObject previousSelected;
     private float lastSliderChange;
+    private float defaultMusicVolume;
 
     private EventSystem eventSystem;
     
@@ -39,9 +40,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip uiSlider;
 
     [Header("Music Clips")]
-    public AudioClip titleScreenMusic;
+    public MusicSegments titleScreenMusic;
     public MusicSegments inGameMusic;
-    public AudioClip gameOverMusic;
+    public MusicSegments gameOverMusic;
 
     void Awake()
     {
@@ -61,6 +62,7 @@ public class AudioManager : MonoBehaviour
         SetMusicVolume(musicVolume);
         SetUIVolume(uiVolume);
         lastSliderChange = 0;
+        defaultMusicVolume = musicSource.volume;
     }
 
     void Update()
@@ -75,6 +77,9 @@ public class AudioManager : MonoBehaviour
     public IEnumerator PlayMusic(MusicSegments music){
         musicSource.clip = music.intro;
         musicSource.Play();
+
+        if(music.loop == null)  yield return null;
+        
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(music.intro.length));
         musicSource.clip = music.loop;
         musicSource.Play();
@@ -89,7 +94,7 @@ public class AudioManager : MonoBehaviour
         }
 
         musicSource.Stop();
-        musicSource.volume = 1;
+        musicSource.volume = defaultMusicVolume;
     }
 
     public void GetEventSystem(){
