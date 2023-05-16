@@ -4,9 +4,9 @@
     "musicVolume": 0.3630000054836273,
     "uiVolume": 0.3630000054836273,
     "fov": 90,
-    "brightness": 0.013297400437295437,
+    "brightness": -0.10000000149011612,
     "graphicsQuality": 2,
     "invertX": false,
     "invertY": false,
-    "waveCount": 4
+    "waveCount": 10
 }
