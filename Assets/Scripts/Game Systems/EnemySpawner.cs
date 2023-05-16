@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
         enemiesRemaining = totalEnemies;
         StartCoroutine(SpawnWaves());
         GameManager.Instance.aliveEnemies = spawnedEnemies;
-        GameManager.Instance.maxWave = totalWaves;
+        totalWaves = GameManager.Instance.maxWave;
     }
 
     void Update()

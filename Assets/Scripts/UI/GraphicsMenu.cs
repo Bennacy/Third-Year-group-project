@@ -46,8 +46,8 @@ public class GraphicsMenu : MonoBehaviour
 
         fovSlider.value = GameManager.Instance.FOV;
         SetFOV(fovSlider.value);
-        brighnessSlider.value = GameManager.Instance.brightness;
-        SetBrightness(fovSlider.value);
+        brighnessSlider.value = GameManager.Instance.brightness.Remap(-.1f, 1, 0, 100);
+        // SetBrightness(fovSlider.value);
     }
 
     void Update()
@@ -64,9 +64,12 @@ public class GraphicsMenu : MonoBehaviour
 
     public void SetBrightness(float brighness){
         
-        brighnessLabel.text = Mathf.RoundToInt(brighness.Remap(-.1f, 1, 0, 100)).ToString();
+        int test = Mathf.RoundToInt(brighness.Remap(-.1f, 1, 0, 100));
+        Debug.Log(test);
+        brighnessLabel.text = test.ToString();
 
         GameManager.Instance.brightness = brighness;
+        AudioManager.Instance.PlayUISlider();
     }
 
     public void SetQuality(int qualityIndex){

@@ -16,7 +16,7 @@ public class uiAudio : MonoBehaviour
         entry.callback.AddListener(delegate{AudioManager.Instance.PlayUINavigation();});
         eventTrigger.triggers.Add(entry);
 
-        entry.callback.RemoveAllListeners();
+        // entry.callback.RemoveAllListeners();
         // entry.eventID = EventTriggerType.cli;
         // entry.callback.AddListener(delegate{AudioManager.Instance.PlayUINavigation();});
         // eventTrigger.triggers.Add(entry);

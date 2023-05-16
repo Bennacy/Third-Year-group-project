@@ -26,4 +26,4 @@ MonoBehaviour:
   StoppingDistance: 0.5
   scoreGiven: 50
   attack: {fileID: 11400000, guid: 6f249838739f9824fa16861cdde4713c, type: 2}
-  spawnWeight: 0
+  spawnWeight: 0.3

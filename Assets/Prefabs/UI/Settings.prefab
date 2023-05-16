@@ -6435,8 +6435,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Team Icopods:\nAnna Diblain \u2013 Concept Artist and Rigger\r\nAriah
-    Henderson \u2013 Producer and UI Designer\r\n\rBernardo Rodrigues \u2013 Programmer\r\nDaniel
+  m_text: "Team Icopods:\nAnna Diblan \u2013 Concept Artist and Rigger\r\nAriah Henderson
+    \u2013 Producer and UI Designer\r\n\rBernardo Rodrigues \u2013 Programmer\r\nDaniel
     Szablowski \u2013 Character Artist\r\nFrank MacGregor \u2013 Gameplay, UX and
     Audio Designer\nLiam Heaney \u2013 Programmer\r\nLiam Wake \u2013 Environment
     Artist\r\nNikita Watson \u2013 Concept Artist, Animator and Team Co-ordinator
@@ -12543,8 +12543,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 8813503645746872249}
-    m_SelectOnDown: {fileID: 8813503645993098100}
+    m_SelectOnUp: {fileID: 8813503647060299213}
+    m_SelectOnDown: {fileID: 8813503646886096908}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -15325,8 +15325,8 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 8813503646886096908}
-    m_SelectOnDown: {fileID: 8813503645068640915}
+    m_SelectOnUp: {fileID: 6977124125912005539}
+    m_SelectOnDown: {fileID: 8813503647060299213}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -19947,7 +19947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 60
+  m_text: 80
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 27ac4c8e55f87174383bcfa5794fcced, type: 2}
   m_sharedMaterial: {fileID: 5039028077698470333, guid: 27ac4c8e55f87174383bcfa5794fcced,
@@ -20777,7 +20777,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 8813503647060299213}
+    m_SelectOnUp: {fileID: 8813503645068640915}
     m_SelectOnDown: {fileID: 6977124125912005539}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
@@ -21325,7 +21325,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 4210675534729145585}
-    m_SelectOnDown: {fileID: 8813503646886096908}
+    m_SelectOnDown: {fileID: 8813503645068640915}
     m_SelectOnLeft: {fileID: 4210675534729145585}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1

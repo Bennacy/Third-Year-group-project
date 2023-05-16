@@ -124,7 +124,6 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayUINavigation(){
         UIsource.PlayOneShot(uiNavigation);
-
     }
     public void PlayUISlider(){
         if(lastSliderChange >= .05f){

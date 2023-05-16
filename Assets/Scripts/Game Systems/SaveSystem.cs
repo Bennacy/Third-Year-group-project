@@ -98,17 +98,21 @@ public static class SaveSystem{
 [System.Serializable] public class Settings{
     public float masterVolume, sfxVolume, musicVolume, uiVolume;
     public int fov;
+    public float brightness;
     public int graphicsQuality;
     public bool invertX, invertY;
+    public int waveCount;
 
-    public Settings(float _master, float _sfx, float _music, float _ui, int _fov, int _graphics, bool _invertX, bool _invertY){
+    public Settings(float _master, float _sfx, float _music, float _ui, int _fov, float _brightness, int _graphics, bool _invertX, bool _invertY, int _waveCount){
         masterVolume = _master;
         sfxVolume = _sfx;
         musicVolume = _music;
         uiVolume = _ui;
         fov = _fov;
+        brightness = _brightness;
         graphicsQuality = _graphics;
         invertX = _invertX;
         invertY = _invertY;
+        waveCount = _waveCount;
     }
 }

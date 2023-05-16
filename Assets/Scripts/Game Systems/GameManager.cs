@@ -220,9 +220,11 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.musicVolume,
             AudioManager.Instance.uiVolume,
             FOV,
+            brightness,
             QualitySettings.GetQualityLevel(),
             invertX,
-            invertY
+            invertY,
+            maxWave
         );
 
         string saving = JsonUtility.ToJson(saveSettings, true);
@@ -238,9 +240,11 @@ public class GameManager : MonoBehaviour
             AudioManager.Instance.SetMusicVolume(loadedSettings.musicVolume);
             AudioManager.Instance.SetUIVolume(loadedSettings.uiVolume);
             FOV = loadedSettings.fov;
+            brightness = loadedSettings.brightness;
             QualitySettings.SetQualityLevel(loadedSettings.graphicsQuality);
             invertX = loadedSettings.invertX;
             invertY = loadedSettings.invertY;
+            maxWave = loadedSettings.waveCount;
         }else{
             
             AudioManager.Instance.SetMasterVolume(.5f);

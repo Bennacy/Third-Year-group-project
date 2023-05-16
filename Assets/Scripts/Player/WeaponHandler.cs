@@ -51,8 +51,6 @@ public class WeaponHandler : MonoBehaviour
     }
 
     public void SwitchWeapon(WeaponScript weapon){
-        Debug.Log(weapon);
-        
         if(animatorHandler == null)
             return;
         

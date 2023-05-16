@@ -1473,11 +1473,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2200808811451503914, guid: 5d78e8536a3325b4089a9354642c1020,
         type: 3}
-      propertyPath: playerHealth
-      value: 9999
-      objectReference: {fileID: 0}
-    - target: {fileID: 2200808811451503914, guid: 5d78e8536a3325b4089a9354642c1020,
-        type: 3}
       propertyPath: transitionScript
       value: 
       objectReference: {fileID: 1138536472}
@@ -9841,7 +9836,7 @@ MonoBehaviour:
   - {fileID: 0}
   spawnPointCount: 3
   spawnedEnemies: []
-  totalEnemies: 0
+  totalEnemies: 3
   totalWaves: 6
   waveDelay: 3
   spawnDelay: 1

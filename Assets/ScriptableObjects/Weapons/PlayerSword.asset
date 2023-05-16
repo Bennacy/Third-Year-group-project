@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerSword
   m_EditorClassIdentifier: 
   weaponName: Sword
-  prefab: {fileID: 7724613970817878120, guid: 4050aced74be9ed46825e9d3b119acfe, type: 3}
+  prefab: {fileID: 7724613970817878120, guid: 268a4706cd98a484ca097e96bf18e3bb, type: 3}
   offhand: {fileID: 2796536436804686330, guid: c1395b9d7b27c3e409947bfc4cc5f182, type: 3}
   icon: {fileID: 0}
   leftHand: 0
