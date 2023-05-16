@@ -174,6 +174,10 @@ public class EnemyDying : EnemyState{
         GameManager.Instance.currency += enemy.enemyScriptableObject.scoreGiven;
 
         // Debug.Log("Dying");
+
+        if(enemy.enemyScriptableObject.deathClip != null){
+            enemy.audioSource.PlayOneShot(enemy.enemyScriptableObject.deathClip);
+        }
         
         enemy.animator.SetBool("Dead", true);
         enemy.animator.Play("Death");

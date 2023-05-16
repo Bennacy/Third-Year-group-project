@@ -30,6 +30,7 @@ public class EnemyScriptableObject : ScriptableObject
     public float StoppingDistance = 0.5f;
     public int scoreGiven;
     public EnemyAttackScriptableObject attack;
+    public AudioClip deathClip;
 
     public float spawnWeight = 1f;
 

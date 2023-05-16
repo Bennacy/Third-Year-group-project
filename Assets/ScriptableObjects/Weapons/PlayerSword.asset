@@ -23,7 +23,7 @@ MonoBehaviour:
   - Combo 2
   - Combo 3
   equipClip: {fileID: 0}
-  impactClip: {fileID: 8300000, guid: d39ead3c849d9794d9560e5235601dad, type: 3}
+  impactClip: {fileID: 8300000, guid: 6809d3b08614a1d4eaa4060fd9e8d6bb, type: 3}
   swingClips:
   - {fileID: 8300000, guid: 1bbc9925d33ae674d9faf527789a175c, type: 3}
   damage: 35
