@@ -16,6 +16,10 @@ MonoBehaviour:
   damage: 20
   attackRadius: 0
   attackDelay: 0
+  projectileVelocity: 0
+  projectileLifetime: 0
+  attackClip: {fileID: 8300000, guid: 7df93e4c06605334888852efa95313c2, type: 3}
+  castClip: {fileID: 0}
   projectilePrefab: {fileID: 0}
   projectileSpawnOffset: {x: 0, y: 1, z: 0}
   lineOfSightLayers:

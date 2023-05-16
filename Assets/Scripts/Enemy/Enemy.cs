@@ -123,13 +123,20 @@ public class Enemy : MonoBehaviour, IHasHealth
 
     public IEnumerator SpawnFX()
     {
-        spawnFx.Play();
-        yield return new WaitForSeconds(1.5f);
-        spawnFx.Stop();
+        if(spawnFx != null){
+            spawnFx.Play();
+            yield return new WaitForSeconds(1.5f);
+            spawnFx.Stop();
+        }else{
+            yield return null;
+        }
     }
 
     public void EnableWeaponCollider()
     {
+        if(enemyScriptableObject.attack.attackClip != null){
+            audioSource.PlayOneShot(enemyScriptableObject.attack.attackClip);
+        }
         weaponHandler.ToggleWeaponCollider(true);
     }
     public void DisableWeaponCollider()
@@ -152,7 +159,6 @@ public class Enemy : MonoBehaviour, IHasHealth
     public void Damage(int damageVal)
     {
         health -= damageVal;
-        // StartCoroutine(HitStop());
         // StartCoroutine(player.HitStop());
         // Debug.Log("Took " + damageVal + " damage! (" + (health + damageVal) + " -> " + health + ")");
         if (health <= 0)
@@ -161,17 +167,19 @@ public class Enemy : MonoBehaviour, IHasHealth
             if(projectile != null){
                 StartCoroutine(projectile.DestroyProjectile());
             }
+        }else{
+            StartCoroutine(HitStop());
         }
     }
 
     public IEnumerator HitStop(){
-        // animator.enabled = false;
-        Time.timeScale = 0;
-        // agent.updatePosition = false;
-        yield return new WaitForSecondsRealtime(.1f);
-        Time.timeScale = 1;
-        // animator.enabled = true;
-        // agent.updatePosition = true;
+        animator.enabled = false;
+        // Time.timeScale = 0;
+        agent.updatePosition = false;
+        yield return new WaitForSecondsRealtime(.15f);
+        // Time.timeScale = 1;
+        animator.enabled = true;
+        agent.updatePosition = true;
     }
 
     public void Recover(int recoverVal)
