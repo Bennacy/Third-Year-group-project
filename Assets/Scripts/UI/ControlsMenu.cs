@@ -32,7 +32,7 @@ public class ControlsMenu : MonoBehaviour
 
     void Start()
     {
-        sensSlider.value = GameManager.Instance.sensitivity*2;
+        sensSlider.value = GameManager.Instance.sensitivity/2;
         invertX.isOn = GameManager.Instance.invertX;
         invertY.isOn = GameManager.Instance.invertY;
         UpdateSensitivity(sensSlider.value);

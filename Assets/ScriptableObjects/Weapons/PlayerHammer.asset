@@ -23,7 +23,7 @@ MonoBehaviour:
   - Hammer Diagonal
   - Hammer Slam
   equipClip: {fileID: 0}
-  impactClip: {fileID: 0}
+  impactClip: {fileID: 8300000, guid: d39ead3c849d9794d9560e5235601dad, type: 3}
   swingClips:
   - {fileID: 8300000, guid: 09e901b6bdf1e304dabd2e4ead4e6656, type: 3}
   damage: 55

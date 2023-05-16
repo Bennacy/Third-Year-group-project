@@ -6,6 +6,8 @@ public class EnemyWeapon : MonoBehaviour
 {
     public Enemy parent;
     private Collider weaponCollider;
+    public AudioSource audioSource;
+    public AudioClip destructionClip;
     
     void Start()
     {
@@ -13,6 +15,8 @@ public class EnemyWeapon : MonoBehaviour
             parent = GetComponentInParent<Enemy>();
 
         weaponCollider = GetComponent<Collider>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void ToggleWeaponCollider(bool active){
@@ -42,6 +46,7 @@ public class EnemyWeapon : MonoBehaviour
     }
 
     public IEnumerator DestroyProjectile(){
+        audioSource.PlayOneShot(destructionClip);
         Debug.Log("Starting Explosion");
         EnemyProjectile projectile = GetComponent<EnemyProjectile>();
         Destroy(GetComponent<Rigidbody>());

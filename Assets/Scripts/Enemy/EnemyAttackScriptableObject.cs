@@ -19,6 +19,9 @@ public class EnemyAttackScriptableObject : ScriptableObject
     public float projectileVelocity;
     public float projectileLifetime;
 
+    public AudioClip attackClip;
+    public AudioClip castClip;
+
     public EnemyWeapon projectilePrefab;
     public Vector3 projectileSpawnOffset = new Vector3(0, 1, 0);
     public LayerMask lineOfSightLayers;

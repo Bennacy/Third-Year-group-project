@@ -216,6 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
+  audioSource: {fileID: 0}
+  destructionClip: {fileID: 0}
 --- !u!1 &2793768208076156087
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6035350066412345288
 Transform:
   m_ObjectHideFlags: 0
@@ -391,7 +393,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3837284956357760532}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -762,6 +764,7 @@ MonoBehaviour:
   animator: {fileID: 5087658193066240962}
   spawner: {fileID: 0}
   hordeController: {fileID: 0}
+  audioSource: {fileID: 0}
   patrolPoints: []
   circleDistance: 12.5
   circleSpeed: 2

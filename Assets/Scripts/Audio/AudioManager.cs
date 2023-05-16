@@ -61,8 +61,6 @@ public class AudioManager : MonoBehaviour
         SetMusicVolume(musicVolume);
         SetUIVolume(uiVolume);
         lastSliderChange = 0;
-
-        StartCoroutine(PlayMusic(inGameMusic));
     }
 
     void Update()
@@ -80,6 +78,18 @@ public class AudioManager : MonoBehaviour
         yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(music.intro.length));
         musicSource.clip = music.loop;
         musicSource.Play();
+    }
+
+    public IEnumerator FadeOutMusic(){
+        float timer = 0;
+        while(timer < .5f){
+            timer += Time.unscaledDeltaTime;
+            musicSource.volume -= Time.unscaledDeltaTime*2;
+            yield return null;
+        }
+
+        musicSource.Stop();
+        musicSource.volume = 1;
     }
 
     public void GetEventSystem(){

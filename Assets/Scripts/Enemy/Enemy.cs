@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     public EnemySpawner spawner;
     public HordeController hordeController;
     private EnemyWeapon projectile;
+    public AudioSource audioSource;
     [Space(10)]
 
 
@@ -191,6 +192,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     }
 
     public void SpawnProjectile(){
+        audioSource.PlayOneShot(enemyScriptableObject.attack.attackClip);
         EnemyAttackScriptableObject attack = enemyScriptableObject.attack;
         projectile = Instantiate(attack.projectilePrefab.gameObject, transform.position + (transform.up) + (transform.forward*attack.projectileSpawnOffset.x), Quaternion.identity).GetComponent<EnemyWeapon>();
         projectile.parent = this;
@@ -199,6 +201,7 @@ public class Enemy : MonoBehaviour, IHasHealth
     }
 
     public void ThrowProjectile(){
+        audioSource.PlayOneShot(enemyScriptableObject.attack.castClip);
         EnemyAttackScriptableObject attack = enemyScriptableObject.attack;
         projectile.ToggleWeaponCollider(true);
         projectile.GetComponent<Rigidbody>().velocity = transform.forward * attack.projectileVelocity;

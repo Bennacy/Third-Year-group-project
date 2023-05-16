@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
         AudioListener.pause = false;
         
         if(GetPlayerController()){
+            StartCoroutine(AudioManager.Instance.PlayMusic(AudioManager.Instance.inGameMusic));
             inGame = true;
             currentWave = 1;
             enemiesKilled = 0;
@@ -261,6 +262,7 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string sceneName){
         // SceneManager.LoadScene(sceneName);
         // Debug.Log("Normal - Loading scene " + sceneName);
+        StartCoroutine(AudioManager.Instance.FadeOutMusic());
         StartCoroutine(LoadSceneWait(sceneName));
     }
 

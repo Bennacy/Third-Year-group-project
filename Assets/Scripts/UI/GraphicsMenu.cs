@@ -8,6 +8,9 @@ public class GraphicsMenu : MonoBehaviour
 {
     public TextMeshProUGUI fovLabel;
     public Slider fovSlider;
+
+    public TextMeshProUGUI brighnessLabel;
+    public Slider brighnessSlider;
     
     public Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
@@ -43,6 +46,8 @@ public class GraphicsMenu : MonoBehaviour
 
         fovSlider.value = GameManager.Instance.FOV;
         SetFOV(fovSlider.value);
+        brighnessSlider.value = GameManager.Instance.brightness;
+        SetBrightness(fovSlider.value);
     }
 
     void Update()
@@ -55,6 +60,13 @@ public class GraphicsMenu : MonoBehaviour
 
         GameManager.Instance.FOV = Mathf.RoundToInt(fov);
         AudioManager.Instance.PlayUISlider();
+    }
+
+    public void SetBrightness(float brighness){
+        
+        brighnessLabel.text = Mathf.RoundToInt(brighness.Remap(-.1f, 1, 0, 100)).ToString();
+
+        GameManager.Instance.brightness = brighness;
     }
 
     public void SetQuality(int qualityIndex){
