@@ -10,6 +10,8 @@ public class DrawbridgeController : MonoBehaviour
     private Animator animator;
     public TransitionScript transitionScript;
     public GameObject bridgeCamera;
+    public AudioSource source;
+    public AudioClip lowerClip;
     
     
     void Start()
@@ -54,6 +56,7 @@ public class DrawbridgeController : MonoBehaviour
             yield return null;
         }
 
+        source.PlayOneShot(lowerClip);
         animator.Play("Lower Bridge");
     }
 

@@ -104,7 +104,7 @@ public class PlayerAnimatorHandler : MonoBehaviour
 
     public void CameraShake(float test){
         // cameraShake.ShakeRotation(1f, 1f, 1f, .2f);
-        CameraShaker.Instance.ShakeOnce(3f, 3f, .1f, .1f);
+        CameraShaker.Instance.ShakeOnce(2f, 2f, .1f, .1f);
     }
 
     public void Footstep(){
