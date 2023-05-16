@@ -51,13 +51,13 @@ Material:
     - _SrcBlend: 5
     - _Surface: 1
     - _TwirlStrength: 8
-    - _VoronoiScale: 5
-    - _VoronoiSpeed: 1
+    - _VoronoiScale: 13.82
+    - _VoronoiSpeed: 4
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 485.89804, g: 0, b: 766.9961, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3045530691186069715
 MonoBehaviour:
