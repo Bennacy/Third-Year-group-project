@@ -483,10 +483,10 @@
                 {
                     "name": "",
                     "id": "6b3d6bc2-2b98-4ccc-b606-6ded8adcd53b",
-                    "path": "",
+                    "path": "<DualShockGamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PS4",
                     "action": "New Wave",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -516,10 +516,10 @@
                 {
                     "name": "",
                     "id": "98d05bb3-223a-443d-bada-b33ad29f2171",
-                    "path": "",
+                    "path": "<DualShockGamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PS4",
                     "action": "Shop",
                     "isComposite": false,
                     "isPartOfComposite": false

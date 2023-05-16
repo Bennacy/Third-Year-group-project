@@ -5,6 +5,13 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 
+[System.Serializable]
+public class MusicSegments{
+    public AudioClip intro;
+    public AudioClip loop;
+}
+
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
@@ -19,12 +26,22 @@ public class AudioManager : MonoBehaviour
     public float musicVolume;
     public float uiVolume;
 
+    public AudioSource musicSource;
+    public AudioSource UIsource;
+    private GameObject previousSelected;
+    private float lastSliderChange;
+
     private EventSystem eventSystem;
-    private AudioSource UIsource;
+    
+    [Header("UI Clips")]
     public AudioClip uiClick;
     public AudioClip uiNavigation;
     public AudioClip uiSlider;
-    private GameObject previousSelected;
+
+    [Header("Music Clips")]
+    public AudioClip titleScreenMusic;
+    public MusicSegments inGameMusic;
+    public AudioClip gameOverMusic;
 
     void Awake()
     {
@@ -34,9 +51,7 @@ public class AudioManager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
-        UIsource = GetComponent<AudioSource>();
         GetEventSystem();
-        // Debug.Log("Audio values");
     }
 
     void Start()
@@ -45,15 +60,26 @@ public class AudioManager : MonoBehaviour
         SetSFXVolume(sfxVolume);
         SetMusicVolume(musicVolume);
         SetUIVolume(uiVolume);
+        lastSliderChange = 0;
+
+        StartCoroutine(PlayMusic(inGameMusic));
     }
 
     void Update()
     {
+        lastSliderChange += Time.unscaledDeltaTime;
+        
         if(eventSystem.currentSelectedGameObject != previousSelected){
-            Debug.Log("Navigation");
             previousSelected = eventSystem.currentSelectedGameObject;
-            PlayUINavigation();
         }
+    }
+
+    public IEnumerator PlayMusic(MusicSegments music){
+        musicSource.clip = music.intro;
+        musicSource.Play();
+        yield return StartCoroutine(CoroutineUtil.WaitForRealSeconds(music.intro.length));
+        musicSource.clip = music.loop;
+        musicSource.Play();
     }
 
     public void GetEventSystem(){
@@ -83,8 +109,24 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayUINavigation(){
         UIsource.PlayOneShot(uiNavigation);
+
     }
     public void PlayUISlider(){
-        UIsource.PlayOneShot(uiSlider);
+        if(lastSliderChange >= .05f){
+            lastSliderChange = 0;
+            UIsource.PlayOneShot(uiSlider);
+        }
+    }
+}
+
+public static class CoroutineUtil
+{
+    public static IEnumerator WaitForRealSeconds(float time)
+    {
+        float start = Time.realtimeSinceStartup;
+        while (Time.realtimeSinceStartup < start + time)
+        {
+            yield return null;
+        }
     }
 }

@@ -37,11 +37,6 @@ public class GameManager : MonoBehaviour
     public int maxWave;
     public int leaderboardPlacement;
 
-    public int FOV;
-    public float sensitivity;
-    public bool invertX;
-    public bool invertY;
-
     public bool hideUI;
 
     public WeaponScript[] weapons;
@@ -51,6 +46,17 @@ public class GameManager : MonoBehaviour
     public bool lowerDrawbridge;
     public bool loweredDrawbridge;
     public bool raiseDrawbridge;
+
+    [Space(10)]
+    [Header("Controls Settings")]
+    public float sensitivity;
+    public bool invertX;
+    public bool invertY;
+
+    [Header("Graphics Settings")]
+    [Range(-.1f, 1)] public float brightness;
+    public int FOV;
+    public bool screenShake;
     
     void Awake()
     {

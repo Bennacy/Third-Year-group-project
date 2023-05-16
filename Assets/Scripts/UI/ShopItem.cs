@@ -61,29 +61,28 @@ public class ShopItem : MonoBehaviour
             priceText.color = Color.white;
         }
 
-        if(level >= maxLevel){
-            LevelText.text = "Max Level";
-            LevelText.color = Color.gray;
-            priceText.text = "";
-            priceText.color = Color.gray;
+        switch(upgrade){
+            case CharacterUpgrades.Health:
+                GameManager.Instance.playerController.maxHealth += Mathf.RoundToInt(increaseBy);
+            break;
+            
+            case CharacterUpgrades.Stamina:
+                GameManager.Instance.playerController.maxStamina += increaseBy;
+            break;
+
+            case CharacterUpgrades.None:
+                weapon.damage += increaseBy;
+            break;
         }
-
-            switch(upgrade){
-                case CharacterUpgrades.Health:
-                    GameManager.Instance.playerController.maxHealth += Mathf.RoundToInt(increaseBy);
-                break;
-                
-                case CharacterUpgrades.Stamina:
-                    GameManager.Instance.playerController.maxStamina += increaseBy;
-                break;
-
-                case CharacterUpgrades.None:
-                    weapon.damage += increaseBy;
-                break;
-            }
 
         LevelText.text = "Current: " + DisplayValue().ToString();
         priceText.text = "Upgrade: " + price*10;
+
+        if(level >= maxLevel){
+            LevelText.color = Color.gray;
+            priceText.text = "Max Level";
+            priceText.color = Color.gray;
+        }
     }
 
     int DisplayValue(){

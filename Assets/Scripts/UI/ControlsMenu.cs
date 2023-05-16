@@ -32,7 +32,7 @@ public class ControlsMenu : MonoBehaviour
 
     void Start()
     {
-        sensSlider.value = GameManager.Instance.sensitivity * 100;
+        sensSlider.value = GameManager.Instance.sensitivity*2;
         invertX.isOn = GameManager.Instance.invertX;
         invertY.isOn = GameManager.Instance.invertY;
         UpdateSensitivity(sensSlider.value);
@@ -58,8 +58,8 @@ public class ControlsMenu : MonoBehaviour
     }
 
     public void UpdateSensitivity(float sens){
-        GameManager.Instance.sensitivity = sens / 100;
-        sensText.text = Mathf.RoundToInt(sens).ToString();
+        GameManager.Instance.sensitivity = sens*2;
+        sensText.text = Mathf.RoundToInt(sens*200).ToString();
         AudioManager.Instance.PlayUISlider();
     }
 
