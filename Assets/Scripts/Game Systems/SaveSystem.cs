@@ -100,6 +100,25 @@ public static class SaveSystem{
 public class HighScoreWaves{
     public int minWave;
     public HighScores[] highScores;
+
+    public HighScoreWaves(int _minWave, int _maxWave){
+        minWave = _minWave;
+        highScores = new HighScores[_maxWave - _minWave];
+        for(int i = 0; i < highScores.Length; i++){
+            highScores[i] = new HighScores();
+            highScores[i].waveCount = minWave+i;
+        }
+    }
+
+    public HighScores HighScoresForWave(int waves){
+        foreach(HighScores scores in highScores){
+            if(scores.waveCount == waves){
+                return scores;
+            }
+        }
+        
+        return null;
+    }
 }
 
 [System.Serializable] public class Settings{
