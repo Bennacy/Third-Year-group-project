@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FireflyAttack
   m_EditorClassIdentifier: 
   isRanged: 0
-  damage: 10
+  damage: 100
   attackRadius: 0
   attackDelay: 0
   projectileVelocity: 0

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public Camera mainCam;
 
     public HighScores highScores;
+    public HighScoreWaves highScoreWaves;
     public PersonalScore savedScore;
     private TransitionScript transitionScript;
 
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
     public int currentWave;
     public int maxWave;
     public int leaderboardPlacement;
+    public int minWaves = 3;
+    public int maxWaves = 10;
 
     public bool hideUI;
 
@@ -93,6 +96,10 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.CapsLock)){
             hideUI = !hideUI;
         }
+
+        // if(Input.GetKeyDown(KeyCode.P)){
+        //     SaveScores(new PersonalScore(score, Mathf.RoundToInt(time), kills));
+        // }
         
         if(!loadingScene && inGame){
             if(won){
@@ -201,23 +208,31 @@ public class GameManager : MonoBehaviour
         // SaveScores(personalScore);
     }
     public void SaveScores(PersonalScore personalScore){
-        highScores.waveCount = maxWave;
         leaderboardPlacement = highScores.InsertScore(personalScore);
         string saving = JsonUtility.ToJson(highScores, true);
+
+        highScoreWaves.OverrideScores(highScores);        
+        saving = JsonUtility.ToJson(highScoreWaves, true);
+        Debug.Log(saving);
         SaveSystem.Save(saving, "High Scores");
     }
     
     public void LoadScores(){
+        highScoreWaves = new HighScoreWaves(minWaves, maxWaves);
         highScores = new HighScores();
+
         string scoreString = SaveSystem.Load("High Scores");
-        if(scoreString != null)
-            highScores = JsonUtility.FromJson<HighScores>(scoreString);
+        if(scoreString != null){
+            highScoreWaves = JsonUtility.FromJson<HighScoreWaves>(scoreString);
+            highScores = highScoreWaves.HighScoresForWave(maxWave);
+        }
     }
 
     public void ClearSave(){
+        highScoreWaves = new HighScoreWaves(minWaves, maxWaves);
         highScores = new HighScores();
-        string saving = JsonUtility.ToJson(highScores, true);
-        Debug.Log(saving);
+        string saving = JsonUtility.ToJson(highScoreWaves, true);
+        
         SaveSystem.Save(saving, "High Scores");
     }
 
@@ -281,7 +296,6 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator LoadSceneWait(string sceneName){
-        // uiAnimator.Play("Fade In");
         loadingScene = true;
 
         Debug.Log("Coroutine - Loading scene " + sceneName);
@@ -293,7 +307,6 @@ public class GameManager : MonoBehaviour
             }
             yield return null;
         }
-        // yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneName);
 
         Debug.Log("Loaded scene " + sceneName);

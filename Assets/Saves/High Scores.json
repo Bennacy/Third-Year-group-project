@@ -1,65 +1,525 @@
 {
-    "waveCount": 10,
-    "scores": [
+    "minWave": 3,
+    "highScores": [
         {
-            "name": "ben",
-            "score": 3450,
-            "kills": 47,
-            "time": 130
+            "waveCount": 3,
+            "scores": [
+                {
+                    "name": "best",
+                    "score": 50,
+                    "kills": 1,
+                    "time": 24
+                },
+                {
+                    "name": "Test",
+                    "score": 0,
+                    "kills": 0,
+                    "time": 0
+                },
+                {
+                    "name": "Test",
+                    "score": 0,
+                    "kills": 0,
+                    "time": 0
+                },
+                {
+                    "name": "test2",
+                    "score": 0,
+                    "kills": 0,
+                    "time": 4
+                },
+                {
+                    "name": "new",
+                    "score": 0,
+                    "kills": 0,
+                    "time": 9
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                }
+            ]
         },
         {
-            "name": "new",
-            "score": 250,
-            "kills": 3,
-            "time": 49
+            "waveCount": 4,
+            "scores": [
+                {
+                    "name": "1st",
+                    "score": 100,
+                    "kills": 1,
+                    "time": 18
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                }
+            ]
         },
         {
-            "name": "1",
-            "score": 0,
-            "kills": 0,
-            "time": 8
+            "waveCount": 5,
+            "scores": [
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                }
+            ]
         },
         {
-            "name": "Test",
-            "score": 0,
-            "kills": 0,
-            "time": 23
+            "waveCount": 6,
+            "scores": [
+                {
+                    "name": "Test",
+                    "score": 0,
+                    "kills": 0,
+                    "time": 2
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                }
+            ]
         },
         {
-            "name": "A",
-            "score": 0,
-            "kills": 0,
-            "time": 29
+            "waveCount": 7,
+            "scores": [
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                }
+            ]
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
+            "waveCount": 8,
+            "scores": [
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                }
+            ]
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
+            "waveCount": 9,
+            "scores": [
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                }
+            ]
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
-        },
-        {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
-        },
-        {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
+            "waveCount": 10,
+            "scores": [
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                },
+                {
+                    "name": "NULL",
+                    "score": -1,
+                    "kills": -1,
+                    "time": -1
+                }
+            ]
         }
     ]
 }

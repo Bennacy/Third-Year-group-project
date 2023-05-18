@@ -103,7 +103,7 @@ public class HighScoreWaves{
 
     public HighScoreWaves(int _minWave, int _maxWave){
         minWave = _minWave;
-        highScores = new HighScores[_maxWave - _minWave];
+        highScores = new HighScores[_maxWave+1 - _minWave];
         for(int i = 0; i < highScores.Length; i++){
             highScores[i] = new HighScores();
             highScores[i].waveCount = minWave+i;
@@ -116,8 +116,16 @@ public class HighScoreWaves{
                 return scores;
             }
         }
-        
+
         return null;
+    }
+
+    public void OverrideScores(HighScores newScores){
+        for(int i = 0; i < highScores.Length; i++){
+            if(highScores[i].waveCount == newScores.waveCount){
+                highScores[i] = newScores;
+            }
+        }
     }
 }
 

@@ -51,6 +51,7 @@ MonoBehaviour:
   playerInput: {fileID: 0}
   mainCam: {fileID: 0}
   highScores:
+    waveCount: 0
     scores:
     - name: NULL
       score: -1
@@ -72,6 +73,9 @@ MonoBehaviour:
       score: -1
       kills: -1
       time: -1
+  highScoreWaves:
+    minWave: 0
+    highScores: []
   savedScore:
     name: NULL
     score: -1
@@ -94,12 +98,10 @@ MonoBehaviour:
   kills: 0
   aliveEnemies: []
   currentWave: 1
-  maxWave: 0
+  maxWave: 3
   leaderboardPlacement: 0
-  FOV: 90
-  sensitivity: 0.1
-  invertX: 0
-  invertY: 0
+  minWaves: 3
+  maxWaves: 10
   hideUI: 0
   weapons:
   - {fileID: 11400000, guid: 3bb73d2fae8d41942a60d941b0583d4b, type: 2}
@@ -108,6 +110,12 @@ MonoBehaviour:
   lowerDrawbridge: 0
   loweredDrawbridge: 0
   raiseDrawbridge: 0
+  sensitivity: 0.1
+  invertX: 0
+  invertY: 0
+  brightness: 0
+  FOV: 90
+  screenShake: 0
 --- !u!95 &8208559344689245445
 Animator:
   serializedVersion: 4

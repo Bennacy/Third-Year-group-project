@@ -24,7 +24,7 @@ MonoBehaviour:
   Radius: 4.72
   Speed: 3.5
   StoppingDistance: 0.5
-  scoreGiven: 50
+  scoreGiven: 100
   attack: {fileID: 11400000, guid: 6f249838739f9824fa16861cdde4713c, type: 2}
   deathClip: {fileID: 8300000, guid: c7d06a4d0637c1d4fb5072a04050f1ee, type: 3}
-  spawnWeight: 0.3
+  spawnWeight: 0.35
