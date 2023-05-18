@@ -139,6 +139,8 @@ public class GameManager : MonoBehaviour
             score = 0;
             totalUpgrades = 0;
             kills = 0;
+            lowerDrawbridge = false;
+            loweredDrawbridge = false;
             transitionScript = playerController.transitionScript;
             
             foreach(WeaponScript weapon in weapons)
@@ -199,6 +201,7 @@ public class GameManager : MonoBehaviour
         // SaveScores(personalScore);
     }
     public void SaveScores(PersonalScore personalScore){
+        highScores.waveCount = maxWave;
         leaderboardPlacement = highScores.InsertScore(personalScore);
         string saving = JsonUtility.ToJson(highScores, true);
         SaveSystem.Save(saving, "High Scores");
@@ -266,6 +269,7 @@ public class GameManager : MonoBehaviour
     public void Quit(){
         if(transitionScript)
             transitionScript.animator.SetTrigger("New Scene");
+
         Application.Quit();
     }
 

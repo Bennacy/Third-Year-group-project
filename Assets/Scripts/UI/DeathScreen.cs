@@ -8,7 +8,11 @@ public class DeathScreen : MonoBehaviour
 {
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI killsText;
+    public TextMeshProUGUI highScoreText;
     private Animator animator;
+
+    public GameObject errorObject;
+    public TextMeshProUGUI errorText;
 
     public GameObject nameInput;
     public TMP_InputField inputField;
@@ -38,6 +42,35 @@ public class DeathScreen : MonoBehaviour
         if(totalTime < 60){
             timeText.text = "And lasted " + seconds.ToString().PadLeft(2, '0') + " seconds";
         }
+
+        int placement = GameManager.Instance.leaderboardPlacement + 1;
+
+        switch(placement){
+            case 0:
+                highScoreText.fontStyle = FontStyles.Normal;
+                highScoreText.text = "";
+            break;
+
+            case 1:
+                highScoreText.fontStyle = FontStyles.Underline;
+                highScoreText.text = "You've reached 1st place!";
+            break;
+
+            case 2:
+                highScoreText.fontStyle = FontStyles.Underline;
+                highScoreText.text = "You've reached 2nd place!";
+            break;
+
+            case 3:
+                highScoreText.fontStyle = FontStyles.Underline;
+                highScoreText.text = "You've reached 3rd place!";
+            break;
+
+            default:
+                highScoreText.fontStyle = FontStyles.Underline;
+                highScoreText.text = "You've reached " + placement + "th place!";
+            break;
+        }
     }
 
     public void Quit(){
@@ -54,13 +87,24 @@ public class DeathScreen : MonoBehaviour
     public void SubmitName(){
         AudioManager.Instance.PlayUIClick();
         string submitting = inputField.text;
-        if(submitting.Length < 6){
+        if(submitting.Length < 6 && submitting.Length > 0){
             GameManager.Instance.savedScore.name = submitting;
             GameManager.Instance.SaveScores(GameManager.Instance.savedScore);
 
             nameInput.SetActive(false);
             GetComponentInChildren<LeaderboardMenu>().OpenLeaderboard();
+        }else{
+            StartCoroutine(BadName(submitting.Length));
         }
         inputField.text = "";
+    }
+
+    private IEnumerator BadName(int length){
+        errorObject.SetActive(true);
+        errorText.text = length == 0 ? "Name can't be empty" : "Name can't exceed 5 characters";
+        
+        yield return new WaitForSeconds(1);
+
+        errorObject.SetActive(false);
     }
 }

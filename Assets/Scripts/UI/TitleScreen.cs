@@ -7,7 +7,6 @@ using TMPro;
 public class TitleScreen : MonoBehaviour
 {
     private AudioSource audioSource;
-    private bool loweringSound = false;
     public TransitionScript transitionScript;
 
     public Button changeWaveBtn;
@@ -35,7 +34,6 @@ public class TitleScreen : MonoBehaviour
     }
 
     private IEnumerator FadeAudio(){
-        loweringSound = true;
         while(audioSource.volume > 0){
             audioSource.volume -= Time.unscaledDeltaTime/2;
             yield return null;
@@ -61,9 +59,8 @@ public class TitleScreen : MonoBehaviour
     }
 
     public void Quit(){
-        transitionScript.animator.SetTrigger("New Scene");
         AudioManager.Instance.PlayUIClick();
-        Application.Quit();
+        GameManager.Instance.Quit();
     }
 
     public void Load(string sceneName){

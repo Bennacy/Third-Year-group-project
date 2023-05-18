@@ -1,4 +1,5 @@
 {
+    "waveCount": 10,
     "scores": [
         {
             "name": "ben",
@@ -7,28 +8,28 @@
             "time": 130
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
+            "name": "new",
+            "score": 250,
+            "kills": 3,
+            "time": 49
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
+            "name": "1",
+            "score": 0,
+            "kills": 0,
+            "time": 8
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
+            "name": "Test",
+            "score": 0,
+            "kills": 0,
+            "time": 23
         },
         {
-            "name": "NULL",
-            "score": -1,
-            "kills": -1,
-            "time": -1
+            "name": "A",
+            "score": 0,
+            "kills": 0,
+            "time": 29
         },
         {
             "name": "NULL",

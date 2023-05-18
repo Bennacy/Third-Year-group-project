@@ -11,6 +11,9 @@ public class VictoryScreen : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     private Animator animator;
 
+    public GameObject errorObject;
+    public TextMeshProUGUI errorText;
+
     public GameObject nameInput;
     public TMP_InputField inputField;
     
@@ -45,7 +48,7 @@ public class VictoryScreen : MonoBehaviour
         switch(placement){
             case 0:
                 highScoreText.fontStyle = FontStyles.Normal;
-                highScoreText.text = "But didn't reach the leaderboard";
+                highScoreText.text = "";
             break;
 
             case 1:
@@ -83,13 +86,24 @@ public class VictoryScreen : MonoBehaviour
     public void SubmitName(){
         AudioManager.Instance.PlayUIClick();
         string submitting = inputField.text;
-        if(submitting.Length < 6){
+        if(submitting.Length < 6 && submitting.Length > 0){
             GameManager.Instance.savedScore.name = submitting;
             GameManager.Instance.SaveScores(GameManager.Instance.savedScore);
 
             nameInput.SetActive(false);
             GetComponentInChildren<LeaderboardMenu>().OpenLeaderboard();
+        }else{
+            StartCoroutine(BadName(submitting.Length));
         }
         inputField.text = "";
+    }
+
+    private IEnumerator BadName(int length){
+        errorObject.SetActive(true);
+        errorText.text = length == 0 ? "Name can't be empty" : "Name can't exceed 5 characters";
+        
+        yield return new WaitForSeconds(1);
+
+        errorObject.SetActive(false);
     }
 }

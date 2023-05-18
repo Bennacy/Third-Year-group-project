@@ -53,6 +53,7 @@ public static class SaveSystem{
 }
 
 [System.Serializable] public class HighScores{
+    public int waveCount;
     public PersonalScore[] scores;
 
     public HighScores(){
@@ -93,6 +94,12 @@ public static class SaveSystem{
 
         return -1;
     }
+}
+
+[System.Serializable]
+public class HighScoreWaves{
+    public int minWave;
+    public HighScores[] highScores;
 }
 
 [System.Serializable] public class Settings{
